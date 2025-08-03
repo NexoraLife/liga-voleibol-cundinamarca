@@ -1,266 +1,332 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liga de Voleibol de Cundinamarca</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    /* Variables de color y reset */
-    :root {
-      --azul-oscuro: #1e3a8a;
-      --azul-liga: #0c2b75;
-      --amarillo: #fbbf24;
-      --gris-claro: #f4f5f7;
-      --texto: #1f2937;
-      --blanco: #ffffff;
-      --anim-tiempo: 0.6s;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Liga Voleibol Cundinamarca | 2025 Portafolio Ejecutivo</title>
+  <meta name="description" content="Portafolio premium, moderno y elegante para la Liga de Voleibol de Cundinamarca. Innovación, excelencia y tecnología deportiva 2025."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'liga-blue': '#1e40af',
+            'liga-yellow': '#fbbf24',
+            'liga-gold': '#ffd700',
+            'cundinamarca-blue': '#0ea5e9',
+            'cundinamarca-light': '#e0f2fe',
+            'deep-dark': '#13141a',
+            'glass': 'rgba(255,255,255,0.07)'
+          },
+          fontFamily: {
+            'display': ['Montserrat', 'Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'neo': '10px 10px 30px #d1d5db, -10px -10px 30px #ffffff, inset 0 1px 0 rgba(255,255,255,0.7)',
+            'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.13)',
+            'card': '0 4px 24px rgba(30,64,175,0.10), 0 1.5px 8px rgba(251,191,36,0.06)'
+          },
+          backgroundImage: {
+            'hero': "linear-gradient(120deg, #1e40af 0%, #0ea5e9 60%, #ffd700 100%)",
+            'cta': "linear-gradient(120deg,#1e40af 0%, #fbbf24 100%)",
+            'glass': "linear-gradient(135deg,rgba(255,255,255,0.12) 0%,rgba(14,165,233,0.08) 100%)"
+          }
+        }
+      }
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Roboto', sans-serif; color:var(--texto); background:var(--gris-claro); }
-    a { text-decoration:none; color:inherit; }
-    img { max-width:100%; display:block; }
-    /* Navbar */
-    header { position:fixed; top:0; left:0; width:100%; background:rgba(255,255,255,0.9); box-shadow:0 2px 8px rgba(0,0,0,0.1); z-index:1000; }
-    .nav-container { max-width:1200px; margin:0 auto; padding:1rem; display:flex; align-items:center; justify-content:space-between; }
-    .nav-logo { display:flex; align-items:center; }
-    .nav-logo img { height:40px; }
-    .nav-menu { display:flex; gap:1.5rem; }
-    .nav-menu a { font-weight:500; transition:color var(--anim-tiempo); }
-    .nav-menu a:hover { color:var(--azul-liga); }
-    .btn-cta { background:var(--amarillo); color:var(--azul-liga); padding:0.6rem 1.2rem; border-radius:4px; font-weight:700; transition:transform var(--anim-tiempo); }
-    .btn-cta:hover { transform:translateY(-2px); }
-    /* Hero */
-    .hero { height:100vh; background:linear-gradient(135deg, var(--azul-liga), var(--azul-oscuro)), url('hero-bg.jpg') center/cover no-repeat; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--blanco); position:relative; }
-    .hero::after { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.4); }
-    .hero-content { position:relative; max-width:800px; animation:fadeInDown var(--anim-tiempo) ease-out; }
-    .hero h1 { font-size:3rem; margin-bottom:1rem; }
-    .hero p { font-size:1.25rem; margin-bottom:2rem; }
-    /* Sección de logos */
-    .logos-section { padding:4rem 1rem; background:var(--blanco); }
-    .logos-container { max-width:1200px; margin:0 auto; }
-    .logos-grid { display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; align-items:center; }
-    .logos-grid img { filter:grayscale(100%); opacity:0.6; transition:filter var(--anim-tiempo), opacity var(--anim-tiempo); width:120px; }
-    .logos-grid img:hover { filter:none; opacity:1; }
-    /* Sección servicios */
-    .services { background:var(--gris-claro); padding:4rem 1rem; }
-    .services-container { max-width:1200px; margin:0 auto; }
-    .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
-    .service-card { background:var(--blanco); border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.05); overflow:hidden; transition:transform var(--anim-tiempo); }
-    .service-card:hover { transform:translateY(-5px); }
-    .service-icon { font-size:2.5rem; margin:1rem; color:var(--amarillo); }
-    .service-content { padding:1rem 1.5rem 2rem; }
-    .service-content h3 { margin-bottom:0.5rem; color:var(--azul-liga); }
-    .service-content p { line-height:1.5; margin-bottom:1rem; }
-    .service-content .btn { background:var(--amarillo); color:var(--azul-liga); padding:0.5rem 1rem; border-radius:4px; font-weight:500; }
-    /* Estadísticas */
-    .stats { padding:4rem 1rem; text-align:center; }
-    .stats-container { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:2rem; }
-    .stat-card { background:var(--blanco); border-radius:8px; padding:2rem; box-shadow:0 4px 16px rgba(0,0,0,0.05); }
-    .stat-number { font-size:2.5rem; color:var(--azul-liga); margin-bottom:0.5rem; }
-    .stat-label { color:var(--texto); }
-    /* Testimonios */
-    .testimonials { background:var(--blanco); padding:4rem 1rem; }
-    .testimonials-container { max-width:900px; margin:0 auto; position:relative; }
-    .testimonial-slide { display:none; text-align:center; }
-    .testimonial-slide.active { display:block; }
-    .testimonial-slide img { width:80px; height:80px; border-radius:50%; margin:0 auto 1rem; }
-    .testimonial-slide p { font-style:italic; margin-bottom:1rem; }
-    .testimonial-slide h4 { color:var(--azul-liga); }
-    /* CTA final */
-    .cta-final { background:linear-gradient(135deg,var(--azul-liga),var(--azul-oscuro)); padding:3rem 1rem; text-align:center; color:var(--blanco); }
-    .cta-final h2 { margin-bottom:1rem; }
-    .cta-final .btn { background:var(--amarillo); color:var(--azul-liga); padding:0.8rem 1.5rem; font-size:1rem; }
-    /* FAQ */
-    .faq { padding:4rem 1rem; }
-    .faq-container { max-width:800px; margin:0 auto; }
-    .faq-item { margin-bottom:1rem; }
-    .faq-item summary { cursor:pointer; font-weight:500; background:var(--gris-claro); padding:0.8rem 1rem; border-radius:4px; }
-    .faq-item p { padding:0.8rem 1rem; }
-    /* Footer */
-    footer { background:var(--azul-oscuro); color:var(--blanco); padding:3rem 1rem; }
-    .footer-container { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; }
-    .footer-logo img { width:100px; margin-bottom:1rem; }
-    .footer-section h4 { margin-bottom:1rem; }
-    .footer-section ul { list-style:none; }
-    .footer-section ul li { margin-bottom:0.5rem; }
-    .footer-social a { margin-right:1rem; font-size:1.5rem; color:var(--blanco); }
-    /* Animaciones */
-    @keyframes fadeInDown { from { opacity:0; transform:translateY(-20px);} to { opacity:1; transform:translateY(0);} }
+  </script>
+  <style>
+    html { scroll-behavior: smooth;}
+    body { font-family: 'Inter', 'Montserrat', sans-serif; }
+    .glass { background: rgba(255,255,255,0.08); backdrop-filter: blur(18px);}
+    .gradient-text {
+      background: linear-gradient(90deg,#fbbf24 10%,#1e40af 70%,#0ea5e9 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .card3d {
+      transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s;
+      will-change: transform;
+    }
+    .card3d:hover {
+      transform: translateY(-10px) scale(1.025) rotateX(2deg) rotateY(-2deg);
+      box-shadow: 0 16px 40px rgba(30,64,175,0.16);
+      z-index: 2;
+    }
+    .parallax {
+      will-change: transform;
+    }
+    .sticky-cta {
+      position: fixed;
+      bottom: 32px; right: 32px;
+      z-index: 90;
+    }
+    .gallery-img {
+      aspect-ratio: 3/2;
+      object-fit: cover;
+      border-radius: 1rem;
+      box-shadow: 0 2px 12px rgba(14,165,233,0.08);
+      transition: transform 0.2s cubic-bezier(.4,0,.2,1);
+    }
+    .gallery-img:hover {
+      transform: scale(1.045) rotate(-1deg);
+      box-shadow: 0 8px 24px rgba(30,64,175,0.10);
+    }
+    .dark body { background: #13141a; color: #fff;}
+    .dark .glass { background: rgba(30,64,175,0.13);}
+    .dark .gallery-img { box-shadow: 0 2px 12px #10121a;}
+    /* Scrollbar custom */
+    ::-webkit-scrollbar { height: 8px; background: #e0f2fe;}
+    ::-webkit-scrollbar-thumb { background: #fbbf24; border-radius: 6px;}
   </style>
 </head>
-<body>
-  <!-- Navbar -->
-  <header>
-    <div class="nav-container">
-      <div class="nav-logo"><img src="LOGO_LIGA.png" alt="Logo Liga"></div>
-      <nav class="nav-menu">
-        <a href="#servicios">Servicios</a>
-        <a href="#aliados">Aliados</a>
-        <a href="#testimonios">Testimonios</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-      <a href="#servicios" class="btn-cta">¡Afíliate Ahora!</a>
+<body class="bg-white text-deep-dark transition-colors duration-300">
+  <!-- NAV -->
+  <nav class="w-full fixed top-0 z-40 bg-glass shadow-glass backdrop-blur-xl transition-all duration-500" id="mainNav">
+    <div class="max-w-7xl mx-auto flex justify-between items-center py-5 px-6">
+      <div class="flex items-center space-x-3">
+        <img src="https://i.ibb.co/CQTjZr3/voley-logo.png" alt="Logo Liga" class="w-12 h-12 rounded-full shadow-neo bg-white object-contain"/>
+        <div>
+          <span class="font-extrabold text-lg text-liga-yellow tracking-wider">Liga Voleibol</span>
+          <div class="text-xs font-semibold text-cundinamarca-blue">Cundinamarca</div>
+        </div>
+      </div>
+      <ul class="hidden md:flex gap-8 text-lg font-bold">
+        <li><a href="#inicio" class="hover:text-liga-yellow transition">Inicio</a></li>
+        <li><a href="#servicios" class="hover:text-liga-yellow transition">Servicios</a></li>
+        <li><a href="#galeria" class="hover:text-liga-yellow transition">Galería</a></li>
+        <li><a href="#clubes" class="hover:text-liga-yellow transition">Clubes</a></li>
+        <li><a href="#contacto" class="hover:text-liga-yellow transition">Contacto</a></li>
+      </ul>
+      <a href="#contacto" class="hidden md:inline-block px-6 py-3 bg-gradient-to-r from-liga-yellow to-liga-blue rounded-full font-bold text-deep-dark shadow-card hover:scale-105 transition">Solicita Carpeta</a>
+      <button onclick="document.body.classList.toggle('dark')" class="ml-4 md:ml-8 rounded-full bg-liga-blue w-9 h-9 flex items-center justify-center text-white text-xl shadow-card" title="Modo oscuro">🌙</button>
     </div>
+  </nav>
+  
+  <!-- HERO -->
+  <header id="inicio" class="min-h-screen flex items-center justify-center relative bg-hero overflow-hidden pt-24">
+    <video autoplay muted loop playsinline poster="https://i.ibb.co/CQTjZr3/voley-logo.png"
+      class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 pointer-events-none">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-athlete-spiking-a-ball-23036-large.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-br from-liga-blue/80 via-cundinamarca-blue/60 to-transparent z-10"></div>
+    <section class="relative z-20 max-w-5xl mx-auto text-center">
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-6 gradient-text leading-tight drop-shadow-lg">Excelencia Deportiva<br>en <span class="text-liga-yellow">Movimiento</span></h1>
+      <p class="text-xl md:text-2xl text-white/90 font-semibold mb-10 max-w-2xl mx-auto">25 años liderando el desarrollo del voleibol en Cundinamarca.<br>+150 clubes, tecnología, formación y pasión.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+        <a href="#servicios" class="px-10 py-5 rounded-2xl bg-gradient-to-r from-liga-yellow to-liga-blue text-deep-dark font-bold text-lg shadow-card hover:scale-105 transition">Explorar servicios</a>
+        <a href="#video-institucional" class="px-10 py-5 rounded-2xl glass text-white font-semibold hover:bg-white/10 border border-white/10 transition">Ver Video Institucional</a>
+      </div>
+      <div class="flex flex-wrap justify-center gap-8 mt-12">
+        <div class="bg-white/10 glass rounded-xl px-6 py-4 text-center shadow-card">
+          <div class="text-3xl font-black text-liga-yellow mb-1">150+</div>
+          <div class="uppercase text-white tracking-widest text-xs font-bold">Clubes afiliados</div>
+        </div>
+        <div class="bg-white/10 glass rounded-xl px-6 py-4 text-center shadow-card">
+          <div class="text-3xl font-black text-liga-yellow mb-1">5,000+</div>
+          <div class="uppercase text-white tracking-widest text-xs font-bold">Deportistas</div>
+        </div>
+        <div class="bg-white/10 glass rounded-xl px-6 py-4 text-center shadow-card">
+          <div class="text-3xl font-black text-liga-yellow mb-1">25</div>
+          <div class="uppercase text-white tracking-widest text-xs font-bold">Años de historia</div>
+        </div>
+      </div>
+    </section>
+    <!-- CTA Flotante -->
+    <a href="#contacto" class="sticky-cta px-8 py-4 rounded-2xl bg-gradient-to-r from-liga-yellow to-liga-blue text-deep-dark font-bold shadow-card text-lg hover:scale-110 transition hidden md:block animate-bounce">Solicita Carpeta Ejecutiva</a>
   </header>
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Impulsa tu Voleibol en Cundinamarca</h1>
-      <p>Capacitación, avales oficiales, streaming y merchandising premium para tu club o equipo.</p>
-      <a href="#servicios" class="btn-cta">Ver Servicios</a>
-    </div>
-  </section>
-
-  <!-- Aliados -->
-  <section id="aliados" class="logos-section">
-    <h2 style="text-align:center; margin-bottom:2rem; color:var(--azul-liga);">Nuestros Aliados</h2>
-    <div class="logos-container">
-      <div class="logos-grid">
-        <img src="LOGO_MOLTEN.png" alt="Molten">
-        <img src="LOGO_DISMOVEL.png" alt="Dismovel">
-        <img src="Gobernacion_de_Cundinamarca.png" alt="Gobernación">
-        <img src="INDEPORTES_CUNDINAMARCA.png" alt="InDeportes">
-        <img src="Logo_FedeVoley.png" alt="Fedecovoley">
+  
+  <!-- SERVICIOS -->
+  <section id="servicios" class="relative bg-white dark:bg-deep-dark py-28 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-16 text-center">
+        <h2 class="text-4xl md:text-6xl font-black mb-4 gradient-text">Servicios Premium 360°</h2>
+        <p class="text-xl text-gray-700 dark:text-gray-200 max-w-3xl mx-auto">Soluciones integrales: gestión, formación, organización, tecnología y competencia.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="card3d bg-glass rounded-3xl p-8 shadow-neo border border-white/20">
+          <div class="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-liga-yellow to-liga-blue mb-6"><span class="text-3xl">🏆</span></div>
+          <h3 class="font-bold text-2xl mb-2">Gestión de Clubes</h3>
+          <p class="mb-4 text-gray-600 dark:text-gray-200">Afiliación, asesoría legal, avales competitivos y acompañamiento institucional.</p>
+          <ul class="text-sm text-gray-700 dark:text-gray-300 ml-4 list-disc space-y-1">
+            <li>Registro y soporte</li>
+            <li>Red de 150+ clubes</li>
+            <li>Gestión de documentos digital</li>
+          </ul>
+        </div>
+        <div class="card3d bg-glass rounded-3xl p-8 shadow-neo border border-white/20">
+          <div class="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-green-400 to-green-600 mb-6"><span class="text-3xl">🎓</span></div>
+          <h3 class="font-bold text-2xl mb-2">Formación & Certificación</h3>
+          <p class="mb-4 text-gray-600 dark:text-gray-200">Cursos, talleres, certificaciones y desarrollo profesional continuo para entrenadores y árbitros, con estándares internacionales.</p>
+          <ul class="text-sm text-gray-700 dark:text-gray-300 ml-4 list-disc space-y-1">
+            <li>Certificados digitales</li>
+            <li>Plataforma e-learning</li>
+            <li>Charlas y conferencias</li>
+          </ul>
+        </div>
+        <div class="card3d bg-glass rounded-3xl p-8 shadow-neo border border-white/20">
+          <div class="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-purple-400 to-purple-700 mb-6"><span class="text-3xl">🚀</span></div>
+          <h3 class="font-bold text-2xl mb-2">Desarrollo Deportivo</h3>
+          <p class="mb-4 text-gray-600 dark:text-gray-200">Programas de iniciación, alto rendimiento y scouting de talentos desde lo infantil hasta lo profesional.</p>
+          <ul class="text-sm text-gray-700 dark:text-gray-300 ml-4 list-disc space-y-1">
+            <li>Academias y clubes juveniles</li>
+            <li>Selecciones departamentales</li>
+            <li>Seguimiento estadístico</li>
+          </ul>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-14">
+        <div class="card3d bg-glass rounded-3xl p-8 shadow-neo border border-white/20">
+          <div class="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-red-400 to-red-600 mb-6"><span class="text-3xl">📺</span></div>
+          <h3 class="font-bold text-2xl mb-2">Streaming HD</h3>
+          <p class="mb-4 text-gray-600 dark:text-gray-200">Transmisión en vivo de partidos y eventos con estadísticas y narración profesional.</p>
+        </div>
+        <div class="card3d bg-glass rounded-3xl p-8 shadow-neo border border-white/20">
+          <div class="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-orange-400 to-orange-600 mb-6"><span class="text-3xl">🛍️</span></div>
+          <h3 class="font-bold text-2xl mb-2">Merchandising Oficial</h3>
+          <p class="mb-4 text-gray-600 dark:text-gray-200">Tienda premium con uniformes, balones, souvenirs y más.</p>
+        </div>
+        <div class="card3d bg-glass rounded-3xl p-8 shadow-neo border border-white/20">
+          <div class="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-teal-400 to-teal-600 mb-6"><span class="text-3xl">📜</span></div>
+          <h3 class="font-bold text-2xl mb-2">Certificaciones & Avales</h3>
+          <p class="mb-4 text-gray-600 dark:text-gray-200">Certificados oficiales para deportistas, clubes y entrenadores, validados digitalmente.</p>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- Servicios -->
-  <section id="servicios" class="services">
-    <div class="services-container">
-      <h2 style="text-align:center; margin-bottom:2rem; color:var(--azul-liga);">Servicios Destacados</h2>
-      <div class="services-grid">
-        <!-- Card 1 -->
-        <div class="service-card">
-          <div class="service-icon">🏅</div>
-          <div class="service-content">
-            <h3>Afiliación de Clubes</h3>
-            <p>Proceso simplificado, aval oficial y beneficios exclusivos para clubes afiliados.</p>
-            <a href="#" class="btn">Afíliate</a>
-          </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="service-card">
-          <div class="service-icon">📚</div>
-          <div class="service-content">
-            <h3>Cursos & Certificaciones</h3>
-            <p>Formación para entrenadores, árbitros y dirigentes con reconocimiento nacional.</p>
-            <a href="#" class="btn">Ver Cursos</a>
-          </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="service-card">
-          <div class="service-icon">🎓</div>
-          <div class="service-content">
-            <h3>Clínicas Técnicas</h3>
-            <p>Talleres especializados en tácticas avanzadas para deportistas y entrenadores.</p>
-            <a href="#" class="btn">Inscribirse</a>
-          </div>
-        </div>
-        <!-- Card 4 -->
-        <div class="service-card">
-          <div class="service-icon">🎥</div>
-          <div class="service-content">
-            <h3>Streaming en Vivo</h3>
-            <p>Transmisión profesional de partidos y torneos directo a tus redes sociales.</p>
-            <a href="#" class="btn">Prueba Gratis</a>
-          </div>
-        </div>
-        <!-- Card 5 -->
-        <div class="service-card">
-          <div class="service-icon">👕</div>
-          <div class="service-content">
-            <h3>Merchandising Oficial</h3>
-            <p>Camisetas, balones y artículos personalizados con la imagen de tu club.</p>
-            <a href="#" class="btn">Ver Tienda</a>
-          </div>
-        </div>
-        <!-- Card 6 -->
-        <div class="service-card">
-          <div class="service-icon">💼</div>
-          <div class="service-content">
-            <h3>Patrocinios & Publicidad</h3>
-            <p>Conecta tu marca con el deporte local a través de patrocinios estratégicos.</p>
-            <a href="#" class="btn">Conviértete en Sponsor</a>
-          </div>
+  
+  <!-- GALERÍA & TESTIMONIOS -->
+  <section id="galeria" class="py-24 bg-cundinamarca-light dark:bg-deep-dark/80">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-6xl font-black mb-4 gradient-text">Galería & Testimonios</h2>
+        <p class="text-lg text-gray-700 dark:text-gray-200">Momentos inolvidables y voces de campeones.</p>
+      </div>
+      <!-- Galería horizontal con scroll -->
+      <div class="flex overflow-x-auto gap-8 py-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-liga-yellow/70">
+        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=600&q=80" class="gallery-img w-96 snap-center" alt="Galería 1">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" class="gallery-img w-96 snap-center" alt="Galería 2">
+        <img src="https://images.unsplash.com/photo-1457694587812-e8bf29a43845?auto=format&fit=crop&w=600&q=80" class="gallery-img w-96 snap-center" alt="Galería 3">
+        <img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?auto=format&fit=crop&w=600&q=80" class="gallery-img w-96 snap-center" alt="Galería 4">
+      </div>
+      <!-- Testimonios slider -->
+      <div class="mt-16 max-w-3xl mx-auto">
+        <div class="bg-glass rounded-3xl p-8 shadow-neo card3d text-center">
+          <svg class="w-12 h-12 mx-auto mb-2 text-liga-yellow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 48 48"><path d="M16 32v-4a8 8 0 0 1 8-8h8V8H16a8 8 0 0 0-8 8v8a8 8 0 0 0 8 8v4h8v8H16z"/></svg>
+          <p class="text-lg italic font-semibold text-gray-800 dark:text-gray-100">"Gracias a la Liga, mi hijo fue convocado a la selección nacional y hoy estudia con beca deportiva. La organización es de otro nivel."</p>
+          <div class="mt-4 font-bold text-liga-blue">María García, Madre de deportista</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Estadísticas -->
-  <section class="stats">
-    <div class="stats-container">
-      <div class="stat-card">
-        <div class="stat-number">50+</div>
-        <div class="stat-label">Clubes Afiliados</div>
+  <!-- MAPA Y CLUBES -->
+  <section id="clubes" class="py-24 relative bg-white dark:bg-deep-dark">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-6xl font-black mb-4 gradient-text">Clubes Afiliados</h2>
+        <p class="text-lg text-gray-700 dark:text-gray-200">+150 clubes en toda Cundinamarca. Haz click en el mapa para descubrirlos.</p>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">2,500+</div>
-        <div class="stat-label">Deportistas</div>
+      <!-- Mockup de mapa interactivo (puedes integrar mapas reales como Mapbox o Google Maps) -->
+      <div class="relative flex justify-center items-center">
+        <img src="https://i.ibb.co/VQjk3F2/cundi-map.png" alt="Mapa Cundinamarca" class="rounded-3xl shadow-card w-full max-w-2xl border-4 border-liga-yellow"/>
+        <!-- Hotspots ejemplo -->
+        <button title="Club Voleibol Soacha" class="absolute left-1/2 top-1/3 -ml-4 -mt-4 w-8 h-8 rounded-full bg-liga-yellow ring-2 ring-liga-blue animate-pulse"></button>
+        <button title="Club Voleibol Fusagasugá" class="absolute left-[60%] top-[60%] -ml-4 -mt-4 w-8 h-8 rounded-full bg-liga-yellow ring-2 ring-liga-blue animate-pulse"></button>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">15</div>
-        <div class="stat-label">Años de Trayectoria</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonios -->
-  <section id="testimonios" class="testimonials">
-    <div class="testimonials-container">
-      <div class="testimonial-slide active">  <!-- Añadir JS para carrusel -->
-        <img src="testimonio1.jpg" alt="Testimonio 1">
-        <p>“La certificación me permitió optar a mejores oportunidades profesionales.”</p>
-        <h4>María González<br><small>Entrenadora Nivel II</small></h4>
-      </div>
-      <div class="testimonial-slide">
-        <img src="testimonio2.jpg" alt="Testimonio 2">
-        <p>“Nuestros partidos llegaron a 3.000 espectadores gracias al streaming.”</p>
-        <h4>Carlos Rodríguez<br><small>Director Deportivo</small></h4>
+      <div class="mt-12 text-center">
+        <a href="#contacto" class="px-8 py-4 bg-gradient-to-r from-liga-blue to-liga-yellow rounded-full text-white font-bold text-lg shadow-card hover:scale-105 transition">Quiero afiliar mi club</a>
       </div>
     </div>
   </section>
 
-  <!-- CTA Final -->
-  <section class="cta-final">
-    <h2>¿Listo para llevar tu club al siguiente nivel?</h2>
-    <a href="#contacto" class="btn">Contáctanos Hoy</a>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="faq">
-    <div class="faq-container">
-      <details class="faq-item"><summary>¿Cómo obtengo el aval oficial?</summary><p>Solo debes estar afiliado y cumplir requisitos de personería.</p></details>
-      <details class="faq-item"><summary>¿Cuál es el costo del streaming?</summary><p>Ofrecemos planes desde $200.000 COP por evento.</p></details>
-      <details class="faq-item"><summary>¿Puedo personalizar la mercancía?</summary><p>Sí, contamos con diseños a medida para tu club.</p></details>
+  <!-- CALENDARIO DE EVENTOS -->
+  <section class="py-24 bg-cundinamarca-blue/10 dark:bg-deep-dark/90">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-4xl md:text-6xl font-black mb-4 gradient-text">Próximos Eventos</h2>
+      <p class="text-lg text-gray-700 dark:text-gray-200 mb-12">¡Participa en nuestros campeonatos, talleres y transmisiones!</p>
+      <div class="flex flex-wrap gap-8 justify-center">
+        <div class="glass rounded-3xl px-10 py-8 shadow-card">
+          <div class="text-liga-yellow text-xl font-bold mb-2">08 SEP 2025</div>
+          <div class="font-black text-2xl mb-1">Copa Cundinamarca</div>
+          <div class="text-gray-700 dark:text-gray-200 mb-2">Zipaquirá</div>
+          <div class="font-bold text-liga-blue">Inscripciones abiertas</div>
+        </div>
+        <div class="glass rounded-3xl px-10 py-8 shadow-card">
+          <div class="text-liga-yellow text-xl font-bold mb-2">22 SEP 2025</div>
+          <div class="font-black text-2xl mb-1">Taller Nacional Entrenadores</div>
+          <div class="text-gray-700 dark:text-gray-200 mb-2">Bogotá</div>
+          <div class="font-bold text-green-600">¡Plazas limitadas!</div>
+        </div>
+        <div class="glass rounded-3xl px-10 py-8 shadow-card">
+          <div class="text-liga-yellow text-xl font-bold mb-2">10 OCT 2025</div>
+          <div class="font-black text-2xl mb-1">Finales Departamentales</div>
+          <div class="text-gray-700 dark:text-gray-200 mb-2">Girardot</div>
+          <div class="font-bold text-red-500">Quedan 5 cupos</div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer id="contacto">
-    <div class="footer-container">
-      <div class="footer-logo"><img src="LOGO_LIGA.png" alt="Liga"></div>
-      <div class="footer-section"><h4>Institucional</h4><ul><li>Quiénes Somos</li><li>Junta Directiva</li><li>Misión & Visión</li></ul></div>
-      <div class="footer-section"><h4>Servicios</h4><ul><li>Afiliación</li><li>Cursos</li><li>Streaming</li><li>Merchandising</li></ul></div>
-      <div class="footer-section"><h4>Contacto</h4><ul><li>Carrera 15 #93-47, Bogotá</li><li>+57 1 2345678</li><li>info@ligavoleibolcundinamarca.com</li></ul></div>
-      <div class="footer-section footer-social"><h4>Síguenos</h4><a href="#">📘</a><a href="#">📷</a><a href="#">🐦</a></div>
+  <!-- CONTACTO / CTA FINAL -->
+  <footer id="contacto" class="pt-24 pb-12 bg-liga-blue text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 mb-16">
+        <div>
+          <div class="flex items-center space-x-4 mb-8">
+            <img src="https://i.ibb.co/CQTjZr3/voley-logo.png" class="w-16 h-16 rounded-full bg-white shadow-card"/>
+            <div>
+              <h3 class="text-2xl font-black gradient-text">Liga Voleibol Cundinamarca</h3>
+              <div class="text-liga-yellow font-semibold">Ejecutiva</div>
+            </div>
+          </div>
+          <p class="text-lg mb-6">Transformando el voleibol desde 1985. Solicita nuestro portafolio ejecutivo premium y lleva tu club al siguiente nivel.</p>
+          <div class="flex space-x-4 text-2xl">
+            <a href="#" title="Facebook" class="hover:text-liga-yellow">📘</a>
+            <a href="#" title="Instagram" class="hover:text-liga-yellow">📷</a>
+            <a href="#" title="X" class="hover:text-liga-yellow">🐦</a>
+            <a href="#" title="YouTube" class="hover:text-liga-yellow">📺</a>
+          </div>
+        </div>
+        <form class="glass rounded-3xl p-8 shadow-card flex flex-col space-y-4 bg-white/5" autocomplete="off">
+          <h4 class="text-2xl font-bold mb-2 text-liga-yellow">Contacto Ejecutivo</h4>
+          <input type="text" required placeholder="Nombre completo" class="px-6 py-4 rounded-full text-lg text-deep-dark outline-none border-0 focus:ring-2 focus:ring-liga-yellow bg-white/80"/>
+          <input type="email" required placeholder="Email corporativo" class="px-6 py-4 rounded-full text-lg text-deep-dark outline-none border-0 focus:ring-2 focus:ring-liga-yellow bg-white/80"/>
+          <textarea required placeholder="¿Cómo podemos ayudarte?" class="px-6 py-4 rounded-2xl text-lg text-deep-dark outline-none border-0 focus:ring-2 focus:ring-liga-yellow bg-white/80"></textarea>
+          <button type="submit" class="bg-gradient-to-r from-liga-yellow to-liga-blue px-10 py-4 rounded-full font-bold text-deep-dark text-lg shadow-card hover:scale-105 transition">Solicitar carpeta completa</button>
+        </form>
+      </div>
+      <div class="border-t border-white/10 pt-8 text-center text-gray-200">
+        © 2025 Liga de Voleibol de Cundinamarca. Todos los derechos reservados.
+      </div>
     </div>
-    <p style="text-align:center; margin-top:2rem; font-size:0.8rem;">© 2025 Liga de Voleibol de Cundinamarca. Todos los derechos reservados.</p>
   </footer>
-
-  <!-- Scripts -->
   <script>
-    // Carrusel simple testimonios
-    let idx=0, slides=document.querySelectorAll('.testimonial-slide');
-    setInterval(()=>{
-      slides[idx].classList.remove('active');
-      idx=(idx+1)%slides.length;
-      slides[idx].classList.add('active');
-    },4000);
+    // Sticky CTA
+    window.addEventListener('scroll', function() {
+      const cta = document.querySelector('.sticky-cta');
+      if(window.scrollY > 200) {
+        cta.classList.remove('hidden');
+      } else {
+        cta.classList.add('hidden');
+      }
+    });
+    // Parallax efecto para galería (demo)
+    document.addEventListener('mousemove', e => {
+      document.querySelectorAll('.parallax').forEach((el,i) => {
+        const speed = 1 + (i*0.2);
+        el.style.transform = `translateY(${(e.clientY-200)*0.01*speed}px)`;
+      });
+    });
+    // Form contacto demo
+    document.querySelector('form').addEventListener('submit',e=>{
+      e.preventDefault();
+      alert('✅ ¡Gracias por tu interés!\nTe enviaremos la carpeta ejecutiva en 24h.');
+      e.target.reset();
+    });
   </script>
 </body>
 </html>
