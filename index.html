@@ -1,172 +1,156 @@
 <!DOCTYPE html>
-<html lang="es" class="h-full scroll-smooth">
+<html lang="es">
 <head>
-  <!-- Meta Básicos -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liga de Voleibol de Cundinamarca</title>
-  <!-- SEO & Social -->
-  <meta name="description" content="Servicios integrales de la Liga de Voleibol de Cundinamarca: formación, competencias y alianzas."
-  ><meta property="og:title" content="Liga de Voleibol de Cundinamarca" /><meta property="og:description" content="Promoviendo el voleibol en Cundinamarca con servicios premium para clubes, deportistas y familias." />
-  <meta property="og:image" content="/assets/og-image.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Preload Font y CSS Crítico -->
-  <link rel="preload" href="/fonts/Inter-VariableFont_slnt,wght.ttf" as="font" type="font/ttf" crossorigin>
-  <style>/* Critical CSS Inline: Variables y Reset */
-    :root { --azul: #1e40af; --amarillo: #fbbf24; --gris: #f3f4f6; --texto: #1f2937; --fondo: #f0f4ff; }
-    *{margin:0;padding:0;box-sizing:border-box}
-    html, body {height:100%;font-family:'Inter',sans-serif;line-height:1.5;color:var(--texto);background:var(--fondo);scroll-behavior:smooth;}
-    a {color:inherit;text-decoration:none;}
-    img {display:block;max-width:100%;height:auto;}
-    .sr-only {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --azul-liga: #1e40af;
+      --amarillo-liga: #fbbf24;
+      --verde-cundi: #228b22; /* band. Cundinamarca */
+      --gris-fondo: #f3f4f6;
+      --texto-oscuro: #1f2937;
+    }
+    * {margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+    body {background:var(--gris-fondo);color:var(--texto-oscuro);}
+    header {position:fixed;top:0;width:100%;background:var(--azul-liga);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;z-index:1000;}
+    .logo {color:white;font-size:1.5rem;font-weight:800;}   
+    nav ul {list-style:none;display:flex;gap:2rem;}
+    nav a {color:white;text-decoration:none;font-weight:600;position:relative;}
+    nav a::after {content:'';position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--amarillo-liga);transition:width .3s ease;}
+    nav a:hover::after, nav a.active::after {width:100%;}
+    .hero {height:100vh;padding-top:100px;background:linear-gradient(135deg,var(--azul-liga),var(--verde-cundi));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+    .hero h1 {font-size:3rem;color:white;text-align:center;}
+    .hero p {font-size:1.2rem;color:rgba(255,255,255,0.8);margin-top:.5rem;text-align:center;}
+    .wave {position:absolute;bottom:0;width:200%;height:150px;background:radial-gradient(circle at 50% 0%,rgba(255,255,255,0.3),transparent 70%);animation:wavy 8s infinite linear;opacity:.5;}
+    @keyframes wavy {0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+    main {padding-top:100px;}
+    section {padding:4rem 2rem;}
+    .partners-top, .partners-official {display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;}
+    .partner-logo {filter:grayscale(100%);width:100px;height:60px;object-fit:contain;transition:filter .3s ease;}
+    .partner-logo:hover {filter:none;}
+    .services {display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;}
+    .card {background:white;border-radius:12px;padding:2rem;box-shadow:0 4px 20px rgba(0,0,0,0.1);transition:transform .3s ease;}
+    .card:hover {transform:translateY(-5px);}
+    .card h3 {color:var(--azul-liga);margin-bottom:1rem;font-size:1.5rem;}
+    .card p {margin-bottom:.5rem;line-height:1.6;}
+    footer {background:var(--texto-oscuro);color:white;padding:2rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem;}
+    footer .col {flex:1;min-width:200px;}
+    .social a {margin-right:1rem;color:white;font-size:1.2rem;transition:color .3s;}  
+    .social a:hover {color:var(--amarillo-liga);}  
+    @media(max-width:768px){nav ul{display:none;}header{justify-content:center;}  .hero h1{font-size:2rem;} }
   </style>
-  <!-- External CSS (Tailwind via CDN) -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- AOS Animations -->
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <!-- Manifest PWA -->
-  <link rel="manifest" href="/manifest.json">
 </head>
-<body class="flex flex-col h-full">
-  <!-- Skip Link -->
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:bg-white focus:text-blue-600 p-2 rounded">Saltar al contenido</a>
-
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-blue-800 to-blue-900 text-white shadow sticky top-0 z-50">
-    <div class="container mx-auto flex items-center justify-between p-4">
-      <a href="/" class="flex items-center gap-2" aria-label="Ir a inicio">
-        <img src="/icons/volleyball.svg" alt="Icono Vóleibol" class="w-8 h-8">
-        <span class="text-2xl font-bold">Liga Voleibol Cundinamarca</span>
-      </a>
-      <nav aria-label="Menú principal">
-        <ul class="hidden md:flex gap-6 text-lg">
-          <li><a href="#servicios" class="hover:text-yellow-300 transition">Servicios</a></li>
-          <li><a href="#aliados" class="hover:text-yellow-300 transition">Aliados</a></li>
-          <li><a href="#testimonios" class="hover:text-yellow-300 transition">Testimonios</a></li>
-          <li><a href="#contacto" class="hover:text-yellow-300 transition">Contacto</a></li>
-        </ul>
-      </nav>
-      <!-- Dark Mode Toggle -->
-      <button id="dark-toggle" aria-label="Alternar modo oscuro" class="ml-4 p-2 rounded hover:bg-gray-800">
-        🌙
-      </button>
-      <!-- Mobile Menu -->
-      <button id="mobile-menu-btn" aria-label="Abrir menú móvil" class="md:hidden p-2">
-        ☰
-      </button>
+<body>
+  <header>
+    <div class="logo">🏐 Liga Voleibol Cund.</div>
+    <nav>
+      <ul>
+        <li><a href="#" class="active">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#clubes">Clubes</a></li>
+        <li><a href="#cursos">Formación</a></li>
+        <li><a href="#competencias">Competencias</a></li>
+        <li><a href="#aliados">Aliados</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="hero">
+    <div>
+      <h1>Promoviendo el voleibol en Cundinamarca</h1>
+      <p>Descubre nuestros servicios premium para clubes, deportistas, familias e instituciones</p>
     </div>
-    <!-- Mobile nav drawer -->
-    <div id="mobile-menu" class="hidden bg-blue-900">
-      <ul class="flex flex-col p-4 gap-4">
-        <li><a href="#servicios" class="block">Servicios</a></li>
-        <li><a href="#aliados" class="block">Aliados</a></li>
-        <li><a href="#testimonios" class="block">Testimonios</a></li>
-        <li><a href="#contacto" class="block">Contacto</a></li>
+    <div class="wave"></div>
+  </div>
+  <main>
+    <!-- Aliados Estratégicos -->
+    <section id="aliados-top">
+      <h2 style="text-align:center;color:var(--azul-liga);margin-bottom:2rem;">Aliados Estratégicos</h2>
+      <div class="partners-top">
+        <img src="assets/indeportes.png" alt="InDeportes" class="partner-logo">
+        <img src="assets/fivb.png" alt="FIVB" class="partner-logo">
+        <img src="assets/federacion_colombia.png" alt="Fed. Colombiana" class="partner-logo">
+      </div>
+    </section>
+    <!-- Aliados Oficiales -->
+    <section id="aliados">
+      <h2 style="text-align:center;color:var(--azul-liga);margin-bottom:2rem;">Aliados Oficiales</h2>
+      <div class="partners-official">
+        <!-- múltiples logos de clubes e instituciones -->
+        <img src="assets/club_soacha.png" alt="Club Soacha" class="partner-logo">
+        <img src="assets/club_chia.png" alt="Chía Voleibol" class="partner-logo">
+        <img src="assets/club_funza.png" alt="Funza Voleibol" class="partner-logo">
+        <!-- etc -->
+      </div>
+    </section>
+    <!-- Servicios Principales -->
+    <section id="servicios">
+      <h2 style="text-align:center;color:var(--azul-liga);margin-bottom:2rem;">Nuestros Servicios</h2>
+      <div class="services">
+        <div class="card">
+          <h3>Competencias Oficiales</h3>
+          <p><strong>Qué ofrece:</strong> Organización de torneos departamentales en todas las categorías.</p>
+          <p><strong>Objetivo:</strong> Brindar escenarios competitivos y visibilidad deportiva.</p>
+          <p><strong>Requisitos:</strong> Afiliación de clubes, pago de inscripción.</p>
+          <p><strong>Resultados:</strong> Rankings oficiales, exposición mediática y oportunidades de proyección.</p>
+        </div>
+        <div class="card">
+          <h3>Formación y Cursos</h3>
+          <p><strong>Qué ofrece:</strong> Escuelas de iniciación, academias especializadas y certificaciones.</p>
+          <p><strong>Objetivo:</strong> Desarrollar el talento y profesionalizar a técnicos y árbitros.</p>
+          <p><strong>Requisitos:</strong> Inscripción previa y pago de matrícula.</p>
+          <p><strong>Resultados:</strong> Certificación oficial, mejora de desempeño técnico y táctico.</p>
+        </div>
+        <div class="card">
+          <h3>Merchandising</h3>
+          <p><strong>Qué ofrece:</strong> Línea oficial de camisetas, balones y accesorios.</p>
+          <p><strong>Objetivo:</strong> Fomentar la identidad y financiamiento de programas.</p>
+          <p><strong>Requisitos:</strong> Pedido mínimo, compra en tienda virtual o presencial.</p>
+          <p><strong>Resultados:</strong> Productos premium, fortalecimiento de marca y pertenencia.</p>
+        </div>
+        <div class="card">
+          <h3>Streaming de Partidos</h3>
+          <p><strong>Qué ofrece:</strong> Transmisión en vivo de competencias por redes sociales.</p>
+          <p><strong>Objetivo:</strong> Alcance digital y engagement de la comunidad.</p>
+          <p><strong>Requisitos:</strong> Contrato de derechos, coordinación logística.</p>
+          <p><strong>Resultados:</strong> Métricas de audiencia, visibilidad de patrocinadores, interacción en tiempo real.</p>
+        </div>
+        <!-- agregar más cards según portafolio -->
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="col">
+      <h4>Nosotros</h4>
+      <p>La Liga de Voleibol de Cundinamarca es el organismo oficial encargado del desarrollo del voleibol en el departamento.</p>
+      <div class="social">
+        <a href="#">📘</a><a href="#">📷</a><a href="#">🐦</a><a href="#">📺</a>
+      </div>
+    </div>
+    <div class="col">
+      <h4>Enlace Rápidos</h4>
+      <ul style="list-style:none;">
+        <li><a href="#servicios" style="color:white;text-decoration:none;">Servicios</a></li>
+        <li><a href="#clubes" style="color:white;text-decoration:none;">Clubes</a></li>
+        <li><a href="#cursos" style="color:white;text-decoration:none;">Formación</a></li>
+        <li><a href="#competencias" style="color:white;text-decoration:none;">Competencias</a></li>
       </ul>
     </div>
-  </header>
-
-  <!-- Hero Principal -->
-  <section id="main-content" class="flex-1 bg-[url('/images/hero-bg.jpg')] bg-cover bg-center flex items-center" data-aos="fade-in">
-    <div class="container mx-auto text-center px-4">
-      <h1 class="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg">Impulsa tu Pasión por el Vóleibol</h1>
-      <p class="mt-4 text-lg md:text-2xl text-white opacity-90">Servicios Premium para Deportistas, Clubes y Familias</p>
-      <div class="mt-8 flex justify-center gap-4">
-        <a href="#servicios" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold shadow hover:bg-yellow-500 transition">Ver Servicios</a>
-        <a href="#contacto" class="border border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-blue-900 transition">Contáctanos</a>
-      </div>
+    <div class="col" id="contacto">
+      <h4>Contacto</h4>
+      <p>Carrera 15 #93-47, Oficina 302, Bogotá DC</p>
+      <p>Tel: +57 (1) 234-5678</p>
+      <p>Email: info@ligavoleibolcundinamarca.com</p>
     </div>
-  </section>
-
-  <!-- Servicios Destacados -->
-  <section id="servicios" class="py-16 bg-white">
-    <div class="container mx-auto text-center mb-12" data-aos="fade-up">
-      <h2 class="text-3xl font-bold text-blue-800">Nuestros Servicios</h2>
-      <p class="mt-2 text-gray-600">Organizados por público y tipo</p>
-    </div>
-    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
-      <!-- Servicio Card Ejemplo -->
-      <article class="p-6 bg-gray-100 rounded-lg shadow hover:shadow-lg transition" data-aos="zoom-in" tabindex="0">
-        <img src="/icons/course.svg" alt="Formación" class="w-12 h-12 mx-auto mb-4">
-        <h3 class="text-xl font-semibold text-blue-800">Formación y Cursos</h3>
-        <p class="mt-2 text-gray-600">Certificación de entrenadores, árbitros y clínicas avanzadas</p>
-      </article>
-      <!-- Repetir para cada servicio... -->
-    </div>
-  </section>
-
-  <!-- Aliados Estratégicos vs Oficiales -->
-  <section id="aliados" class="py-16 bg-gray-50">
-    <div class="container mx-auto mb-8 px-4" data-aos="fade-right">
-      <h2 class="text-2xl font-bold text-blue-800">Aliados Estratégicos</h2>
-    </div>
-    <div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-4 mb-12" data-aos="fade-up">
-      <!-- Logo aliado estratégico -->
-      <img src="/logos/indepartes.png" alt="Indeportes Cundinamarca" class="mx-auto h-16 object-contain">
-      <!-- ... -->
-    </div>
-    <div class="container mx-auto mb-8 px-4" data-aos="fade-right">
-      <h2 class="text-2xl font-bold text-blue-800">Aliados Oficiales</h2>
-    </div>
-    <div class="container mx-auto grid grid-cols-2 md:grid-cols-6 gap-6 px-4" data-aos="fade-up">
-      <!-- Logo aliado oficial -->
-      <img src="/logos/club-soacha.png" alt="Club Soacha" class="mx-auto h-12 object-contain">
-      <!-- ... -->
-    </div>
-  </section>
-
-  <!-- Pie de Página -->
-  <footer class="bg-blue-900 text-gray-200 py-12">
-    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
-      <!-- Institucional -->
-      <div data-aos="fade-up">
-        <h4 class="font-bold mb-4">Nosotros</h4>
-        <ul class="space-y-2">
-          <li><a href="#">Quiénes Somos</a></li>
-          <li><a href="#">Junta Directiva</a></li>
-          <li><a href="#">Historia</a></li>
-        </ul>
-      </div>
-      <!-- Contacto -->
-      <div data-aos="fade-up" data-aos-delay="100">
-        <h4 class="font-bold mb-4">Contacto</h4>
-        <p>📍 Carrera 15 #93-47, Bogotá D.C.</p>
-        <p>📞 +57 (1) 234-5678</p>
-        <p>✉️ info@ligavoleibolcundinamarca.com</p>
-      </div>
-      <!-- RRSS y Newsletter -->
-      <div data-aos="fade-up" data-aos-delay="200">
-        <h4 class="font-bold mb-4">Síguenos</h4>
-        <div class="flex gap-4 mb-4">
-          <a href="#" aria-label="Facebook">📘</a>
-          <a href="#" aria-label="Instagram">📷</a>
-          <a href="#" aria-label="Twitter">🐦</a>
-        </div>
-        <h4 class="font-bold mb-4">Newsletter</h4>
-        <form class="flex">
-          <input type="email" placeholder="Tu correo" class="flex-1 p-2 rounded-l bg-white text-gray-900" required>
-          <button type="submit" class="bg-yellow-400 px-4 rounded-r font-semibold hover:bg-yellow-500 transition">Enviar</button>
-        </form>
-      </div>
-    </div>
-    <div class="text-center text-sm text-gray-400 mt-8">© 2025 Liga de Voleibol de Cundinamarca. Todos los derechos reservados.</div>
   </footer>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    // AOS Init
-    AOS.init({duration:600, once:true});
-    // Mobile Menu Toggle
-    const btn = document.getElementById('mobile-menu-btn'), menu = document.getElementById('mobile-menu');
-    btn.addEventListener('click', ()=> menu.classList.toggle('hidden'));
-    // Dark Mode Toggle
-    const toggle = document.getElementById('dark-toggle');
-    toggle.addEventListener('click', ()=>{
-      document.documentElement.classList.toggle('dark');
-      toggle.textContent = document.documentElement.classList.contains('dark')? '☀️':'🌙';
-    });
+    // Animaciones con GSAP
+    gsap.from('header', {y:-100, opacity:0, duration:1, ease:'bounce'});
+    gsap.from('.card',{y:50, opacity:0, duration:1, stagger:0.2, delay:0.5});
   </script>
 </body>
 </html>
