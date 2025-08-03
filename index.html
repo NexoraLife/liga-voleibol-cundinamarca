@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -7,32 +7,32 @@
   <meta name="description" content="Bienvenido a la Liga de Voleibol de Cundinamarca: servicios, clubes, entrenadores y más." />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
 
   <!-- Promo + Utility Bar -->
   <div class="bg-gradient-to-r from-blue-700 to-blue-400 text-white text-sm">
-    <div class="container mx-auto flex justify-between items-center px-4 py-1">
-      <div class="flex items-center space-x-4">
+    <div class="container mx-auto px-4 py-1 flex flex-wrap justify-between items-center">
+      <div class="flex flex-wrap items-center space-x-4 text-xs">
         <span>🏆 Inscripciones abiertas al Torneo 2025!</span>
         <a href="/events/tournament-2025" class="underline hover:text-blue-200">Ver detalles</a>
         <span>⏳ <span id="countdown">--d --h --m</span></span>
       </div>
-      <div class="flex items-center space-x-4">
-        <a href="mailto:info@cundivoley.com" class="hover:text-blue-200">✉️</a>
-        <a href="tel:+573001234567" class="hover:text-blue-200">📞</a>
-        <button id="themeToggle" class="hover:text-blue-200">🌙</button>
+      <div class="flex items-center space-x-4 text-xs">
+        <a href="mailto:info@cundivoley.com" class="hover:text-blue-200" aria-label="Email">✉️</a>
+        <a href="tel:+573001234567" class="hover:text-blue-200" aria-label="Teléfono">📞</a>
+        <button id="themeToggle" class="hover:text-blue-200" aria-label="Cambiar tema">🌙</button>
       </div>
     </div>
   </div>
 
   <!-- Header -->
-  <header class="bg-white shadow sticky top-0 z-50">
-    <div class="container mx-auto flex justify-between items-center px-4 py-3">
+  <header class="bg-white dark:bg-gray-800 shadow sticky top-0 z-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
       <!-- Logo -->
-      <a href="/" class="text-2xl font-bold text-blue-900 hover:text-blue-700">CundiVolley</a>
+      <a href="/" class="text-2xl font-bold text-blue-900 dark:text-white hover:text-blue-700">CundiVolley</a>
 
       <!-- Nav Desktop -->
-      <nav class="hidden md:flex space-x-6 font-medium text-blue-800">
+      <nav class="hidden md:flex space-x-6 font-medium">
         <a href="/" class="hover:text-blue-600">Inicio</a>
         <a href="/about" class="hover:text-blue-600">Nosotros</a>
         <a href="#servicios" class="hover:text-blue-600">Servicios</a>
@@ -40,14 +40,21 @@
         <a href="#entrenadores" class="hover:text-blue-600">Entrenadores</a>
         <a href="/events" class="hover:text-blue-600">Eventos</a>
         <a href="/shop" class="hover:text-blue-600">Tienda</a>
-        <a href="#registro" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">Registro</a>
       </nav>
 
-      <!-- Mobile Toggle -->
-      <button id="mobileToggle" class="md:hidden text-blue-800 hover:text-blue-600">☰</button>
+      <!-- CTA & Mobile Toggle -->
+      <div class="flex items-center space-x-4">
+        <a href="#registro" class="hidden md:inline bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">
+          Registro
+        </a>
+        <button id="mobileToggle" class="md:hidden text-blue-800 dark:text-gray-200 hover:text-blue-600" aria-label="Abrir menú">
+          ☰
+        </button>
+      </div>
     </div>
+
     <!-- Mobile Menu -->
-    <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+    <div id="mobileMenu" class="md:hidden hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
       <div class="px-4 py-6 space-y-4">
         <a href="/" class="block hover:text-blue-600">Inicio</a>
         <a href="/about" class="block hover:text-blue-600">Nosotros</a>
@@ -63,72 +70,100 @@
 
   <!-- Carousel -->
   <section class="relative overflow-hidden h-64">
-    <div id="carousel" class="relative h-full">
-      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-100 flex items-center justify-center text-white text-3xl font-bold" style="background-image:url('https://source.unsplash.com/collection/190727/1600x900');">Descubre nuestros Servicios</div>
-      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold" style="background-image:url('https://source.unsplash.com/collection/190728/1600x900');">Conoce los Clubes Activos</div>
-      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold" style="background-image:url('https://source.unsplash.com/collection/190729/1600x900');">Entrenadores Registrados</div>
-      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold" style="background-image:url('https://source.unsplash.com/collection/190730/1600x900');">Próximos Eventos</div>
-      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold" style="background-image:url('https://source.unsplash.com/collection/190731/1600x900');">Visita nuestra Tienda</div>
-      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold" style="background-image:url('https://source.unsplash.com/collection/190732/1600x900');">Regístrate Hoy</div>
+    <div id="carousel" class="absolute inset-0">
+      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-100 flex items-center justify-center text-white text-3xl font-bold"
+           style="background-image:url('https://source.unsplash.com/collection/190727/1600x900');">
+        Servicios
+      </div>
+      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold"
+           style="background-image:url('https://source.unsplash.com/collection/190728/1600x900');">
+        Clubes
+      </div>
+      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold"
+           style="background-image:url('https://source.unsplash.com/collection/190729/1600x900');">
+        Entrenadores
+      </div>
+      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold"
+           style="background-image:url('https://source.unsplash.com/collection/190730/1600x900');">
+        Eventos
+      </div>
+      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold"
+           style="background-image:url('https://source.unsplash.com/collection/190731/1600x900');">
+        Tienda
+      </div>
+      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold"
+           style="background-image:url('https://source.unsplash.com/collection/190732/1600x900');">
+        Registro
+      </div>
     </div>
   </section>
 
   <!-- Servicios -->
-  <section id="servicios" class="py-16 container mx-auto px-4">
-    <h2 class="text-4xl font-bold mb-8 text-center">Servicios</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-        <h3 class="text-2xl font-semibold mb-2">Formación y Cursos</h3>
-        <p>Capacitación integral para entrenadores y deportistas.</p>
-      </div>
-      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-        <h3 class="text-2xl font-semibold mb-2">Competencias & Eventos</h3>
-        <p>Organización de torneos y campeonatos oficiales.</p>
-      </div>
-      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-        <h3 class="text-2xl font-semibold mb-2">Alianzas Estratégicas</h3>
-        <p>Colaboraciones con patrocinadores y entidades deportivas.</p>
+  <section id="servicios" class="py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center mb-8">Servicios</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h3 class="text-2xl font-semibold mb-2">Formación y Cursos</h3>
+          <p>Capacitación integral para entrenadores y deportistas.</p>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h3 class="text-2xl font-semibold mb-2">Competencias & Eventos</h3>
+          <p>Organización de torneos y campeonatos oficiales.</p>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h3 class="text-2xl font-semibold mb-2">Alianzas Estratégicas</h3>
+          <p>Colaboraciones con patrocinadores y entidades deportivas.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Clubes -->
-  <section id="clubs" class="py-16 bg-gray-100">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold mb-8 text-center">Clubes Activos</h2>
-      <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
-        <div class="break-inside bg-white p-4 rounded shadow">Club Volei Bogotá</div>
-        <div class="break-inside bg-white p-4 rounded shadow">Cundinamarca Stars</div>
-        <div class="break-inside bg-white p-4 rounded shadow">Volley Team Colombia</div>
+  <section id="clubs" class="py-16 bg-gray-100 dark:bg-gray-700">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center mb-8">Clubes Activos</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">Club Volei Bogotá</div>
+        <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">Cundinamarca Stars</div>
+        <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">Volley Team Colombia</div>
       </div>
     </div>
   </section>
 
   <!-- Entrenadores -->
-  <section id="entrenadores" class="py-16 container mx-auto px-4">
-    <h2 class="text-4xl font-bold mb-8 text-center">Entrenadores Registrados</h2>
-    <div class="space-y-4">
-      <div class="border rounded">
-        <button class="w-full text-left px-4 py-2 bg-blue-100 hover:bg-blue-200 flex justify-between items-center">Carlos Rodríguez <span>+</span></button>
-        <div class="hidden px-4 py-2">Licenciado en Educación Física con 15 años de experiencia.</div>
-      </div>
-      <div class="border rounded">
-        <button class="w-full text-left px-4 py-2 bg-blue-100 hover:bg-blue-200 flex justify-between items-center">María González <span>+</span></button>
-        <div class="hidden px-4 py-2">Ex-jugadora profesional y entrenadora certificada FIVB.</div>
+  <section id="entrenadores" class="py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center mb-8">Entrenadores Registrados</h2>
+      <div class="space-y-4">
+        <div class="border rounded-lg overflow-hidden">
+          <button class="w-full text-left px-6 py-3 bg-blue-100 dark:bg-gray-600 hover:bg-blue-200 transition flex justify-between items-center"
+                  aria-expanded="false">
+            Carlos Rodríguez <span class="text-xl">+</span>
+          </button>
+          <div class="hidden px-6 py-4 bg-white dark:bg-gray-800">Licenciado en Educación Física, 15 años de experiencia.</div>
+        </div>
+        <div class="border rounded-lg overflow-hidden">
+          <button class="w-full text-left px-6 py-3 bg-blue-100 dark:bg-gray-600 hover:bg-blue-200 transition flex justify-between items-center"
+                  aria-expanded="false">
+            María González <span class="text-xl">+</span>
+          </button>
+          <div class="hidden px-6 py-4 bg-white dark:bg-gray-800">Ex-jugadora profesional y entrenadora certificada FIVB.</div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Pie de página -->
   <footer class="bg-gray-800 text-white py-12">
-    <div class="container mx-auto px-4 grid md:grid-cols-3 gap-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
       <div>
         <h3 class="font-bold mb-4">Liga de Voleibol</h3>
         <p>Servicios integrales para el desarrollo del voleibol en Cundinamarca.</p>
       </div>
       <div>
         <h4 class="font-semibold mb-2">Navegación</h4>
-        <ul>
+        <ul class="space-y-2">
           <li><a href="/" class="hover:underline">Inicio</a></li>
           <li><a href="/about" class="hover:underline">Nosotros</a></li>
           <li><a href="#servicios" class="hover:underline">Servicios</a></li>
@@ -180,14 +215,17 @@
     document.querySelectorAll('#entrenadores button').forEach(btn=>{
       btn.onclick = ()=> {
         const panel = btn.nextElementSibling;
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
         panel.classList.toggle('hidden');
-        btn.querySelector('span').textContent = panel.classList.contains('hidden')? '+' : '–';
+        btn.querySelector('span').textContent = expanded ? '+' : '–';
       }
     });
     // Theme toggle
     document.getElementById('themeToggle').onclick = () => {
       document.documentElement.classList.toggle('dark');
-      document.getElementById('themeToggle').textContent = document.documentElement.classList.contains('dark')? '☀️' : '🌙';
+      document.getElementById('themeToggle').textContent =
+        document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
     };
   </script>
 </body>
