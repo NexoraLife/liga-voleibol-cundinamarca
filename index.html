@@ -1,219 +1,194 @@
-import { useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Inicio - Liga de Voleibol de Cundinamarca</title>
+  <meta name="description" content="Bienvenido a la Liga de Voleibol de Cundinamarca: servicios, clubes, entrenadores y más." />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
 
-// Utilidades visuales premium
-const fadeIn = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i = 1) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: 0.2 * i, duration: 0.9, ease: [0.16, 1, 0.3, 1] }
-  }),
-};
+  <!-- Promo + Utility Bar -->
+  <div class="bg-gradient-to-r from-blue-700 to-blue-400 text-white text-sm">
+    <div class="container mx-auto flex justify-between items-center px-4 py-1">
+      <div class="flex items-center space-x-4">
+        <span>🏆 Inscripciones abiertas al Torneo 2025!</span>
+        <a href="/events/tournament-2025" class="underline hover:text-blue-200">Ver detalles</a>
+        <span>⏳ <span id="countdown">--d --h --m</span></span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="mailto:info@cundivoley.com" class="hover:text-blue-200">✉️</a>
+        <a href="tel:+573001234567" class="hover:text-blue-200">📞</a>
+        <button id="themeToggle" class="hover:text-blue-200">🌙</button>
+      </div>
+    </div>
+  </div>
 
-export default function Home() {
-  // Animaciones de entrada globales
-  const controls = useAnimation();
-  useEffect(() => { controls.start("visible"); }, [controls]);
+  <!-- Header -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center px-4 py-3">
+      <!-- Logo -->
+      <a href="/" class="text-2xl font-bold text-blue-900 hover:text-blue-700">CundiVolley</a>
 
-  return (
-    <>
-      <Head>
-        <title>Liga de Voleibol Cundinamarca | Inspira, Protege, Juega</title>
-        <meta name="description" content="La Liga de Voleibol de Cundinamarca: pasión animalista, innovación, comunidad y deporte. Únete al movimiento." />
-      </Head>
-      {/* Hero Ilustrado con movimiento y video */}
-      <section className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden bg-gradient-to-tr from-liga-yellow/10 via-cundinamarca-blue/10 to-liga-blue/10">
-        {/* Fondo ilustrado SVG animalista */}
-        <div className="absolute inset-0 z-0 pointer-events-none select-none">
-          <Image src="/images/animal-bg.svg" fill className="object-cover opacity-60" alt="Patrón animalista" priority />
-        </div>
-        {/* Animación de entrada del logo */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8, y: -60 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 1, ease: "backOut" }}
-          className="z-10 flex flex-col items-center"
-        >
-          <Image src="/images/logo-premium-animalista.svg" width={160} height={160} alt="Logo Liga" className="drop-shadow-xl" />
-          <motion.h1
-            variants={fadeIn}
-            initial="hidden"
-            animate="visible"
-            className="text-6xl md:text-7xl font-extrabold tracking-tight text-center bg-gradient-to-r from-liga-yellow via-cundinamarca-blue to-liga-blue bg-clip-text text-transparent mt-8 mb-5"
-          >
-            Inspira<br />Protege<br /><span className="text-liga-yellow">Juega</span>
-          </motion.h1>
-          <motion.p
-            variants={fadeIn}
-            initial="hidden"
-            animate="visible"
-            custom={2}
-            className="text-2xl md:text-3xl text-liga-blue/90 font-semibold text-center max-w-2xl mb-8"
-          >
-            Donde el deporte y el respeto animal se unen por un mundo mejor.
-          </motion.p>
-          <motion.div
-            variants={fadeIn}
-            initial="hidden"
-            animate="visible"
-            custom={3}
-            className="flex flex-wrap gap-6 justify-center"
-          >
-            <Link href="#servicios" className="rounded-full px-10 py-5 bg-gradient-to-r from-liga-yellow to-cundinamarca-blue text-deep-dark font-bold text-xl shadow-lg hover:scale-105 transition-all focus:outline-liga-yellow focus-visible:outline-liga-yellow animate-bounce">
-              Explorar servicios
-            </Link>
-            <Link href="#adoptar" className="rounded-full px-10 py-5 bg-glass text-liga-blue border-2 border-liga-yellow font-bold text-xl shadow-md hover:bg-liga-yellow/20 hover:scale-105 transition-all focus:outline-liga-yellow focus-visible:outline-liga-yellow">
-              Adopta una causa
-            </Link>
-          </motion.div>
-        </motion.div>
-        {/* Video institucional con overlay de animales */}
-        <motion.div
-          initial={{ opacity: 0, y: 80 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 1.1, type: "spring" }}
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-2xl z-10"
-        >
-          <video autoPlay loop muted playsInline className="rounded-3xl drop-shadow-2xl w-full border-4 border-liga-yellow/80">
-            <source src="/videos/animalista-volley.mp4" type="video/mp4" />
-          </video>
-        </motion.div>
-      </section>
-      
-      {/* Sección animada de misión animalista */}
-      <section id="mision" className="relative py-32 px-4 bg-gradient-to-b from-white via-cundinamarca-light/40 to-liga-yellow/10 overflow-hidden">
-        {/* SVG decorativo en esquina */}
-        <Image src="/images/pawprint.svg" width={96} height={96} alt="Pata animal" className="absolute top-10 left-0 opacity-30 z-0"/>
-        <motion.div
-          className="max-w-5xl mx-auto text-center relative z-10"
-          initial="hidden"
-          whileInView="visible"
-          variants={fadeIn}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <h2 className="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-liga-blue via-cundinamarca-blue to-liga-yellow bg-clip-text text-transparent">
-            Misión Animalista
-          </h2>
-          <p className="text-2xl text-gray-700 mb-8 font-medium">Fomentar el amor, el respeto y la protección de toda vida animal a través del deporte y la educación.</p>
-          {/* Lottie ilustrativo */}
-          <div className="flex justify-center mb-6">
-            <lottie-player src="/lottie/animal-mission.json" background="transparent" speed="1" style={{ width: 260, height: 180 }} loop autoplay />
-          </div>
-        </motion.div>
-      </section>
+      <!-- Nav Desktop -->
+      <nav class="hidden md:flex space-x-6 font-medium text-blue-800">
+        <a href="/" class="hover:text-blue-600">Inicio</a>
+        <a href="/about" class="hover:text-blue-600">Nosotros</a>
+        <a href="#servicios" class="hover:text-blue-600">Servicios</a>
+        <a href="#clubs" class="hover:text-blue-600">Clubes</a>
+        <a href="#entrenadores" class="hover:text-blue-600">Entrenadores</a>
+        <a href="/events" class="hover:text-blue-600">Eventos</a>
+        <a href="/shop" class="hover:text-blue-600">Tienda</a>
+        <a href="#registro" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">Registro</a>
+      </nav>
 
-      {/* Servicios con cards premium y efectos */}
-      <section id="servicios" className="py-24 px-4 bg-white dark:bg-deep-dark">
-        <motion.div 
-          className="max-w-7xl mx-auto"
-          initial="hidden"
-          whileInView="visible"
-          variants={fadeIn}
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-black text-center mb-12 gradient-text">Servicios que Transforman</h2>
-          <div className="grid md:grid-cols-3 gap-12">
-            {[
-              { icon: "/icons/club-animal.svg", title: "Clubes Animalistas", desc: "Afiliación con enfoque ético y bienestar animal." },
-              { icon: "/icons/adopcion.svg", title: "Adopción y Voluntariado", desc: "Programas de adopción y jornadas de protección animal." },
-              { icon: "/icons/eco-educa.svg", title: "Educación Eco-Deportiva", desc: "Charlas y talleres para niños y familias sobre convivencia y naturaleza." }
-            ].map((s, i) => (
-              <motion.div
-                key={i}
-                className="card3d bg-glass rounded-3xl p-10 shadow-neo border border-liga-yellow/30 flex flex-col items-center hover:shadow-xl hover:scale-105 transition-transform"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7 + i * 0.1, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.2 }}
-              >
-                <Image src={s.icon} width={64} height={64} alt={s.title} className="mb-5" />
-                <h3 className="font-bold text-2xl mb-2 text-liga-blue">{s.title}</h3>
-                <p className="text-lg text-gray-700 text-center">{s.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </section>
+      <!-- Mobile Toggle -->
+      <button id="mobileToggle" class="md:hidden text-blue-800 hover:text-blue-600">☰</button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+      <div class="px-4 py-6 space-y-4">
+        <a href="/" class="block hover:text-blue-600">Inicio</a>
+        <a href="/about" class="block hover:text-blue-600">Nosotros</a>
+        <a href="#servicios" class="block hover:text-blue-600">Servicios</a>
+        <a href="#clubs" class="block hover:text-blue-600">Clubes</a>
+        <a href="#entrenadores" class="block hover:text-blue-600">Entrenadores</a>
+        <a href="/events" class="block hover:text-blue-600">Eventos</a>
+        <a href="/shop" class="block hover:text-blue-600">Tienda</a>
+        <a href="#registro" class="block bg-blue-600 text-white text-center px-4 py-2 rounded-full hover:bg-blue-700">Registro</a>
+      </div>
+    </div>
+  </header>
 
-      {/* Galería ilustrada con overlays y lightbox */}
-      <section id="galeria" className="py-24 bg-cundinamarca-light/60 dark:bg-deep-dark/80">
-        <motion.div className="max-w-6xl mx-auto text-center mb-12" initial="hidden" whileInView="visible" variants={fadeIn} viewport={{ once: true }}>
-          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-liga-blue via-cundinamarca-blue to-liga-yellow bg-clip-text text-transparent">Galería Animalista</h2>
-          <p className="text-xl text-gray-700 mb-4">Descubre momentos donde el deporte y la vida animal se celebran juntos.</p>
-        </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {["/images/volley-dog.jpg", "/images/volley-cat.jpg", "/images/volley-horse.jpg"].map((img, i) => (
-            <motion.div
-              key={img}
-              className="relative group overflow-hidden rounded-3xl shadow-lg"
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 + i * 0.1, ease: "anticipate" }}
-              viewport={{ once: true, amount: 0.1 }}
-            >
-              <Image src={img} alt="Galería Animalista" width={600} height={400} className="gallery-img group-hover:scale-110 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-t from-liga-yellow/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end justify-center">
-                <span className="text-white text-2xl font-bold pb-6">#VoleibolConVida</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+  <!-- Carousel -->
+  <section class="relative overflow-hidden h-64">
+    <div id="carousel" class="relative h-full">
+      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-100 flex items-center justify-center text-white text-3xl font-bold" style="background-image:url('https://source.unsplash.com/collection/190727/1600x900');">Descubre nuestros Servicios</div>
+      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold" style="background-image:url('https://source.unsplash.com/collection/190728/1600x900');">Conoce los Clubes Activos</div>
+      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold" style="background-image:url('https://source.unsplash.com/collection/190729/1600x900');">Entrenadores Registrados</div>
+      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold" style="background-image:url('https://source.unsplash.com/collection/190730/1600x900');">Próximos Eventos</div>
+      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold" style="background-image:url('https://source.unsplash.com/collection/190731/1600x900');">Visita nuestra Tienda</div>
+      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold" style="background-image:url('https://source.unsplash.com/collection/190732/1600x900');">Regístrate Hoy</div>
+    </div>
+  </section>
 
-      {/* CTA final animalista */}
-      <section className="py-24 bg-gradient-to-tr from-cundinamarca-blue/70 via-white/80 to-liga-yellow/40 flex flex-col items-center justify-center relative overflow-hidden">
-        <motion.div initial="hidden" whileInView="visible" variants={fadeIn} viewport={{ once: true }}>
-          <h2 className="text-5xl md:text-6xl font-black mb-8 text-center bg-gradient-to-r from-liga-blue via-cundinamarca-blue to-liga-yellow bg-clip-text text-transparent">ÚNETE A LA MANADA</h2>
-          <p className="text-xl text-gray-800 mb-10 text-center max-w-2xl">Forma parte de la comunidad que protege, inspira y cambia el mundo, un set a la vez.</p>
-        </motion.div>
-        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 1, type: "spring" }}>
-          <Link href="#contacto" className="rounded-full px-14 py-6 bg-gradient-to-r from-liga-yellow to-liga-blue text-deep-dark font-bold text-2xl shadow-xl hover:scale-110 transition-all focus:outline-liga-yellow focus-visible:outline-liga-yellow animate-pulse">
-            ¡Afíliate Ahora!
-          </Link>
-        </motion.div>
-        {/* SVG animalista decorativo */}
-        <Image src="/images/footprints.svg" width={120} height={120} alt="Huellas animalistas" className="absolute bottom-8 right-12 opacity-20" />
-      </section>
+  <!-- Servicios -->
+  <section id="servicios" class="py-16 container mx-auto px-4">
+    <h2 class="text-4xl font-bold mb-8 text-center">Servicios</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+        <h3 class="text-2xl font-semibold mb-2">Formación y Cursos</h3>
+        <p>Capacitación integral para entrenadores y deportistas.</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+        <h3 class="text-2xl font-semibold mb-2">Competencias & Eventos</h3>
+        <p>Organización de torneos y campeonatos oficiales.</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+        <h3 class="text-2xl font-semibold mb-2">Alianzas Estratégicas</h3>
+        <p>Colaboraciones con patrocinadores y entidades deportivas.</p>
+      </div>
+    </div>
+  </section>
 
-      {/* Footer animalista premium */}
-      <footer className="pt-20 pb-10 bg-liga-blue text-white relative overflow-hidden">
-        <Image src="/images/animal-pattern-footer.svg" fill className="absolute inset-0 object-cover opacity-15 pointer-events-none" alt="Pattern animalista" />
-        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between gap-8 relative z-10">
-          <div>
-            <Image src="/images/logo-premium-animalista.svg" width={80} height={80} alt="Logo animalista" />
-            <h3 className="text-2xl font-black mt-3 mb-1">Liga Voleibol Cundinamarca</h3>
-            <p className="text-liga-yellow font-semibold">#AnimalismoEnMovimiento</p>
-            <p className="mt-4 text-white/80">© {new Date().getFullYear()} Todos los derechos reservados.</p>
-          </div>
-          <div>
-            <h4 className="font-bold text-xl mb-3">Contáctanos</h4>
-            <ul className="space-y-2 text-white/90">
-              <li>📞 (601) 234-5678</li>
-              <li>✉️ direccion@ligavoleibolcundinamarca.com</li>
-              <li>📍 Calle 26 #13-19, Bogotá D.C.</li>
-            </ul>
-            <div className="flex gap-4 mt-4 text-2xl">
-              <a href="#" className="hover:text-liga-yellow transition">🐾</a>
-              <a href="#" className="hover:text-liga-yellow transition">📷</a>
-              <a href="#" className="hover:text-liga-yellow transition">🐦</a>
-              <a href="#" className="hover:text-liga-yellow transition">📺</a>
-            </div>
-          </div>
-          <div>
-            <h4 className="font-bold text-xl mb-3">Newsletter Animalista</h4>
-            <form className="flex flex-col gap-3">
-              <input type="email" placeholder="Tu email" className="rounded-full px-5 py-3 text-liga-blue font-bold focus:outline-liga-yellow"/>
-              <button className="rounded-full px-6 py-3 bg-gradient-to-r from-liga-yellow to-cundinamarca-blue text-deep-dark font-bold shadow-lg hover:scale-105 transition-all focus:outline-liga-yellow focus-visible:outline-liga-yellow">
-                Suscribirme
-              </button>
-            </form>
-          </div>
-        </div>
-      </footer>
-    </>
-  );
-}
+  <!-- Clubes -->
+  <section id="clubs" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold mb-8 text-center">Clubes Activos</h2>
+      <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+        <div class="break-inside bg-white p-4 rounded shadow">Club Volei Bogotá</div>
+        <div class="break-inside bg-white p-4 rounded shadow">Cundinamarca Stars</div>
+        <div class="break-inside bg-white p-4 rounded shadow">Volley Team Colombia</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Entrenadores -->
+  <section id="entrenadores" class="py-16 container mx-auto px-4">
+    <h2 class="text-4xl font-bold mb-8 text-center">Entrenadores Registrados</h2>
+    <div class="space-y-4">
+      <div class="border rounded">
+        <button class="w-full text-left px-4 py-2 bg-blue-100 hover:bg-blue-200 flex justify-between items-center">Carlos Rodríguez <span>+</span></button>
+        <div class="hidden px-4 py-2">Licenciado en Educación Física con 15 años de experiencia.</div>
+      </div>
+      <div class="border rounded">
+        <button class="w-full text-left px-4 py-2 bg-blue-100 hover:bg-blue-200 flex justify-between items-center">María González <span>+</span></button>
+        <div class="hidden px-4 py-2">Ex-jugadora profesional y entrenadora certificada FIVB.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4 grid md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="font-bold mb-4">Liga de Voleibol</h3>
+        <p>Servicios integrales para el desarrollo del voleibol en Cundinamarca.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Navegación</h4>
+        <ul>
+          <li><a href="/" class="hover:underline">Inicio</a></li>
+          <li><a href="/about" class="hover:underline">Nosotros</a></li>
+          <li><a href="#servicios" class="hover:underline">Servicios</a></li>
+          <li><a href="#clubs" class="hover:underline">Clubes</a></li>
+          <li><a href="#entrenadores" class="hover:underline">Entrenadores</a></li>
+          <li><a href="/events" class="hover:underline">Eventos</a></li>
+          <li><a href="/shop" class="hover:underline">Tienda</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Contacto</h4>
+        <p>📧 info@cundivoley.com</p>
+        <p>📞 +57 300 1234567</p>
+      </div>
+    </div>
+    <p class="text-center text-gray-400 mt-8">&copy; 2025 Liga de Voleibol de Cundinamarca</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobileToggle').onclick = () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    };
+    // Countdown
+    (function(){
+      const cd = document.getElementById('countdown');
+      const target = new Date('2025-06-01T00:00:00').getTime();
+      const update = () => {
+        const diff = target - Date.now();
+        const d = Math.max(0, Math.floor(diff/86400000));
+        const h = Math.max(0, Math.floor(diff%86400000/3600000));
+        const m = Math.max(0, Math.floor(diff%3600000/60000));
+        cd.textContent = `${d}d ${h}h ${m}m`;
+      };
+      update(); setInterval(update,60000);
+    })();
+    // Carousel
+    (function(){
+      const slides = document.querySelectorAll('#carousel > div');
+      let idx=0;
+      setInterval(()=>{
+        slides[idx].classList.replace('opacity-100','opacity-0');
+        idx = (idx+1)%slides.length;
+        slides[idx].classList.replace('opacity-0','opacity-100');
+      },5000);
+    })();
+    // Accordion
+    document.querySelectorAll('#entrenadores button').forEach(btn=>{
+      btn.onclick = ()=> {
+        const panel = btn.nextElementSibling;
+        panel.classList.toggle('hidden');
+        btn.querySelector('span').textContent = panel.classList.contains('hidden')? '+' : '–';
+      }
+    });
+    // Theme toggle
+    document.getElementById('themeToggle').onclick = () => {
+      document.documentElement.classList.toggle('dark');
+      document.getElementById('themeToggle').textContent = document.documentElement.classList.contains('dark')? '☀️' : '🌙';
+    };
+  </script>
+</body>
+</html>
