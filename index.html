@@ -1,54 +1,266 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carpeta de Servicios - Liga de Voleibol de Cundinamarca</title>
-    <style>
-        :root {
-            --azul-liga: #1e40af;
-            --amarillo-destacado: #fbbf24;
-            --gris-claro: #f3f4f6;
-            --texto-oscuro: #1f2937;
-            --blanco: #ffffff;
-        }
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--gris-claro); color: var(--texto-oscuro); }
-        /* Cover Section */
-        .cover-section {
-            background: linear-gradient(135deg, var(--azul-liga) 0%, #1e3a8a 100%);
-            color: var(--blanco);
-            text-align: center;
-            padding: 5rem 2rem;
-        }
-        .cover-section h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-        .cover-section p {
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin: 0.5rem auto;
-            line-height: 1.6;
-            opacity: 0.9;
-        }
-        /* Subsequent content styling */
-        .content-wrapper { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
-        /* Header and other sections omitted for brevity */
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liga de Voleibol de Cundinamarca</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Variables de color y reset */
+    :root {
+      --azul-oscuro: #1e3a8a;
+      --azul-liga: #0c2b75;
+      --amarillo: #fbbf24;
+      --gris-claro: #f4f5f7;
+      --texto: #1f2937;
+      --blanco: #ffffff;
+      --anim-tiempo: 0.6s;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Roboto', sans-serif; color:var(--texto); background:var(--gris-claro); }
+    a { text-decoration:none; color:inherit; }
+    img { max-width:100%; display:block; }
+    /* Navbar */
+    header { position:fixed; top:0; left:0; width:100%; background:rgba(255,255,255,0.9); box-shadow:0 2px 8px rgba(0,0,0,0.1); z-index:1000; }
+    .nav-container { max-width:1200px; margin:0 auto; padding:1rem; display:flex; align-items:center; justify-content:space-between; }
+    .nav-logo { display:flex; align-items:center; }
+    .nav-logo img { height:40px; }
+    .nav-menu { display:flex; gap:1.5rem; }
+    .nav-menu a { font-weight:500; transition:color var(--anim-tiempo); }
+    .nav-menu a:hover { color:var(--azul-liga); }
+    .btn-cta { background:var(--amarillo); color:var(--azul-liga); padding:0.6rem 1.2rem; border-radius:4px; font-weight:700; transition:transform var(--anim-tiempo); }
+    .btn-cta:hover { transform:translateY(-2px); }
+    /* Hero */
+    .hero { height:100vh; background:linear-gradient(135deg, var(--azul-liga), var(--azul-oscuro)), url('hero-bg.jpg') center/cover no-repeat; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--blanco); position:relative; }
+    .hero::after { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.4); }
+    .hero-content { position:relative; max-width:800px; animation:fadeInDown var(--anim-tiempo) ease-out; }
+    .hero h1 { font-size:3rem; margin-bottom:1rem; }
+    .hero p { font-size:1.25rem; margin-bottom:2rem; }
+    /* Sección de logos */
+    .logos-section { padding:4rem 1rem; background:var(--blanco); }
+    .logos-container { max-width:1200px; margin:0 auto; }
+    .logos-grid { display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; align-items:center; }
+    .logos-grid img { filter:grayscale(100%); opacity:0.6; transition:filter var(--anim-tiempo), opacity var(--anim-tiempo); width:120px; }
+    .logos-grid img:hover { filter:none; opacity:1; }
+    /* Sección servicios */
+    .services { background:var(--gris-claro); padding:4rem 1rem; }
+    .services-container { max-width:1200px; margin:0 auto; }
+    .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
+    .service-card { background:var(--blanco); border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.05); overflow:hidden; transition:transform var(--anim-tiempo); }
+    .service-card:hover { transform:translateY(-5px); }
+    .service-icon { font-size:2.5rem; margin:1rem; color:var(--amarillo); }
+    .service-content { padding:1rem 1.5rem 2rem; }
+    .service-content h3 { margin-bottom:0.5rem; color:var(--azul-liga); }
+    .service-content p { line-height:1.5; margin-bottom:1rem; }
+    .service-content .btn { background:var(--amarillo); color:var(--azul-liga); padding:0.5rem 1rem; border-radius:4px; font-weight:500; }
+    /* Estadísticas */
+    .stats { padding:4rem 1rem; text-align:center; }
+    .stats-container { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:2rem; }
+    .stat-card { background:var(--blanco); border-radius:8px; padding:2rem; box-shadow:0 4px 16px rgba(0,0,0,0.05); }
+    .stat-number { font-size:2.5rem; color:var(--azul-liga); margin-bottom:0.5rem; }
+    .stat-label { color:var(--texto); }
+    /* Testimonios */
+    .testimonials { background:var(--blanco); padding:4rem 1rem; }
+    .testimonials-container { max-width:900px; margin:0 auto; position:relative; }
+    .testimonial-slide { display:none; text-align:center; }
+    .testimonial-slide.active { display:block; }
+    .testimonial-slide img { width:80px; height:80px; border-radius:50%; margin:0 auto 1rem; }
+    .testimonial-slide p { font-style:italic; margin-bottom:1rem; }
+    .testimonial-slide h4 { color:var(--azul-liga); }
+    /* CTA final */
+    .cta-final { background:linear-gradient(135deg,var(--azul-liga),var(--azul-oscuro)); padding:3rem 1rem; text-align:center; color:var(--blanco); }
+    .cta-final h2 { margin-bottom:1rem; }
+    .cta-final .btn { background:var(--amarillo); color:var(--azul-liga); padding:0.8rem 1.5rem; font-size:1rem; }
+    /* FAQ */
+    .faq { padding:4rem 1rem; }
+    .faq-container { max-width:800px; margin:0 auto; }
+    .faq-item { margin-bottom:1rem; }
+    .faq-item summary { cursor:pointer; font-weight:500; background:var(--gris-claro); padding:0.8rem 1rem; border-radius:4px; }
+    .faq-item p { padding:0.8rem 1rem; }
+    /* Footer */
+    footer { background:var(--azul-oscuro); color:var(--blanco); padding:3rem 1rem; }
+    .footer-container { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; }
+    .footer-logo img { width:100px; margin-bottom:1rem; }
+    .footer-section h4 { margin-bottom:1rem; }
+    .footer-section ul { list-style:none; }
+    .footer-section ul li { margin-bottom:0.5rem; }
+    .footer-social a { margin-right:1rem; font-size:1.5rem; color:var(--blanco); }
+    /* Animaciones */
+    @keyframes fadeInDown { from { opacity:0; transform:translateY(-20px);} to { opacity:1; transform:translateY(0);} }
+  </style>
 </head>
 <body>
-    <!-- Carátula Informativa -->
-    <section class="cover-section">
-        <h1>Carpeta de Servicios Ejecutiva</h1>
-        <p>La Liga de Voleibol de Cundinamarca es el organismo rector del voleibol en el departamento, con más de 15 años de trayectoria promoviendo torneos, formación, y desarrollo integral del deporte.</p>
-        <p>Visión 360°: Nuestro portafolio de servicios está organizado tanto por público objetivo (Clubes, Deportistas, Padres, Empresas, Instituciones) como por tipo de servicio (Formación, Competencias, Merchandising, etc.), ofreciendo soluciones completas con beneficios racionales y emocionales para cada cliente.</p>
-        <p>Estilo profesional, moderno y premium. Aquí encontrarás todo lo que la Liga puede ofrecerte para impulsar tu proyecto deportivo y fortalecer tu vínculo con el voleibol.</p>
-    </section>
-
-    <!-- Main Content Placeholder -->
-    <div class="content-wrapper">
-        <!-- Integrar aquí las secciones de Servicios: Clubes, Deportistas, Padres, Empresas, Instituciones, Formación, Competencias, Merchandising, Entrenadores, Aficionados -->
+  <!-- Navbar -->
+  <header>
+    <div class="nav-container">
+      <div class="nav-logo"><img src="LOGO_LIGA.png" alt="Logo Liga"></div>
+      <nav class="nav-menu">
+        <a href="#servicios">Servicios</a>
+        <a href="#aliados">Aliados</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a href="#servicios" class="btn-cta">¡Afíliate Ahora!</a>
     </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Impulsa tu Voleibol en Cundinamarca</h1>
+      <p>Capacitación, avales oficiales, streaming y merchandising premium para tu club o equipo.</p>
+      <a href="#servicios" class="btn-cta">Ver Servicios</a>
+    </div>
+  </section>
+
+  <!-- Aliados -->
+  <section id="aliados" class="logos-section">
+    <h2 style="text-align:center; margin-bottom:2rem; color:var(--azul-liga);">Nuestros Aliados</h2>
+    <div class="logos-container">
+      <div class="logos-grid">
+        <img src="LOGO_MOLTEN.png" alt="Molten">
+        <img src="LOGO_DISMOVEL.png" alt="Dismovel">
+        <img src="Gobernacion_de_Cundinamarca.png" alt="Gobernación">
+        <img src="INDEPORTES_CUNDINAMARCA.png" alt="InDeportes">
+        <img src="Logo_FedeVoley.png" alt="Fedecovoley">
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios" class="services">
+    <div class="services-container">
+      <h2 style="text-align:center; margin-bottom:2rem; color:var(--azul-liga);">Servicios Destacados</h2>
+      <div class="services-grid">
+        <!-- Card 1 -->
+        <div class="service-card">
+          <div class="service-icon">🏅</div>
+          <div class="service-content">
+            <h3>Afiliación de Clubes</h3>
+            <p>Proceso simplificado, aval oficial y beneficios exclusivos para clubes afiliados.</p>
+            <a href="#" class="btn">Afíliate</a>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="service-card">
+          <div class="service-icon">📚</div>
+          <div class="service-content">
+            <h3>Cursos & Certificaciones</h3>
+            <p>Formación para entrenadores, árbitros y dirigentes con reconocimiento nacional.</p>
+            <a href="#" class="btn">Ver Cursos</a>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="service-card">
+          <div class="service-icon">🎓</div>
+          <div class="service-content">
+            <h3>Clínicas Técnicas</h3>
+            <p>Talleres especializados en tácticas avanzadas para deportistas y entrenadores.</p>
+            <a href="#" class="btn">Inscribirse</a>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="service-card">
+          <div class="service-icon">🎥</div>
+          <div class="service-content">
+            <h3>Streaming en Vivo</h3>
+            <p>Transmisión profesional de partidos y torneos directo a tus redes sociales.</p>
+            <a href="#" class="btn">Prueba Gratis</a>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="service-card">
+          <div class="service-icon">👕</div>
+          <div class="service-content">
+            <h3>Merchandising Oficial</h3>
+            <p>Camisetas, balones y artículos personalizados con la imagen de tu club.</p>
+            <a href="#" class="btn">Ver Tienda</a>
+          </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="service-card">
+          <div class="service-icon">💼</div>
+          <div class="service-content">
+            <h3>Patrocinios & Publicidad</h3>
+            <p>Conecta tu marca con el deporte local a través de patrocinios estratégicos.</p>
+            <a href="#" class="btn">Conviértete en Sponsor</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Estadísticas -->
+  <section class="stats">
+    <div class="stats-container">
+      <div class="stat-card">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Clubes Afiliados</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2,500+</div>
+        <div class="stat-label">Deportistas</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">15</div>
+        <div class="stat-label">Años de Trayectoria</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section id="testimonios" class="testimonials">
+    <div class="testimonials-container">
+      <div class="testimonial-slide active">  <!-- Añadir JS para carrusel -->
+        <img src="testimonio1.jpg" alt="Testimonio 1">
+        <p>“La certificación me permitió optar a mejores oportunidades profesionales.”</p>
+        <h4>María González<br><small>Entrenadora Nivel II</small></h4>
+      </div>
+      <div class="testimonial-slide">
+        <img src="testimonio2.jpg" alt="Testimonio 2">
+        <p>“Nuestros partidos llegaron a 3.000 espectadores gracias al streaming.”</p>
+        <h4>Carlos Rodríguez<br><small>Director Deportivo</small></h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-final">
+    <h2>¿Listo para llevar tu club al siguiente nivel?</h2>
+    <a href="#contacto" class="btn">Contáctanos Hoy</a>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <div class="faq-container">
+      <details class="faq-item"><summary>¿Cómo obtengo el aval oficial?</summary><p>Solo debes estar afiliado y cumplir requisitos de personería.</p></details>
+      <details class="faq-item"><summary>¿Cuál es el costo del streaming?</summary><p>Ofrecemos planes desde $200.000 COP por evento.</p></details>
+      <details class="faq-item"><summary>¿Puedo personalizar la mercancía?</summary><p>Sí, contamos con diseños a medida para tu club.</p></details>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contacto">
+    <div class="footer-container">
+      <div class="footer-logo"><img src="LOGO_LIGA.png" alt="Liga"></div>
+      <div class="footer-section"><h4>Institucional</h4><ul><li>Quiénes Somos</li><li>Junta Directiva</li><li>Misión & Visión</li></ul></div>
+      <div class="footer-section"><h4>Servicios</h4><ul><li>Afiliación</li><li>Cursos</li><li>Streaming</li><li>Merchandising</li></ul></div>
+      <div class="footer-section"><h4>Contacto</h4><ul><li>Carrera 15 #93-47, Bogotá</li><li>+57 1 2345678</li><li>info@ligavoleibolcundinamarca.com</li></ul></div>
+      <div class="footer-section footer-social"><h4>Síguenos</h4><a href="#">📘</a><a href="#">📷</a><a href="#">🐦</a></div>
+    </div>
+    <p style="text-align:center; margin-top:2rem; font-size:0.8rem;">© 2025 Liga de Voleibol de Cundinamarca. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Carrusel simple testimonios
+    let idx=0, slides=document.querySelectorAll('.testimonial-slide');
+    setInterval(()=>{
+      slides[idx].classList.remove('active');
+      idx=(idx+1)%slides.length;
+      slides[idx].classList.add('active');
+    },4000);
+  </script>
 </body>
 </html>
