@@ -1,1 +1,2327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liga de Voleibol de Cundinamarca</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --azul-liga: #1e40af;
+            --amarillo-destacado: #fbbf24;
+            --gris-claro: #f3f4f6;
+            --texto-oscuro: #1f2937;
+            --blanco: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--texto-oscuro);
+            background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--azul-liga) 0%, #1e3a8a 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav a:hover, .nav a.active {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--azul-liga) 0%, #1e3a8a 50%, var(--amarillo-destacado) 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="80" r="2.5" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="60" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            color: var(--amarillo-destacado);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: white;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .breadcrumb-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .breadcrumb a {
+            color: var(--azul-liga);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Content Section */
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .card-image {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--azul-liga);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .card-text {
+            color: #6b7280;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--azul-liga), #1e3a8a);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.4);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        .status-active {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-updating {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .news-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--azul-liga), var(--amarillo-destacado));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--azul-liga);
+            margin-bottom: 1rem;
+        }
+
+        .news-excerpt {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--azul-liga);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Table Styles */
+        .table-container {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .table-header {
+            background: var(--azul-liga);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .table-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: var(--azul-liga);
+        }
+
+        tr:hover {
+            background: #f8fafc;
+        }
+
+        .team-logo {
+            width: 30px;
+            height: 30px;
+            background: var(--azul-liga);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Page-specific styles */
+        .hidden {
+            display: none;
+        }
+
+        /* Exam Styles */
+        .exam-header {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--azul-liga), var(--amarillo-destacado));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .exam-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            color: var(--texto-oscuro);
+        }
+
+        .exam-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .block-info {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--gris-claro);
+        }
+
+        .block-info h3 {
+            color: var(--azul-liga);
+            margin-bottom: 0.5rem;
+        }
+
+        .block-info p {
+            color: #666;
+            font-style: italic;
+        }
+
+        .question-container {
+            margin-bottom: 2rem;
+        }
+
+        .question-number {
+            font-size: 0.9rem;
+            color: var(--azul-liga);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--texto-oscuro);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .answers-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .answer-option {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .answer-option:hover {
+            border-color: var(--amarillo-destacado);
+            background: #fffbf0;
+        }
+
+        .answer-option.selected {
+            border-color: var(--azul-liga);
+            background: #f0f4ff;
+        }
+
+        .answer-option.correct {
+            border-color: #28a745;
+            background: #d4edda;
+        }
+
+        .answer-option.incorrect {
+            border-color: #dc3545;
+            background: #f8d7da;
+        }
+
+        .option-letter {
+            font-weight: bold;
+            color: var(--azul-liga);
+            margin-right: 1rem;
+            min-width: 30px;
+        }
+
+        .option-text {
+            flex: 1;
+        }
+
+        .exam-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--gris-claro);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-finish {
+            background: #28a745;
+        }
+
+        .btn-finish:hover {
+            background: #218838;
+        }
+
+        /* Course Details Styles */
+        .exam-structure {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f0f4ff;
+            border-radius: 8px;
+            border-left: 4px solid var(--azul-liga);
+        }
+
+        .exam-structure h4 {
+            color: var(--azul-liga);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .exam-structure p {
+            margin: 0.3rem 0;
+            font-size: 0.9rem;
+        }
+
+        .blocks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.3rem;
+            margin-top: 0.8rem;
+            font-size: 0.8rem;
+        }
+
+        .blocks-grid span {
+            padding: 0.2rem 0.4rem;
+            background: white;
+            border-radius: 3px;
+            text-align: center;
+        }
+
+        /* Results Styles */
+        .results-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .overall-score {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .score-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--azul-liga), var(--amarillo-destacado));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .score-status h3 {
+            color: var(--azul-liga);
+            margin-bottom: 0.5rem;
+        }
+
+        .results-breakdown {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .block-result {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .block-result:last-child {
+            border-bottom: none;
+        }
+
+        .block-name {
+            font-weight: 500;
+            color: var(--texto-oscuro);
+        }
+
+        .block-score {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .score-bar {
+            width: 100px;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .score-fill {
+            height: 100%;
+            background: var(--azul-liga);
+            transition: width 0.5s ease;
+        }
+
+        .score-percentage {
+            font-weight: bold;
+            color: var(--azul-liga);
+            min-width: 40px;
+        }
+
+        .results-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 1rem;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .content-section {
+                padding: 2rem 1rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .exam-info {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .overall-score {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .exam-controls {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .results-actions {
+                flex-direction: column;
+            }
+
+            .block-result {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .block-score {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .blocks-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">🏐</div>
+                <div class="logo-text">
+                    <h1>Liga de Voleibol</h1>
+                    <p>Cundinamarca</p>
+                </div>
+            </div>
+            <nav class="nav">
+                <a href="#" onclick="showPage('home')" class="nav-link active">Inicio</a>
+                <a href="#" onclick="showPage('noticias')" class="nav-link">Noticias</a>
+                <a href="#" onclick="showPage('competencias')" class="nav-link">Competencias</a>
+                <a href="#" onclick="showPage('clubes')" class="nav-link">Clubes</a>
+                <a href="#" onclick="showPage('cursos')" class="nav-link">Cursos</a>
+                <a href="#" onclick="showPage('contacto')" class="nav-link">Contacto</a>
+            </nav>
+            <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- HOME PAGE -->
+        <div id="page-home" class="page-content">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Liga de Voleibol de Cundinamarca</h1>
+                    <p class="hero-subtitle">Promoviendo el voleibol en todo el departamento con pasión y excelencia</p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Clubes Afiliados</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">2,500+</span>
+                            <span class="stat-label">Deportistas</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">15</span>
+                            <span class="stat-label">Años de Trayectoria</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-image">🏆</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Campeonatos Activos</h3>
+                            <p class="card-text">Participa en nuestros torneos departamentales en todas las categorías. Competencias regulares durante todo el año.</p>
+                            <span class="status-badge status-active">Inscripciones abiertas</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">📚</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Formación Deportiva</h3>
+                            <p class="card-text">Cursos de entrenadores, árbitros y dirigentes deportivos. Certificaciones oficiales reconocidas nacionalmente.</p>
+                            <span class="status-badge status-updating">Próxima convocatoria</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">🤝</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Afiliación de Clubes</h3>
+                            <p class="card-text">Únete a nuestra familia deportiva. Proceso de afiliación simplificado y beneficios exclusivos para clubes.</p>
+                            <span class="status-badge status-active">Disponible</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 style="text-align: center; color: var(--azul-liga); margin-bottom: 2rem;">Últimas Noticias</h2>
+                <div class="news-grid">
+                    <div class="news-card">
+                        <div class="news-image">🏐</div>
+                        <div class="news-content">
+                            <div class="news-date">15 de Enero, 2024</div>
+                            <h3 class="news-title">Inicio del Campeonato Departamental 2024</h3>
+                            <p class="news-excerpt">Arranca una nueva temporada con la participación de 45 clubes en todas las categorías. Las inscripciones continúan abiertas hasta el 30 de enero.</p>
+                            <a href="#" class="read-more">Leer más →</a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-image">🎓</div>
+                        <div class="news-content">
+                            <div class="news-date">10 de Enero, 2024</div>
+                            <h3 class="news-title">Curso de Entrenadores Nivel I</h3>
+                            <p class="news-excerpt">Nueva convocatoria para el curso de formación de entrenadores. Modalidad presencial y virtual disponible.</p>
+                            <a href="#" class="read-more">Leer más →</a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-image">🏆</div>
+                        <div class="news-content">
+                            <div class="news-date">5 de Enero, 2024</div>
+                            <h3 class="news-title">Reconocimiento a Deportistas Destacados</h3>
+                            <p class="news-excerpt">La Liga reconoce a los mejores deportistas del 2023 en ceremonia especial realizada en Bogotá.</p>
+                            <a href="#" class="read-more">Leer más →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- NOTICIAS PAGE -->
+        <div id="page-noticias" class="page-content hidden">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Noticias</h1>
+                    <p class="hero-subtitle">Mantente informado sobre el voleibol cundinamarqués</p>
+                </div>
+            </div>
+            
+            <div class="breadcrumb">
+                <div class="breadcrumb-content">
+                    <a href="#" onclick="showPage('home')">Inicio</a> > Noticias
+                </div>
+            </div>
+
+            <section class="content-section">
+                <div class="news-grid">
+                    <div class="news-card">
+                        <div class="news-image">🏐</div>
+                        <div class="news-content">
+                            <div class="news-date">15 de Enero, 2024</div>
+                            <h3 class="news-title">Inicio del Campeonato Departamental 2024</h3>
+                            <p class="news-excerpt">Con gran expectativa arranca una nueva temporada del campeonato departamental de voleibol. Este año contamos con la participación récord de 45 clubes distribuidos en todas las categorías: infantil, juvenil, mayores y veteranos. Las inscripciones continúan abiertas hasta el 30 de enero para aquellos clubes que deseen sumarse a esta gran fiesta deportiva.</p>
+                            <a href="#" class="read-more">Leer más →</a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-image">🎓</div>
+                        <div class="news-content">
+                            <div class="news-date">10 de Enero, 2024</div>
+                            <h3 class="news-title">Curso de Entrenadores Nivel I - Nueva Convocatoria</h3>
+                            <p class="news-excerpt">La Liga de Voleibol de Cundinamarca abre nueva convocatoria para el curso de formación de entrenadores Nivel I. El programa incluye 40 horas académicas con modalidad presencial los fines de semana y complemento virtual. Los interesados pueden inscribirse hasta el 25 de enero.</p>
+                            <a href="#" class="read-more">Leer más →</a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-image">🏆</div>
+                        <div class="news-content">
+                            <div class="news-date">5 de Enero, 2024</div>
+                            <h3 class="news-title">Reconocimiento a Deportistas Destacados 2023</h3>
+                            <p class="news-excerpt">En ceremonia especial realizada en el Hotel Tequendama de Bogotá, la Liga reconoció a los deportistas más destacados del 2023. Entre los homenajeados se encuentran María González (mejor jugadora juvenil), Carlos Rodríguez (mejor entrenador) y el Club Soacha Voleibol (mejor institución deportiva).</p>
+                            <a href="#" class="read-more">Leer más →</a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-image">📋</div>
+                        <div class="news-content">
+                            <div class="news-date">28 de Diciembre, 2023</div>
+                            <h3 class="news-title">Nuevos Reglamentos para la Temporada 2024</h3>
+                            <p class="news-excerpt">La Asamblea General aprobó las modificaciones reglamentarias que regirán durante la temporada 2024. Los principales cambios incluyen nuevos criterios de clasificación, sistema de playoffs renovado y actualización en las sanciones disciplinarias.</p>
+                            <a href="#" class="read-more">Leer más →</a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-image">🤝</div>
+                        <div class="news-content">
+                            <div class="news-date">20 de Diciembre, 2023</div>
+                            <h3 class="news-title">Convenio con Indeportes Cundinamarca</h3>
+                            <p class="news-excerpt">Se firmó importante convenio de cooperación con Indeportes Cundinamarca para el fortalecimiento del voleibol departamental. El acuerdo incluye apoyo económico, logístico y técnico para el desarrollo de programas formativos y competitivos.</p>
+                            <a href="#" class="read-more">Leer más →</a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-image">🏐</div>
+                        <div class="news-content">
+                            <div class="news-date">15 de Diciembre, 2023</div>
+                            <h3 class="news-title">Festival de Voleibol Infantil</h3>
+                            <p class="news-excerpt">Con gran éxito se realizó el Festival de Voleibol Infantil en el Coliseo El Salitre. Participaron más de 200 niños y niñas de 15 municipios del departamento en una jornada llena de deporte, diversión y valores.</p>
+                            <a href="#" class="read-more">Leer más →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- COMPETENCIAS PAGE -->
+        <div id="page-competencias" class="page-content hidden">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Competencias</h1>
+                    <p class="hero-subtitle">Torneos y campeonatos oficiales de la Liga</p>
+                </div>
+            </div>
+            
+            <div class="breadcrumb">
+                <div class="breadcrumb-content">
+                    <a href="#" onclick="showPage('home')">Inicio</a> > Competencias
+                </div>
+            </div>
+
+            <section class="content-section">
+                <div class="table-container">
+                    <div class="table-header">
+                        <h3>🏆 Campeonato Departamental 2024 - Categoría Mayores Masculino</h3>
+                        <p>Tabla de Posiciones - Fecha 8</p>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Pos</th>
+                                <th>Equipo</th>
+                                <th>PJ</th>
+                                <th>PG</th>
+                                <th>PP</th>
+                                <th>Sets +</th>
+                                <th>Sets -</th>
+                                <th>Pts</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><span class="team-logo">SV</span>Soacha Voleibol</td>
+                                <td>8</td>
+                                <td>7</td>
+                                <td>1</td>
+                                <td>22</td>
+                                <td>8</td>
+                                <td>21</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><span class="team-logo">CV</span>Chía Voleibol</td>
+                                <td>8</td>
+                                <td>6</td>
+                                <td>2</td>
+                                <td>20</td>
+                                <td>12</td>
+                                <td>18</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><span class="team-logo">FV</span>Funza Voleibol</td>
+                                <td>8</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>18</td>
+                                <td>15</td>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><span class="team-logo">MV</span>Madrid Voleibol</td>
+                                <td>8</td>
+                                <td>4</td>
+                                <td>4</td>
+                                <td>16</td>
+                                <td>16</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><span class="team-logo">ZV</span>Zipaquirá Voleibol</td>
+                                <td>8</td>
+                                <td>3</td>
+                                <td>5</td>
+                                <td>14</td>
+                                <td>18</td>
+                                <td>9</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><span class="team-logo">GV</span>Girardot Voleibol</td>
+                                <td>8</td>
+                                <td>2</td>
+                                <td>6</td>
+                                <td>12</td>
+                                <td>20</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><span class="team-logo">UV</span>Ubaté Voleibol</td>
+                                <td>8</td>
+                                <td>1</td>
+                                <td>7</td>
+                                <td>8</td>
+                                <td>22</td>
+                                <td>3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-image">🏐</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Próximos Partidos</h3>
+                            <p class="card-text"><strong>Sábado 20 de Enero</strong><br>
+                            Soacha vs Chía - 2:00 PM<br>
+                            Funza vs Madrid - 4:00 PM</p>
+                            <p class="card-text"><strong>Domingo 21 de Enero</strong><br>
+                            Zipaquirá vs Girardot - 10:00 AM<br>
+                            Ubaté vs Soacha - 2:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">📊</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Estadísticas Destacadas</h3>
+                            <p class="card-text"><strong>Goleador:</strong> Juan Pérez (Soacha) - 156 puntos</p>
+                            <p class="card-text"><strong>Mejor Bloqueador:</strong> Carlos López (Chía) - 45 bloqueos</p>
+                            <p class="card-text"><strong>Mejor Sacador:</strong> Ana García (Funza) - 32 aces</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">🎯</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Reglamento de Competencia</h3>
+                            <p class="card-text">Sistema de todos contra todos en fase regular. Los primeros 4 equipos clasifican a semifinales. Partidos al mejor de 5 sets.</p>
+                            <a href="#" class="btn">Ver Reglamento Completo</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- CLUBES PAGE -->
+        <div id="page-clubes" class="page-content hidden">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Clubes Afiliados</h1>
+                    <p class="hero-subtitle">Conoce las instituciones que forman parte de nuestra Liga</p>
+                </div>
+            </div>
+            
+            <div class="breadcrumb">
+                <div class="breadcrumb-content">
+                    <a href="#" onclick="showPage('home')">Inicio</a> > Clubes
+                </div>
+            </div>
+
+            <section class="content-section">
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-image">🏐</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Club Soacha Voleibol</h3>
+                            <p class="card-text"><strong>Fundado:</strong> 2010<br>
+                            <strong>Categorías:</strong> Infantil, Juvenil, Mayores<br>
+                            <strong>Sede:</strong> Soacha, Cundinamarca</p>
+                            <p class="card-text">Club líder en formación deportiva con más de 150 deportistas activos.</p>
+                            <span class="status-badge status-active">Activo</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">🏐</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Chía Voleibol Club</h3>
+                            <p class="card-text"><strong>Fundado:</strong> 2012<br>
+                            <strong>Categorías:</strong> Juvenil, Mayores<br>
+                            <strong>Sede:</strong> Chía, Cundinamarca</p>
+                            <p class="card-text">Reconocido por su excelente trabajo en categorías formativas.</p>
+                            <span class="status-badge status-active">Activo</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">🏐</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Funza Voleibol</h3>
+                            <p class="card-text"><strong>Fundado:</strong> 2015<br>
+                            <strong>Categorías:</strong> Infantil, Juvenil, Mayores<br>
+                            <strong>Sede:</strong> Funza, Cundinamarca</p>
+                            <p class="card-text">Club en crecimiento con gran proyección deportiva.</p>
+                            <span class="status-badge status-active">Activo</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">🏐</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Madrid Voleibol</h3>
+                            <p class="card-text"><strong>Fundado:</strong> 2008<br>
+                            <strong>Categorías:</strong> Juvenil, Mayores, Veteranos<br>
+                            <strong>Sede:</strong> Madrid, Cundinamarca</p>
+                            <p class="card-text">Uno de los clubes pioneros en el desarrollo del voleibol departamental.</p>
+                            <span class="status-badge status-active">Activo</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">🏐</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Zipaquirá Voleibol</h3>
+                            <p class="card-text"><strong>Fundado:</strong> 2013<br>
+                            <strong>Categorías:</strong> Infantil, Juvenil<br>
+                            <strong>Sede:</strong> Zipaquirá, Cundinamarca</p>
+                            <p class="card-text">Especializado en formación de nuevos talentos deportivos.</p>
+                            <span class="status-badge status-active">Activo</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">📝</div>
+                        <div class="card-content">
+                            <h3 class="card-title">¿Quieres Afiliar tu Club?</h3>
+                            <p class="card-text">Únete a nuestra familia deportiva y participa en todas las competencias oficiales de la Liga.</p>
+                            <p class="card-text"><strong>Requisitos:</strong><br>
+                            • Personería jurídica vigente<br>
+                            • Mínimo 15 deportistas activos<br>
+                            • Entrenador certificado</p>
+                            <button class="btn" onclick="alert('Formulario de afiliación próximamente disponible')">Iniciar Proceso</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- CURSOS PAGE -->
+        <div id="page-cursos" class="page-content hidden">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Formación y Cursos</h1>
+                    <p class="hero-subtitle">Desarrollando el talento del voleibol cundinamarqués</p>
+                </div>
+            </div>
+            
+            <div class="breadcrumb">
+                <div class="breadcrumb-content">
+                    <a href="#" onclick="showPage('home')">Inicio</a> > Cursos
+                </div>
+            </div>
+
+            <section class="content-section">
+                <!-- Course Selection -->
+                <div id="course-selection">
+                    <div class="cards-grid">
+                        <div class="card">
+                            <div class="card-image">📚</div>
+                            <div class="card-content">
+                                <h3 class="card-title">Curso Departamental Online</h3>
+                                <p class="card-text">Formación integral para entrenadores con 300 preguntas y certificación oficial. Duración: 40 horas académicas.</p>
+                                <p class="card-text"><strong>Modalidad:</strong> Virtual<br><strong>Costo:</strong> $150.000</p>
+                                
+                                <div class="exam-structure">
+                                    <h4>📋 Examen de Certificación</h4>
+                                    <p><strong>300 preguntas</strong> distribuidas en 10 bloques temáticos</p>
+                                    <p><strong>Duración:</strong> 2.5 horas | <strong>Aprobación:</strong> 70%</p>
+                                    <p><strong>Formato:</strong> Opción múltiple (5 alternativas)</p>
+                                    
+                                    <details style="margin-top: 0.8rem;">
+                                        <summary style="cursor: pointer; font-weight: 500; color: var(--azul-liga);">Ver bloques temáticos</summary>
+                                        <div class="blocks-grid" style="margin-top: 0.5rem;">
+                                            <span>1. Términos y responsabilidades (20)</span>
+                                            <span>2. Fundamentos básicos (30)</span>
+                                            <span>3. Habilidades y tácticas (40)</span>
+                                            <span>4. Capacidades físicas (30)</span>
+                                            <span>5. Biomecánica aplicada (30)</span>
+                                            <span>6. Reglamento oficial (40)</span>
+                                            <span>7. Estadísticas y datos (30)</span>
+                                            <span>8. Dirección de equipos (30)</span>
+                                            <span>9. Organización competencias (25)</span>
+                                            <span>10. Casos y problemas (25)</span>
+                                        </div>
+                                    </details>
+                                </div>
+                                
+                                <button class="btn" onclick="startExam()">🎯 Iniciar Examen de Certificación</button>
+                                <button class="btn-secondary" onclick="alert('Próximamente: Inscripción oficial al curso')" style="margin-top: 0.5rem; width: 100%;">📝 Inscribirse al Curso</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image">🎓</div>
+                            <div class="card-content">
+                                <h3 class="card-title">Certificación de Jueces</h3>
+                                <p class="card-text">Programa de formación para árbitros de voleibol con práctica supervisada. Niveles I, II y III disponibles.</p>
+                                <span class="status-badge status-updating">Próxima convocatoria: Marzo 2024</span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image">🏐</div>
+                            <div class="card-content">
+                                <h3 class="card-title">Clínicas Técnicas</h3>
+                                <p class="card-text">Talleres especializados en técnicas avanzadas de voleibol para jugadores y entrenadores.</p>
+                                <span class="status-badge status-active">Inscripciones abiertas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exam Interface -->
+                <div id="exam-interface" class="hidden">
+                    <div class="exam-header">
+                        <div class="exam-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <div class="exam-info">
+                                <span id="currentQuestion">1</span> de <span id="totalQuestions">300</span> preguntas
+                                | Bloque: <span id="currentBlock">1</span> de 10
+                                | Tiempo: <span id="examTimer">02:30:00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exam-content">
+                        <div class="block-info">
+                            <h3 id="blockTitle">Bloque 1: Términos, condiciones y responsabilidades profesionales</h3>
+                            <p id="blockDescription">Políticas de la Liga, responsabilidades del entrenador, registros, elegibilidad de deportistas y participación en eventos</p>
+                        </div>
+
+                        <div class="question-container">
+                            <div class="question-number">Pregunta <span id="questionNumber">1</span></div>
+                            <div class="question-text" id="questionText">¿En qué año se fundó la Liga de Voleibol de Cundinamarca?</div>
+                            
+                            <div class="answers-container" id="answersContainer">
+                                <div class="answer-option" onclick="selectAnswer(0)">
+                                    <span class="option-letter">A)</span>
+                                    <span class="option-text">2005</span>
+                                </div>
+                                <div class="answer-option" onclick="selectAnswer(1)">
+                                    <span class="option-letter">B)</span>
+                                    <span class="option-text">2008</span>
+                                </div>
+                                <div class="answer-option" onclick="selectAnswer(2)">
+                                    <span class="option-letter">C)</span>
+                                    <span class="option-text">2010</span>
+                                </div>
+                                <div class="answer-option" onclick="selectAnswer(3)">
+                                    <span class="option-letter">D)</span>
+                                    <span class="option-text">2012</span>
+                                </div>
+                                <div class="answer-option" onclick="selectAnswer(4)">
+                                    <span class="option-letter">E)</span>
+                                    <span class="option-text">2015</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="exam-controls">
+                            <button class="btn-secondary" onclick="previousQuestion()" id="prevBtn" disabled>Anterior</button>
+                            <button class="btn" onclick="nextQuestion()" id="nextBtn">Siguiente</button>
+                            <button class="btn btn-finish" onclick="finishExam()" id="finishBtn" style="display: none;">Finalizar Examen</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Interface -->
+                <div id="exam-results" class="hidden">
+                    <div class="results-header">
+                        <h2>Resultados del Examen</h2>
+                        <div class="overall-score">
+                            <div class="score-circle">
+                                <span id="finalScore">85%</span>
+                            </div>
+                            <div class="score-status">
+                                <h3 id="scoreStatus">¡Aprobado!</h3>
+                                <p>Puntuación mínima requerida: 70%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="results-breakdown">
+                        <h3>Resultados por Bloque</h3>
+                        <div id="blockResults"></div>
+                    </div>
+
+                    <div class="results-actions">
+                        <button class="btn" onclick="restartExam()">Reiniciar Examen</button>
+                        <button class="btn-secondary" onclick="showCourseSelection()">Volver a Cursos</button>
+                    </div>
+                </div>
+
+                <div style="margin-top: 4rem;">
+                    <h2 style="text-align: center; color: var(--azul-liga); margin-bottom: 2rem;">Entrenadores Certificados</h2>
+                    <div class="cards-grid">
+                        <div class="card">
+                            <div class="card-image">👨‍🏫</div>
+                            <div class="card-content">
+                                <h3 class="card-title">Carlos Rodríguez</h3>
+                                <p class="card-text">Nivel III - Especialista en categorías juveniles</p>
+                                <span class="status-badge status-active">Certificado vigente</span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image">👩‍🏫</div>
+                            <div class="card-content">
+                                <h3 class="card-title">María González</h3>
+                                <p class="card-text">Nivel II - Entrenadora de voleibol femenino</p>
+                                <span class="status-badge status-updating">Actualizando certificación</span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image">👨‍🏫</div>
+                            <div class="card-content">
+                                <h3 class="card-title">Andrés Morales</h3>
+                                <p class="card-text">Nivel III - Preparador físico especializado</p>
+                                <span class="status-badge status-active">Certificado vigente</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- CONTACTO PAGE -->
+        <div id="page-contacto" class="page-content hidden">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Contacto</h1>
+                    <p class="hero-subtitle">Estamos aquí para apoyar el desarrollo del voleibol</p>
+                </div>
+            </div>
+            
+            <div class="breadcrumb">
+                <div class="breadcrumb-content">
+                    <a href="#" onclick="showPage('home')">Inicio</a> > Contacto
+                </div>
+            </div>
+
+            <section class="content-section">
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-image">📍</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Oficina Principal</h3>
+                            <p class="card-text">
+                                <strong>Dirección:</strong><br>
+                                Carrera 15 #93-47, Oficina 302<br>
+                                Bogotá D.C., Colombia
+                            </p>
+                            <p class="card-text">
+                                <strong>Horario de Atención:</strong><br>
+                                Lunes a Viernes: 8:00 AM - 5:00 PM<br>
+                                Sábados: 8:00 AM - 12:00 PM
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">📞</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Teléfonos</h3>
+                            <p class="card-text">
+                                <strong>Línea Principal:</strong><br>
+                                +57 (1) 234-5678
+                            </p>
+                            <p class="card-text">
+                                <strong>WhatsApp:</strong><br>
+                                +57 300 123 4567
+                            </p>
+                            <p class="card-text">
+                                <strong>Emergencias:</strong><br>
+                                +57 310 987 6543
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">✉️</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Correos Electrónicos</h3>
+                            <p class="card-text">
+                                <strong>Información General:</strong><br>
+                                info@ligavoleibolcundinamarca.com
+                            </p>
+                            <p class="card-text">
+                                <strong>Competencias:</strong><br>
+                                competencias@ligavoleibolcundinamarca.com
+                            </p>
+                            <p class="card-text">
+                                <strong>Cursos y Formación:</strong><br>
+                                cursos@ligavoleibolcundinamarca.com
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">👥</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Junta Directiva</h3>
+                            <p class="card-text">
+                                <strong>Presidente:</strong><br>
+                                Dr. Roberto Martínez<br>
+                                presidente@ligavoleibolcundinamarca.com
+                            </p>
+                            <p class="card-text">
+                                <strong>Secretario General:</strong><br>
+                                Lic. Ana Sofía Herrera<br>
+                                secretaria@ligavoleibolcundinamarca.com
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">🌐</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Redes Sociales</h3>
+                            <p class="card-text">Síguenos en nuestras redes sociales para estar al día con todas las novedades del voleibol cundinamarqués.</p>
+                            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                                <a href="#" style="color: var(--azul-liga); font-size: 1.5rem;">📘</a>
+                                <a href="#" style="color: var(--azul-liga); font-size: 1.5rem;">📷</a>
+                                <a href="#" style="color: var(--azul-liga); font-size: 1.5rem;">🐦</a>
+                                <a href="#" style="color: var(--azul-liga); font-size: 1.5rem;">📺</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">📝</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Formulario de Contacto</h3>
+                            <p class="card-text">¿Tienes alguna consulta específica? Envíanos un mensaje y te responderemos a la brevedad.</p>
+                            <button class="btn" onclick="alert('Formulario de contacto próximamente disponible')">Enviar Mensaje</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Exam System
+        const examData = {
+            blocks: [
+                {
+                    id: 1,
+                    title: "Términos, condiciones y responsabilidades profesionales",
+                    description: "Políticas de la Liga, responsabilidades del entrenador, registros, elegibilidad de deportistas y participación en eventos",
+                    questions: 20
+                },
+                {
+                    id: 2,
+                    title: "Fundamentos básicos de voleibol",
+                    description: "Conceptos fundamentales del voleibol: historia, reglas básicas, posiciones y roles",
+                    questions: 30
+                },
+                {
+                    id: 3,
+                    title: "Habilidades y tácticas",
+                    description: "Técnicas individuales y estrategias de equipo en el voleibol moderno",
+                    questions: 40
+                },
+                {
+                    id: 4,
+                    title: "Capacidades físicas y fisiología",
+                    description: "Preparación física, fisiología del ejercicio y desarrollo atlético",
+                    questions: 30
+                },
+                {
+                    id: 5,
+                    title: "Biomecánica aplicada",
+                    description: "Análisis del movimiento y optimización técnica en voleibol",
+                    questions: 30
+                },
+                {
+                    id: 6,
+                    title: "Reglamento oficial",
+                    description: "Reglas oficiales FIVB y su aplicación en competencias",
+                    questions: 40
+                },
+                {
+                    id: 7,
+                    title: "Estadísticas y análisis de datos",
+                    description: "Interpretación de estadísticas y análisis de rendimiento",
+                    questions: 30
+                },
+                {
+                    id: 8,
+                    title: "Dirección y gestión de equipos",
+                    description: "Liderazgo, gestión de equipos y desarrollo de jugadores",
+                    questions: 30
+                },
+                {
+                    id: 9,
+                    title: "Organización de competencias",
+                    description: "Planificación y ejecución de torneos y eventos deportivos",
+                    questions: 25
+                },
+                {
+                    id: 10,
+                    title: "Estudios de casos y resolución de problemas",
+                    description: "Aplicación práctica de conocimientos en situaciones reales",
+                    questions: 25
+                }
+            ],
+            questions: [
+                // Bloque 1: Términos, condiciones y responsabilidades profesionales (20 preguntas)
+                {
+                    block: 1,
+                    question: "¿Cuál es la responsabilidad principal del entrenador según las políticas de la Liga?",
+                    options: ["Solo entrenar", "Bienestar integral de sus deportistas", "Ganar competencias", "Cobrar honorarios", "Representar al club"],
+                    correct: 1
+                },
+                {
+                    block: 1,
+                    question: "¿Qué documento debe firmar todo entrenador antes de participar en eventos de la Liga?",
+                    options: ["Contrato laboral", "Manifiesto de términos y condiciones", "Póliza de seguros", "Acta de compromiso", "Certificado médico"],
+                    correct: 1
+                },
+                {
+                    block: 1,
+                    question: "¿Cuál es el plazo máximo para registrar deportistas en la Liga?",
+                    options: ["15 días antes del evento", "30 días antes del evento", "45 días antes del evento", "60 días antes del evento", "No hay plazo"],
+                    correct: 1
+                },
+                {
+                    block: 1,
+                    question: "¿Qué documentos son obligatorios para la elegibilidad de un deportista?",
+                    options: ["Solo cédula", "Cédula y certificado médico", "Cédula, certificado médico y autorización de padres (menores)", "Solo certificado médico", "Cualquier identificación"],
+                    correct: 2
+                },
+                {
+                    block: 1,
+                    question: "¿Cuál es la edad mínima para participar sin autorización de padres?",
+                    options: ["16 años", "17 años", "18 años", "19 años", "21 años"],
+                    correct: 2
+                },
+                {
+                    block: 1,
+                    question: "¿Qué debe hacer un entrenador si un deportista se lesiona durante un evento?",
+                    options: ["Continuar jugando", "Activar protocolo de emergencia y notificar a la Liga", "Solo avisar a los padres", "Llevarlo al hospital", "Esperar que se recupere"],
+                    correct: 1
+                },
+                {
+                    block: 1,
+                    question: "¿Cuál es la sanción por no asistir a un congresillo técnico obligatorio?",
+                    options: ["Multa económica", "Suspensión temporal", "Pérdida de certificación", "Amonestación", "No hay sanción"],
+                    correct: 2
+                },
+                {
+                    block: 1,
+                    question: "¿Cuándo deben realizarse los pagos de inscripción a eventos?",
+                    options: ["El día del evento", "Una semana antes", "Según cronograma establecido por la Liga", "Cuando se pueda", "Al finalizar el evento"],
+                    correct: 2
+                },
+                {
+                    block: 1,
+                    question: "¿Qué comportamiento está prohibido para un entrenador durante las competencias?",
+                    options: ["Dar instrucciones", "Protestar decisiones arbitrales agresivamente", "Motivar a su equipo", "Solicitar tiempos", "Hacer cambios"],
+                    correct: 1
+                },
+                {
+                    block: 1,
+                    question: "¿Cuál es la responsabilidad del entrenador respecto al fair play?",
+                    options: ["No es su responsabilidad", "Promover y garantizar el juego limpio", "Solo ganar", "Protestar todas las decisiones", "Presionar a los árbitros"],
+                    correct: 1
+                },
+                {
+                    block: 1,
+                    question: "¿Qué debe hacer un entrenador si detecta uso de sustancias prohibidas?",
+                    options: ["Ignorarlo", "Reportar inmediatamente a la Liga", "Hablar solo con el deportista", "Consultar con otros entrenadores", "Esperar a que termine la competencia"],
+                    correct: 1
+                },
+                {
+                    block: 1,
+                    question: "¿Cuál es la política de la Liga sobre deportistas con doble nacionalidad?",
+                    options: ["No pueden participar", "Pueden representar cualquier país", "Deben elegir una nacionalidad para competir", "Solo colombianos", "Decisión del entrenador"],
+                    correct: 2
+                },
+                {
+                    block: 1,
+                    question: "¿Qué información debe mantener actualizada el entrenador en los registros?",
+                    options: ["Solo nombres", "Datos personales, médicos y de contacto de emergencia", "Solo teléfonos", "Solo direcciones", "Información opcional"],
+                    correct: 1
+                },
+                {
+                    block: 1,
+                    question: "¿Cuál es la responsabilidad del entrenador en el transporte de menores?",
+                    options: ["No es su responsabilidad", "Garantizar seguridad y tener autorizaciones", "Solo llegar al destino", "Cualquier vehículo sirve", "Los padres se encargan"],
+                    correct: 1
+                },
+                {
+                    block: 1,
+                    question: "¿Qué debe hacer un entrenador ante una situación de acoso o abuso?",
+                    options: ["Manejarlo internamente", "Reportar inmediatamente a autoridades y Liga", "Ignorarlo si no es grave", "Consultar con otros entrenadores", "Esperar más evidencia"],
+                    correct: 1
+                },
+                {
+                    block: 1,
+                    question: "¿Cuál es la política sobre el uso de redes sociales por parte del entrenador?",
+                    options: ["Libertad total", "Uso responsable sin comprometer la imagen de la Liga", "Prohibido totalmente", "Solo para promoción", "Sin restricciones"],
+                    correct: 1
+                },
+                {
+                    block: 1,
+                    question: "¿Qué debe incluir el plan de emergencia que debe manejar todo entrenador?",
+                    options: ["Solo números de emergencia", "Protocolos médicos, contactos y procedimientos", "Solo hospital más cercano", "Información opcional", "No es necesario"],
+                    correct: 1
+                },
+                {
+                    block: 1,
+                    question: "¿Cuál es la responsabilidad del entrenador en la educación antidopaje?",
+                    options: ["No es su responsabilidad", "Educar y prevenir el uso de sustancias prohibidas", "Solo informar si preguntan", "Responsabilidad médica", "Tema opcional"],
+                    correct: 1
+                },
+                {
+                    block: 1,
+                    question: "¿Qué consecuencias tiene el incumplimiento de los términos y condiciones?",
+                    options: ["Solo amonestación", "Sanciones que van desde multa hasta suspensión definitiva", "No hay consecuencias", "Solo advertencia", "Pérdida de un partido"],
+                    correct: 1
+                },
+                {
+                    block: 1,
+                    question: "¿Cuál es la obligación del entrenador respecto a la confidencialidad de información médica?",
+                    options: ["Puede compartirla libremente", "Mantener absoluta confidencialidad", "Solo con otros entrenadores", "Publicarla si es necesario", "No hay restricciones"],
+                    correct: 1
+                },
+
+                // Bloque 2: Fundamentos básicos de voleibol (30 preguntas)
+                {
+                    block: 2,
+                    question: "¿En qué año se inventó el voleibol?",
+                    options: ["1891", "1895", "1900", "1905", "1910"],
+                    correct: 1
+                },
+                {
+                    block: 2,
+                    question: "¿Quién inventó el voleibol?",
+                    options: ["James Naismith", "William Morgan", "Walter Camp", "Luther Gulick", "Frank Mahan"],
+                    correct: 1
+                },
+                {
+                    block: 2,
+                    question: "¿Cuál era el nombre original del voleibol?",
+                    options: ["Volleyball", "Mintonette", "Netball", "Handball", "Beachball"],
+                    correct: 1
+                },
+                {
+                    block: 2,
+                    question: "¿Cuántos jugadores conforman un equipo en cancha?",
+                    options: ["5", "6", "7", "8", "9"],
+                    correct: 1
+                },
+                {
+                    block: 2,
+                    question: "¿Cuál es la altura oficial de la red para hombres?",
+                    options: ["2.40m", "2.43m", "2.45m", "2.48m", "2.50m"],
+                    correct: 1
+                },
+                {
+                    block: 2,
+                    question: "¿Cuál es la altura oficial de la red para mujeres?",
+                    options: ["2.20m", "2.24m", "2.28m", "2.30m", "2.35m"],
+                    correct: 1
+                },
+                {
+                    block: 2,
+                    question: "¿Cuáles son las dimensiones oficiales de la cancha?",
+                    options: ["16x8m", "18x9m", "20x10m", "18x10m", "16x9m"],
+                    correct: 1
+                },
+                {
+                    block: 2,
+                    question: "¿Cuántos sets se juegan en un partido oficial?",
+                    options: ["3 sets", "5 sets máximo", "7 sets", "Al mejor de 3", "Al mejor de 5"],
+                    correct: 4
+                },
+                {
+                    block: 2,
+                    question: "¿A cuántos puntos se juega cada set?",
+                    options: ["15 puntos", "21 puntos", "25 puntos", "30 puntos", "Variable"],
+                    correct: 2
+                },
+                {
+                    block: 2,
+                    question: "¿A cuántos puntos se juega el set decisivo?",
+                    options: ["15 puntos", "21 puntos", "25 puntos", "30 puntos", "Variable"],
+                    correct: 0
+                },
+                {
+                    block: 2,
+                    question: "¿Cuántos toques máximo puede dar un equipo?",
+                    options: ["2", "3", "4", "5", "Ilimitados"],
+                    correct: 1
+                },
+                {
+                    block: 2,
+                    question: "¿Qué posición se encarga principalmente del ataque?",
+                    options: ["Líbero", "Central", "Opuesto", "Armador", "Receptor"],
+                    correct: 2
+                },
+                {
+                    block: 2,
+                    question: "¿Qué posición no puede atacar desde la zona de ataque?",
+                    options: ["Líbero", "Central", "Opuesto", "Armador", "Receptor"],
+                    correct: 0
+                },
+                {
+                    block: 2,
+                    question: "¿Cuál es la función principal del armador?",
+                    options: ["Atacar", "Defender", "Distribuir", "Bloquear", "Sacar"],
+                    correct: 2
+                },
+                {
+                    block: 2,
+                    question: "¿Qué jugador puede entrar y salir libremente?",
+                    options: ["Capitán", "Líbero", "Central", "Opuesto", "Armador"],
+                    correct: 1
+                },
+                {
+                    block: 2,
+                    question: "¿Cuántas rotaciones hay en voleibol?",
+                    options: ["4", "5", "6", "7", "8"],
+                    correct: 2
+                },
+                {
+                    block: 2,
+                    question: "¿En qué dirección se rota?",
+                    options: ["Horario", "Antihorario", "Libre", "Alternado", "Variable"],
+                    correct: 0
+                },
+                {
+                    block: 2,
+                    question: "¿Cuándo se produce una rotación?",
+                    options: ["Cada punto", "Al ganar el saque", "Cada 5 puntos", "Al cambiar de set", "Al solicitar tiempo"],
+                    correct: 1
+                },
+                {
+                    block: 2,
+                    question: "¿Qué es un ace en voleibol?",
+                    options: ["Punto directo de saque", "Remate ganador", "Bloqueo exitoso", "Defensa espectacular", "Pase perfecto"],
+                    correct: 0
+                },
+                {
+                    block: 2,
+                    question: "¿Qué es un kill en voleibol?",
+                    options: ["Saque directo", "Ataque ganador", "Bloqueo punto", "Error del rival", "Jugada defensiva"],
+                    correct: 1
+                },
+                {
+                    block: 2,
+                    question: "¿Cuántos tiempos técnicos hay por set?",
+                    options: ["1", "2", "3", "4", "Variable"],
+                    correct: 1
+                },
+                {
+                    block: 2,
+                    question: "¿Cuánto dura un tiempo técnico?",
+                    options: ["30 segundos", "45 segundos", "60 segundos", "90 segundos", "120 segundos"],
+                    correct: 0
+                },
+                {
+                    block: 2,
+                    question: "¿Cuántas sustituciones se permiten por set?",
+                    options: ["3", "4", "5", "6", "Ilimitadas"],
+                    correct: 3
+                },
+                {
+                    block: 2,
+                    question: "¿Qué es la zona de ataque?",
+                    options: ["Toda la cancha", "3 metros desde la red", "6 metros desde la red", "La mitad de cancha", "Solo junto a la red"],
+                    correct: 1
+                },
+                {
+                    block: 2,
+                    question: "¿Qué es la zona de saque?",
+                    options: ["Esquina derecha", "Línea de fondo", "9 metros detrás", "Zona libre", "Cualquier lugar"],
+                    correct: 1
+                },
+                {
+                    block: 2,
+                    question: "¿Cuál es la presión oficial del balón?",
+                    options: ["0.30-0.325 kg/cm²", "0.40-0.45 kg/cm²", "0.50-0.55 kg/cm²", "0.60-0.65 kg/cm²", "Variable"],
+                    correct: 0
+                },
+                {
+                    block: 2,
+                    question: "¿Cuál es el peso oficial del balón?",
+                    options: ["240-260g", "260-280g", "280-300g", "300-320g", "320-340g"],
+                    correct: 1
+                },
+                {
+                    block: 2,
+                    question: "¿Cuál es la circunferencia oficial del balón?",
+                    options: ["62-64cm", "65-67cm", "68-70cm", "70-72cm", "72-74cm"],
+                    correct: 1
+                },
+                {
+                    block: 2,
+                    question: "¿Qué significa FIVB?",
+                    options: ["Federación Internacional de Voleibol", "Federación Iberoamericana de Voleibol", "Federación Intercontinental de Voleibol", "Federación Internacional de Volleyball", "Federación Interamericana de Voleibol"],
+                    correct: 0
+                },
+                {
+                    block: 2,
+                    question: "¿En qué año el voleibol se convirtió en deporte olímpico?",
+                    options: ["1960", "1964", "1968", "1972", "1976"],
+                    correct: 1
+                },
+
+                // Bloque 3: Habilidades y tácticas (40 preguntas)
+                {
+                    block: 3,
+                    question: "¿Cuáles son los fundamentos técnicos básicos del voleibol?",
+                    options: ["Saque, recepción, armado", "Saque, recepción, armado, ataque, bloqueo, defensa", "Solo ataque y defensa", "Saque y recepción", "Armado y ataque"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Cuál es la técnica correcta para el saque por debajo?",
+                    options: ["Golpe con puño cerrado", "Golpe con palma abierta", "Golpe con antebrazo", "Golpe con dedos", "Cualquier técnica"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Cuál es la técnica correcta para el saque por arriba?",
+                    options: ["Golpe con puño", "Golpe con palma", "Golpe con antebrazo", "Golpe con dedos", "Golpe lateral"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es el saque flotante?",
+                    options: ["Saque con efecto", "Saque sin rotación", "Saque muy fuerte", "Saque suave", "Saque lateral"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Cuál es la posición básica de recepción?",
+                    options: ["Piernas juntas", "Piernas separadas, rodillas flexionadas", "De pie erguido", "En cuclillas", "Saltando"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Qué parte del cuerpo se usa para la recepción baja?",
+                    options: ["Manos", "Dedos", "Antebrazos", "Puños", "Palmas"],
+                    correct: 2
+                },
+                {
+                    block: 3,
+                    question: "¿Cuál es la técnica correcta del pase de dedos?",
+                    options: ["Dedos rígidos", "Dedos flexibles formando copa", "Palmas abiertas", "Puños cerrados", "Antebrazos"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es un pase de primera intención?",
+                    options: ["Primer toque del equipo", "Pase directo al atacante", "Pase al armador", "Pase defensivo", "Pase de emergencia"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Cuáles son los tipos principales de ataque?",
+                    options: ["Solo remate", "Remate y dejada", "Remate, dejada y finta", "Solo dejada", "Remate y bloqueo"],
+                    correct: 2
+                },
+                {
+                    block: 3,
+                    question: "¿Cuál es la técnica correcta del remate?",
+                    options: ["Salto vertical, golpe fuerte", "Carrera, salto, golpe coordinado", "Solo golpe fuerte", "Salto sin carrera", "Golpe desde el suelo"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es una dejada o tip?",
+                    options: ["Ataque fuerte", "Toque suave sobre el bloqueo", "Pase al compañero", "Error de ataque", "Bloqueo defensivo"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Cuántos pasos tiene la carrera de aproximación típica?",
+                    options: ["2 pasos", "3 pasos", "4 pasos", "5 pasos", "Variable"],
+                    correct: 2
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es el bloqueo individual?",
+                    options: ["Un jugador bloquea", "Dos jugadores bloquean", "Tres jugadores bloquean", "Todo el equipo bloquea", "No existe"],
+                    correct: 0
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es el bloqueo doble?",
+                    options: ["Un jugador bloquea dos veces", "Dos jugadores bloquean juntos", "Bloqueo en dos tiempos", "Bloqueo defensivo", "Bloqueo ofensivo"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Cuál es la posición correcta de las manos en el bloqueo?",
+                    options: ["Manos hacia abajo", "Manos hacia adelante y arriba", "Manos a los lados", "Manos hacia atrás", "Manos cerradas"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es la defensa en campo?",
+                    options: ["Solo el líbero defiende", "Todos los jugadores participan", "Solo los zagueros", "Solo los delanteros", "No existe"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Cuál es la técnica de la plancha?",
+                    options: ["Salto alto", "Caída controlada hacia adelante", "Rodar hacia atrás", "Salto lateral", "Posición estática"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es el sistema 6-0?",
+                    options: ["6 atacantes", "6 armadores", "Todos los jugadores arman", "6 defensores", "Sistema inexistente"],
+                    correct: 2
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es el sistema 5-1?",
+                    options: ["5 atacantes, 1 defensor", "5 jugadores, 1 armador", "5 defensores, 1 atacante", "5 armadores, 1 atacante", "Sistema inexistente"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es el sistema 4-2?",
+                    options: ["4 atacantes, 2 defensores", "4 jugadores, 2 armadores", "4 defensores, 2 atacantes", "4 armadores, 2 atacantes", "Sistema inexistente"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es un ataque de primer tiempo?",
+                    options: ["Primer ataque del set", "Ataque rápido al centro", "Ataque lento", "Ataque desde zaguero", "Ataque de emergencia"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es un ataque de segundo tiempo?",
+                    options: ["Segundo ataque del set", "Ataque más lento y alto", "Ataque rápido", "Ataque desde zaguero", "Ataque de emergencia"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es una combinación de ataque?",
+                    options: ["Un solo atacante", "Múltiples opciones de ataque coordinadas", "Ataque individual", "Ataque defensivo", "No existe"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es el ataque de zaguero?",
+                    options: ["Ataque desde delantero", "Ataque desde la zona de zaguero", "Ataque del líbero", "Ataque prohibido", "Ataque defensivo"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Cuál es la función del central en ataque?",
+                    options: ["Solo defender", "Ataques rápidos de primer tiempo", "Ataques lentos", "Solo bloquear", "Armar jugadas"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Cuál es la función del opuesto?",
+                    options: ["Solo defender", "Principal atacante del equipo", "Solo bloquear", "Armar jugadas", "Recibir saques"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es la recepción en W?",
+                    options: ["Formación defensiva", "Formación de recepción de saque", "Formación de ataque", "Formación de bloqueo", "No existe"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es la defensa en cruz?",
+                    options: ["Formación de recepción", "Formación defensiva específica", "Formación de ataque", "Formación de saque", "No existe"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Cuándo se usa el pase de antebrazos?",
+                    options: ["Siempre", "Para balones bajos y rápidos", "Para balones altos", "Solo en defensa", "Solo en ataque"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Cuándo se usa el pase de dedos?",
+                    options: ["Siempre", "Para balones altos y controlados", "Para balones bajos", "Solo en defensa", "Solo en ataque"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es el contraataque?",
+                    options: ["Ataque defensivo", "Transición rápida de defensa a ataque", "Ataque lento", "Ataque individual", "No existe"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es la cobertura de ataque?",
+                    options: ["Atacar más", "Proteger al atacante de bloqueos", "Defender menos", "Atacar desde atrás", "No existe"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Cuál es el objetivo del saque táctico?",
+                    options: ["Hacer punto directo", "Dificultar la recepción rival", "Sacar fuerte", "Sacar suave", "No existe"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es el bloqueo ofensivo?",
+                    options: ["Bloquear para atacar", "Bloquear buscando el punto directo", "Bloquear suave", "Bloquear defensivo", "No existe"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es el bloqueo defensivo?",
+                    options: ["Bloquear para atacar", "Bloquear para facilitar la defensa", "Bloquear fuerte", "Bloquear ofensivo", "No existe"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Cuál es la importancia de la comunicación en voleibol?",
+                    options: ["No es importante", "Fundamental para la coordinación", "Solo para el capitán", "Solo para el entrenador", "Opcional"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es una jugada de engaño?",
+                    options: ["Jugada ilegal", "Táctica para confundir al rival", "Jugada defensiva", "Jugada simple", "No existe"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Cuál es la función del líbero en ataque?",
+                    options: ["Atacar desde delantero", "No puede atacar", "Solo ataques de zaguero", "Atacar libremente", "Armar jugadas"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Qué es la rotación táctica?",
+                    options: ["Rotación normal", "Cambio de posiciones para optimizar el juego", "Rotación rápida", "Rotación lenta", "No existe"],
+                    correct: 1
+                },
+                {
+                    block: 3,
+                    question: "¿Cuál es la importancia del timing en voleibol?",
+                    options: ["No es importante", "Crucial para la coordinación de jugadas", "Solo para el saque", "Solo para el ataque", "Opcional"],
+                    correct: 1
+                }
+            ]
+        };
+
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let examTimer;
+        let timeRemaining = 9000; // 2.5 hours in seconds
+
+        function startExam() {
+            document.getElementById('course-selection').classList.add('hidden');
+            document.getElementById('exam-interface').classList.remove('hidden');
+            
+            currentQuestionIndex = 0;
+            userAnswers = new Array(300).fill(-1);
+            timeRemaining = 9000;
+            
+            updateQuestion();
+            startTimer();
+        }
+
+        function startTimer() {
+            examTimer = setInterval(() => {
+                timeRemaining--;
+                updateTimerDisplay();
+                
+                if (timeRemaining <= 0) {
+                    clearInterval(examTimer);
+                    finishExam();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const hours = Math.floor(timeRemaining / 3600);
+            const minutes = Math.floor((timeRemaining % 3600) / 60);
+            const seconds = timeRemaining % 60;
+            
+            document.getElementById('examTimer').textContent = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function updateQuestion() {
+            const question = examData.questions[currentQuestionIndex];
+            const block = examData.blocks[question.block - 1];
+            
+            // Update progress
+            const progress = ((currentQuestionIndex + 1) / 300) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            
+            // Update question info
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+            document.getElementById('currentBlock').textContent = question.block;
+            document.getElementById('questionNumber').textContent = currentQuestionIndex + 1;
+            
+            // Update block info
+            document.getElementById('blockTitle').textContent = `Bloque ${question.block}: ${block.title}`;
+            document.getElementById('blockDescription').textContent = block.description;
+            
+            // Update question
+            document.getElementById('questionText').textContent = question.question;
+            
+            // Update answers
+            const answersContainer = document.getElementById('answersContainer');
+            answersContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const answerDiv = document.createElement('div');
+                answerDiv.className = 'answer-option';
+                if (userAnswers[currentQuestionIndex] === index) {
+                    answerDiv.classList.add('selected');
+                }
+                answerDiv.onclick = () => selectAnswer(index);
+                
+                answerDiv.innerHTML = `
+                    <span class="option-letter">${String.fromCharCode(65 + index)})</span>
+                    <span class="option-text">${option}</span>
+                `;
+                
+                answersContainer.appendChild(answerDiv);
+            });
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
+            document.getElementById('nextBtn').style.display = currentQuestionIndex === 299 ? 'none' : 'inline-block';
+            document.getElementById('finishBtn').style.display = currentQuestionIndex === 299 ? 'inline-block' : 'none';
+        }
+
+        function selectAnswer(answerIndex) {
+            userAnswers[currentQuestionIndex] = answerIndex;
+            
+            // Update visual selection
+            document.querySelectorAll('.answer-option').forEach((option, index) => {
+                option.classList.toggle('selected', index === answerIndex);
+            });
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                updateQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < 299) {
+                currentQuestionIndex++;
+                updateQuestion();
+            }
+        }
+
+        function finishExam() {
+            clearInterval(examTimer);
+            
+            // Calculate results
+            const results = calculateResults();
+            
+            // Hide exam interface and show results
+            document.getElementById('exam-interface').classList.add('hidden');
+            document.getElementById('exam-results').classList.remove('hidden');
+            
+            // Display results
+            displayResults(results);
+        }
+
+        function calculateResults() {
+            let totalCorrect = 0;
+            const blockResults = {};
+            
+            // Initialize block results
+            examData.blocks.forEach(block => {
+                blockResults[block.id] = {
+                    title: block.title,
+                    correct: 0,
+                    total: 0
+                };
+            });
+            
+            // Calculate scores
+            examData.questions.forEach((question, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === question.correct;
+                
+                if (isCorrect) {
+                    totalCorrect++;
+                    blockResults[question.block].correct++;
+                }
+                blockResults[question.block].total++;
+            });
+            
+            const overallPercentage = Math.round((totalCorrect / 300) * 100);
+            
+            return {
+                totalCorrect,
+                overallPercentage,
+                blockResults,
+                passed: overallPercentage >= 70
+            };
+        }
+
+        function displayResults(results) {
+            // Update overall score
+            document.getElementById('finalScore').textContent = results.overallPercentage + '%';
+            document.getElementById('scoreStatus').textContent = results.passed ? '¡Aprobado!' : 'No aprobado';
+            document.getElementById('scoreStatus').style.color = results.passed ? '#28a745' : '#dc3545';
+            
+            // Update block results
+            const blockResultsContainer = document.getElementById('blockResults');
+            blockResultsContainer.innerHTML = '';
+            
+            Object.values(results.blockResults).forEach(block => {
+                const percentage = Math.round((block.correct / block.total) * 100);
+                
+                const blockDiv = document.createElement('div');
+                blockDiv.className = 'block-result';
+                blockDiv.innerHTML = `
+                    <div class="block-name">${block.title}</div>
+                    <div class="block-score">
+                        <div class="score-bar">
+                            <div class="score-fill" style="width: ${percentage}%"></div>
+                        </div>
+                        <div class="score-percentage">${percentage}%</div>
+                    </div>
+                `;
+                
+                blockResultsContainer.appendChild(blockDiv);
+            });
+        }
+
+        function restartExam() {
+            document.getElementById('exam-results').classList.add('hidden');
+            startExam();
+        }
+
+        function showCourseSelection() {
+            document.getElementById('exam-results').classList.add('hidden');
+            document.getElementById('course-selection').classList.remove('hidden');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage('home');
+        });
+
+        // Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.add('hidden');
+            });
+            
+            // Show selected page
+            document.getElementById('page-' + pageId).classList.remove('hidden');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Find and activate current nav link
+            const currentLink = document.querySelector(`[onclick="showPage('${pageId}')"]`);
+            if (currentLink) {
+                currentLink.classList.add('active');
+            }
+        }
+
+        function toggleMobileMenu() {
+            // Mobile menu functionality would go here
+            alert('Menú móvil - Funcionalidad próximamente disponible');
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96925dc28176af7a',t:'MTc1NDE4Nzk0NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
