@@ -1,230 +1,1232 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Inicio - Liga de Voleibol de Cundinamarca</title>
-  <meta name="description" content="Bienvenido a la Liga de Voleibol de Cundinamarca: servicios, clubes, entrenadores y más." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liga de Voleibol de Cundinamarca - Organismo Deportivo Institucional</title>
+    <meta name="description" content="Liga de Voleibol de Cundinamarca - 15 años liderando el desarrollo del voleibol en Cundinamarca con excelencia institucional y compromiso deportivo.">
+    
+    <!-- SEO and Social Meta Tags -->
+    <meta property="og:title" content="Liga de Voleibol de Cundinamarca - Portal Institucional">
+    <meta property="og:description" content="Organismo deportivo líder en Cundinamarca con 15 años de trayectoria institucional">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ligavoleibolcundinamarca.org">
+    <meta property="og:image" content="https://ligavoleibolcundinamarca.org/images/og-institutional.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        'institutional': {
+                            'blue-deep': '#0A2E6E',
+                            'blue-medium': '#17479B',
+                            'gold-elegant': '#E0B124',
+                            'gold-bright': '#FFC72C',
+                            'red-accent': '#A51C2E',
+                            'red-highlight': '#C8102E',
+                            'gray-light': '#F5F5F5',
+                            'gray-medium': '#D1D1D1',
+                            'gray-dark': '#4A4A4A',
+                        }
+                    },
+                    animation: {
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
+                        'slide-in-right': 'slideInRight 0.8s ease-out forwards',
+                        'counter-up': 'counterUp 2s ease-out forwards',
+                        'ripple': 'ripple 0.6s ease-out',
+                        'float-gentle': 'floatGentle 6s ease-in-out infinite',
+                        'stagger-1': 'fadeUp 0.8s ease-out 0.1s forwards',
+                        'stagger-2': 'fadeUp 0.8s ease-out 0.2s forwards',
+                        'stagger-3': 'fadeUp 0.8s ease-out 0.3s forwards',
+                        'stagger-4': 'fadeUp 0.8s ease-out 0.4s forwards',
+                    },
+                    boxShadow: {
+                        'institutional': '0 4px 12px rgba(0, 0, 0, 0.08)',
+                        'institutional-hover': '0 8px 24px rgba(0, 0, 0, 0.12)',
+                        'header': '0 2px 8px rgba(0, 0, 0, 0.1)',
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Critical CSS - Institutional Premium Styles -->
+    <style>
+        :root {
+            /* Institutional Color Palette */
+            --blue-deep: #0A2E6E;
+            --blue-medium: #17479B;
+            --gold-elegant: #E0B124;
+            --gold-bright: #FFC72C;
+            --red-accent: #A51C2E;
+            --red-highlight: #C8102E;
+            --gray-light: #F5F5F5;
+            --gray-medium: #D1D1D1;
+            --gray-dark: #4A4A4A;
+            
+            /* Institutional Gradients */
+            --gradient-hero: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-medium) 100%);
+            --gradient-section: linear-gradient(180deg, var(--gray-light) 0%, #FFFFFF 100%);
+            --gradient-footer: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-medium) 100%);
+            --gradient-card: linear-gradient(145deg, #FFFFFF 0%, var(--gray-light) 100%);
+            --gradient-radial: radial-gradient(circle at center, rgba(23, 71, 155, 0.05) 0%, transparent 70%);
+            
+            /* Professional Transitions */
+            --transition-smooth: all 0.4s ease-in-out;
+            --transition-fast: all 0.2s ease-in-out;
+            --transition-slow: all 0.6s ease-in-out;
+            
+            /* Institutional Shadows */
+            --shadow-institutional: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-institutional-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-header: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Reset and Base - Professional Foundation */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-dark);
+            overflow-x: hidden;
+            background: #FFFFFF;
+        }
+        
+        /* Skip Link - Professional Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -60px;
+            left: 20px;
+            background: var(--blue-deep);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            z-index: 9999;
+            transition: var(--transition-smooth);
+            font-weight: 600;
+            font-size: 16px;
+            border: 2px solid var(--gold-bright);
+        }
+        
+        .skip-link:focus {
+            top: 20px;
+            outline: 2px solid var(--gold-bright);
+            outline-offset: 4px;
+        }
+        
+        /* Professional Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes counterUp {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes floatGentle {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg); 
+            }
+            50% { 
+                transform: translateY(-20px) rotate(2deg); 
+            }
+        }
+        
+        /* Institutional Background Patterns */
+        .bg-pattern-institutional {
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2317479B' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3Cpath d='M30 20c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10-4.5-10-10-10zm0 16c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23E0B124' fill-opacity='0.03'%3E%3Cpath d='M20 10c-2 0-4 2-4 4s2 4 4 4 4-2 4-4-2-4-4-4zm-8 12c-1.5 0-3 1.5-3 3s1.5 3 3 3 3-1.5 3-3-1.5-3-3-3zm16 0c-1.5 0-3 1.5-3 3s1.5 3 3 3 3-1.5 3-3-1.5-3-3-3zm-12 8c-1 0-2 1-2 2s1 2 2 2 2-1 2-2-1-2-2-2zm8 0c-1 0-2 1-2 2s1 2 2 2 2-1 2-2-1-2-2-2z'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 60px 60px, 40px 40px;
+            background-position: 0 0, 30px 30px;
+        }
+        
+        .bg-geometric-overlay {
+            background-image: 
+                linear-gradient(30deg, transparent 40%, rgba(23, 71, 155, 0.1) 40%, rgba(23, 71, 155, 0.1) 60%, transparent 60%),
+                linear-gradient(-30deg, transparent 40%, rgba(224, 177, 36, 0.05) 40%, rgba(224, 177, 36, 0.05) 60%, transparent 60%);
+            background-size: 120px 120px, 80px 80px;
+        }
+        
+        /* Professional Glass Morphism */
+        .glass-institutional {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 16px;
+        }
+        
+        /* Institutional Navigation */
+        .navbar-institutional {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 100px;
+            transition: var(--transition-smooth);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .navbar-institutional.scrolled {
+            height: 70px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-header);
+        }
+        
+        /* Professional Buttons */
+        .btn-institutional {
+            position: relative;
+            overflow: hidden;
+            background: var(--gold-elegant);
+            color: var(--blue-deep);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 14px 32px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow-institutional);
+        }
+        
+        .btn-institutional::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+        
+        .btn-institutional:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-institutional-hover);
+            background: var(--gold-bright);
+        }
+        
+        .btn-institutional:active::before {
+            width: 300px;
+            height: 300px;
+            animation: ripple 0.6s ease-out;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--blue-medium);
+            border: 2px solid var(--blue-medium);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--blue-medium);
+            color: white;
+        }
+        
+        /* Professional Cards */
+        .card-institutional {
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow-institutional);
+            border: 1px solid var(--gray-medium);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-institutional::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold-elegant);
+            transform: scaleX(0);
+            transition: transform var(--transition-smooth);
+            transform-origin: left;
+        }
+        
+        .card-institutional:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-institutional-hover);
+            border-color: var(--gold-elegant);
+        }
+        
+        .card-institutional:hover::before {
+            transform: scaleX(1);
+        }
+        
+        /* Hero Section - Professional Showcase */
+        .hero-institutional {
+            min-height: 600px;
+            background: var(--gradient-hero);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-institutional::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--bg-geometric-overlay);
+            opacity: 0.3;
+        }
+        
+        /* Typography - Professional Elegance */
+        .text-institutional-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--blue-deep);
+            line-height: 1.2;
+        }
+        
+        .text-institutional-body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            color: var(--gray-dark);
+            line-height: 1.6;
+        }
+        
+        .text-institutional-link {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--blue-medium);
+            text-decoration: none;
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+        
+        .text-institutional-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold-elegant);
+            transition: width var(--transition-smooth);
+        }
+        
+        .text-institutional-link:hover {
+            color: var(--red-accent);
+        }
+        
+        .text-institutional-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Diagonal Sections */
+        .section-diagonal {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            padding-bottom: 6rem;
+        }
+        
+        .section-diagonal-reverse {
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+            padding-top: 6rem;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-institutional {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 9999;
+            transition: left 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu-institutional.active {
+            left: 0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 640px) {
+            .hero-institutional { min-height: 500px; }
+            .navbar-institutional { height: 80px; }
+            .navbar-institutional.scrolled { height: 60px; }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-institutional { min-height: 550px; }
+        }
+        
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Focus Styles */
+        *:focus {
+            outline: 2px solid var(--gold-bright);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+        
+        /* Animation Delays */
+        .animate-stagger-1 { animation-delay: 0.1s; }
+        .animate-stagger-2 { animation-delay: 0.2s; }
+        .animate-stagger-3 { animation-delay: 0.3s; }
+        .animate-stagger-4 { animation-delay: 0.4s; }
+        .animate-stagger-5 { animation-delay: 0.5s; }
+        .animate-stagger-6 { animation-delay: 0.6s; }
+    </style>
 </head>
-<body class="font-inter bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
 
-  <!-- Promo + Utility -->
-  <div class="bg-gradient-to-r from-blue-700 to-blue-400 text-white text-xs">
-    <div class="container mx-auto px-4 py-1 flex justify-between items-center">
-      <div class="flex space-x-3">
-        <span>🏆 Inscripciones abiertas Torneo 2025</span>
-        <a href="/events/tournament-2025" class="underline hover:text-blue-200">Ver detalles</a>
-        <span>⏳ <span id="countdown">--d --h --m</span></span>
-      </div>
-      <div class="flex space-x-4">
-        <a href="mailto:info@cundivoley.com" aria-label="Email" class="hover:text-blue-200">✉️</a>
-        <a href="tel:+573001234567" aria-label="Teléfono" class="hover:text-blue-200">📞</a>
-        <button id="themeToggle" aria-label="Cambiar tema" class="hover:text-blue-200">🌙</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Header -->
-  <header class="bg-white dark:bg-gray-800 shadow sticky top-0 z-50">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-      <!-- Logo -->
-      <a href="/" class="text-2xl font-extrabold text-blue-900 dark:text-white hover:text-blue-700">CundiVolley</a>
-
-      <!-- Nav Desktop -->
-      <nav class="hidden md:flex space-x-6 font-medium">
-        <a href="/" class="hover:text-blue-600">Inicio</a>
-        <a href="/about" class="hover:text-blue-600">Nosotros</a>
-        <a href="#servicios" class="hover:text-blue-600">Servicios</a>
-        <a href="#clubs" class="hover:text-blue-600">Clubes</a>
-        <a href="#entrenadores" class="hover:text-blue-600">Entrenadores</a>
-        <a href="/events" class="hover:text-blue-600">Eventos</a>
-        <a href="/shop" class="hover:text-blue-600">Tienda</a>
-      </nav>
-
-      <!-- CTA & Mobile Toggle -->
-      <div class="flex items-center space-x-4">
-        <a href="#registro" class="hidden md:inline bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">
-          Registro
-        </a>
-        <button id="mobileToggle" class="md:hidden text-blue-800 dark:text-gray-200 hover:text-blue-600" aria-label="Abrir menú">
-          ☰
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <nav id="mobileMenu" class="md:hidden hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
-      <div class="px-4 py-6 space-y-4">
-        <a href="/" class="block hover:text-blue-600">Inicio</a>
-        <a href="/about" class="block hover:text-blue-600">Nosotros</a>
-        <a href="#servicios" class="block hover:text-blue-600">Servicios</a>
-        <a href="#clubs" class="block hover:text-blue-600">Clubes</a>
-        <a href="#entrenadores" class="block hover:text-blue-600">Entrenadores</a>
-        <a href="/events" class="block hover:text-blue-600">Eventos</a>
-        <a href="/shop" class="block hover:text-blue-600">Tienda</a>
-        <a href="#registro" class="block bg-blue-600 text-white text-center px-4 py-2 rounded-full hover:bg-blue-700">Registro</a>
-      </div>
+<body class="font-montserrat">
+    <!-- Skip to Content -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
+    <!-- Institutional Navigation -->
+    <nav class="navbar-institutional" id="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="container mx-auto px-6 h-full">
+            <div class="flex items-center justify-between h-full">
+                <!-- Institutional Logo -->
+                <a href="/" class="flex items-center space-x-4 hover:opacity-90 transition-opacity group" aria-label="Liga de Voleibol de Cundinamarca">
+                    <div class="relative">
+                        <div class="w-16 h-16 bg-gradient-to-br from-institutional-blue-deep to-institutional-blue-medium rounded-2xl flex items-center justify-center shadow-institutional border-2 border-institutional-gold-elegant group-hover:scale-105 transition-transform duration-300">
+                            <span class="text-2xl">🐻</span>
+                        </div>
+                        <div class="absolute -top-1 -right-1 w-6 h-6 bg-institutional-gold-elegant rounded-full flex items-center justify-center border-2 border-white">
+                            <span class="text-xs">🏐</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-montserrat font-bold text-institutional-blue-deep leading-tight">LIGA DE VOLEIBOL</h1>
+                        <p class="text-sm text-institutional-gold-elegant font-semibold leading-tight">CUNDINAMARCA</p>
+                    </div>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="/" class="text-institutional-blue-medium hover:text-institutional-red-accent font-semibold transition-colors relative group" aria-current="page">
+                        Inicio
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-institutional-gold-elegant transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="/nosotros" class="text-institutional-blue-medium hover:text-institutional-red-accent font-semibold transition-colors relative group">
+                        Nosotros
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-institutional-gold-elegant transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="/servicios" class="text-institutional-blue-medium hover:text-institutional-red-accent font-semibold transition-colors relative group">
+                        Servicios
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-institutional-gold-elegant transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="/eventos" class="text-institutional-blue-medium hover:text-institutional-red-accent font-semibold transition-colors relative group">
+                        Eventos
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-institutional-gold-elegant transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="/noticias" class="text-institutional-blue-medium hover:text-institutional-red-accent font-semibold transition-colors relative group">
+                        Noticias
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-institutional-gold-elegant transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="/contacto" class="text-institutional-blue-medium hover:text-institutional-red-accent font-semibold transition-colors relative group">
+                        Contacto
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-institutional-gold-elegant transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="hidden lg:block">
+                    <a href="/afiliacion" class="btn-institutional">
+                        Afiliación
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="lg:hidden p-2 text-institutional-blue-medium hover:bg-institutional-gray-light rounded-lg transition-colors" id="mobile-menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
     </nav>
-  </header>
-
-  <main>
-
-    <!-- Carousel -->
-    <section class="relative overflow-hidden h-64">
-      <div id="carousel" class="relative h-full">
-        <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-100 flex items-center justify-center text-white text-3xl font-bold" style="background-image:url('https://source.unsplash.com/1600x900/?volleyball');">
-          Servicios
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-institutional" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+        <div class="p-6">
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-gradient-to-br from-institutional-blue-deep to-institutional-blue-medium rounded-xl flex items-center justify-center border-2 border-institutional-gold-elegant">
+                        <span class="text-lg">🐻</span>
+                    </div>
+                    <div>
+                        <h2 class="font-montserrat font-bold text-institutional-blue-deep text-lg">LIGA DE VOLEIBOL</h2>
+                        <p class="text-sm text-institutional-gold-elegant font-semibold">CUNDINAMARCA</p>
+                    </div>
+                </div>
+                <button class="p-2 text-institutional-blue-medium hover:bg-institutional-gray-light rounded-lg transition-colors" id="close-mobile-menu" aria-label="Cerrar menú de navegación">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <nav class="space-y-4" role="navigation" aria-label="Navegación móvil">
+                <a href="/" class="block px-4 py-3 text-institutional-blue-medium bg-institutional-gold-elegant bg-opacity-10 rounded-lg font-semibold border-l-4 border-institutional-gold-elegant" aria-current="page">Inicio</a>
+                <a href="/nosotros" class="block px-4 py-3 text-institutional-blue-medium hover:bg-institutional-gray-light rounded-lg transition-colors font-semibold">Nosotros</a>
+                <a href="/servicios" class="block px-4 py-3 text-institutional-blue-medium hover:bg-institutional-gray-light rounded-lg transition-colors font-semibold">Servicios</a>
+                <a href="/eventos" class="block px-4 py-3 text-institutional-blue-medium hover:bg-institutional-gray-light rounded-lg transition-colors font-semibold">Eventos</a>
+                <a href="/noticias" class="block px-4 py-3 text-institutional-blue-medium hover:bg-institutional-gray-light rounded-lg transition-colors font-semibold">Noticias</a>
+                <a href="/contacto" class="block px-4 py-3 text-institutional-blue-medium hover:bg-institutional-gray-light rounded-lg transition-colors font-semibold">Contacto</a>
+            </nav>
+            
+            <div class="mt-8">
+                <a href="/afiliacion" class="block w-full text-center btn-institutional">
+                    Afiliación Institucional
+                </a>
+            </div>
         </div>
-        <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold" style="background-image:url('https://source.unsplash.com/1600x900/?sports');">
-          Clubes
-        </div>
-        <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold" style="background-image:url('https://source.unsplash.com/1600x900/?coach');">
-          Entrenadores
-        </div>
-        <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold" style="background-image:url('https://source.unsplash.com/1600x900/?event');">
-          Eventos
-        </div>
-        <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold" style="background-image:url('https://source.unsplash.com/1600x900/?shop');">
-          Tienda
-        </div>
-        <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 flex items-center justify-center text-white text-3xl font-bold" style="background-image:url('https://source.unsplash.com/1600x900/?signup');">
-          Registro
-        </div>
-      </div>
-    </section>
-
-    <!-- Servicios -->
-    <section id="servicios" class="py-16">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-4xl font-bold text-center mb-8">Servicios</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <article class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition">
-            <h3 class="text-2xl font-semibold mb-2">Formación y Cursos</h3>
-            <p>Capacitación integral para entrenadores y deportistas.</p>
-          </article>
-          <article class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition">
-            <h3 class="text-2xl font-semibold mb-2">Competencias & Eventos</h3>
-            <p>Organización de torneos y campeonatos oficiales.</p>
-          </article>
-          <article class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition">
-            <h3 class="text-2xl font-semibold mb-2">Alianzas Estratégicas</h3>
-            <p>Colaboraciones con patrocinadores y entidades deportivas.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Clubes -->
-    <section id="clubs" class="py-16 bg-gray-100 dark:bg-gray-700">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-4xl font-bold text-center mb-8">Clubes Activos</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">Club Volei Bogotá</div>
-          <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">Cundinamarca Stars</div>
-          <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">Volley Team Colombia</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Entrenadores -->
-    <section id="entrenadores" class="py-16">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-4xl font-bold text-center mb-8">Entrenadores Registrados</h2>
-        <div class="space-y-4">
-          <div class="border rounded-lg overflow-hidden">
-            <button class="w-full text-left px-6 py-3 bg-blue-100 dark:bg-gray-600 hover:bg-blue-200 transition flex justify-between items-center" aria-expanded="false">
-              Carlos Rodríguez <span class="text-xl">+</span>
-            </button>
-            <div class="hidden px-6 py-4 bg-white dark:bg-gray-800">Licenciado en Educación Física, 15 años de experiencia.</div>
-          </div>
-          <div class="border rounded-lg overflow-hidden">
-            <button class="w-full text-left px-6 py-3 bg-blue-100 dark:bg-gray-600 hover:bg-blue-200 transition flex justify-between items-center" aria-expanded="false">
-              María González <span class="text-xl">+</span>
-            </button>
-            <div class="hidden px-6 py-4 bg-white dark:bg-gray-800">Ex-jugadora profesional y entrenadora certificada FIVB.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Pie de página -->
-  <footer class="bg-gray-800 text-white py-12">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
-      <div>
-        <h3 class="font-bold mb-4">Liga de Voleibol</h3>
-        <p>Servicios integrales para el desarrollo del voleibol en Cundinamarca.</p>
-      </div>
-      <div>
-        <h4 class="font-semibold mb-2">Navegación</h4>
-        <ul class="space-y-2">
-          <li><a href="/" class="hover:underline">Inicio</a></li>
-          <li><a href="/about" class="hover:underline">Nosotros</a></li>
-          <li><a href="#servicios" class="hover:underline">Servicios</a></li>
-          <li><a href="#clubs" class="hover:underline">Clubes</a></li>
-          <li><a href="#entrenadores" class="hover:underline">Entrenadores</a></li>
-          <li><a href="/events" class="hover:underline">Eventos</a></li>
-          <li><a href="/shop" class="hover:underline">Tienda</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold mb-2">Contacto</h4>
-        <p>📧 info@cundivoley.com</p>
-        <p>📞 +57 300 1234567</p>
-      </div>
     </div>
-    <p class="text-center text-gray-400 mt-8">&copy; 2025 Liga de Voleibol de Cundinamarca</p>
-  </footer>
-
-  <!-- Scripts -->
-  <script>
-    // Mobile menu toggle
-    document.getElementById('mobileToggle').onclick = () => {
-      document.getElementById('mobileMenu').classList.toggle('hidden');
-    };
-    // Countdown
-    (function(){
-      const cd = document.getElementById('countdown');
-      const target = new Date('2025-06-01T00:00:00').getTime();
-      const update = () => {
-        const diff = target - Date.now();
-        const d = Math.max(0, Math.floor(diff/86400000));
-        const h = Math.max(0, Math.floor(diff%86400000/3600000));
-        const m = Math.max(0, Math.floor(diff%3600000/60000));
-        cd.textContent = `${d}d ${h}h ${m}m`;
-      };
-      update(); setInterval(update,60000);
-    })();
-    // Carousel
-    (function(){
-      const slides = document.querySelectorAll('#carousel > div');
-      let idx=0;
-      setInterval(()=>{
-        slides[idx].classList.replace('opacity-100','opacity-0');
-        idx = (idx+1)%slides.length;
-        slides[idx].classList.replace('opacity-0','opacity-100');
-      },5000);
-    })();
-    // Accordion
-    document.querySelectorAll('#entrenadores button').forEach(btn=>{
-      btn.onclick = ()=> {
-        const panel = btn.nextElementSibling;
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!expanded));
-        panel.classList.toggle('hidden');
-        btn.querySelector('span').textContent = expanded ? '+' : '–';
-      }
-    });
-    // Theme toggle
-    document.getElementById('themeToggle').onclick = () => {
-      document.documentElement.classList.toggle('dark');
-      document.getElementById('themeToggle').textContent =
-        document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
-    };
-  </script>
-</body>
+    
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="hero-institutional bg-pattern-institutional relative" aria-labelledby="hero-title">
+            <div class="container mx-auto px-6 text-center text-white relative z-10">
+                <div class="animate-float-gentle text-8xl md:text-9xl mb-8 filter drop-shadow-lg" role="img" aria-label="Oso institucional">
+                    🐻
+                </div>
+                
+                <h1 id="hero-title" class="font-playfair font-bold text-4xl md:text-6xl lg:text-7xl mb-6 animate-fade-up">
+                    Liga de Voleibol de Cundinamarca
+                </h1>
+                
+                <p class="text-xl md:text-2xl lg:text-3xl mb-8 max-w-4xl mx-auto leading-relaxed animate-stagger-2 opacity-0 font-montserrat font-medium">
+                    15 años liderando el desarrollo del voleibol en Cundinamarca con <span class="text-institutional-gold-bright">excelencia institucional</span> y compromiso deportivo
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center animate-stagger-3 opacity-0">
+                    <a href="#servicios" class="btn-institutional text-lg px-8 py-4">
+                        <span class="text-2xl mr-2">🏐</span>
+                        Explorar Servicios
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                    </a>
+                    
+                    <a href="/nosotros" class="btn-secondary text-lg px-8 py-4 bg-white bg-opacity-10 text-white border-white hover:bg-white hover:text-institutional-blue-deep">
+                        <span class="text-2xl mr-2">📋</span>
+                        Conocer Más
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section id="nosotros" class="py-20 bg-white section-diagonal-reverse bg-pattern-institutional" aria-labelledby="about-title">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="animate-slide-in-left opacity-0">
+                        <h2 id="about-title" class="text-institutional-title text-3xl md:text-4xl lg:text-5xl mb-8">
+                            Nuestra <span class="text-institutional-gold-elegant">Trayectoria Institucional</span>
+                        </h2>
+                        <div class="text-institutional-body text-lg mb-8 space-y-6">
+                            <p>
+                                Durante <strong>15 años</strong>, la Liga de Voleibol de Cundinamarca ha sido el organismo rector del voleibol en nuestro departamento, promoviendo el desarrollo deportivo con los más altos estándares de calidad y profesionalismo.
+                            </p>
+                            <p>
+                                Nuestra misión institucional se centra en fortalecer el ecosistema deportivo del voleibol, brindando servicios especializados a clubes, entrenadores, deportistas y empresas que comparten nuestra visión de excelencia.
+                            </p>
+                            <p>
+                                Con el símbolo del oso como representación de nuestra <strong>fuerza, determinación y liderazgo</strong>, continuamos construyendo el futuro del voleibol cundinamarqués.
+                            </p>
+                        </div>
+                        <a href="/nosotros" class="text-institutional-link text-lg">
+                            Conocer nuestra historia completa →
+                        </a>
+                    </div>
+                    
+                    <div class="animate-slide-in-right opacity-0">
+                        <div class="relative">
+                            <div class="glass-institutional p-8 rounded-3xl">
+                                <div class="text-center mb-8">
+                                    <div class="w-24 h-24 bg-gradient-to-br from-institutional-blue-deep to-institutional-blue-medium rounded-full flex items-center justify-center text-4xl mx-auto mb-6 shadow-institutional">
+                                        🏆
+                                    </div>
+                                    <h3 class="text-2xl font-playfair font-bold text-institutional-blue-deep mb-4">Excelencia Reconocida</h3>
+                                    <p class="text-institutional-body">Organismo deportivo líder en Cundinamarca</p>
+                                </div>
+                                
+                                <div class="grid grid-cols-2 gap-6 text-center">
+                                    <div class="p-4 bg-white bg-opacity-50 rounded-xl">
+                                        <div class="text-3xl font-bold text-institutional-blue-deep mb-2">15</div>
+                                        <div class="text-sm text-institutional-gray-dark">Años de Trayectoria</div>
+                                    </div>
+                                    <div class="p-4 bg-white bg-opacity-50 rounded-xl">
+                                        <div class="text-3xl font-bold text-institutional-gold-elegant mb-2">25+</div>
+                                        <div class="text-sm text-institutional-gray-dark">Clubes Afiliados</div>
+                                    </div>
+                                    <div class="p-4 bg-white bg-opacity-50 rounded-xl">
+                                        <div class="text-3xl font-bold text-institutional-red-accent mb-2">500+</div>
+                                        <div class="text-sm text-institutional-gray-dark">Deportistas Activos</div>
+                                    </div>
+                                    <div class="p-4 bg-white bg-opacity-50 rounded-xl">
+                                        <div class="text-3xl font-bold text-institutional-blue-medium mb-2">80+</div>
+                                        <div class="text-sm text-institutional-gray-dark">Entrenadores Certificados</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section id="servicios" class="py-20 bg-institutional-gray-light section-diagonal" aria-labelledby="services-title">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 id="services-title" class="text-institutional-title text-3xl md:text-4xl lg:text-5xl mb-6 animate-fade-up opacity-0">
+                        Nuestros <span class="text-institutional-gold-elegant">Servicios Institucionales</span>
+                    </h2>
+                    <p class="text-institutional-body text-xl max-w-3xl mx-auto animate-stagger-2 opacity-0">
+                        Ofrecemos servicios especializados para fortalecer el ecosistema del voleibol en Cundinamarca
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <article class="card-institutional p-8 text-center animate-stagger-3 opacity-0">
+                        <div class="w-16 h-16 bg-gradient-to-br from-institutional-blue-deep to-institutional-blue-medium rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-6 shadow-institutional">
+                            🏢
+                        </div>
+                        <h3 class="text-xl font-playfair font-bold text-institutional-blue-deep mb-4">Clubes Deportivos</h3>
+                        <p class="text-institutional-body mb-6">Asesoría integral para la gestión y desarrollo de clubes de voleibol</p>
+                        <a href="/servicios/clubes" class="text-institutional-link">Más información →</a>
+                    </article>
+                    
+                    <article class="card-institutional p-8 text-center animate-stagger-4 opacity-0">
+                        <div class="w-16 h-16 bg-gradient-to-br from-institutional-gold-elegant to-institutional-gold-bright rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-6 shadow-institutional">
+                            👨‍🏫
+                        </div>
+                        <h3 class="text-xl font-playfair font-bold text-institutional-blue-deep mb-4">Entrenadores</h3>
+                        <p class="text-institutional-body mb-6">Programas de certificación y desarrollo profesional continuo</p>
+                        <a href="/servicios/entrenadores" class="text-institutional-link">Más información →</a>
+                    </article>
+                    
+                    <article class="card-institutional p-8 text-center animate-stagger-5 opacity-0">
+                        <div class="w-16 h-16 bg-gradient-to-br from-institutional-red-accent to-institutional-red-highlight rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-6 shadow-institutional">
+                            🏃‍♂️
+                        </div>
+                        <h3 class="text-xl font-playfair font-bold text-institutional-blue-deep mb-4">Deportistas</h3>
+                        <p class="text-institutional-body mb-6">Desarrollo integral del talento deportivo y formación competitiva</p>
+                        <a href="/servicios/deportistas" class="text-institutional-link">Más información →</a>
+                    </article>
+                    
+                    <article class="card-institutional p-8 text-center animate-stagger-6 opacity-0">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-600 to-green-700 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-6 shadow-institutional">
+                            🏢
+                        </div>
+                        <h3 class="text-xl font-playfair font-bold text-institutional-blue-deep mb-4">Empresas</h3>
+                        <p class="text-institutional-body mb-6">Alianzas estratégicas y programas de responsabilidad social</p>
+                        <a href="/servicios/empresas" class="text-institutional-link">Más información →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Statistics Section -->
+        <section class="py-20 bg-white relative overflow-hidden" aria-labelledby="stats-title">
+            <div class="absolute inset-0 bg-gradient-radial"></div>
+            <div class="absolute inset-0 bg-geometric-overlay opacity-20"></div>
+            
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-16">
+                    <h2 id="stats-title" class="text-institutional-title text-3xl md:text-4xl lg:text-5xl mb-6 animate-fade-up opacity-0">
+                        Nuestro <span class="text-institutional-gold-elegant">Impacto Institucional</span>
+                    </h2>
+                    <p class="text-institutional-body text-xl max-w-3xl mx-auto animate-stagger-2 opacity-0">
+                        15 años construyendo el futuro del voleibol en Cundinamarca
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center p-8 glass-institutional animate-stagger-3 opacity-0">
+                        <div class="text-6xl mb-4 animate-float-gentle">🏢</div>
+                        <div class="text-5xl font-bold text-institutional-blue-deep mb-4" data-counter="25">0</div>
+                        <p class="text-institutional-body font-semibold">Clubes Afiliados</p>
+                    </div>
+                    
+                    <div class="text-center p-8 glass-institutional animate-stagger-4 opacity-0">
+                        <div class="text-6xl mb-4 animate-float-gentle" style="animation-delay: 1s;">🏃‍♂️</div>
+                        <div class="text-5xl font-bold text-institutional-gold-elegant mb-4" data-counter="500">0</div>
+                        <p class="text-institutional-body font-semibold">Deportistas Activos</p>
+                    </div>
+                    
+                    <div class="text-center p-8 glass-institutional animate-stagger-5 opacity-0">
+                        <div class="text-6xl mb-4 animate-float-gentle" style="animation-delay: 2s;">🏆</div>
+                        <div class="text-5xl font-bold text-institutional-red-accent mb-4" data-counter="45">0</div>
+                        <p class="text-institutional-body font-semibold">Torneos Organizados</p>
+                    </div>
+                    
+                    <div class="text-center p-8 glass-institutional animate-stagger-6 opacity-0">
+                        <div class="text-6xl mb-4 animate-float-gentle" style="animation-delay: 3s;">👨‍🏫</div>
+                        <div class="text-5xl font-bold text-institutional-blue-medium mb-4" data-counter="80">0</div>
+                        <p class="text-institutional-body font-semibold">Entrenadores Certificados</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- News Section -->
+        <section class="py-20 bg-institutional-gray-light section-diagonal-reverse" aria-labelledby="news-title">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 id="news-title" class="text-institutional-title text-3xl md:text-4xl lg:text-5xl mb-6 animate-fade-up opacity-0">
+                        Últimas <span class="text-institutional-gold-elegant">Noticias</span>
+                    </h2>
+                    <p class="text-institutional-body text-xl max-w-3xl mx-auto animate-stagger-2 opacity-0">
+                        Mantente informado sobre las últimas novedades del voleibol cundinamarqués
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <article class="card-institutional overflow-hidden animate-stagger-3 opacity-0">
+                        <div class="relative">
+                            <div class="h-48 bg-gradient-to-br from-institutional-blue-deep to-institutional-blue-medium flex items-center justify-center text-6xl">
+                                🏆
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 bg-institutional-gold-elegant bg-opacity-90 text-white p-4">
+                                <h3 class="font-bold text-lg">Campeonato Departamental 2024</h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-institutional-body mb-4">Gran éxito en la organización del Campeonato Departamental de Voleibol con la participación de 20 clubes...</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-institutional-gray-dark">15 Nov 2024</span>
+                                <a href="/noticias/campeonato-2024" class="text-institutional-link">Leer más →</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="card-institutional overflow-hidden animate-stagger-4 opacity-0">
+                        <div class="relative">
+                            <div class="h-48 bg-gradient-to-br from-institutional-gold-elegant to-institutional-gold-bright flex items-center justify-center text-6xl">
+                                👨‍🏫
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 bg-institutional-gold-elegant bg-opacity-90 text-white p-4">
+                                <h3 class="font-bold text-lg">Curso de Entrenadores Nivel II</h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-institutional-body mb-4">Apertura de inscripciones para el curso de certificación de entrenadores nivel II, con metodología actualizada...</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-institutional-gray-dark">10 Nov 2024</span>
+                                <a href="/noticias/curso-entrenadores" class="text-institutional-link">Leer más →</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="card-institutional overflow-hidden animate-stagger-5 opacity-0">
+                        <div class="relative">
+                            <div class="h-48 bg-gradient-to-br from-institutional-red-accent to-institutional-red-highlight flex items-center justify-center text-6xl">
+                                🤝
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 bg-institutional-gold-elegant bg-opacity-90 text-white p-4">
+                                <h3 class="font-bold text-lg">Nueva Alianza Estratégica</h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-institutional-body mb-4">Firmamos convenio de cooperación con la Federación Colombiana de Voleibol para fortalecer el desarrollo...</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-institutional-gray-dark">5 Nov 2024</span>
+                                <a href="/noticias/alianza-federacion" class="text-institutional-link">Leer más →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="/noticias" class="btn-institutional text-lg px-8 py-4">
+                        Ver todas las noticias
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="py-20 bg-gradient-to-br from-institutional-blue-deep to-institutional-blue-medium text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-pattern-institutional opacity-10"></div>
+            
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <div class="animate-float-gentle text-8xl mb-8 filter drop-shadow-lg">🐻</div>
+                
+                <h2 class="font-playfair font-bold text-3xl md:text-4xl lg:text-5xl mb-8 animate-fade-up opacity-0">
+                    ¿Listo para formar parte de nuestra
+                    <span class="block text-institutional-gold-bright mt-4">familia institucional?</span>
+                </h2>
+                
+                <p class="text-xl md:text-2xl opacity-90 mb-12 max-w-4xl mx-auto leading-relaxed animate-stagger-2 opacity-0">
+                    Únete a la Liga de Voleibol de Cundinamarca y sé parte del desarrollo del voleibol departamental
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center animate-stagger-3 opacity-0">
+                    <a href="/afiliacion" class="btn-institutional bg-institutional-gold-elegant text-institutional-blue-deep hover:bg-institutional-gold-bright text-lg px-8 py-4">
+                        <span class="text-2xl mr-2">📋</span>
+                        Proceso de Afiliación
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                    
+                    <a href="/contacto" class="btn-secondary text-lg px-8 py-4 bg-white bg-opacity-10 text-white border-white hover:bg-white hover:text-institutional-blue-deep">
+                        <span class="text-2xl mr-2">📞</span>
+                        Contactar Ahora
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Institutional Footer -->
+    <footer class="bg-gradient-to-br from-institutional-blue-deep to-institutional-blue-medium text-white relative overflow-hidden" role="contentinfo">
+        <div class="absolute inset-0 bg-pattern-institutional opacity-5"></div>
+        
+        <div class="container mx-auto px-6 py-16 relative z-10">
+            <div class="grid lg:grid-cols-4 gap-12">
+                <!-- Brand Section -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center space-x-4 mb-8">
+                        <div class="w-16 h-16 bg-gradient-to-br from-institutional-gold-elegant to-institutional-gold-bright rounded-2xl flex items-center justify-center shadow-institutional">
+                            <span class="text-2xl">🐻</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-montserrat font-bold">LIGA DE VOLEIBOL</h3>
+                            <p class="text-institutional-gold-bright font-semibold">CUNDINAMARCA</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-8 leading-relaxed">
+                        15 años liderando el desarrollo del voleibol en Cundinamarca con excelencia institucional y compromiso deportivo.
+                    </p>
+                    
+                    <!-- Newsletter -->
+                    <div class="glass-institutional rounded-2xl p-6">
+                        <h4 class="text-lg font-bold mb-4 flex items-center gap-2">
+                            <span class="text-xl">📧</span> Boletín Institucional
+                        </h4>
+                        <p class="text-gray-300 mb-4 text-sm">Recibe nuestras últimas noticias</p>
+                        <form class="space-y-4" id="newsletter-form">
+                            <input 
+                                type="email" 
+                                placeholder="tu@email.com" 
+                                class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-institutional-gold-bright"
+                                required
+                            >
+                            <button type="submit" class="w-full btn-institutional py-3">
+                                Suscribirse
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-institutional-gold-bright">Navegación</h4>
+                    <ul class="space-y-3">
+                        <li><a href="/" class="text-gray-300 hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="/nosotros" class="text-gray-300 hover:text-white transition-colors">Nosotros</a></li>
+                        <li><a href="/servicios" class="text-gray-300 hover:text-white transition-colors">Servicios</a></li>
+                        <li><a href="/eventos" class="text-gray-300 hover:text-white transition-colors">Eventos</a></li>
+                        <li><a href="/noticias" class="text-gray-300 hover:text-white transition-colors">Noticias</a></li>
+                        <li><a href="/contacto" class="text-gray-300 hover:text-white transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-institutional-gold-bright">Servicios</h4>
+                    <ul class="space-y-3">
+                        <li><a href="/servicios/clubes" class="text-gray-300 hover:text-white transition-colors">Clubes Deportivos</a></li>
+                        <li><a href="/servicios/entrenadores" class="text-gray-300 hover:text-white transition-colors">Entrenadores</a></li>
+                        <li><a href="/servicios/deportistas" class="text-gray-300 hover:text-white transition-colors">Deportistas</a></li>
+                        <li><a href="/servicios/empresas" class="text-gray-300 hover:text-white transition-colors">Empresas</a></li>
+                        <li><a href="/afiliacion" class="text-gray-300 hover:text-white transition-colors">Afiliación</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact & Social -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-institutional-gold-bright">Contacto</h4>
+                    <div class="space-y-4 mb-8">
+                        <a href="mailto:info@ligavoleibolcundinamarca.org" class="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group">
+                            <div class="w-10 h-10 bg-institutional-gold-elegant bg-opacity-20 rounded-lg flex items-center justify-center group-hover:bg-opacity-30 transition-all">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm">info@ligavoleibolcundinamarca.org</span>
+                        </a>
+                        <a href="tel:+573001234567" class="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group">
+                            <div class="w-10 h-10 bg-institutional-gold-elegant bg-opacity-20 rounded-lg flex items-center justify-center group-hover:bg-opacity-30 transition-all">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm">+57 300 123 4567</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div>
+                        <h5 class="text-sm font-bold mb-4 text-institutional-gold-bright">Redes Sociales</h5>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-blue-600 bg-opacity-20 hover:bg-opacity-100 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110" aria-label="Facebook">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-pink-600 bg-opacity-20 hover:bg-opacity-100 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110" aria-label="Instagram">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.418-3.323C6.001 8.198 7.152 7.708 8.449 7.708s2.448.49 3.323 1.416c.875.875 1.365 2.026 1.365 3.323s-.49 2.448-1.365 3.323c-.875.807-2.026 1.218-3.323 1.218zm7.718-1.297c-.875.807-2.026 1.297-3.323 1.297s-2.448-.49-3.323-1.297c-.875-.875-1.365-2.026-1.365-3.323s.49-2.448 1.365-3.323c.875-.926 2.026-1.416 3.323-1.416s2.448.49 3.323 1.416c.875.875 1.365 2.026 1.365 3.323s-.49 2.448-1.365 3.323z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-blue-400 bg-opacity-20 hover:bg-opacity-100 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110" aria-label="Twitter">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="border-t border-white border-opacity-20 mt-12 pt-8">
+                <div class="flex flex-col lg:flex-row justify-between items-center gap-6">
+                    <p class="text-gray-300 text-sm">&copy; 2024 Liga de Voleibol de Cundinamarca. Todos los derechos reservados.</p>
+                    <div class="flex gap-6 text-sm">
+                        <a href="/privacidad" class="text-gray-300 hover:text-white transition-colors">Política de Privacidad</a>
+                        <a href="/terminos" class="text-gray-300 hover:text-white transition-colors">Términos de Uso</a>
+                        <a href="/sitemap" class="text-gray-300 hover:text-white transition-colors">Mapa del Sitio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Float Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer" class="w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full flex items-center justify-center shadow-institutional-hover hover:shadow-institutional transition-all duration-300 animate-float-gentle hover:scale-110" aria-label="Contactar por WhatsApp">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+            </svg>
+        </a>
+    </div>
+    
+    <!-- Professional JavaScript -->
+    <script defer>
+        // DOM Ready
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Navigation Scroll Effect
+            const navbar = document.getElementById('navbar');
+            let lastScrollY = window.scrollY;
+            
+            const handleScroll = () => {
+                const currentScrollY = window.scrollY;
+                
+                if (currentScrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                
+                lastScrollY = currentScrollY;
+            };
+            
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            
+            // Mobile Menu
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeMobileMenu = document.getElementById('close-mobile-menu');
+            
+            const openMobileMenu = () => {
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                mobileMenuToggle.setAttribute('aria-expanded', 'true');
+                closeMobileMenu?.focus();
+            };
+            
+            const closeMobileMenuFunc = () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                mobileMenuToggle?.focus();
+            };
+            
+            mobileMenuToggle?.addEventListener('click', openMobileMenu);
+            closeMobileMenu?.addEventListener('click', closeMobileMenuFunc);
+            
+            // Close on escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                    closeMobileMenuFunc();
+                }
+            });
+            
+            // Intersection Observer for Animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const animateOnScroll = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) translateX(0)';
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe animated elements
+            document.querySelectorAll('.animate-fade-up, .animate-slide-in-left, .animate-slide-in-right, .animate-stagger-1, .animate-stagger-2, .animate-stagger-3, .animate-stagger-4, .animate-stagger-5, .animate-stagger-6').forEach(el => {
+                el.style.opacity = '0';
+                if (el.classList.contains('animate-slide-in-left')) {
+                    el.style.transform = 'translateX(-60px)';
+                } else if (el.classList.contains('animate-slide-in-right')) {
+                    el.style.transform = 'translateX(60px)';
+                } else {
+                    el.style.transform = 'translateY(40px)';
+                }
+                animateOnScroll.observe(el);
+            });
+            
+            // Counter Animation
+            const animateCounter = (element, target, duration = 2000) => {
+                const start = 0;
+                const increment = target / (duration / 16);
+                let current = start;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    element.textContent = Math.floor(current);
+                    
+                    if (current >= target) {
+                        element.textContent = target;
+                        clearInterval(timer);
+                        element.classList.add('animate-counter-up');
+                    }
+                }, 16);
+            };
+            
+            // Initialize counters when visible
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = parseInt(entry.target.dataset.counter);
+                        animateCounter(entry.target, target);
+                        counterObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            document.querySelectorAll('[data-counter]').forEach(counter => {
+                counterObserver.observe(counter);
+            });
+            
+            // Ripple Effect for Buttons
+            const addRippleEffect = (element, event) => {
+                const rect = element.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = event.clientX - rect.left - size / 2;
+                const y = event.clientY - rect.top - size / 2;
+                
+                const ripple = document.createElement('div');
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255, 255, 255, 0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    pointer-events: none;
+                    z-index: 1000;
+                `;
+                
+                element.style.position = 'relative';
+                element.style.overflow = 'hidden';
+                element.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            };
+            
+            // Add ripple to buttons
+            document.querySelectorAll('.btn-institutional').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    addRippleEffect(button, e);
+                });
+            });
+            
+            // Newsletter Form
+            const newsletterForm = document.getElementById('newsletter-form');
+            
+            newsletterForm?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const email = e.target.querySelector('input[type="email"]').value;
+                const submitBtn = e.target.querySelector('button[type="submit"]');
+                
+                // Show loading state
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Procesando...';
+                submitBtn.disabled = true;
+                
+                try {
+                    // Simulate API call
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    
+                    // Success state
+                    submitBtn.textContent = '¡Suscrito exitosamente!';
+                    submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                    
+                    // Reset form
+                    e.target.reset();
+                    
+                    setTimeout(() => {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.background = '';
+                    }, 3000);
+                    
+                } catch (error) {
+                    submitBtn.textContent = 'Error. Reintentar';
+                    submitBtn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+                    
+                    setTimeout(() => {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.background = '';
+                    }, 3000);
+                }
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            console.log('🏐 Liga de Voleibol de Cundinamarca - Portal Institucional Cargado ✅');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9699c9d4248a3eeb',t:'MTc1NDI2NTc3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
