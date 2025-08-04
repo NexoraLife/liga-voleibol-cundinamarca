@@ -721,7 +721,7 @@
 <body class="font-montserrat">
     <!-- Skip to Content -->
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
-    
+    <?php include 'menu.php'; ?>
     <!-- Institutional Header -->
     <header class="navbar-institutional" id="navbar" role="banner">
         <div class="container mx-auto px-6 h-full">
