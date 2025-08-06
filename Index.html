@@ -495,109 +495,290 @@
 
     <!-- Main Content -->
     <main id="main-content">
+       
+        
         <!-- Hero Carousel Section -->
-        <section id="inicio" class="relative bg-institutional-gray-50">
-            <div class="carousel-container relative h-[600px] overflow-hidden">
-                <div class="carousel-track flex h-full" id="carousel-track">
-                    <!-- Slide 1 - Institutional -->
-                    <div class="carousel-slide relative" style="background: linear-gradient(135deg, #1e3a8a 0%, #FFD700 50%, #87CEEB 100%);">
-                        <div class="absolute inset-0 bg-gradient-to-r from-institutional-navy/85 via-institutional-gold/20 to-institutional-sky/70"></div>
-                        <div class="relative h-full flex items-center">
-                            <div class="container mx-auto px-6">
-                                <div class="max-w-3xl text-white">
-                                    <h2 class="text-4xl md:text-6xl font-playfair font-bold mb-6 leading-tight">
-                                        Excelencia Deportiva
-                                        <span class="block text-3xl md:text-4xl font-normal mt-2 text-institutional-gold">en Cundinamarca</span>
-                                    </h2>
-                                    <p class="text-xl mb-8 text-blue-100 leading-relaxed">
-                                        Organismo deportivo oficial con 15 años promoviendo el desarrollo integral del voleibol en el departamento de Cundinamarca.
-                                    </p>
-                                    <div class="flex flex-col sm:flex-row gap-4">
-                                        <a href="#nosotros" class="bg-white text-institutional-navy px-8 py-3 rounded-lg font-semibold hover:bg-institutional-sky hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl text-center">
-                                            Conoce Nuestra Historia
-                                        </a>
-                                        <a href="#afiliacion" class="border-2 border-institutional-gold text-institutional-gold px-8 py-3 rounded-lg font-semibold hover:bg-institutional-gold hover:text-institutional-navy transition-all duration-300 text-center">
-                                            Proceso de Afiliación
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        import React, { useState, useEffect, useRef } from "react";
 
-                    <!-- Slide 2 - Services -->
-                    <div class="carousel-slide relative" style="background: linear-gradient(135deg, #87CEEB 0%, #22c55e 50%, #1e3a8a 100%);">
-                        <div class="absolute inset-0 bg-gradient-to-r from-institutional-sky/80 via-institutional-green/30 to-institutional-navy/75"></div>
-                        <div class="relative h-full flex items-center">
-                            <div class="container mx-auto px-6">
-                                <div class="max-w-3xl text-white">
-                                    <h2 class="text-4xl md:text-6xl font-playfair font-bold mb-6 leading-tight">
-                                        Formación y Desarrollo
-                                        <span class="block text-3xl md:text-4xl font-normal mt-2 text-institutional-gold">Técnico Deportivo</span>
-                                    </h2>
-                                    <p class="text-xl mb-8 text-blue-100 leading-relaxed">
-                                        Programas especializados de capacitación para entrenadores, árbitros y deportistas con certificación oficial.
-                                    </p>
-                                    <div class="flex flex-col sm:flex-row gap-4">
-                                        <a href="#servicios" class="bg-white text-institutional-navy px-8 py-3 rounded-lg font-semibold hover:bg-institutional-sky hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl text-center">
-                                            Ver Programas
-                                        </a>
-                                        <a href="#contacto" class="border-2 border-institutional-gold text-institutional-gold px-8 py-3 rounded-lg font-semibold hover:bg-institutional-gold hover:text-institutional-navy transition-all duration-300 text-center">
-                                            Información
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+// RUTAS de tus imágenes. Cambia los nombres si los archivos se llaman diferente.
+const images = [
+  { img: "/1.jpg", color: "#2079e8", frase: "¡Lucha cada punto como si fuera el último! 🏆" },
+  { img: "/2.jpeg", color: "#ea3838", frase: "¡En equipo, somos imparables! 💪" },
+  { img: "/3.jpg", color: "#28a745", frase: "¡El miedo termina cuando comienza el juego! 🔥" },
+  { img: "/4.jpg", color: "#fbc531", frase: "¡El coraje distingue a los campeones! 🏐" },
+  { img: "/5.jpg", color: "#6236ff", frase: "¡Aquí no se rinde nadie, aquí jugamos hasta el final! 🐻" },
+];
+const logo = "/Liga.png";
 
-                    <!-- Slide 3 - Competitions -->
-                    <div class="carousel-slide relative" style="background: linear-gradient(135deg, #FFD700 0%, #1e3a8a 50%, #87CEEB 100%);">
-                        <div class="absolute inset-0 bg-gradient-to-r from-institutional-gold/80 via-institutional-navy/85 to-institutional-sky/70"></div>
-                        <div class="relative h-full flex items-center">
-                            <div class="container mx-auto px-6">
-                                <div class="max-w-3xl text-white">
-                                    <h2 class="text-4xl md:text-6xl font-playfair font-bold mb-6 leading-tight">
-                                        Competencias Oficiales
-                                        <span class="block text-3xl md:text-4xl font-normal mt-2 text-institutional-gold">Temporada 2025</span>
-                                    </h2>
-                                    <p class="text-xl mb-8 text-blue-100 leading-relaxed">
-                                        Calendario oficial de torneos departamentales, campeonatos juveniles y competencias de alto rendimiento.
-                                    </p>
-                                    <div class="flex flex-col sm:flex-row gap-4">
-                                        <a href="#competencias" class="bg-white text-institutional-navy px-8 py-3 rounded-lg font-semibold hover:bg-institutional-sky hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl text-center">
-                                            Ver Calendario
-                                        </a>
-                                        <a href="#inscripciones" class="border-2 border-institutional-gold text-institutional-gold px-8 py-3 rounded-lg font-semibold hover:bg-institutional-gold hover:text-institutional-navy transition-all duration-300 text-center">
-                                            Inscripciones
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+const entranceEffects = [
+  "slide-in-left",    // 1
+  "slide-in-right",   // 2
+  "fade-in",          // 3
+  "zoom-in",          // 4
+  "flip-in",          // 5
+];
+const exitEffects = [
+  "slide-out-right",  // 1
+  "slide-out-left",   // 2
+  "fade-out",         // 3
+  "zoom-out",         // 4
+  "flip-out",         // 5
+];
 
-                <!-- Carousel Navigation -->
-                <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
-                    <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-200 active" data-slide="0"></button>
-                    <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-200" data-slide="1"></button>
-                    <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-200" data-slide="2"></button>
-                </div>
+function CarouselCundiVolei() {
+  const [index, setIndex] = useState(0);
+  const [anim, setAnim] = useState(""); // Efecto de entrada/salida
+  const [animOut, setAnimOut] = useState("");
+  const timer = useRef();
 
-                <!-- Navigation Arrows -->
-                <button class="absolute left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-200 text-white" id="prev-slide">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                    </svg>
-                </button>
-                <button class="absolute right-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-200 text-white" id="next-slide">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                    </svg>
-                </button>
-            </div>
-        </section>
+  // Autoplay
+  useEffect(() => {
+    timer.current = setTimeout(() => {
+      handleNext(true);
+    }, 5000);
+    return () => clearTimeout(timer.current);
+    // eslint-disable-next-line
+  }, [index]);
+
+  function handleNext(auto = false) {
+    setAnimOut(exitEffects[index % exitEffects.length]);
+    setTimeout(() => {
+      setAnim("");
+      setAnimOut("");
+      setIndex((prev) => (prev + 1) % images.length);
+      setAnim(entranceEffects[(index + 1) % entranceEffects.length]);
+    }, 600); // Tiempo del efecto de salida
+  }
+
+  function handlePrev() {
+    setAnimOut(exitEffects[index % exitEffects.length]);
+    setTimeout(() => {
+      setAnim("");
+      setAnimOut("");
+      setIndex((prev) => (prev - 1 + images.length) % images.length);
+      setAnim(entranceEffects[(index - 1 + images.length) % entranceEffects.length]);
+    }, 600);
+  }
+
+  function goTo(idx) {
+    if (idx === index) return;
+    setAnimOut(exitEffects[index % exitEffects.length]);
+    setTimeout(() => {
+      setAnim("");
+      setAnimOut("");
+      setIndex(idx);
+      setAnim(entranceEffects[idx % entranceEffects.length]);
+    }, 600);
+  }
+
+  // Efecto entrada inicial
+  useEffect(() => {
+    setAnim(entranceEffects[index % entranceEffects.length]);
+    // eslint-disable-next-line
+  }, []);
+
+  const { img, color, frase } = images[index];
+
+  return (
+    <div>
+      <style>{`
+        .carrusel-ctn {
+          width: 95vw; max-width: 900px; height: 340px; margin: 60px auto 0;
+          position: relative; overflow: hidden; border-radius: 2rem;
+          box-shadow: 0 8px 44px 8px #2e2e2e36, 0 1.5px 8px 0 #45454522;
+          background: linear-gradient(120deg, #dde6ff88 60%, #fff8db44 100%);
+        }
+        .carrusel-img {
+          width: 100%; height: 100%; object-fit: cover; position: absolute; left: 0; top: 0; z-index: 1;
+          filter: brightness(0.77) blur(0.4px) saturate(1.06);
+          transition: filter 0.7s cubic-bezier(.5,-0.17,.45,1.11);
+        }
+        .glass {
+          position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+          background: linear-gradient(110deg, #fff7 50%, #f1f8ff55 100%);
+          border-radius: 1.6rem; box-shadow: 0 0 48px 10px #fff7, 0 0 2px #0007;
+          backdrop-filter: blur(18px) saturate(1.4);
+          min-width: 360px; width: 47vw; max-width: 470px; min-height: 200px;
+          padding: 2.5rem 2.7rem 2.1rem 2.7rem; z-index: 3;
+          display: flex; flex-direction: column; align-items: flex-start;
+        }
+        .glass::after {
+          content: ""; position: absolute; left: 12%; top: 13%;
+          width: 76%; height: 72%; border-radius: 1.3rem;
+          background: linear-gradient(122deg, #fff3 55%, transparent 95%);
+          filter: blur(8px); opacity: .28; z-index: 0;
+        }
+        .logo-cundi {
+          width: 70px; height: 70px; margin-bottom: 12px; z-index:2;
+          filter: drop-shadow(0 2px 5px #0003);
+        }
+        .frase {
+          font-size: 2.1rem; font-weight: bold;
+          color: #333; line-height: 1.22; letter-spacing: -1px;
+          z-index: 2;
+          text-shadow: 0 3px 16px #fff9, 0 1.5px 1px #2222;
+          margin-bottom: 10px;
+        }
+        .brillo-premium {
+          position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+          pointer-events: none; z-index: 5;
+        }
+        .brillo-premium::before {
+          content: ""; display: block; position: absolute;
+          top: 8%; left: -14%; width: 39%; height: 13%;
+          background: linear-gradient(113deg, #fff8 43%, transparent 90%);
+          filter: blur(13px); opacity: 0.39;
+          border-radius: 77px;
+          transform: rotate(-11deg);
+        }
+        .brillo-premium::after {
+          content: ""; display: block; position: absolute;
+          bottom: 12%; right: 7%; width: 26%; height: 12%;
+          background: linear-gradient(94deg, #fff7 60%, transparent 97%);
+          filter: blur(12px); opacity: 0.25;
+          border-radius: 47px;
+          transform: rotate(6deg);
+        }
+        .carrusel-btn {
+          background: #fff9; border: none;
+          border-radius: 50%; width: 42px; height: 42px; font-size: 2rem;
+          position: absolute; top: 50%; transform: translateY(-50%);
+          z-index: 6; cursor: pointer; box-shadow: 0 0 12px #0001;
+          transition: background .19s, box-shadow .25s;
+        }
+        .carrusel-btn:hover { background: #ffffffee; box-shadow: 0 0 19px #ffde  }
+        .carrusel-btn.prev { left: 22px; }
+        .carrusel-btn.next { right: 22px; }
+        .bullets { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+          display: flex; gap: 14px; z-index:7; }
+        .bullet {
+          width: 15px; height: 15px; border-radius: 50%; background: #fff6; border: 2.5px solid #c1c1c1aa;
+          box-shadow: 0 2px 8px #0002;
+          transition: background .23s, border .23s;
+          cursor: pointer;
+        }
+        .bullet.active {
+          background: var(--bullet-active-color,#2a90ff);
+          border: 2.5px solid #fff;
+          box-shadow: 0 0 12px #ffffff99, 0 0 22px var(--bullet-active-color,#3a94ef33);
+        }
+        /* Animaciones premium */
+        .slide-in-left { animation: slideInLeft .77s cubic-bezier(.65,0,.35,1.16) both;}
+        .slide-out-right { animation: slideOutRight .6s cubic-bezier(.7,0,.2,1) both;}
+        .slide-in-right { animation: slideInRight .74s cubic-bezier(.65,0,.35,1.16) both;}
+        .slide-out-left { animation: slideOutLeft .6s cubic-bezier(.7,0,.2,1) both;}
+        .fade-in { animation: fadeIn .75s cubic-bezier(.45,.03,.48,1.18) both;}
+        .fade-out { animation: fadeOut .58s cubic-bezier(.7,0,.2,1) both;}
+        .zoom-in { animation: zoomIn .76s cubic-bezier(.45,0,.52,1.21) both;}
+        .zoom-out { animation: zoomOut .58s cubic-bezier(.7,0,.2,1) both;}
+        .flip-in { animation: flipIn .82s cubic-bezier(.42,-0.18,.58,1.33) both;}
+        .flip-out { animation: flipOut .67s cubic-bezier(.7,0,.2,1) both;}
+        @keyframes slideInLeft {
+          from {opacity:0; transform:translateX(-150px) scale(.91);}
+          to {opacity:1; transform:translateX(0) scale(1);}
+        }
+        @keyframes slideOutRight {
+          from {opacity:1; transform:translateX(0) scale(1);}
+          to {opacity:0; transform:translateX(120px) scale(.93);}
+        }
+        @keyframes slideInRight {
+          from {opacity:0; transform:translateX(180px) scale(.94);}
+          to {opacity:1; transform:translateX(0) scale(1);}
+        }
+        @keyframes slideOutLeft {
+          from {opacity:1; transform:translateX(0) scale(1);}
+          to {opacity:0; transform:translateX(-130px) scale(.93);}
+        }
+        @keyframes fadeIn {
+          from {opacity:0; transform: scale(.89);}
+          to {opacity:1; transform: scale(1);}
+        }
+        @keyframes fadeOut {
+          from {opacity:1;}
+          to {opacity:0;}
+        }
+        @keyframes zoomIn {
+          from {opacity:0; transform: scale(.75);}
+          to {opacity:1; transform: scale(1);}
+        }
+        @keyframes zoomOut {
+          from {opacity:1;}
+          to {opacity:0; transform: scale(1.17);}
+        }
+        @keyframes flipIn {
+          from {opacity:0; transform: rotateY(69deg) scale(.9);}
+          to {opacity:1; transform: rotateY(0deg) scale(1);}
+        }
+        @keyframes flipOut {
+          from {opacity:1;}
+          to {opacity:0; transform: rotateY(-50deg) scale(.93);}
+        }
+
+        /* Responsive */
+        @media (max-width: 680px) {
+          .carrusel-ctn {height: 320px;}
+          .glass {width: 95vw; min-width: 0; padding: 1.3rem 0.6rem;}
+          .frase {font-size: 1.25rem;}
+          .logo-cundi {width: 52px; height: 52px;}
+        }
+        @media (max-width: 480px) {
+          .carrusel-ctn {height: 215px; min-width: 0;}
+          .glass {min-height: 110px; border-radius: 1.2rem;}
+          .frase {font-size: 1.06rem;}
+        }
+      `}</style>
+      <div className="carrusel-ctn" style={{ background: `linear-gradient(123deg, ${color}16 64%, #fff 100%)` }}>
+        <img
+          src={img}
+          alt="banner voleibol"
+          className={`carrusel-img ${animOut ? animOut : anim}`}
+          draggable={false}
+          style={{ zIndex: 1 }}
+        />
+
+        <div className={`glass ${animOut ? animOut : anim}`}>
+          <img src={logo} alt="Logo Liga Voleibol Cundinamarca" className="logo-cundi" />
+          <span
+            className="frase"
+            style={{
+              color: "#222",
+              borderLeft: `6px solid ${color}`,
+              paddingLeft: "16px",
+              zIndex: 2,
+              fontFamily: "'Montserrat', Arial, sans-serif",
+              background: "linear-gradient(90deg,#fff8,#fff0 100%)",
+              borderRadius: "8px"
+            }}
+          >
+            {frase}
+          </span>
+        </div>
+
+        {/* Brillo Premium */}
+        <div className="brillo-premium"></div>
+
+        {/* Botones navegación */}
+        <button className="carrusel-btn prev" onClick={handlePrev} aria-label="Anterior">‹</button>
+        <button className="carrusel-btn next" onClick={handleNext} aria-label="Siguiente">›</button>
+
+        {/* Bullets de navegación */}
+        <div className="bullets">
+          {images.map((b, i) => (
+            <div
+              key={i}
+              className={`bullet${i === index ? " active" : ""}`}
+              style={i === index ? { "--bullet-active-color": b.color } : {}}
+              onClick={() => goTo(i)}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default CarouselCundiVolei;
+
 
         <!-- About Section -->
         <section id="nosotros" class="py-20 bg-white">
