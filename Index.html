@@ -679,7 +679,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Junta Directiva - Premium</title>
+  <title>Junta Directiva | Liga Voleibol Cundinamarca</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -687,208 +687,225 @@
       min-height: 100vh;
       font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      color: #0a2342;
-    }
-    .section-title {
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin-top: 40px;
-      margin-bottom: 10px;
-      font-weight: bold;
       color: #153669;
-      letter-spacing: 1px;
-      text-shadow: 0 2px 8px rgba(21,54,105,0.05);
     }
-    .underline {
-      width: 60px;
+    .title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin: 36px 0 10px 0;
+      letter-spacing: .5px;
+      font-family: 'Playfair Display', serif;
+    }
+    .line {
+      width: 64px;
       height: 5px;
-      background: linear-gradient(90deg, #153669 30%, #48b7b2 100%);
-      margin: 0 auto 40px auto;
+      background: linear-gradient(90deg, #18498b 0%, #48b7b2 100%);
+      margin: 0 auto 38px auto;
       border-radius: 2px;
     }
-    .directiva-grid {
+    .board-grid {
       display: flex;
       flex-wrap: wrap;
+      gap: 38px 36px;
       justify-content: center;
-      gap: 40px 24px;
-      max-width: 1300px;
-      margin: 0 auto 80px auto;
+      align-items: flex-start;
+      max-width: 1100px;
+      margin: 0 auto 90px auto;
     }
-    .directiva-card {
+    .board-card {
       position: relative;
-      width: 300px;
+      width: 270px;
+      min-height: 370px;
       background: #fff;
-      border-radius: 30px;
-      box-shadow: 0 6px 32px 0 rgba(27, 51, 89, 0.12), 0 1.5px 3px 0 rgba(72,183,178,0.10);
+      border-radius: 25px;
+      box-shadow: 0 4px 32px 0 rgba(27, 51, 89, 0.10), 0 1.5px 5px 0 rgba(72,183,178,0.09);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       overflow: hidden;
-      transition: transform .23s cubic-bezier(.4,2,.7,1), box-shadow .22s;
+      transition: box-shadow .22s cubic-bezier(.4,2,.7,1), transform .19s;
       z-index: 1;
-      margin-bottom: 12px;
-      border-top: 7px solid #48b7b2; /* Cambia el color según el cargo */
-      cursor: pointer;
     }
-    .directiva-card:hover {
-      transform: translateY(-9px) scale(1.025);
-      box-shadow: 0 14px 40px 0 rgba(21,54,105,0.20), 0 6px 16px 0 rgba(72,183,178,0.12);
-      z-index: 2;
+    .board-card:hover {
+      box-shadow: 0 10px 44px 0 rgba(21,54,105,0.19), 0 2px 14px 0 rgba(72,183,178,0.15);
+      transform: translateY(-7px) scale(1.024);
     }
-    /* Curva arriba para el efecto moderno */
-    .directiva-card .curved-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
+    .wave-bg {
       width: 100%;
-      height: 110px;
-      z-index: 1;
-      background: linear-gradient(100deg, #153669 65%, #48b7b2 100%);
-      border-bottom-left-radius: 55px 35px;
-      border-bottom-right-radius: 70px 50px;
-      border-top-right-radius: 24px;
-      border-top-left-radius: 24px;
-    }
-    /* Fotografía tipo protagonista */
-    .directiva-card .photo-container {
-      width: 112px;
-      height: 112px;
-      border-radius: 30px 40px 18px 60px/45px 60px 22px 60px;
-      overflow: hidden;
+      height: 105px;
       position: absolute;
-      top: 36px;
+      top: 0; left: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    /* Animación de la ola de color */
+    .wave-bg svg .wave-path {
+      transition: filter 0.45s, opacity 0.23s;
+      opacity: 0.93;
+      filter: blur(0px);
+    }
+    .board-card:hover .wave-bg svg .wave-path {
+      opacity: 1;
+      filter: blur(1.2px) brightness(1.06);
+    }
+    /* Imagen de perfil custom */
+    .photo-frame {
+      position: absolute;
+      top: 33px;
       left: 50%;
       transform: translateX(-50%);
-      border: 5px solid #fff;
-      box-shadow: 0 2px 12px 0 rgba(21,54,105,0.13);
+      width: 93px; height: 93px;
+      border-radius: 30px 40px 22px 40px / 45px 56px 29px 56px;
+      box-shadow: 0 3px 13px 0 rgba(27, 51, 89, 0.11);
+      border: 4.5px solid #fff;
       background: #f0f4fa;
-      z-index: 2;
+      overflow: hidden;
+      z-index: 3;
+      transition: box-shadow .22s, border-color .22s;
     }
-    .directiva-card img {
-      width: 100%;
-      height: 100%;
+    .board-card:hover .photo-frame {
+      box-shadow: 0 8px 28px 0 rgba(72,183,178,0.13), 0 2px 10px 0 rgba(21,54,105,0.17);
+      border-color: #e3eef5;
+    }
+    .photo-frame img {
+      width: 100%; height: 100%;
       object-fit: cover;
     }
-    /* Contenido de la tarjeta */
-    .directiva-card .content {
-      padding-top: 90px;
-      padding-bottom: 32px;
-      padding-left: 28px;
-      padding-right: 28px;
+    /* Contenido */
+    .card-content {
+      padding-top: 120px;
+      padding-bottom: 38px;
+      padding-left: 22px;
+      padding-right: 22px;
+      width: 100%;
       text-align: center;
-      z-index: 3;
-      position: relative;
+      z-index: 5;
+      background: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      min-height: 180px;
+      justify-content: center;
     }
-    .directiva-card .nombre {
-      margin-top: 26px;
-      margin-bottom: 6px;
-      font-size: 1.22rem;
+    .nombre {
+      margin-top: 10px;
+      font-size: 1.15rem;
       font-weight: 700;
       color: #153669;
-      letter-spacing: 0.3px;
-      line-height: 1.17;
-    }
-    .directiva-card .cargo {
-      font-size: 1rem;
-      font-weight: 600;
       letter-spacing: 0.2px;
+      line-height: 1.19;
       margin-bottom: 2px;
     }
-    .directiva-card .cargo.presidente { color: #18498b; }
-    .directiva-card .cargo.vicepresidente { color: #48b7b2; }
-    .directiva-card .cargo.tesorero { color: #31b46a; }
-    .directiva-card .cargo.secretario { color: #d9b700; }
-    .directiva-card .cargo.vocal { color: #c5393c; }
-
+    .cargo {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.08px;
+      margin-bottom: 2px;
+      margin-top: 0;
+      text-shadow: 0 1px 7px #fff2;
+    }
+    .presidente    { color: #18498b; }
+    .vicepresidente{ color: #48b7b2; }
+    .tesorero      { color: #31b46a; }
+    .secretario    { color: #d9b700; }
+    .vocal         { color: #c5393c; }
     /* Responsive */
-    @media (max-width: 900px) {
-      .directiva-grid {
-        gap: 36px 10px;
-      }
-      .directiva-card {
-        width: 90vw;
-        min-width: 230px;
-        max-width: 320px;
-      }
+    @media (max-width: 1100px) {
+      .board-card { width: 94vw; max-width: 330px; min-width: 220px;}
+      .board-grid { gap: 28px 6px;}
     }
     @media (max-width: 600px) {
-      .directiva-card {
-        width: 96vw;
-        max-width: 96vw;
-      }
-      .directiva-grid {
-        gap: 30px 0px;
-      }
+      .board-card { width: 96vw; max-width: 96vw;}
+      .board-grid { gap: 22px 0px;}
     }
   </style>
 </head>
 <body>
-  <h2 class="section-title">Junta Directiva</h2>
-  <div class="underline"></div>
-  <div class="directiva-grid">
-
-    <!-- Presidente -->
-    <div class="directiva-card" style="border-top-color:#18498b;">
-      <div class="curved-bg" style="background: linear-gradient(120deg, #18498b 70%, #48b7b2 100%);"></div>
-      <div class="photo-container">
+  <div class="title">Junta Directiva</div>
+  <div class="line"></div>
+  <div class="board-grid">
+    <!-- PRESIDENTE -->
+    <div class="board-card">
+      <div class="wave-bg">
+        <!-- Fondo con ola curva azul institucional -->
+        <svg width="100%" height="110" viewBox="0 0 320 110" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path class="wave-path" d="M0,0 Q80,52 170,32 T320,46 V0 H0 Z" fill="#18498b"/>
+        </svg>
+      </div>
+      <div class="photo-frame">
         <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=320&h=320&facepad=3&q=80" alt="Dr. Carlos Rodríguez" />
       </div>
-      <div class="content">
+      <div class="card-content">
         <div class="nombre">Dr. Carlos Rodríguez</div>
         <div class="cargo presidente">Presidente</div>
       </div>
     </div>
-
-    <!-- Vicepresidente -->
-    <div class="directiva-card" style="border-top-color:#48b7b2;">
-      <div class="curved-bg" style="background: linear-gradient(120deg, #48b7b2 65%, #53d7e2 100%);"></div>
-      <div class="photo-container">
+    <!-- VICEPRESIDENTE -->
+    <div class="board-card">
+      <div class="wave-bg">
+        <svg width="100%" height="110" viewBox="0 0 320 110" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path class="wave-path" d="M0,0 Q60,62 180,40 T320,55 V0 H0 Z" fill="#48b7b2"/>
+        </svg>
+      </div>
+      <div class="photo-frame">
         <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=facearea&w=320&h=320&facepad=3&q=80" alt="Lic. María González" />
       </div>
-      <div class="content">
+      <div class="card-content">
         <div class="nombre">Lic. María González</div>
         <div class="cargo vicepresidente">Vicepresidenta</div>
       </div>
     </div>
-
-    <!-- Tesorero -->
-    <div class="directiva-card" style="border-top-color:#31b46a;">
-      <div class="curved-bg" style="background: linear-gradient(120deg, #31b46a 70%, #54eab5 100%);"></div>
-      <div class="photo-container">
+    <!-- TESORERO -->
+    <div class="board-card">
+      <div class="wave-bg">
+        <svg width="100%" height="110" viewBox="0 0 320 110" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path class="wave-path" d="M0,0 Q70,64 200,39 T320,54 V0 H0 Z" fill="#31b46a"/>
+        </svg>
+      </div>
+      <div class="photo-frame">
         <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&w=320&h=320&facepad=3&q=80" alt="Cont. Ana Herrera" />
       </div>
-      <div class="content">
+      <div class="card-content">
         <div class="nombre">Cont. Ana Herrera</div>
         <div class="cargo tesorero">Tesorera</div>
       </div>
     </div>
-
-    <!-- Secretario -->
-    <div class="directiva-card" style="border-top-color:#d9b700;">
-      <div class="curved-bg" style="background: linear-gradient(120deg, #d9b700 65%, #ffe16c 100%);"></div>
-      <div class="photo-container">
+    <!-- SECRETARIO -->
+    <div class="board-card">
+      <div class="wave-bg">
+        <svg width="100%" height="110" viewBox="0 0 320 110" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path class="wave-path" d="M0,0 Q60,68 180,37 T320,54 V0 H0 Z" fill="#d9b700"/>
+        </svg>
+      </div>
+      <div class="photo-frame">
         <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=320&h=320&facepad=3&q=80" alt="Ing. Luis Martínez" />
       </div>
-      <div class="content">
+      <div class="card-content">
         <div class="nombre">Ing. Luis Martínez</div>
         <div class="cargo secretario">Secretario</div>
       </div>
     </div>
-
-    <!-- Vocal -->
-    <div class="directiva-card" style="border-top-color:#c5393c;">
-      <div class="curved-bg" style="background: linear-gradient(120deg, #c5393c 70%, #ff6768 100%);"></div>
-      <div class="photo-container">
+    <!-- VOCAL -->
+    <div class="board-card">
+      <div class="wave-bg">
+        <svg width="100%" height="110" viewBox="0 0 320 110" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path class="wave-path" d="M0,0 Q90,49 180,49 T320,38 V0 H0 Z" fill="#c5393c"/>
+        </svg>
+      </div>
+      <div class="photo-frame">
         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=facearea&w=320&h=320&facepad=3&q=80" alt="Dr. Patricia López" />
       </div>
-      <div class="content">
+      <div class="card-content">
         <div class="nombre">Dr. Patricia López</div>
         <div class="cargo vocal">Vocal</div>
       </div>
     </div>
-
   </div>
 </body>
 </html>
+
 
 
 
