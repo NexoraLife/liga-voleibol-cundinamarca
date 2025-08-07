@@ -1,144 +1,137 @@
-<!-- Estilos extra (añádelos dentro de tu <style> global o en un CSS aparte) -->
-<style>
-  .carousel {
-    position: relative;
-    width: 95vw; max-width: 900px;
-    height: 360px; overflow: hidden;
-    border-radius: 1.8rem;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2),
-                0 2px 16px rgba(0,0,0,0.3);
-    margin: 2rem auto;
-  }
-  .carousel .slide {
-    position: absolute; inset: 0;
-    opacity: 0; transition: opacity 0.8s ease-in-out;
-  }
-  .carousel .slide.active {
-    opacity: 1;
-  }
-  .carousel .slide img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transform: scale(1.1);
-    transition: transform 8s ease-out;
-  }
-  .carousel .slide.active img {
-    transform: scale(1);
-  }
-  .carousel .overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent 50%);
-  }
-  .carousel .caption {
-    position: absolute; bottom: 2rem; left: 2rem;
-    color: #fff; font-family: 'Playfair Display', serif;
-    font-size: 1.8rem; max-width: 70%;
-    line-height: 1.2;
-    animation: slideUp 1s ease-out forwards;
-    opacity: 0;
-  }
-  .carousel .slide.active .caption {
-    opacity: 1;
-    animation-delay: 0.3s;
-  }
-  @keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to   { transform: translateY(0);  opacity: 1; }
-  }
-  .carousel .btn {
-    position: absolute; top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255,255,255,0.6);
-    border: none; width: 44px; height: 44px;
-    border-radius: 50%; font-size: 1.5rem;
-    cursor: pointer; z-index: 10;
-    transition: background .2s;
-  }
-  .carousel .btn:hover { background: rgba(255,255,255,0.8); }
-  .carousel .prev { left: 1rem; }
-  .carousel .next { right: 1rem; }
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Carrusel Premium – Liga Voleibol Cundinamarca</title>
 
-  .carousel .bullets {
-    position: absolute; bottom: 1rem; left: 50%;
-    transform: translateX(-50%);
-    display: flex; gap: .5rem; z-index: 10;
-  }
-  .carousel .bullet {
-    width: 12px; height: 12px;
-    background: rgba(255,255,255,0.7);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform .2s, background .2s;
-  }
-  .carousel .bullet:hover { transform: scale(1.2); }
-  .carousel .bullet.active {
-    background: #fff;
-    box-shadow: 0 0 6px rgba(255,255,255,0.9);
-  }
-</style>
+  <!-- 1) Swiper CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper/swiper-bundle.min.css"
+  />
 
-<!-- Marcado HTML del carrusel -->
-<div class="carousel" role="region" aria-label="Carrusel institucional">
-  <button class="btn prev" aria-label="Slide anterior">‹</button>
-  <button class="btn next" aria-label="Slide siguiente">›</button>
-  <div class="bullets" role="tablist"></div>
-</div>
+  <!-- 2) Estilos propios -->
+  <style>
+    /* Tamaño y contenedor */
+    .swiper-container {
+      width: 95vw;
+      max-width: 1000px;
+      height: 450px;
+      margin: 2rem auto;
+    }
+    /* Slide de fondo */
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Capa de oscurecimiento para legibilidad */
+    .swiper-slide .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    /* Título sobre la imagen */
+    .swiper-slide h2 {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      margin: 0;
+      padding: 0.5rem 1rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #fff;
+      z-index: 2;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+    }
+    /* Ajustes de navegación y paginación */
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #fff;
+    }
+    .swiper-pagination-bullet {
+      background: rgba(255,255,255,0.7);
+      opacity: 1;
+    }
+    .swiper-pagination-bullet-active {
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
 
-<!-- Script mejorado (colócalo al final, justo antes de </body>) -->
-<script>
-  const slidesData = [
-    { img: 'pancartas/slide1.jpg', alt: 'Salto de remate en voleibol', caption: 'Valor y pasión en cada punto' },
-    { img: 'pancartas/slide2.jpg', alt: 'Equipo celebrando victoria', caption: 'Juntos rompemos la red' },
-    { img: 'pancartas/slide3.jpg', alt: 'Jugador bloqueando la bola', caption: 'Defensa impenetrable' },
-    { img: 'pancartas/slide4.jpg', alt: 'Equipo entrenando en cancha', caption: 'Entrena duro, juega mejor' },
-    { img: 'pancartas/slide5.jpg', alt: 'Red iluminada en partido nocturno', caption: 'Donde la noche brilla con voleibol' },
-  ];
+  <!-- 3) Marcado HTML del carrusel -->
+  <div class="swiper-container" data-swiper-parallax="-23%">
+    <div class="swiper-wrapper">
+      <div
+        class="swiper-slide"
+        style="background-image:url('pancartas/slide1.jpg')"
+      >
+        <div class="overlay"></div>
+        <h2 data-swiper-parallax="-200">Valor y pasión en cada punto</h2>
+      </div>
+      <div
+        class="swiper-slide"
+        style="background-image:url('pancartas/slide2.jpg')"
+      >
+        <div class="overlay"></div>
+        <h2 data-swiper-parallax="-200">Juntos rompemos la red</h2>
+      </div>
+      <div
+        class="swiper-slide"
+        style="background-image:url('pancartas/slide3.jpg')"
+      >
+        <div class="overlay"></div>
+        <h2 data-swiper-parallax="-200">Defensa impenetrable</h2>
+      </div>
+      <!-- Añade más slides según necesites -->
+    </div>
 
-  const carousel = document.querySelector('.carousel');
-  const bullets   = carousel.querySelector('.bullets');
-  let current = 0, autoTimer;
+    <!-- Botones navegación -->
+    <div class="swiper-button-prev" aria-label="Anterior"></div>
+    <div class="swiper-button-next" aria-label="Siguiente"></div>
 
-  // Crear slides y bullets
-  slidesData.forEach((slideInfo, idx) => {
-    // Slide
-    const slide = document.createElement('div');
-    slide.className = 'slide';
-    slide.id = `slide-${idx}`;
-    slide.setAttribute('role','tabpanel');
-    slide.innerHTML = `
-      <img src="${slideInfo.img}" alt="${slideInfo.alt}">
-      <div class="overlay"></div>
-      <div class="caption">${slideInfo.caption}</div>
-    `;
-    carousel.appendChild(slide);
+    <!-- Paginación -->
+    <div class="swiper-pagination" role="navigation"></div>
+  </div>
 
-    // Bullet
-    const dot = document.createElement('button');
-    dot.className = 'bullet';
-    dot.setAttribute('role','tab');
-    dot.setAttribute('aria-controls', `slide-${idx}`);
-    dot.onclick = () => showSlide(idx);
-    bullets.appendChild(dot);
-  });
+  <!-- 4) Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
 
-  function showSlide(idx) {
-    clearTimeout(autoTimer);
-    const slides = carousel.querySelectorAll('.slide');
-    const dots   = bullets.querySelectorAll('.bullet');
-    current = (idx + slides.length) % slides.length;
-
-    slides.forEach((s,i) => s.classList.toggle('active', i===current));
-    dots.forEach((d,i)   => {
-      d.classList.toggle('active', i===current);
-      d.setAttribute('aria-selected', i===current);
+  <!-- 5) Inicialización -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      new Swiper('.swiper-container', {
+        effect: 'coverflow',           // Efecto 3D premium
+        grabCursor: true,              // Cursor “agarra”
+        centeredSlides: true,          // Slide centrado
+        slidesPerView: 'auto',         // Ajuste automático
+        loop: true,                    // Bucle infinito
+        speed: 1000,                   // Velocidad de transición
+        coverflowEffect: {             // Opciones Coverflow
+          rotate: 50,
+          stretch: 0,
+          depth: 200,
+          modifier: 1,
+          slideShadows: true,
+        },
+        autoplay: {                    // Auto-avance
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        parallax: true,                // Parallax en captions
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
     });
-
-    autoTimer = setTimeout(() => showSlide(current+1), 5000);
-  }
-
-  carousel.querySelector('.prev').onclick = () => showSlide(current-1);
-  carousel.querySelector('.next').onclick = () => showSlide(current+1);
-
-  // Iniciar
-  showSlide(0);
-</script>
+  </script>
+</body>
+</html>
