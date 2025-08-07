@@ -1,164 +1,144 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liga de Voleibol de Cundinamarca - Organismo Deportivo Oficial</title>
-  <meta name="description" content="Liga de Voleibol de Cundinamarca - Organismo deportivo oficial con 15 años promoviendo el desarrollo del voleibol en Cundinamarca con excelencia institucional.">
+<!-- Estilos extra (añádelos dentro de tu <style> global o en un CSS aparte) -->
+<style>
+  .carousel {
+    position: relative;
+    width: 95vw; max-width: 900px;
+    height: 360px; overflow: hidden;
+    border-radius: 1.8rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2),
+                0 2px 16px rgba(0,0,0,0.3);
+    margin: 2rem auto;
+  }
+  .carousel .slide {
+    position: absolute; inset: 0;
+    opacity: 0; transition: opacity 0.8s ease-in-out;
+  }
+  .carousel .slide.active {
+    opacity: 1;
+  }
+  .carousel .slide img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transform: scale(1.1);
+    transition: transform 8s ease-out;
+  }
+  .carousel .slide.active img {
+    transform: scale(1);
+  }
+  .carousel .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent 50%);
+  }
+  .carousel .caption {
+    position: absolute; bottom: 2rem; left: 2rem;
+    color: #fff; font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; max-width: 70%;
+    line-height: 1.2;
+    animation: slideUp 1s ease-out forwards;
+    opacity: 0;
+  }
+  .carousel .slide.active .caption {
+    opacity: 1;
+    animation-delay: 0.3s;
+  }
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to   { transform: translateY(0);  opacity: 1; }
+  }
+  .carousel .btn {
+    position: absolute; top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.6);
+    border: none; width: 44px; height: 44px;
+    border-radius: 50%; font-size: 1.5rem;
+    cursor: pointer; z-index: 10;
+    transition: background .2s;
+  }
+  .carousel .btn:hover { background: rgba(255,255,255,0.8); }
+  .carousel .prev { left: 1rem; }
+  .carousel .next { right: 1rem; }
 
-  <!-- SEO and Social Meta Tags -->
-  <meta property="og:title" content="Liga de Voleibol de Cundinamarca - Portal Institucional">
-  <meta property="og:description" content="Organismo deportivo oficial líder en Cundinamarca con 15 años de trayectoria institucional">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
+  .carousel .bullets {
+    position: absolute; bottom: 1rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: .5rem; z-index: 10;
+  }
+  .carousel .bullet {
+    width: 12px; height: 12px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform .2s, background .2s;
+  }
+  .carousel .bullet:hover { transform: scale(1.2); }
+  .carousel .bullet.active {
+    background: #fff;
+    box-shadow: 0 0 6px rgba(255,255,255,0.9);
+  }
+</style>
 
-  <!-- Preload Critical Resources -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    rel="preload"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
-    as="style"
-  >
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
+<!-- Marcado HTML del carrusel -->
+<div class="carousel" role="region" aria-label="Carrusel institucional">
+  <button class="btn prev" aria-label="Slide anterior">‹</button>
+  <button class="btn next" aria-label="Slide siguiente">›</button>
+  <div class="bullets" role="tablist"></div>
+</div>
 
-  <!-- Tailwind CSS -->
-  <script defer src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            playfair: ['Playfair Display','serif'],
-            inter: ['Inter','sans-serif'],
-          },
-          colors: {
-            institutional: {
-              navy: '#1e3a8a',
-              blue: '#3b82f6',
-              sky: '#87CEEB',
-              'dark-blue': '#1e3a8a',
-              gold: '#FFD700',
-              green: '#22c55e',
-              red: '#dc2626',
-              yellow: '#eab308',
-              'gray-50': '#f8fafc',
-              'gray-100': '#f1f5f9',
-              'gray-200': '#e2e8f0',
-              'gray-300': '#cbd5e1',
-              'gray-400': '#94a3b8',
-              'gray-500': '#64748b',
-              'gray-600': '#475569',
-              'gray-700': '#334155',
-              'gray-800': '#1e293b',
-              'gray-900': '#0f172a',
-            }
-          },
-          animation: {
-            'fade-in': 'fadeIn 0.6s ease-out forwards'
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' },
-            }
-          }
-        }
-      }
-    }
-  </script>
+<!-- Script mejorado (colócalo al final, justo antes de </body>) -->
+<script>
+  const slidesData = [
+    { img: 'pancartas/slide1.jpg', alt: 'Salto de remate en voleibol', caption: 'Valor y pasión en cada punto' },
+    { img: 'pancartas/slide2.jpg', alt: 'Equipo celebrando victoria', caption: 'Juntos rompemos la red' },
+    { img: 'pancartas/slide3.jpg', alt: 'Jugador bloqueando la bola', caption: 'Defensa impenetrable' },
+    { img: 'pancartas/slide4.jpg', alt: 'Equipo entrenando en cancha', caption: 'Entrena duro, juega mejor' },
+    { img: 'pancartas/slide5.jpg', alt: 'Red iluminada en partido nocturno', caption: 'Donde la noche brilla con voleibol' },
+  ];
 
-  <!-- Global Styles + Carousel Styles -->
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: white; color: #1e293b; }
-    .carousel { position: relative; width: 95vw; max-width: 900px; height: 360px; overflow: hidden; border-radius: 1.8rem; box-shadow: 0 8px 32px rgba(0,0,0,0.2), 0 2px 16px rgba(0,0,0,0.3); margin: 2rem auto; }
-    .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease-out; display: flex; justify-content: center; align-items: center; }
-    .slide.active { opacity: 1; }
-    .glass { position: relative; background: rgba(255,255,255,0.3); border-radius: 1.6rem; backdrop-filter: blur(14px) saturate(1.3); padding: 2rem; width: 80%; max-width: 480px; box-shadow: 0 0 40px rgba(255,255,255,0.2), 0 0 8px rgba(0,0,0,0.2); }
-    .logo { width: 70px; height: 70px; margin-bottom: 1rem; border-radius: 50%; background: linear-gradient(130deg,#2079e8,#ffc700); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 2rem; font-weight: 900; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-    .frase { font-size: 2rem; font-weight: bold; color: #222; line-height: 1.2; letter-spacing: -1px; text-shadow: 0 2px 12px rgba(255,255,255,0.5), 0 1px 1px rgba(0,0,0,0.3); border-left: 6px solid; padding-left: 1rem; background: rgba(255,255,255,0.4); border-radius: 6px; }
-    button.btn { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; background: rgba(255,255,255,0.6); border: none; border-radius: 50%; font-size: 2rem; cursor: pointer; z-index: 5; box-shadow: 0 0 12px rgba(0,0,0,0.3); color: #222; transition: background .2s; }
-    button.btn:hover { background: rgba(255,255,255,0.8); }
-    .prev { left: 20px; } .next { right: 20px; }
-    .bullets { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 6; }
-    .bullet { width: 14px; height: 14px; border-radius: 50%; background: rgba(255,255,255,0.7); cursor: pointer; transition: background .3s; border: none; }
-    .bullet.active { background: #fff; box-shadow: 0 0 8px rgba(255,255,255,0.9); }
-    @media(max-width:600px){ .carousel { height: 260px; } .frase { font-size: 1.3rem; } .logo { width:50px; height:50px; font-size:1.5rem; } }
-  </style>
-</head>
-<body>
+  const carousel = document.querySelector('.carousel');
+  const bullets   = carousel.querySelector('.bullets');
+  let current = 0, autoTimer;
 
-  <!-- Carrusel Institucional -->
-  <div class="carousel" role="region" aria-label="Carrusel institucional">
-    <button class="btn prev" aria-label="Anterior slide">‹</button>
-    <button class="btn next" aria-label="Siguiente slide">›</button>
-    <div class="bullets" role="tablist"></div>
-  </div>
+  // Crear slides y bullets
+  slidesData.forEach((slideInfo, idx) => {
+    // Slide
+    const slide = document.createElement('div');
+    slide.className = 'slide';
+    slide.id = `slide-${idx}`;
+    slide.setAttribute('role','tabpanel');
+    slide.innerHTML = `
+      <img src="${slideInfo.img}" alt="${slideInfo.alt}">
+      <div class="overlay"></div>
+      <div class="caption">${slideInfo.caption}</div>
+    `;
+    carousel.appendChild(slide);
 
-  <!-- resto de tu página… -->
+    // Bullet
+    const dot = document.createElement('button');
+    dot.className = 'bullet';
+    dot.setAttribute('role','tab');
+    dot.setAttribute('aria-controls', `slide-${idx}`);
+    dot.onclick = () => showSlide(idx);
+    bullets.appendChild(dot);
+  });
 
-  <script>
-    const slidesData = [
-      { color: "#2079e8", frase: "Aquí no solo jugamos, hacemos historia. ¡Únete a la garra de Cundinamarca!" },
-      { color: "#ea3838", frase: "Donde termina el miedo, empieza el voleibol. Cundinamarca es actitud." },
-      { color: "#28a745", frase: "Cada set, cada punto: luchamos como osos, ganamos como familia." },
-      { color: "#ffc700", frase: "Tus límites están en tu mente. Rompe la red, supera tus barreras." },
-      { color: "#6236ff", frase: "En Cundinamarca, la pasión se entrena y la gloria se conquista." }
-    ];
+  function showSlide(idx) {
+    clearTimeout(autoTimer);
+    const slides = carousel.querySelectorAll('.slide');
+    const dots   = bullets.querySelectorAll('.bullet');
+    current = (idx + slides.length) % slides.length;
 
-    const carousel = document.querySelector('.carousel');
-    const bullets  = carousel.querySelector('.bullets');
-    let current = 0, autoTimer;
-
-    // Crear slides y bullets
-    slidesData.forEach((data, idx) => {
-      const slide = document.createElement('div');
-      slide.className = 'slide';
-      slide.style.background = data.color;
-      slide.setAttribute('role','tabpanel');
-      slide.id = `slide-${idx}`;
-      slide.innerHTML = `
-        <div class="glass animate-fade-in">
-          <div class="logo">C</div>
-          <div class="frase" style="border-left-color:${data.color}">${data.frase}</div>
-        </div>`;
-      carousel.appendChild(slide);
-
-      const bullet = document.createElement('button');
-      bullet.className = 'bullet';
-      bullet.setAttribute('role','tab');
-      bullet.setAttribute('aria-controls', `slide-${idx}`);
-      bullet.onclick = () => showSlide(idx);
-      bullets.appendChild(bullet);
+    slides.forEach((s,i) => s.classList.toggle('active', i===current));
+    dots.forEach((d,i)   => {
+      d.classList.toggle('active', i===current);
+      d.setAttribute('aria-selected', i===current);
     });
 
-    function showSlide(idx) {
-      clearTimeout(autoTimer);
-      const slides = carousel.querySelectorAll('.slide');
-      const dots   = bullets.querySelectorAll('.bullet');
+    autoTimer = setTimeout(() => showSlide(current+1), 5000);
+  }
 
-      current = (idx + slides.length) % slides.length;
+  carousel.querySelector('.prev').onclick = () => showSlide(current-1);
+  carousel.querySelector('.next').onclick = () => showSlide(current+1);
 
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === current);
-      });
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === current);
-        dot.setAttribute('aria-selected', i === current);
-      });
-
-      autoTimer = setTimeout(() => showSlide(current + 1), 5000);
-    }
-
-    document.querySelector('.prev').onclick = () => showSlide(current - 1);
-    document.querySelector('.next').onclick = () => showSlide(current + 1);
-
-    // Iniciar carrusel inmediatamente
-    showSlide(0);
-  </script>
-</body>
-</html>
+  // Iniciar
+  showSlide(0);
+</script>
