@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Carrusel Premium – Liga Voleibol Cundinamarca</title>
+  <title>Carrusel Premium – Liga de Voleibol de Cundinamarca</title>
+  <meta name="description" content="Carrusel premium con imágenes de voleibol profesional para la Liga de Voleibol de Cundinamarca">
 
   <!-- 1) Swiper CSS -->
   <link
@@ -11,29 +12,33 @@
     href="https://unpkg.com/swiper/swiper-bundle.min.css"
   />
 
-  <!-- 2) Estilos propios -->
+  <!-- 2) Estilos personalizados -->
   <style>
-    /* Tamaño y contenedor */
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #334155;
+    }
+
     .swiper-container {
       width: 95vw;
       max-width: 1000px;
       height: 450px;
-      margin: 2rem auto;
+      margin: 3rem auto;
+      overflow: hidden;
+      border: none;
     }
-    /* Slide de fondo */
     .swiper-slide {
       background-position: center;
       background-size: cover;
       position: relative;
-      overflow: hidden;
     }
-    /* Capa de oscurecimiento para legibilidad */
     .swiper-slide .overlay {
       position: absolute;
       inset: 0;
       background: rgba(0,0,0,0.4);
     }
-    /* Título sobre la imagen */
     .swiper-slide h2 {
       position: absolute;
       bottom: 2rem;
@@ -46,7 +51,6 @@
       z-index: 2;
       text-shadow: 0 2px 6px rgba(0,0,0,0.8);
     }
-    /* Ajustes de navegación y paginación */
     .swiper-button-next,
     .swiper-button-prev {
       color: #fff;
@@ -63,8 +67,9 @@
 <body>
 
   <!-- 3) Marcado HTML del carrusel -->
-  <div class="swiper-container" data-swiper-parallax="-23%">
+  <div class="swiper-container">
     <div class="swiper-wrapper">
+      <!-- Slide 1 -->
       <div
         class="swiper-slide"
         style="background-image:url('pancartas/slide1.jpg')"
@@ -72,27 +77,35 @@
         <div class="overlay"></div>
         <h2 data-swiper-parallax="-200">Valor y pasión en cada punto</h2>
       </div>
+      <!-- Slide 2 -->
       <div
         class="swiper-slide"
         style="background-image:url('pancartas/slide2.jpg')"
       >
         <div class="overlay"></div>
-        <h2 data-swiper-parallax="-200">Juntos rompemos la red</h2>
+        <h2 data-swiper-parallax="-200">Defensa impenetrable bajo las luces</h2>
       </div>
+      <!-- Slide 3 -->
       <div
         class="swiper-slide"
         style="background-image:url('pancartas/slide3.jpg')"
       >
         <div class="overlay"></div>
-        <h2 data-swiper-parallax="-200">Defensa impenetrable</h2>
+        <h2 data-swiper-parallax="-200">Juntos rompemos la red</h2>
       </div>
-      <!-- Añade más slides según necesites -->
+      <!-- Slide 4 -->
+      <div
+        class="swiper-slide"
+        style="background-image:url('pancartas/slide4.jpg')"
+      >
+        <div class="overlay"></div>
+        <h2 data-swiper-parallax="-200">Entrena duro, juega mejor</h2>
+      </div>
     </div>
 
-    <!-- Botones navegación -->
+    <!-- Controles de navegación -->
     <div class="swiper-button-prev" aria-label="Anterior"></div>
     <div class="swiper-button-next" aria-label="Siguiente"></div>
-
     <!-- Paginación -->
     <div class="swiper-pagination" role="navigation"></div>
   </div>
@@ -104,12 +117,12 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       new Swiper('.swiper-container', {
-        effect: 'coverflow',           // Efecto 3D premium
+        effect: 'coverflow',           // Efecto 3D
         grabCursor: true,              // Cursor “agarra”
         centeredSlides: true,          // Slide centrado
         slidesPerView: 'auto',         // Ajuste automático
         loop: true,                    // Bucle infinito
-        speed: 1000,                   // Velocidad de transición
+        speed: 1000,                   // Velocidad de transición (ms)
         coverflowEffect: {             // Opciones Coverflow
           rotate: 50,
           stretch: 0,
@@ -121,7 +134,7 @@
           delay: 5000,
           disableOnInteraction: false,
         },
-        parallax: true,                // Parallax en captions
+        parallax: true,                // Parallax en títulos
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
