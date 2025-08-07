@@ -1,59 +1,98 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Carrusel Premium – Liga de Voleibol de Cundinamarca</title>
-  <meta name="description" content="Carrusel premium con imágenes de voleibol profesional para la Liga de Voleibol de Cundinamarca">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Carrusel Profesional – Liga Voleibol Cundinamarca</title>
+  <meta name="description" content="Carrusel avanzado con animaciones variadas y shapes dinámicos." />
 
-  <!-- 1) Swiper CSS -->
+  <!-- Swiper CSS -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/swiper/swiper-bundle.min.css"
   />
 
-  <!-- 2) Estilos personalizados -->
+  <!-- Fuentes -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Estilos personalizados -->
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
       font-family: 'Inter', sans-serif;
-      background: #f8fafc;
+      background: #f1f5f9;
       color: #334155;
     }
-
     .swiper-container {
       width: 95vw;
       max-width: 1000px;
-      height: 450px;
+      height: 500px;
       margin: 3rem auto;
       overflow: hidden;
-      border: none;
+      position: relative;
     }
     .swiper-slide {
-      background-position: center;
-      background-size: cover;
       position: relative;
+      background-size: cover;
+      background-position: center;
     }
     .swiper-slide .overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0, 0, 0, 0.4);
+      pointer-events: none;
     }
-    .swiper-slide h2 {
+    .slide-content {
       position: absolute;
-      bottom: 2rem;
-      left: 2rem;
-      margin: 0;
-      padding: 0.5rem 1rem;
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      bottom: 3rem;
+      left: 3rem;
+      max-width: 60%;
       color: #fff;
       z-index: 2;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.8);
     }
-    .swiper-button-next,
-    .swiper-button-prev {
+    .slide-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .slide-content p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    /* Shapes decorativos */
+    .shape {
+      position: absolute;
+      opacity: 0.7;
+      mix-blend-mode: screen;
+    }
+    .shape.circle {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: rgba(255, 223, 0, 0.6);
+    }
+    .shape.triangle {
+      width: 0; height: 0;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      border-bottom: 70px solid rgba(59, 130, 246, 0.6);
+    }
+    .shape.square {
+      width: 60px; height: 60px;
+      background: rgba(34, 197, 94, 0.6);
+    }
+    /* Controles */
+    .swiper-button-prev,
+    .swiper-button-next {
       color: #fff;
+      width: 44px; height: 44px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
     }
     .swiper-pagination-bullet {
       background: rgba(255,255,255,0.7);
@@ -66,7 +105,7 @@
 </head>
 <body>
 
-  <!-- 3) Marcado HTML del carrusel -->
+  <!-- Carrusel -->
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <!-- Slide 1 -->
@@ -75,7 +114,12 @@
         style="background-image:url('pancartas/slide1.jpg')"
       >
         <div class="overlay"></div>
-        <h2 data-swiper-parallax="-200">Valor y pasión en cada punto</h2>
+        <div class="slide-content">
+          <h2>Valor y pasión en cada punto</h2>
+          <p>Únete a la garra de Cundinamarca</p>
+        </div>
+        <div class="shape circle" style="top: 20%; left: 10%;"></div>
+        <div class="shape triangle" style="top: 60%; right: 15%;"></div>
       </div>
       <!-- Slide 2 -->
       <div
@@ -83,7 +127,12 @@
         style="background-image:url('pancartas/slide2.jpg')"
       >
         <div class="overlay"></div>
-        <h2 data-swiper-parallax="-200">Defensa impenetrable bajo las luces</h2>
+        <div class="slide-content">
+          <h2>Defensa impenetrable bajo las luces</h2>
+          <p>Donde cada bloqueo hace historia</p>
+        </div>
+        <div class="shape square" style="top: 15%; right: 20%;"></div>
+        <div class="shape circle" style="bottom: 25%; left: 20%;"></div>
       </div>
       <!-- Slide 3 -->
       <div
@@ -91,7 +140,12 @@
         style="background-image:url('pancartas/slide3.jpg')"
       >
         <div class="overlay"></div>
-        <h2 data-swiper-parallax="-200">Juntos rompemos la red</h2>
+        <div class="slide-content">
+          <h2>Juntos rompemos la red</h2>
+          <p>La fuerza del equipo nos impulsa</p>
+        </div>
+        <div class="shape triangle" style="top: 30%; left: 25%;"></div>
+        <div class="shape square" style="bottom: 20%; right: 25%;"></div>
       </div>
       <!-- Slide 4 -->
       <div
@@ -99,51 +153,63 @@
         style="background-image:url('pancartas/slide4.jpg')"
       >
         <div class="overlay"></div>
-        <h2 data-swiper-parallax="-200">Entrena duro, juega mejor</h2>
+        <div class="slide-content">
+          <h2>Entrena duro, juega mejor</h2>
+          <p>Supera tus límites cada día</p>
+        </div>
+        <div class="shape circle" style="top: 25%; right: 30%;"></div>
+        <div class="shape triangle" style="bottom: 15%; left: 15%;"></div>
       </div>
     </div>
 
-    <!-- Controles de navegación -->
+    <!-- Navegación y paginación -->
     <div class="swiper-button-prev" aria-label="Anterior"></div>
     <div class="swiper-button-next" aria-label="Siguiente"></div>
-    <!-- Paginación -->
-    <div class="swiper-pagination" role="navigation"></div>
+    <div class="swiper-pagination"></div>
   </div>
 
-  <!-- 4) Swiper JS -->
+  <!-- Swiper JS -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" defer></script>
 
-  <!-- 5) Inicialización -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      new Swiper('.swiper-container', {
-        effect: 'coverflow',           // Efecto 3D
-        grabCursor: true,              // Cursor “agarra”
-        centeredSlides: true,          // Slide centrado
-        slidesPerView: 'auto',         // Ajuste automático
-        loop: true,                    // Bucle infinito
-        speed: 1000,                   // Velocidad de transición (ms)
-        coverflowEffect: {             // Opciones Coverflow
-          rotate: 50,
-          stretch: 0,
-          depth: 200,
-          modifier: 1,
-          slideShadows: true,
-        },
-        autoplay: {                    // Auto-avance
-          delay: 5000,
-          disableOnInteraction: false,
-        },
-        parallax: true,                // Parallax en títulos
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
+      const swiper = new Swiper('.swiper-container', {
+        effect: 'fade',
+        loop: true,
+        speed: 800,
+        autoplay: { delay: 6000, disableOnInteraction: false },
+        pagination: { el: '.swiper-pagination', clickable: true },
         navigation: {
           nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          prevEl: '.swiper-button-prev'
         },
+        on: {
+          init: () => animateSlide(swiper.slides[swiper.activeIndex]),
+          slideChangeTransitionStart: () => {
+            const previous = swiper.slides[swiper.previousIndex];
+            gsap.to(previous.querySelectorAll('.slide-content, .shape'), {
+              opacity: 0, y: -30, duration: 0.5, stagger: 0.1
+            });
+          },
+          slideChangeTransitionEnd: () => {
+            animateSlide(swiper.slides[swiper.activeIndex]);
+          }
+        }
       });
+
+      function animateSlide(slide) {
+        const content = slide.querySelector('.slide-content');
+        const shapes  = slide.querySelectorAll('.shape');
+        gsap.set([content, shapes], { opacity: 0, y: 20, rotation: 0, scale: 0.8 });
+        gsap.timeline()
+          .to(content, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' })
+          .to(shapes, {
+            opacity: 1, scale: 1, rotation: '+=45', duration: 1,
+            stagger: 0.2, ease: 'elastic.out(1, 0.5)'
+          }, '-=0.4');
+      }
     });
   </script>
 </body>
