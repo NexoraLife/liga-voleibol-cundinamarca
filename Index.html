@@ -825,442 +825,194 @@
 
     <!-- Main Content -->
     <main id="main-content">
-        <!-- Hero Carousel Section -->
-        <section id="inicio" class="relative bg-institutional-gray-50">
-            <div class="carousel-container relative h-[600px] overflow-hidden">
-                <div class="carousel-track h-full" id="carousel-track">
-                    <!-- Slide 1 - Institutional -->
-                    <div class="carousel-slide active animated-background" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 25%, #3b82f6 50%, #87CEEB 75%, #ffffff 100%);">
-                        <!-- Cinematic background with institutional colors -->
-                        <div class="absolute inset-0">
-                            <!-- Animated base gradient -->
-                            <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-sky-300 animated-background"></div>
-                            <!-- Dynamic overlay -->
-                            <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-sky-400/30 to-white/20"></div>
-                            <!-- Animated texture pattern -->
-                            <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(circle at 25% 25%, #87CEEB 3px, transparent 3px), radial-gradient(circle at 75% 75%, #ffffff 2px, transparent 2px); background-size: 80px 80px; animation: backgroundShift 20s ease infinite;"></div>
-                            <!-- Particle effects -->
-                            <div class="particle"></div>
-                            <div class="particle"></div>
-                            <div class="particle"></div>
-                            <div class="particle"></div>
-                            <div class="particle"></div>
-                        </div>
-                        
-                        <div class="relative h-full flex items-center">
-                            <div class="container mx-auto px-6">
-                                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                                    <!-- Left Content -->
-                                    <div class="slide-content">
-                                        <h2 class="slide-title text-4xl md:text-6xl font-playfair font-bold mb-6 leading-tight text-white">
-                                            Excelencia Deportiva
-                                            <span class="slide-subtitle block text-3xl md:text-4xl font-normal mt-2 text-sky-200">en Cundinamarca</span>
-                                        </h2>
-                                        <p class="slide-description text-xl mb-8 text-sky-100 leading-relaxed">
-                                            Organismo deportivo oficial con 15 años promoviendo el desarrollo integral del voleibol en el departamento de Cundinamarca.
-                                        </p>
-                                        <div class="slide-buttons flex flex-col sm:flex-row gap-4">
-                                            <a href="#nosotros" class="bg-white text-institutional-navy px-8 py-3 rounded-lg font-semibold hover:bg-sky-200 hover:text-slate-800 transition-all duration-300 shadow-lg hover:shadow-xl text-center transform hover:scale-105 flex items-center justify-center gap-2">
-                                                Conoce Nuestra Historia
-                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                                                </svg>
-                                            </a>
-                                            <a href="https://tiendanexora.com/pages/%F0%9F%8F%90voleibol-coliseo" target="_blank" class="border-2 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 text-center transform hover:scale-105 flex items-center justify-center gap-2" style="border-color: #00ffe3; background-color: transparent;" onmouseover="this.style.backgroundColor='#00ffe3'; this.style.color='#003630'" onmouseout="this.style.backgroundColor='transparent'; this.style.color='white'">
-                                                Ir Tienda Nexora Life
-                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Right Content - Institutional Logo -->
-                                    <div class="hidden lg:flex justify-center items-center">
-                                        <div class="institutional-logo floating-logo">
-                                            <div class="w-80 h-80 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center shadow-2xl border border-white/20">
-                                                <svg class="w-48 h-48" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                                                    <defs>
-                                                        <linearGradient id="shieldGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
-                                                            <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
-                                                            <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" />
-                                                        </linearGradient>
-                                                        <linearGradient id="goldGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
-                                                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
-                                                            <stop offset="100%" style="stop-color:#B8860B;stop-opacity:1" />
-                                                        </linearGradient>
-                                                        <filter id="glow">
-                                                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                                                            <feMerge> 
-                                                                <feMergeNode in="coloredBlur"/>
-                                                                <feMergeNode in="SourceGraphic"/>
-                                                            </feMerge>
-                                                        </filter>
-                                                    </defs>
-                                                    
-                                                    <!-- Hexagonal shield -->
-                                                    <path d="M100 15 L140 35 Q145 40 145 45 L145 120 Q145 130 140 135 L110 150 Q100 155 90 150 L60 135 Q55 130 55 120 L55 45 Q55 40 60 35 L100 15 Z" 
-                                                          fill="url(#shieldGradient1)" 
-                                                          stroke="url(#goldGradient1)" 
-                                                          stroke-width="4" 
-                                                          filter="url(#glow)"/>
-                                                    
-                                                    <!-- Bear head -->
-                                                    <g transform="translate(100,70)">
-                                                        <ellipse cx="0" cy="0" rx="25" ry="22" fill="#666666" stroke="#FFFFFF" stroke-width="2"/>
-                                                        <circle cx="-18" cy="-15" r="10" fill="#666666" stroke="#FFFFFF" stroke-width="1"/>
-                                                        <circle cx="18" cy="-15" r="10" fill="#666666" stroke="#FFFFFF" stroke-width="1"/>
-                                                        <ellipse cx="0" cy="2" rx="20" ry="18" fill="#999999"/>
-                                                        <circle cx="-8" cy="-5" r="3" fill="#000000"/>
-                                                        <circle cx="8" cy="-5" r="3" fill="#000000"/>
-                                                        <ellipse cx="0" cy="3" rx="3" ry="2" fill="#000000"/>
-                                                    </g>
-                                                    
-                                                    <!-- Text -->
-                                                    <text x="100" y="105" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="8" font-weight="bold">LIGA VOLEIBOL</text>
-                                                    <text x="100" y="165" text-anchor="middle" fill="url(#goldGradient1)" font-family="Arial, sans-serif" font-size="10" font-weight="bold">CUNDINAMARCA</text>
-                                                    <text x="100" y="180" text-anchor="middle" fill="url(#goldGradient1)" font-family="Arial, sans-serif" font-size="8" font-weight="bold">2009</text>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
+        
+
+
+<!-- Hero Carousel Section -->
+<!-- Hero Carousel Section -->
+<section id="inicio" class="relative bg-institutional-gray-50">
+    <div class="carousel-container relative h-[600px] overflow-hidden">
+        <div class="carousel-track h-full" id="carousel-track">
+
+            <!-- Slide 1 - Institutional -->
+            <div class="carousel-slide active animated-background" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 25%, #3b82f6 50%, #87CEEB 75%, #ffffff 100%);">
+                <div class="absolute inset-0">
+                    <!-- background layers and particles -->
+                    <!-- ... -->
+                </div>
+                <div class="relative h-full flex items-center">
+                    <div class="container mx-auto px-6">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div class="slide-content">
+                                <h2 class="slide-title text-4xl md:text-6xl font-playfair font-bold mb-6 leading-tight text-white">
+                                    Excelencia Deportiva
+                                    <span class="slide-subtitle block text-3xl md:text-4xl font-normal mt-2 text-sky-200">en Cundinamarca</span>
+                                </h2>
+                                <p class="slide-description text-xl mb-8 text-sky-100 leading-relaxed">
+                                    Organismo deportivo oficial con 15 años promoviendo el desarrollo integral del voleibol en el departamento de Cundinamarca.
+                                </p>
+                                <div class="slide-buttons flex flex-col sm:flex-row gap-4">
+                                    <!-- Botones -->
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 2 - Tienda Oficial Nexora Life (Composición Profesional) -->
-                    <div class="carousel-slide animated-background" style="background: linear-gradient(135deg, #003630 0%, #006b5c 50%, #00ffe3 100%);">
-                        <!-- Fondo cinémático con colores Nexora y efectos combinados -->
-                        <div class="absolute inset-0">
-                            <!-- Gradiente base animado -->
-                            <div class="absolute inset-0 bg-gradient-to-r from-slate-800/90 via-teal-800/80 to-cyan-400/70 animated-background"></div>
-                            <!-- Patrón profesional animado -->
-                            <div class="absolute inset-0 opacity-20" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(0,255,227,.2) 35px, rgba(0,255,227,.2) 70px); animation: backgroundShift 30s ease infinite;"></div>
-                            <!-- Patrón radial animado como otros banners -->
-                            <div class="absolute inset-0 opacity-25" style="background-image: radial-gradient(circle at 30% 70%, #00ffe3 3px, transparent 3px), radial-gradient(circle at 70% 30%, #ffffff 2px, transparent 2px); background-size: 120px 120px, 180px 180px; animation: backgroundShift 35s ease infinite;"></div>
-                            <!-- Efectos de partículas mejorados -->
-                            <div class="particle" style="background: #00ffe3;"></div>
-                            <div class="particle" style="background: #ffffff; animation-delay: 4s;"></div>
-                            <div class="particle" style="background: #00ffe3; animation-delay: 8s;"></div>
-                            <div class="particle" style="background: #003630; animation-delay: 12s;"></div>
-                            <div class="particle" style="background: #00ffe3; animation-delay: 16s;"></div>
-                            <!-- Elementos flotantes adicionales -->
-                            <div class="absolute top-1/4 left-1/4 w-4 h-4 bg-cyan-300/30 rounded-full" style="animation: infiniteMove1 20s ease-in-out infinite;"></div>
-                            <div class="absolute bottom-1/3 right-1/4 w-6 h-6 bg-white/20 rounded-full" style="animation: infiniteMove2 25s ease-in-out infinite;"></div>
-                            <div class="absolute top-1/2 left-1/3 w-3 h-3 bg-teal-400/40 rounded-full" style="animation: infiniteMove3 30s ease-in-out infinite;"></div>
-                        </div>
-                        
-                        <div class="relative h-full flex items-center">
-                            <div class="container mx-auto px-6">
-                                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                                    <!-- Contenido Izquierdo - Siguiendo composición de otros banners -->
-                                    <div class="slide-content">
-                                        <div class="flex items-center mb-6">
-                                            <div class="institutional-logo w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mr-6 backdrop-blur-sm">
-                                                <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                                    <path d="M7 18c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2V8H7v10zM19 5h-2.5l-1-1h-7l-1 1H5v2h14V5z"/>
-                                                    <path d="M9 10v6h2v-6H9zm4 0v6h2v-6h-2z"/>
-                                                </svg>
-                                            </div>
-                                            <span class="slide-title text-cyan-200 font-bold text-xl">EQUIPAMIENTO OFICIAL</span>
-                                        </div>
-                                        
-                                        <h2 class="slide-title text-4xl md:text-6xl font-playfair font-bold mb-6 leading-tight text-white">
-                                            Tienda Oficial
-                                            <span class="slide-subtitle block text-3xl md:text-4xl font-normal mt-2 text-cyan-200">Nexora Life</span>
-                                        </h2>
-                                        
-                                        <p class="slide-description text-xl mb-8 text-cyan-100 leading-relaxed">
-                                            Diseñado para Voleibol Coliseo y Playa. Equipamiento profesional de la más alta calidad.
-                                        </p>
-                                        
-                                        <div class="slide-buttons flex flex-col sm:flex-row gap-4">
-                                            <a href="https://tiendanexora.com/pages/%F0%9F%8F%90voleibol-coliseo" target="_blank" class="bg-white text-teal-800 px-8 py-3 rounded-lg font-semibold hover:bg-cyan-200 hover:text-teal-900 transition-all duration-300 shadow-lg hover:shadow-xl text-center transform hover:scale-105 flex items-center justify-center gap-2">
-                                                Tienda Oficial Nexora Life
-                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Contenido Derecho - Logo Nexora Life Mejorado -->
-                                    <div class="hidden lg:flex justify-center items-center">
-                                        <div class="institutional-logo floating-logo relative">
-                                            <!-- Logo principal con diseño profesional mejorado -->
-                                            <div class="w-80 h-80 bg-white/10 backdrop-blur-md rounded-full flex flex-col items-center justify-center shadow-2xl border border-white/30 relative">
-                                                <!-- Logo NL gigante que ocupa casi todo el círculo -->
-                                                <div class="absolute inset-4 flex items-center justify-center">
-                                                    <svg class="w-full h-full" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                                                        <defs>
-                                                            <linearGradient id="nexoraMainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                                                <stop offset="0%" style="stop-color:#00ffe3;stop-opacity:1" />
-                                                                <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
-                                                                <stop offset="100%" style="stop-color:#00d4aa;stop-opacity:1" />
-                                                            </linearGradient>
-                                                            <linearGradient id="nexoraAccent" x1="0%" y1="0%" x2="100%" y2="0%">
-                                                                <stop offset="0%" style="stop-color:#00ffe3;stop-opacity:0.8" />
-                                                                <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
-                                                                <stop offset="100%" style="stop-color:#00ffe3;stop-opacity:0.8" />
-                                                            </linearGradient>
-                                                            <filter id="nexoraMegaGlow" x="-50%" y="-50%" width="200%" height="200%">
-                                                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                                                                <feMerge> 
-                                                                    <feMergeNode in="coloredBlur"/>
-                                                                    <feMergeNode in="SourceGraphic"/>
-                                                                </feMerge>
-                                                            </filter>
-                                                        </defs>
-                                                        
-                                                        <!-- Letra N gigante -->
-                                                        <path d="M30 30 L30 140 L45 140 L45 65 L120 140 L135 140 L135 30 L120 30 L120 105 L45 30 L30 30 Z" 
-                                                              fill="url(#nexoraMainGradient)" 
-                                                              stroke="#00ffe3" 
-                                                              stroke-width="2" 
-                                                              filter="url(#nexoraMegaGlow)"/>
-                                                        
-                                                        <!-- Letra L gigante fusionada -->
-                                                        <path d="M150 30 L150 125 L185 125 L185 140 L135 140 L135 30 L150 30 Z" 
-                                                              fill="url(#nexoraMainGradient)" 
-                                                              stroke="#00ffe3" 
-                                                              stroke-width="2" 
-                                                              filter="url(#nexoraMegaGlow)"/>
-                                                        
-                                                        <!-- Línea de conexión elegante integrada -->
-                                                        <path d="M135 85 Q142.5 80 150 85" 
-                                                              fill="none" 
-                                                              stroke="url(#nexoraAccent)" 
-                                                              stroke-width="3" 
-                                                              stroke-linecap="round"
-                                                              opacity="0.9"/>
-                                                    </svg>
-                                                </div>
-
-                                                <!-- Texto "Tienda Nexora Life" en la parte inferior del círculo -->
-                                                <div class="absolute bottom-8 text-center w-full px-4">
-                                                    <h3 class="text-lg font-bold text-white mb-1" style="font-family: 'Montserrat', sans-serif; letter-spacing: 1.5px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">TIENDA</h3>
-                                                    <div class="flex items-center justify-center space-x-2">
-                                                        <p class="text-base text-cyan-200 font-semibold" style="font-family: 'Montserrat', sans-serif; letter-spacing: 1px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">NEXORA LIFE</p>
-                                                    </div>
-                                                </div>
-                                                
-                                                <!-- Efecto de brillo sutil -->
-                                                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full transform -skew-x-12 -translate-x-full animate-pulse" style="animation-duration: 3s;"></div>
-                                            </div>
-                                            
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3 - Professional Trust for Clubs -->
-                    <div class="carousel-slide animated-background" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #87CEEB 100%);">
-                        <!-- Cinematic background -->
-                        <div class="absolute inset-0">
-                            <!-- Animated base gradient -->
-                            <div class="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-600/80 to-sky-400/70 animated-background"></div>
-                            <!-- Professional animated pattern -->
-                            <div class="absolute inset-0 opacity-20" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.2) 35px, rgba(255,255,255,.2) 70px); animation: backgroundShift 30s ease infinite;"></div>
-                            <!-- Particle effects -->
-                            <div class="particle" style="background: #87CEEB;"></div>
-                            <div class="particle" style="background: #ffffff; animation-delay: 4s;"></div>
-                            <div class="particle" style="background: #87CEEB; animation-delay: 8s;"></div>
-                        </div>
-                        
-                        <div class="relative h-full flex items-center">
-                            <div class="container mx-auto px-6">
-                                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                                    <!-- Left Content -->
-                                    <div class="slide-content">
-                                        <div class="flex items-center mb-6">
-                                            <div class="institutional-logo w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mr-6 backdrop-blur-sm">
-                                                <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                                    <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
-                                                </svg>
-                                            </div>
-                                            <span class="slide-title text-sky-200 font-bold text-xl">15 AÑOS DE CONFIANZA</span>
-                                        </div>
-                                        
-                                        <h2 class="slide-title text-4xl md:text-6xl font-playfair font-bold mb-6 leading-tight text-white">
-                                            Tu Club Merece
-                                            <span class="slide-subtitle block text-3xl md:text-4xl font-normal mt-2 text-sky-200">Respaldo Oficial</span>
-                                        </h2>
-                                        
-                                        <p class="slide-description text-xl mb-8 text-sky-100 leading-relaxed">
-                                            Únete a más de 150 clubes que confían en nuestra experiencia. Afiliación, capacitación y competencias oficiales.
-                                        </p>
-                                        
-                                        <div class="slide-buttons flex flex-col sm:flex-row gap-4">
-                                            <a href="#clubes" class="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-sky-200 transition-all duration-300 shadow-lg hover:shadow-xl text-center transform hover:scale-105 flex items-center justify-center gap-2">
-                                                Afiliar Mi Club
-                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                                                </svg>
-                                            </a>
-                                            <a href="https://tiendanexora.com/pages/%F0%9F%8F%90voleibol-coliseo" target="_blank" class="border-2 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 text-center transform hover:scale-105 flex items-center justify-center gap-2" style="border-color: #00ffe3; background-color: transparent;" onmouseover="this.style.backgroundColor='#00ffe3'; this.style.color='#003630'" onmouseout="this.style.backgroundColor='transparent'; this.style.color='white'">
-                                                Ir Tienda Nexora Life
-                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Right Content - Club Trust Visual -->
-                                    <div class="hidden lg:flex justify-center items-center">
-                                        <div class="institutional-logo floating-logo relative">
-                                            <!-- Central Trust Badge -->
-                                            <div class="w-64 h-64 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center shadow-2xl border border-white/30">
-                                                <div class="text-center">
-                                                    <div class="w-32 h-32 bg-gradient-to-br from-sky-400 to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto shadow-xl">
-                                                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                                            <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <h3 class="text-2xl font-bold text-white mb-2">CONFIANZA</h3>
-                                                    <p class="text-lg text-sky-200">INSTITUCIONAL</p>
-                                                </div>
-                                            </div>
-                                            
-                                            <!-- Floating Elements -->
-                                            <div class="absolute -top-8 -right-8 w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-xl" style="animation: float 4s ease-in-out infinite;">
-                                                <span class="text-2xl">🏆</span>
-                                            </div>
-                                            
-                                            <div class="absolute -bottom-8 -left-8 w-24 h-24 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full flex items-center justify-center shadow-xl" style="animation: float 5s ease-in-out infinite reverse;">
-                                                <span class="text-3xl">⭐</span>
-                                            </div>
-                                            
-                                            <div class="absolute top-1/2 -left-12 w-16 h-16 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-full flex items-center justify-center shadow-xl" style="animation: float 6s ease-in-out infinite;">
-                                                <span class="text-xl">🎯</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 4 - Professional Trust for Coaches -->
-                    <div class="carousel-slide animated-background" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #87CEEB 100%);">
-                        <!-- Cinematic background -->
-                        <div class="absolute inset-0">
-                            <!-- Animated base gradient -->
-                            <div class="absolute inset-0 bg-gradient-to-r from-blue-900/85 via-blue-600/75 to-sky-400/80 animated-background"></div>
-                            <!-- Dynamic animated pattern -->
-                            <div class="absolute inset-0 opacity-25" style="background-image: radial-gradient(circle at 30% 70%, #ffffff 3px, transparent 3px), radial-gradient(circle at 70% 30%, #fbbf24 2px, transparent 2px); background-size: 120px 120px, 180px 180px; animation: backgroundShift 35s ease infinite;"></div>
-                            <!-- Particle effects -->
-                            <div class="particle" style="background: #87CEEB;"></div>
-                            <div class="particle" style="background: #ffffff; animation-delay: 5s;"></div>
-                            <div class="particle" style="background: #3b82f6; animation-delay: 10s;"></div>
-                        </div>
-                        
-                        <div class="relative h-full flex items-center">
-                            <div class="container mx-auto px-6">
-                                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                                    <!-- Left Content -->
-                                    <div class="slide-content">
-                                        <div class="flex items-center mb-6">
-                                            <div class="institutional-logo w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mr-6 backdrop-blur-sm">
-                                                <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                                    <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
-                                                </svg>
-                                            </div>
-                                            <span class="slide-title text-sky-200 font-bold text-xl">CERTIFICACIÓN OFICIAL</span>
-                                        </div>
-                                        
-                                        <h2 class="slide-title text-4xl md:text-6xl font-playfair font-bold mb-6 leading-tight text-white">
-                                            Eleva tu Nivel
-                                            <span class="slide-subtitle block text-3xl md:text-4xl font-normal mt-2 text-sky-200">Como Entrenador</span>
-                                        </h2>
-                                        
-                                        <p class="slide-description text-xl mb-8 text-sky-100 leading-relaxed">
-                                            Programas de formación reconocidos nacionalmente. Desde iniciación hasta alto rendimiento.
-                                        </p>
-                                        
-                                        <div class="slide-buttons flex flex-col sm:flex-row gap-4">
-                                            <a href="#entrenadores" class="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-sky-200 hover:text-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl text-center transform hover:scale-105 flex items-center justify-center gap-2">
-                                                Certificarme Ahora
-                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                                                </svg>
-                                            </a>
-                                            <a href="https://tiendanexora.com/pages/%F0%9F%8F%90voleibol-coliseo" target="_blank" class="border-2 border-sky-200 text-sky-200 px-8 py-3 rounded-lg font-semibold hover:bg-sky-200 hover:text-blue-700 transition-all duration-300 text-center transform hover:scale-105 flex items-center justify-center gap-2">
-                                                Ir Tienda Nexora Life
-                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Right Content - Coach Excellence Visual -->
-                                    <div class="hidden lg:flex justify-center items-center">
-                                        <div class="institutional-logo floating-logo relative">
-                                            <!-- Central Excellence Badge -->
-                                            <div class="w-64 h-64 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center shadow-2xl border border-white/30">
-                                                <div class="text-center">
-                                                    <div class="w-32 h-32 bg-gradient-to-br from-sky-400 to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto shadow-xl">
-                                                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                                            <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
-                                                        </svg>
-                                                    </div>
-                                                    <h3 class="text-2xl font-bold text-white mb-2">EXCELENCIA</h3>
-                                                    <p class="text-lg text-sky-200">TÉCNICA</p>
-                                                </div>
-                                            </div>
-                                            
-                                            <!-- Floating Elements -->
-                                            <div class="absolute -top-8 -right-8 w-20 h-20 bg-gradient-to-br from-red-500 to-pink-600 rounded-full flex items-center justify-center shadow-xl" style="animation: float 4.5s ease-in-out infinite;">
-                                                <span class="text-2xl">🎓</span>
-                                            </div>
-                                            
-                                            <div class="absolute -bottom-8 -left-8 w-24 h-24 bg-gradient-to-br from-emerald-400 to-green-600 rounded-full flex items-center justify-center shadow-xl" style="animation: float 5.5s ease-in-out infinite reverse;">
-                                                <span class="text-3xl">📚</span>
-                                            </div>
-                                            
-                                            <div class="absolute top-1/2 -left-12 w-16 h-16 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-full flex items-center justify-center shadow-xl" style="animation: float 6.5s ease-in-out infinite;">
-                                                <span class="text-xl">🏅</span>
-                                            </div>
-                                            
-                                            <div class="absolute top-1/4 -right-12 w-18 h-18 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-full flex items-center justify-center shadow-xl" style="animation: float 7s ease-in-out infinite reverse;">
-                                                <span class="text-lg">🎯</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <!-- Right Content - Institutional Logo -->
+                            <div class="hidden lg:flex justify-center items-center">
+                                <div class="institutional-logo floating-logo">
+                                    <!-- aquí va el SVG del logo institucional -->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Carousel Navigation -->
-                <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
-                    <button class="carousel-indicator w-3 h-3 rounded-full bg-white transition-colors duration-200" data-slide="0"></button>
-                    <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-200" data-slide="1"></button>
-                    <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-200" data-slide="2"></button>
-                    <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-200" data-slide="3"></button>
-                </div>
-
-                <!-- Navigation Arrows -->
-                <button class="absolute left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-200 text-white" id="prev-slide">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                    </svg>
-                </button>
-                <button class="absolute right-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-200 text-white" id="next-slide">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                    </svg>
-                </button>
             </div>
-        </section>
 
-        <!-- Services Section -->
+            <!-- Slide 2 - Tienda Oficial Nexora Life -->
+            <div class="carousel-slide animated-background" style="background: linear-gradient(135deg, #003630 0%, #006b5c 50%, #00ffe3 100%);">
+                <div class="absolute inset-0">
+                    <!-- background layers and particles -->
+                    <!-- ... -->
+                </div>
+                <div class="relative h-full flex items-center">
+                    <div class="container mx-auto px-6">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div class="slide-content">
+                                <!-- Título, subtítulo y texto de Nexora -->
+                            </div>
+                            <!-- Right Content - Nexora Logo -->
+                            <div class="hidden lg:flex justify-center items-center">
+                                <div class="institutional-logo floating-logo relative">
+                                    <!-- aquí va el logo de Nexora -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 - Professional Trust for Clubs -->
+            <div class="carousel-slide animated-background" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #87CEEB 100%);">
+                <div class="absolute inset-0">
+                    <!-- background layers and particles -->
+                    <!-- ... -->
+                </div>
+                <div class="relative h-full flex items-center">
+                    <div class="container mx-auto px-6">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div class="slide-content">
+                                <!-- Contenido de confianza para clubes -->
+                            </div>
+                            <!-- Right Content - Club Trust Visual -->
+                            <div class="hidden lg:flex justify-center items-center">
+                                <div class="institutional-logo floating-logo relative">
+                                    <!-- aquí va el emblema de confianza -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4 - Professional Trust for Coaches -->
+            <div class="carousel-slide animated-background" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #87CEEB 100%);">
+                <div class="absolute inset-0">
+                    <!-- background layers and particles -->
+                    <!-- ... -->
+                </div>
+                <div class="relative h-full flex items-center">
+                    <div class="container mx-auto px-6">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div class="slide-content">
+                                <!-- Contenido de certificación para entrenadores -->
+                            </div>
+                            <!-- Right Content - Coach Excellence Visual -->
+                            <div class="hidden lg:flex justify-center items-center">
+                                <div class="institutional-logo floating-logo relative">
+                                    <!-- aquí va el emblema de excelencia -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5 - Café Águila Roja -->
+            <div class="carousel-slide animated-background"
+                 style="background: linear-gradient(135deg, #4b2e22 0%, #a41e0e 50%, #da4b19 75%, #ffe082 100%);">
+                <div class="absolute inset-0">
+                    <!-- background layers and partículas en tonos café y dorado -->
+                    <!-- ... -->
+                </div>
+                <div class="relative h-full flex items-center">
+                    <div class="container mx-auto px-6">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div class="slide-content">
+                                <div class="flex items-center mb-6">
+                                    <div class="institutional-logo w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mr-6 backdrop-blur-sm">
+                                        <!-- Icono de taza de café -->
+                                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M18 8h1c1.1 0 2 .9 2 2s-.9 2-2 2h-1v1c0 2.76-2.24 5-5 5H8c-2.76 0-5-2.24-5-5V7h15v1zm-9 7c1.66 0 3-1.34 3-3H6c0 1.66 1.34 3 3 3z"/>
+                                            <path d="M18 3H6v2h12V3z"/>
+                                        </svg>
+                                    </div>
+                                    <span class="slide-title text-yellow-200 font-bold text-xl">CAFÉ ÁGUILA ROJA</span>
+                                </div>
+                                <h2 class="slide-title text-4xl md:text-6xl font-playfair font-bold mb-6 leading-tight text-white">
+                                    Sabor y Energía
+                                    <span class="slide-subtitle block text-3xl md:text-4xl font-normal mt-2 text-yellow-200">para Tus Pasiones</span>
+                                </h2>
+                                <p class="slide-description text-xl mb-8 text-yellow-100 leading-relaxed">
+                                    Descubre la tradición y el aroma inconfundible de Café Águila Roja, la bebida que acompaña la excelencia deportiva.
+                                </p>
+                                <div class="slide-buttons flex flex-col sm:flex-row gap-4">
+                                    <a href="#cafe" class="bg-white text-red-800 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-200 hover:text-red-900 transition-all duration-300 shadow-lg hover:shadow-xl text-center transform hover:scale-105 flex items-center justify-center gap-2">
+                                        Descubre Más
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Right Content -->
+                            <div class="hidden lg:flex justify-center items-center">
+                                <div class="institutional-logo floating-logo relative">
+                                    <!-- Emblema central con taza de café estilizada y elementos flotantes -->
+                                    <!-- ... -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Carousel Navigation -->
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+            <button class="carousel-indicator w-3 h-3 rounded-full bg-white transition-colors duration-200" data-slide="0"></button>
+            <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-200" data-slide="1"></button>
+            <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-200" data-slide="2"></button>
+            <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-200" data-slide="3"></button>
+            <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-200" data-slide="4"></button>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button class="absolute left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-200 text-white" id="prev-slide">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+        </button>
+        <button class="absolute right-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-200 text-white" id="next-slide">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+        </button>
+    </div>
+</section>
+
+       
+
+
+ <!-- Services Section -->
         <section id="servicios" class="py-20 bg-gradient-to-br from-white via-institutional-sky/5 to-institutional-navy/10">
             <div class="container mx-auto px-6">
                 <!-- Section Header -->
