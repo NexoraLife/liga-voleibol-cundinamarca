@@ -1,707 +1,956 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liga de Voleibol de Cundinamarca - Organismo Deportivo Oficial</title>
-    <meta name="description" content="Liga de Voleibol de Cundinamarca - Organismo deportivo oficial con 15 años promoviendo el desarrollo del voleibol en Cundinamarca con excelencia institucional.">
-    
-    <!-- SEO and Social Meta Tags -->
-    <meta property="og:title" content="Liga de Voleibol de Cundinamarca - Portal Institucional">
-    <meta property="og:description" content="Organismo deportivo oficial líder en Cundinamarca con 15 años de trayectoria institucional">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    
-    <!-- Preload Critical Resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'playfair': ['Playfair Display', 'serif'],
-                        'inter': ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        'institutional': {
-                            'navy': '#1e3a8a',
-                            'blue': '#3b82f6',
-                            'sky': '#87CEEB',
-                            'dark-blue': '#1e3a8a',
-                            'gold': '#FFD700',
-                            'green': '#22c55e',
-                            'red': '#dc2626',
-                            'yellow': '#eab308',
-                            'gray-50': '#f8fafc',
-                            'gray-100': '#f1f5f9',
-                            'gray-200': '#e2e8f0',
-                            'gray-300': '#cbd5e1',
-                            'gray-400': '#94a3b8',
-                            'gray-500': '#64748b',
-                            'gray-600': '#475569',
-                            'gray-700': '#334155',
-                            'gray-800': '#1e293b',
-                            'gray-900': '#0f172a',
-                        }
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.6s ease-out forwards',
-                        'slide-up': 'slideUp 0.8s ease-out forwards',
-                    }
-                }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Liga de Voleibol de Cundinamarca - Organismo Deportivo Oficial</title>
+  <meta name="description" content="Liga de Voleibol de Cundinamarca: 15 años promoviendo el voleibol con excelencia institucional. Portal oficial de clubes, entrenadores, deportistas, eventos y tienda." />
+
+  <!-- SEO & Social -->
+  <meta property="og:title" content="Liga de Voleibol de Cundinamarca - Portal Institucional" />
+  <meta property="og:description" content="Organismo deportivo oficial líder en Cundinamarca con 15 años de trayectoria institucional." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-image.jpg" />
+  <link rel="icon" href="/assets/favicon.ico" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            playfair: ['Playfair Display', 'serif'],
+            inter: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            institutional: {
+              navy: '#1e3a8a',
+              blue: '#3b82f6',
+              sky: '#87CEEB',
+              gold: '#FFD700',
+              green: '#22c55e',
+              red: '#dc2626',
+              yellow: '#eab308',
+              'gray-50': '#f8fafc',
+              'gray-100': '#f1f5f9',
+              'gray-200': '#e2e8f0',
+              'gray-300': '#cbd5e1',
+              'gray-400': '#94a3b8',
+              'gray-500': '#64748b',
+              'gray-600': '#475569',
+              'gray-700': '#334155',
+              'gray-800': '#1e293b',
+              'gray-900': '#0f172a',
             }
+          },
         }
-    </script>
-    
-    <style>
-        @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-        @keyframes slideUp { from {opacity:0; transform: translateY(30px);} to {opacity:1; transform:none;} }
-        html { scroll-behavior: smooth; }
+      }
+    }
+  </script>
 
-        /* Professional scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
-        ::-webkit-scrollbar-thumb { background: #64748b; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #475569; }
-
-        .focus-visible:focus { outline: 2px solid #3b82f6; outline-offset: 2px; }
-        .btn-professional { transition: all 0.2s ease-in-out; }
-        .btn-professional:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,.15); }
-        .card-hover { transition: all .3s ease; }
-        .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,.1); }
-        .form-input { transition: all .2s ease; }
-        .form-input:focus { border-color:#3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,.1); }
-
-        .loading-spinner { width:20px; height:20px; border:2px solid #e2e8f0; border-top:2px solid #3b82f6; border-radius:50%; animation: spin 1s linear infinite; }
-        @keyframes spin { to { transform: rotate(360deg);} }
-
-        @keyframes shine {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
-        }
-        .animate-shine {
-            background: linear-gradient(90deg,#1e3a8a 0%,#1e3a8a 40%,#87CEEB 50%,#1e3a8a 60%,#1e3a8a 100%);
-            background-size:200% 100%;
-            -webkit-background-clip:text; background-clip:text;
-            -webkit-text-fill-color:transparent;
-            animation: shine 3s ease-in-out infinite 2s;
-        }
-
-        .animate-on-scroll { opacity: 0; transform: translateY(20px); transition: all .6s ease-out; }
-        .animate-on-scroll.visible { opacity: 1; transform: none; }
-    </style>
+  <style>
+    html { scroll-behavior: smooth; }
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+    @keyframes slideUp { from {opacity:0; transform: translateY(30px)} to {opacity:1; transform:none} }
+    .animate-on-scroll { opacity: 0; transform: translateY(20px); transition: all .6s ease-out; }
+    .animate-on-scroll.visible { opacity: 1; transform: none; }
+    .btn-professional { transition: all .2s ease-in-out; }
+    .btn-professional:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,.15) }
+    .card-hover { transition: transform .25s ease, box-shadow .25s ease; }
+    .card-hover:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(0,0,0,.12) }
+    .form-input { transition: all .2s ease; }
+    .form-input:focus { border-color:#3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,.15) }
+    ::-webkit-scrollbar { width: 8px }
+    ::-webkit-scrollbar-thumb { background: #64748b; border-radius: 4px }
+    ::-webkit-scrollbar-thumb:hover { background: #475569 }
+  </style>
 </head>
 
 <body class="font-inter bg-white text-institutional-gray-800 leading-relaxed">
-    <!-- Event Announcement Bar -->
-    <div class="bg-institutional-navy text-white py-4 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-15">
-            <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 25% 25%, #FFD700 2px, transparent 2px), radial-gradient(circle at 75% 75%, #87CEEB 1px, transparent 1px); background-size: 60px 60px;"></div>
-        </div>
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
-                <div class="flex items-center gap-4 lg:gap-6">
-                    <div class="text-center lg:text-left">
-                        <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-institutional-gold">
-                            🏐 Open Juvenil 2025
-                        </h2>
-                        <p class="text-sm text-institutional-sky font-medium mt-1">
-                            ¡El torneo más esperado del año!
-                        </p>
-                    </div>
-                    <div class="hidden lg:block text-institutional-gold text-3xl font-light">|</div>
-                    <div class="text-center lg:text-left">
-                        <p class="text-lg font-semibold text-white">
-                            <span class="text-institutional-gold">¡Solo quedan</span> 
-                            <span class="text-institutional-sky font-bold" id="days-simple">00</span> 
-                            <span class="text-institutional-gold">días!</span>
-                        </p>
-                        <p class="text-sm text-institutional-sky">No te quedes sin tu lugar</p>
-                    </div>
-                </div>
-
-                <!-- Countdown -->
-                <div class="flex items-center gap-3 text-white bg-black/20 backdrop-blur-sm rounded-xl px-4 py-2">
-                    <div class="text-center">
-                        <div class="text-2xl font-bold text-institutional-gold" id="days">00</div>
-                        <div class="text-xs text-institutional-sky font-medium uppercase">DÍAS</div>
-                    </div>
-                    <div class="text-institutional-gold">:</div>
-                    <div class="text-center">
-                        <div class="text-2xl font-bold text-institutional-gold" id="hours">00</div>
-                        <div class="text-xs text-institutional-sky font-medium uppercase">HRS</div>
-                    </div>
-                    <div class="text-institutional-gold">:</div>
-                    <div class="text-center">
-                        <div class="text-2xl font-bold text-institutional-gold" id="minutes">00</div>
-                        <div class="text-xs text-institutional-sky font-medium uppercase">MIN</div>
-                    </div>
-                    <div class="text-institutional-gold">:</div>
-                    <div class="text-center">
-                        <div class="text-2xl font-bold text-institutional-gold" id="seconds">00</div>
-                        <div class="text-xs text-institutional-sky font-medium uppercase">SEG</div>
-                    </div>
-                </div>
-
-                <div class="text-center lg:text-right">
-                    <div class="mb-2">
-                        <p class="text-sm font-semibold text-institutional-gold">⚡ INSCRIPCIONES ABIERTAS</p>
-                        <p class="text-xs text-institutional-sky">Cupos limitados - ¡Asegura tu participación!</p>
-                    </div>
-                    <a href="#inscripcion" class="inline-block px-6 py-3 rounded-lg font-semibold text-base tracking-normal shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 text-white border-[#1a2f6c] hover:border-[#4183f2] hover:text-[#1a2f6c]" style="background-color:#1a2f6c" onmouseover="this.style.backgroundColor='#4183f2'" onmouseout="this.style.backgroundColor='#1a2f6c'">
-                        Inscríbete ahora
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-institutional-gold via-institutional-sky to-institutional-gold animate-pulse"></div>
+  <!-- Barra de anuncio / Countdown -->
+  <div class="bg-institutional-navy text-white py-4 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-15 pointer-events-none" aria-hidden="true">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25% 25%, #FFD700 2px, transparent 2px), radial-gradient(circle at 75% 75%, #87CEEB 1px, transparent 1px); background-size: 60px 60px;"></div>
     </div>
-
-    <!-- Skip to Content Link -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-institutional-navy text-white px-4 py-2 rounded-md z-50">
-        Saltar al contenido principal
-    </a>
-
-    <!-- Header with Logo -->
-    <header class="bg-white sticky top-0 z-50 shadow-lg backdrop-blur-md bg-white/95">
-        <div class="container mx-auto px-6">
-            <div class="py-6 border-b border-institutional-gray-100 relative">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center space-x-4">
-                        <!-- Logo -->
-                        <div class="relative">
-                            <div class="w-28 h-20 bg-white rounded-2xl flex items-center justify-center shadow-lg transform hover:scale-105 transition-all duration-300 border-2 border-institutional-navy/10" style="border-radius: 20px 8px 20px 8px;">
-                                <!-- (SVG del logo) -->
-                                <svg class="w-14 h-14" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M100 10 L40 40 L40 120 Q40 160 100 190 Q160 160 160 120 L160 40 Z" fill="#1e3a8a" stroke="#87CEEB" stroke-width="3"/>
-                                    <ellipse cx="100" cy="85" rx="28" ry="25" fill="#8B4513" stroke="#654321" stroke-width="1"/>
-                                    <circle cx="82" cy="65" r="12" fill="#8B4513" stroke="#654321" stroke-width="1"/>
-                                    <circle cx="118" cy="65" r="12" fill="#8B4513" stroke="#654321" stroke-width="1"/>
-                                    <circle cx="82" cy="65" r="7" fill="#D2691E"/>
-                                    <circle cx="118" cy="65" r="7" fill="#D2691E"/>
-                                    <circle cx="90" cy="80" r="4" fill="#000"/>
-                                    <circle cx="110" cy="80" r="4" fill="#000"/>
-                                    <circle cx="91" cy="79" r="1.5" fill="#FFF"/>
-                                    <circle cx="111" cy="79" r="1.5" fill="#FFF"/>
-                                    <ellipse cx="100" cy="90" rx="3" ry="2" fill="#000"/>
-                                    <path d="M100 93 Q95 97 90 95" stroke="#000" stroke-width="1.5" fill="none"/>
-                                    <path d="M100 93 Q105 97 110 95" stroke="#000" stroke-width="1.5" fill="none"/>
-                                    <circle cx="100" cy="115" r="15" fill="#87CEEB" stroke="#1e3a8a" stroke-width="1.5"/>
-                                    <path d="M85 115 L115 115" stroke="#1e3a8a" stroke-width="1"/>
-                                    <path d="M100 100 L100 130" stroke="#1e3a8a" stroke-width="1"/>
-                                    <path d="M90 107 Q100 112 110 107" stroke="#1e3a8a" stroke-width="1" fill="none"/>
-                                    <path d="M90 123 Q100 118 110 123" stroke="#1e3a8a" stroke-width="1" fill="none"/>
-                                    <path d="M100 25 L102 31 L108 31 L103 35 L105 41 L100 37 L95 41 L97 35 L92 31 L98 31 Z" fill="#FFD700"/>
-                                    <path d="M60 50 L61 54 L65 54 L62 57 L63 61 L60 58 L57 61 L58 57 L55 54 L59 54 Z" fill="#FFD700"/>
-                                    <path d="M140 50 L141 54 L145 54 L142 57 L143 61 L140 58 L137 61 L138 57 L135 54 L139 54 Z" fill="#FFD700"/>
-                                    <rect x="50" y="140" width="100" height="20" fill="#FFD700" rx="10"/>
-                                    <text x="100" y="152" text-anchor="middle" fill="#1e3a8a" font-family="Arial, sans-serif" font-size="8" font-weight="bold">CUNDINAMARCA</text>
-                                    <text x="100" y="175" text-anchor="middle" fill="#87CEEB" font-family="Arial, sans-serif" font-size="10" font-weight="bold">2009</text>
-                                </svg>
-                            </div>
-                            <div class="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 rounded-full animate-pulse"></div>
-                        </div>
-                        <div>
-                            <h1 class="text-2xl md:text-3xl font-inter font-bold text-institutional-navy tracking-tight leading-tight">Liga de Voleibol de Cundinamarca</h1>
-                            <p class="text-institutional-gray-600 font-semibold text-sm mt-2 tracking-wide uppercase">Organismo Deportivo Oficial</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Social Media -->
-                    <div class="hidden lg:flex items-center space-x-3">
-                        <a href="https://www.facebook.com/ligavoleibolcundinamarca" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-blue-600 hover:bg-red-600 rounded-full flex items-center justify-center text-white transform hover:scale-110 transition-all duration-300 shadow-md hover:shadow-lg" title="Síguenos en Facebook">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                        </a>
-                        <a href="https://www.instagram.com/ligavoleibolcundinamarca" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 hover:bg-red-600 rounded-full flex items-center justify-center text-white transform hover:scale-110 transition-all duration-300 shadow-md hover:shadow-lg" title="Síguenos en Instagram">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 8c-3.403 0-6.162 2.759-6.162 6.162S8.597 20.324 12 20.324 18.162 17.565 18.162 14.162 15.403 8 12 8zm6.406-3.683a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Navigation -->
-            <nav class="relative" role="navigation" aria-label="Navegación principal">
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-institutional-gray-50/30 to-transparent"></div>
-                <div class="relative py-4 flex items-center justify-between">
-                    <div class="hidden lg:flex items-center justify-start space-x-1">
-                        <a href="#inicio" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition-all duration-200 py-2 px-4 rounded-md border border-institutional-navy/20 hover:border-institutional-blue/30 min-w-[110px] h-[38px] text-center flex items-center justify-center">Inicio</a>
-                        <a href="#nosotros" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition-all duration-200 py-2 px-4 rounded-md border border-institutional-navy/20 hover:border-institutional-blue/30 min-w-[110px] h-[38px] text-center flex items-center justify-center">Nosotros</a>
-                        <a href="#servicios" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition-all duration-200 py-2 px-4 rounded-md border border-institutional-navy/20 hover:border-institutional-blue/30 min-w-[110px] h-[38px] text-center flex items-center justify-center">Servicios</a>
-                        <a href="#cursos" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition-all duration-200 py-2 px-4 rounded-md border border-institutional-navy/20 hover:border-institutional-blue/30 min-w-[110px] h-[38px] text-center flex items-center justify-center">Cursos</a>
-                        <a href="#clubes" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition-all duration-200 py-2 px-4 rounded-md border border-institutional-navy/20 hover:border-institutional-blue/30 min-w-[110px] h-[38px] text-center flex items-center justify-center">Clubes</a>
-                        <a href="#entrenadores" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition-all duration-200 py-2 px-4 rounded-md border border-institutional-navy/20 hover:border-institutional-blue/30 min-w-[110px] h-[38px] text-center flex items-center justify-center">Entrenadores</a>
-                        <a href="#deportistas" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition-all duration-200 py-2 px-4 rounded-md border border-institutional-navy/20 hover:border-institutional-blue/30 min-w-[110px] h-[38px] text-center flex items-center justify-center">Deportistas</a>
-                        <a href="#eventos" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition-all duration-200 py-2 px-4 rounded-md border border-institutional-navy/20 hover:border-institutional-blue/30 min-w-[110px] h-[38px] text-center flex items-center justify-center">Eventos</a>
-                        <a href="#tienda" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition-all duration-200 py-2 px-4 rounded-md border border-institutional-navy/20 hover:border-institutional-blue/30 min-w-[110px] h-[38px] text-center flex items-center justify-center">Tienda</a>
-                    </div>
-
-                    <div class="hidden lg:block">
-                        <a href="#registro" class="inline-block px-6 py-3 font-semibold text-base tracking-normal shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 text-white border-[#d9232c] rounded-lg" style="background-color:#d9232c" onmouseover="this.style.backgroundColor='#47ce1e'; this.style.borderColor='#47ce1e'" onmouseout="this.style.backgroundColor='#d9232c'; this.style.borderColor='#d9232c'">
-                            Regístrate
-                        </a>
-                    </div>
-
-                    <button class="lg:hidden relative p-3 rounded-xl hover:bg-institutional-gray-100 transition-all duration-300 group" id="mobile-menu-button" aria-expanded="false" aria-controls="mobile-menu">
-                        <div class="w-6 h-6 flex flex-col justify-center items-center space-y-1">
-                            <span class="w-6 h-0.5 bg-institutional-navy transition-all duration-300 group-hover:bg-institutional-blue"></span>
-                            <span class="w-4 h-0.5 bg-institutional-navy transition-all duration-300 group-hover:bg-institutional-blue group-hover:w-6"></span>
-                            <span class="w-6 h-0.5 bg-institutional-navy transition-all duration-300 group-hover:bg-institutional-blue"></span>
-                        </div>
-                        <span class="sr-only">Abrir menú de navegación</span>
-                    </button>
-                </div>
-
-                <!-- Mobile Navigation -->
-                <div class="lg:hidden mt-4 pb-6 border-t border-institutional-gray-200 hidden bg-white/98 backdrop-blur-md rounded-b-2xl shadow-2xl border-l-4 border-r-4 border-b-4 border-institutional-navy/20" id="mobile-menu">
-                    <div class="flex flex-col space-y-2 pt-6 px-6">
-                        <a href="#inicio" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition-all duration-300 py-3 px-4 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105">Inicio</a>
-                        <a href="#nosotros" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition-all duration-300 py-3 px-4 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105">Nosotros</a>
-                        <a href="#servicios" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition-all duration-300 py-3 px-4 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105">Servicios</a>
-                        <a href="#cursos" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition-all duration-300 py-3 px-4 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105">Cursos</a>
-                        <a href="#clubes" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition-all duration-300 py-3 px-4 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105">Clubes</a>
-                        <a href="#entrenadores" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition-all duration-300 py-3 px-4 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105">Entrenadores</a>
-                        <a href="#deportistas" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition-all duration-300 py-3 px-4 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105">Deportistas</a>
-                        <a href="#eventos" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition-all duration-300 py-3 px-4 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105">Eventos</a>
-                        <a href="#tienda" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition-all duration-300 py-3 px-4 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105">Tienda</a>
-                        
-                        <div class="flex items-center justify-center space-x-6 pt-6 pb-4">
-                            <a href="https://www.facebook.com/ligavoleibolcundinamarca" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-blue-600 hover:bg-red-600 rounded-full flex items-center justify-center text-white transform hover:scale-125 transition-all duration-300 shadow-lg hover:shadow-xl" title="Síguenos en Facebook">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                            </a>
-                            <a href="https://www.instagram.com/ligavoleibolcundinamarca" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 hover:bg-red-600 rounded-full flex items-center justify-center text-white transform hover:scale-125 transition-all duration-300 shadow-lg hover:shadow-xl" title="Síguenos en Instagram">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 8c-3.403 0-6.162 2.759-6.162 6.162S8.597 20.324 12 20.324 18.162 17.565 18.162 14.162 15.403 8 12 8zm6.406-3.683a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
-                            </a>
-                        </div>
-                        
-                        <a href="#registro" class="inline-block px-6 py-3 rounded-lg font-semibold text-base tracking-normal shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 text-white border-[#d9232c] mt-4 text-center w-full" style="background-color:#d9232c" onmouseover="this.style.backgroundColor='#47ce1e'; this.style.borderColor='#47ce1e'" onmouseout="this.style.backgroundColor='#d9232c'; this.style.borderColor='#d9232c'">
-                            Regístrate
-                        </a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main id="main-content">
-        <!-- Hero Carousel (DINÁMICO DESDE /banners) -->
-        <section id="inicio" class="relative w-full bg-slate-900">
-          <div class="relative overflow-hidden mx-auto max-w-7xl aspect-[56/25] md:aspect-[4/3] sm:aspect-square">
-            <!-- Fondo difuminado dinámico -->
-            <div id="slide-bg" class="absolute inset-0 -z-10 blur-2xl opacity-50 scale-110 bg-center bg-cover transition-all duration-700"></div>
-            <!-- Contenedor de slides -->
-            <div id="slides-track" class="h-full flex transition-transform duration-500 ease-in-out"></div>
-            <!-- Controles -->
-            <button id="prevBtn" aria-label="Anterior"
-              class="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur px-3 py-2 text-white">&#10094;</button>
-            <button id="nextBtn" aria-label="Siguiente"
-              class="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur px-3 py-2 text-white">&#10095;</button>
-            <!-- Dots -->
-            <div id="dots" class="absolute bottom-3 left-0 right-0 flex justify-center gap-2"></div>
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-5">
+          <div class="text-center lg:text-left">
+            <h2 class="text-xl lg:text-2xl font-bold text-institutional-gold">🏐 Open Juvenil 2025</h2>
+            <p class="text-sm text-institutional-sky">¡El torneo más esperado del año!</p>
           </div>
-        </section>
+          <div class="hidden lg:block text-institutional-gold text-3xl font-light">|</div>
+          <div class="text-center lg:text-left">
+            <p class="text-lg font-semibold">
+              <span class="text-institutional-gold">¡Solo quedan</span>
+              <span class="text-institutional-sky font-bold" id="days-simple">00</span>
+              <span class="text-institutional-gold">días!</span>
+            </p>
+            <p class="text-sm text-institutional-sky">No te quedes sin tu lugar</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 bg-black/20 backdrop-blur-sm rounded-xl px-4 py-2">
+          <div class="text-center">
+            <div class="text-2xl font-bold text-institutional-gold" id="days">00</div>
+            <div class="text-xs text-institutional-sky font-medium">DÍAS</div>
+          </div>
+          <div class="text-institutional-gold">:</div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-institutional-gold" id="hours">00</div>
+            <div class="text-xs text-institutional-sky font-medium">HRS</div>
+          </div>
+          <div class="text-institutional-gold">:</div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-institutional-gold" id="minutes">00</div>
+            <div class="text-xs text-institutional-sky font-medium">MIN</div>
+          </div>
+          <div class="text-institutional-gold">:</div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-institutional-gold" id="seconds">00</div>
+            <div class="text-xs text-institutional-sky font-medium">SEG</div>
+          </div>
+        </div>
+        <div class="text-center lg:text-right">
+          <div class="mb-2">
+            <p class="text-sm font-semibold text-institutional-gold">⚡ INSCRIPCIONES ABIERTAS</p>
+            <p class="text-xs text-institutional-sky">Cupos limitados - ¡Asegura tu participación!</p>
+          </div>
+          <a href="#inscripcion" class="inline-block px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 border-2 text-white border-[#1a2f6c] hover:border-[#4183f2]" style="background-color:#1a2f6c">Inscríbete ahora</a>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-institutional-gold via-institutional-sky to-institutional-gold animate-pulse" aria-hidden="true"></div>
+  </div>
 
-        <!-- About Section -->
-        <section id="nosotros" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16 animate-on-scroll">
-                    <h2 class="text-3xl md:text-4xl font-playfair font-bold text-institutional-gray-900 mb-4">Nuestra Institución</h2>
-                    <div class="w-24 h-1 bg-institutional-navy mx-auto mb-6"></div>
-                    <p class="text-lg text-institutional-gray-600 max-w-3xl mx-auto">
-                        Organismo deportivo oficial con reconocimiento legal y trayectoria consolidada en el desarrollo del voleibol cundinamarqués
-                    </p>
-                </div>
+  <!-- Saltar al contenido -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-institutional-navy text-white px-4 py-2 rounded-md z-50">Saltar al contenido principal</a>
 
-                <!-- Mission & Vision -->
-                <div class="grid lg:grid-cols-2 gap-12 mb-20">
-                    <div class="animate-on-scroll">
-                        <div class="bg-institutional-gray-50 rounded-lg p-8 h-full">
-                            <div class="flex items-center mb-6">
-                                <div class="w-12 h-12 bg-institutional-navy rounded-lg flex items-center justify-center mr-4">
-                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                </div>
-                                <h3 class="text-2xl font-playfair font-bold text-institutional-gray-900">Misión</h3>
-                            </div>
-                            <p class="text-institutional-gray-700 leading-relaxed">
-                                Regular, promover, organizar y fomentar la práctica del voleibol en el departamento de Cundinamarca, desarrollando procesos formativos, competencias y actividades deportivas que contribuyan a la formación integral de deportistas, entrenadores, jueces y clubes, con un compromiso ético y social que fortalezca la cultura deportiva.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="animate-on-scroll">
-                        <div class="bg-institutional-gray-50 rounded-lg p-8 h-full">
-                            <div class="flex items-center mb-6">
-                                <div class="w-12 h-12 bg-institutional-blue rounded-lg flex items-center justify-center mr-4">
-                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-                                </div>
-                                <h3 class="text-2xl font-playfair font-bold text-institutional-gray-900">Visión</h3>
-                            </div>
-                            <p class="text-institutional-gray-700 leading-relaxed">
-                                Ser reconocidos como el organismo líder en el desarrollo y promoción del voleibol en Cundinamarca, consolidando una estructura organizativa sólida, eficiente y transparente, que garantice la participación activa de sus afiliados, la excelencia deportiva y el impacto positivo en la comunidad.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Key Statistics -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 animate-on-scroll">
-                    <div class="text-center">
-                        <div class="text-3xl md:text-4xl font-bold text-institutional-navy mb-2 counter" data-target="25">0</div>
-                        <div class="text-institutional-gray-600 font-medium">Clubes Afiliados</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl md:text-4xl font-bold text-institutional-navy mb-2 counter" data-target="500">0</div>
-                        <div class="text-institutional-gray-600 font-medium">Deportistas Activos</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl md:text-4xl font-bold text-institutional-navy mb-2 counter" data-target="18">0</div>
-                        <div class="text-institutional-gray-600 font-medium">Municipios</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl md:text-4xl font-bold text-institutional-navy mb-2 counter" data-target="15">0</div>
-                        <div class="text-institutional-gray-600 font-medium">Años de Trayectoria</div>
-                    </div>
-                </div>
+  <!-- Header -->
+  <header class="bg-white sticky top-0 z-50 shadow-lg backdrop-blur bg-white/95">
+    <div class="container mx-auto px-6">
+      <div class="py-6 border-b border-institutional-gray-100">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <!-- Logo -->
+            <div class="relative">
+              <div class="w-28 h-20 bg-white rounded-2xl flex items-center justify-center shadow-lg border-2 border-institutional-navy/10" style="border-radius: 20px 8px 20px 8px;">
+                <!-- SVG de escudo (placeholder institucional) -->
+                <svg class="w-14 h-14" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Escudo Liga de Voleibol de Cundinamarca">
+                  <path d="M100 10 L40 40 L40 120 Q40 160 100 190 Q160 160 160 120 L160 40 Z" fill="#1e3a8a" stroke="#87CEEB" stroke-width="3"/>
+                  <circle cx="100" cy="115" r="15" fill="#87CEEB" stroke="#1e3a8a" stroke-width="1.5"/>
+                  <rect x="50" y="140" width="100" height="20" fill="#FFD700" rx="10"/>
+                  <text x="100" y="152" text-anchor="middle" fill="#1e3a8a" font-family="Arial, sans-serif" font-size="8" font-weight="bold">CUNDINAMARCA</text>
+                  <text x="100" y="175" text-anchor="middle" fill="#87CEEB" font-family="Arial, sans-serif" font-size="10" font-weight="bold">2009</text>
+                </svg>
+              </div>
+              <div class="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 rounded-full animate-pulse" aria-hidden="true"></div>
             </div>
-        </section>
-
-        <!-- Junta Directiva Section -->
-        <section id="junta-directiva" class="py-20 bg-gradient-to-br from-institutional-sky/10 via-white to-institutional-navy/5">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16 animate-on-scroll">
-                    <h2 class="text-3xl md:text-4xl font-playfair font-bold text-institutional-gray-900 mb-4">Junta Directiva</h2>
-                    <div class="w-24 h-1 bg-gradient-to-r from-institutional-navy to-institutional-sky mx-auto mb-6"></div>
-                    <p class="text-lg text-institutional-gray-600 max-w-3xl mx-auto">Liderazgo comprometido con la excelencia deportiva y el desarrollo integral del voleibol en Cundinamarca</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mb-16">
-                    <!-- Cards de la junta (igual que antes) -->
-                    <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover animate-on-scroll border-t-4 border-institutional-navy">
-                        <div class="text-center">
-                            <div class="w-20 h-20 bg-gradient-to-br from-institutional-navy to-institutional-blue rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg">
-                                <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            </div>
-                            <h3 class="text-lg font-bold text-institutional-gray-900 mb-2">Dr. Carlos Rodríguez</h3>
-                            <p class="text-institutional-navy font-semibold mb-3 text-sm">Presidente</p>
-                            <p class="text-xs text-institutional-gray-600 leading-relaxed">Líder visionario con 20 años de experiencia en administración deportiva.</p>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover animate-on-scroll border-t-4 border-institutional-sky">
-                        <div class="text-center">
-                            <div class="w-20 h-20 bg-gradient-to-br from-institutional-sky to-institutional-blue rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg">
-                                <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 8H16c-.8 0-1.54.37-2.01.99l-2.54 3.38c-.74.99-.74 2.31 0 3.3l1.89 2.52c.39.52.39 1.22 0 1.74L12 21h2l1.5-2h3l1.5 2h2z"/></svg>
-                            </div>
-                            <h3 class="text-lg font-bold text-institutional-gray-900 mb-2">Lic. María González</h3>
-                            <p class="text-institutional-sky font-semibold mb-3 text-sm">Vicepresidenta</p>
-                            <p class="text-xs text-institutional-gray-600 leading-relaxed">Especialista en desarrollo deportivo juvenil y programas formativos.</p>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover animate-on-scroll border-t-4 border-institutional-green">
-                        <div class="text-center">
-                            <div class="w-20 h-20 bg-gradient-to-br from-institutional-green to-green-600 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg">
-                                <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
-                            </div>
-                            <h3 class="text-lg font-bold text-institutional-gray-900 mb-2">Cont. Ana Herrera</h3>
-                            <p class="text-institutional-green font-semibold mb-3 text-sm">Tesorera</p>
-                            <p class="text-xs text-institutional-gray-600 leading-relaxed">Contadora pública especializada en gestión financiera.</p>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover animate-on-scroll border-t-4 border-institutional-gold">
-                        <div class="text-center">
-                            <div class="w-20 h-20 bg-gradient-to-br from-institutional-gold to-institutional-yellow rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg">
-                                <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h8c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                            </div>
-                            <h3 class="text-lg font-bold text-institutional-gray-900 mb-2">Ing. Luis Martínez</h3>
-                            <p class="text-institutional-yellow font-semibold mb-3 text-sm">Secretario</p>
-                            <p class="text-xs text-institutional-gray-600 leading-relaxed">Experto en gestión administrativa y procesos institucionales.</p>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover animate-on-scroll border-t-4 border-institutional-red">
-                        <div class="text-center">
-                            <div class="w-20 h-20 bg-gradient-to-br from-institutional-red to-red-600 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg">
-                                <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                            </div>
-                            <h3 class="text-lg font-bold text-institutional-gray-900 mb-2">Dr. Patricia López</h3>
-                            <p class="text-institutional-red font-semibold mb-3 text-sm">Vocal</p>
-                            <p class="text-xs text-institutional-gray-600 leading-relaxed">Abogada especializada en derecho deportivo y normatividad.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Organigrama (igual que antes) -->
-                <div class="animate-on-scroll">
-                    <div class="bg-white rounded-xl p-8 shadow-lg border border-institutional-gray-200">
-                        <h3 class="text-2xl font-playfair font-bold text-institutional-gray-900 mb-8 text-center">Organigrama Institucional</h3>
-                        <div class="space-y-6">
-                            <div class="text-center">
-                                <div class="inline-block bg-gradient-to-r from-institutional-gold to-institutional-yellow text-white px-8 py-4 rounded-lg shadow-lg">
-                                    <div class="font-bold text-lg">ASAMBLEA DE CLUBES AFILIADOS</div>
-                                    <div class="text-sm opacity-90">Máximo Órgano de Gobierno</div>
-                                </div>
-                            </div>
-                            <div class="flex justify-center"><div class="w-px h-6 bg-institutional-gray-300"></div></div>
-                            <div class="text-center">
-                                <div class="inline-block bg-gradient-to-r from-institutional-navy to-institutional-blue text-white px-6 py-3 rounded-lg shadow-lg">
-                                    <div class="font-bold">PRESIDENTE</div>
-                                    <div class="text-sm opacity-90">Dr. Carlos Rodríguez</div>
-                                </div>
-                            </div>
-                            <div class="flex justify-center"><div class="w-px h-6 bg-institutional-gray-300"></div></div>
-                            <div class="text-center">
-                                <div class="inline-block bg-gradient-to-r from-institutional-sky to-institutional-blue text-white px-5 py-2 rounded-lg shadow-md">
-                                    <div class="font-semibold">VICEPRESIDENTE</div>
-                                    <div class="text-xs opacity-90">Lic. María González</div>
-                                </div>
-                            </div>
-                            <div class="flex justify-center"><div class="w-px h-6 bg-institutional-gray-300"></div></div>
-                            <div class="flex justify-center items-center space-x-8">
-                                <div class="bg-gradient-to-r from-institutional-green to-green-600 text-white px-4 py-2 rounded-lg shadow-md text-center">
-                                    <div class="font-semibold text-sm">TESORERO</div>
-                                    <div class="text-xs opacity-90">Cont. Ana Herrera</div>
-                                </div>
-                                <div class="bg-gradient-to-r from-institutional-gold to-institutional-yellow text-white px-4 py-2 rounded-lg shadow-md text-center">
-                                    <div class="font-semibold text-sm">SECRETARIO</div>
-                                    <div class="text-xs opacity-90">Ing. Luis Martínez</div>
-                                </div>
-                                <div class="bg-gradient-to-r from-institutional-red to-red-600 text-white px-4 py-2 rounded-lg shadow-md text-center">
-                                    <div class="font-semibold text-sm">VOCAL</div>
-                                    <div class="text-xs opacity-90">Dr. Patricia López</div>
-                                </div>
-                            </div>
-                            <div class="flex justify-center"><div class="w-px h-6 bg-institutional-gray-300"></div></div>
-                            <div class="grid md:grid-cols-3 gap-4">
-                                <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-3 py-2 rounded-lg shadow-md text-center"><div class="font-semibold text-sm">COMISIÓN TÉCNICA</div></div>
-                                <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-2 rounded-lg shadow-md text-center"><div class="font-semibold text-sm">COMISIÓN DISCIPLINARIA</div></div>
-                                <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-3 py-2 rounded-lg shadow-md text-center"><div class="font-semibold text-sm">REVISORÍA FISCAL</div></div>
-                            </div>
-                            <div class="flex justify-center"><div class="w-px h-6 bg-institutional-gray-300"></div></div>
-                            <div class="grid md:grid-cols-3 gap-4">
-                                <div class="bg-institutional-gray-100 border-2 border-institutional-navy/30 px-3 py-2 rounded-lg text-center"><div class="font-medium text-sm text-institutional-gray-800">DIRECTOR DE CAMPEONATO</div></div>
-                                <div class="bg-institutional-gray-100 border-2 border-institutional-sky/30 px-3 py-2 rounded-lg text-center"><div class="font-medium text-sm text-institutional-gray-800">GESTIÓN ADMINISTRATIVA</div></div>
-                                <div class="bg-institutional-gray-100 border-2 border-institutional-green/30 px-3 py-2 rounded-lg text-center"><div class="font-medium text-sm text-institutional-gray-800">GESTIÓN FINANCIERA</div></div>
-                            </div>
-                            <div class="flex justify-center"><div class="w-px h-6 bg-institutional-gray-300"></div></div>
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div class="bg-institutional-gray-50 border-2 border-institutional-gold/30 px-4 py-3 rounded-lg text-center"><div class="font-medium text-sm text-institutional-gray-800">ENTRENADORES CERTIFICADOS</div></div>
-                                <div class="bg-institutional-gray-50 border-2 border-institutional-blue/30 px-4 py-3 rounded-lg text-center"><div class="font-medium text-sm text-institutional-gray-800">DEPORTISTAS ELEGIBLES</div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div>
+              <h1 class="text-2xl md:text-3xl font-bold text-institutional-navy tracking-tight leading-tight">Liga de Voleibol de Cundinamarca</h1>
+              <p class="text-institutional-gray-600 font-semibold text-sm mt-1 uppercase">Organismo Deportivo Oficial</p>
             </div>
-        </section>
+          </div>
 
-        <!-- Services Section -->
-        <section id="servicios" class="py-20 bg-gradient-to-br from-white via-institutional-sky/5 to-institutional-navy/10">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16 animate-on-scroll">
-                    <h2 class="text-3xl md:text-4xl font-playfair font-bold text-institutional-gray-900 mb-4">Nuestros Servicios</h2>
-                    <div class="w-24 h-1 bg-institutional-navy mx-auto mb-6"></div>
-                    <p class="text-lg text-institutional-gray-600 max-w-3xl mx-auto">Programas especializados y servicios institucionales para el desarrollo integral del voleibol</p>
-                </div>
+          <!-- Social -->
+          <div class="hidden lg:flex items-center space-x-3">
+            <a href="https://www.facebook.com/ligavoleibolcundinamarca" target="_blank" rel="noopener" class="w-11 h-11 bg-blue-600 hover:bg-blue-700 rounded-full grid place-items-center text-white shadow-md hover:shadow-lg transition">
+              <span class="sr-only">Facebook</span>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12.07C22 6.48 17.52 2 11.93 2 6.35 2 1.87 6.48 1.87 12.07c0 4.99 3.66 9.13 8.44 9.93v-7.02H7.9v-2.91h2.41V9.41c0-2.38 1.42-3.7 3.59-3.7 1.04 0 2.13.19 2.13.19v2.35h-1.2c-1.18 0-1.55.73-1.55 1.48v1.77h2.64l-.42 2.91h-2.22V22c4.78-.8 8.44-4.94 8.44-9.93z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/ligavoleibolcundinamarca" target="_blank" rel="noopener" class="w-11 h-11 rounded-full grid place-items-center text-white shadow-md hover:shadow-lg transition" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);">
+              <span class="sr-only">Instagram</span>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6.01 4.9.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.66.07 4.91s-.01 3.64-.07 4.91c-.15 3.23-1.67 4.77-4.92 4.92-1.3.06-1.69.07-4.9.07-3.21 0-3.61-.01-4.91-.07-3.25-.15-4.77-1.69-4.92-4.92C2.1 16.64 2.09 16.25 2.09 13s.01-3.64.07-4.91C2.31 4.86 3.83 3.33 7.08 3.18 8.39 3.12 8.78 3.11 12 3.11ZM12 7.8A4.2 4.2 0 1 0 12 16.2 4.2 4.2 0 0 0 12 7.8Zm6.41-3.68a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88Z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
 
-                <!-- (Cards de servicios, igual que antes) -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service cards conservadas -->
-                    <!-- ... (idénticas a tu versión) ... -->
-                    <div class="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow duration-300 card-hover animate-on-scroll">
-                        <div class="w-12 h-12 bg-institutional-navy rounded-lg flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-institutional-gray-900 mb-4">Formación de Entrenadores</h3>
-                        <p class="text-institutional-gray-600 mb-6">Cursos de certificación y actualización técnica para entrenadores de voleibol con reconocimiento oficial.</p>
-                        <a href="#" class="text-institutional-navy font-semibold hover:text-institutional-sky transition-colors duration-200">Más información →</a>
-                    </div>
+      <!-- Nav -->
+      <nav class="relative" role="navigation" aria-label="Navegación principal">
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-institutional-gray-50/30 to-transparent pointer-events-none" aria-hidden="true"></div>
+        <div class="relative py-4 flex items-center justify-between">
+          <div class="hidden lg:flex items-center gap-1">
+            <a href="#inicio" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition py-2 px-4 rounded-md border border-institutional-navy/20">Inicio</a>
+            <a href="#nosotros" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition py-2 px-4 rounded-md border border-institutional-navy/20">Nosotros</a>
+            <a href="#servicios" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition py-2 px-4 rounded-md border border-institutional-navy/20">Servicios</a>
+            <a href="#cursos" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition py-2 px-4 rounded-md border border-institutional-navy/20">Cursos</a>
+            <a href="#clubes" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition py-2 px-4 rounded-md border border-institutional-navy/20">Clubes</a>
+            <a href="#entrenadores" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition py-2 px-4 rounded-md border border-institutional-navy/20">Entrenadores</a>
+            <a href="#deportistas" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition py-2 px-4 rounded-md border border-institutional-navy/20">Deportistas</a>
+            <a href="#eventos" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition py-2 px-4 rounded-md border border-institutional-navy/20">Eventos</a>
+            <a href="#tienda" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition py-2 px-4 rounded-md border border-institutional-navy/20">Tienda</a>
+          </div>
 
-                    <div class="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow duration-300 card-hover animate-on-scroll">
-                        <div class="w-12 h-12 bg-institutional-sky rounded-lg flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-institutional-gray-900 mb-4">Capacitación de Árbitros</h3>
-                        <p class="text-institutional-gray-600 mb-6">Programas de formación y certificación para árbitros de voleibol con estándares internacionales.</p>
-                        <a href="#" class="text-institutional-navy font-semibold hover:text-institutional-sky transition-colors duration-200">Más información →</a>
-                    </div>
+          <a href="#registro" class="hidden lg:inline-block px-6 py-3 font-semibold shadow-lg hover:shadow-xl transition border-2 text-white rounded-lg" style="background-color:#d9232c; border-color:#d9232c">Regístrate</a>
 
-                    <div class="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow duration-300 card-hover animate-on-scroll">
-                        <div class="w-12 h-12 bg-institutional-green rounded-lg flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-institutional-gray-900 mb-4">Afiliación de Clubes</h3>
-                        <p class="text-institutional-gray-600 mb-6">Proceso de afiliación y registro oficial para clubes deportivos de voleibol en Cundinamarca.</p>
-                        <a href="#" class="text-institutional-navy font-semibold hover:text-institutional-green transition-colors duration-200">Más información →</a>
-                    </div>
-
-                    <div class="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow duration-300 card-hover animate-on-scroll">
-                        <div class="w-12 h-12 bg-institutional-gold rounded-lg flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-institutional-gray-900 mb-4">Organización de Competencias</h3>
-                        <p class="text-institutional-gray-600 mb-6">Torneos oficiales, campeonatos departamentales y competencias de desarrollo deportivo.</p>
-                        <a href="#" class="text-institutional-navy font-semibold hover:text-institutional-gold transition-colors duración-200">Más información →</a>
-                    </div>
-
-                    <div class="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow duration-300 card-hover animate-on-scroll">
-                        <div class="w-12 h-12 bg-institutional-blue rounded-lg flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h8c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-institutional-gray-900 mb-4">Asesoría Técnica</h3>
-                        <p class="text-institutional-gray-600 mb-6">Consultoría especializada en desarrollo técnico, metodológico y organizacional para clubes.</p>
-                        <a href="#" class="text-institutional-navy font-semibold hover:text-institutional-blue transition-colors duration-200">Más información →</a>
-                    </div>
-
-                    <div class="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow duration-300 card-hover animate-on-scroll">
-                        <div class="w-12 h-12 bg-institutional-red rounded-lg flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 8H16c-.8 0-1.54.37-2.01.99l-2.54 3.38c-.74.99-.74 2.31 0 3.3l1.89 2.52c.39.52.39 1.22 0 1.74L12 21h2l1.5-2h3l1.5 2h2z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-institutional-gray-900 mb-4">Desarrollo Deportivo</h3>
-                        <p class="text-institutional-gray-600 mb-6">Programas de detección, formación y desarrollo de talentos deportivos en voleibol.</p>
-                        <a href="#" class="text-institutional-navy font-semibold hover:text-institutional-red transition-colors duration-200">Más información →</a>
-                    </div>
-                </div>
+          <button id="mobile-menu-button" class="lg:hidden p-3 rounded-xl hover:bg-institutional-gray-100 transition" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="sr-only">Abrir menú</span>
+            <div class="w-6 h-6 flex flex-col justify-center items-center space-y-1">
+              <span class="w-6 h-0.5 bg-institutional-navy"></span>
+              <span class="w-6 h-0.5 bg-institutional-navy"></span>
+              <span class="w-6 h-0.5 bg-institutional-navy"></span>
             </div>
-        </section>
+          </button>
+        </div>
 
-        <!-- Contact Section -->
-        <section id="contacto" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16 animate-on-scroll">
-                    <h2 class="text-3xl md:text-4xl font-playfair font-bold text-institutional-gray-900 mb-4">Contacto Institucional</h2>
-                    <div class="w-24 h-1 bg-institutional-navy mx-auto mb-6"></div>
-                    <p class="text-lg text-institutional-gray-600 max-w-3xl mx-auto">Información de contacto oficial para consultas, trámites y servicios institucionales</p>
-                </div>
+        <!-- Mobile -->
+        <div id="mobile-menu" class="lg:hidden mt-2 pb-6 border-t border-institutional-gray-200 hidden bg-white/98 backdrop-blur rounded-b-2xl shadow-2xl border-l-4 border-r-4 border-b-4 border-institutional-navy/20">
+          <div class="flex flex-col space-y-2 pt-6 px-6">
+            <a href="#inicio" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition py-3 px-4 rounded-xl">Inicio</a>
+            <a href="#nosotros" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition py-3 px-4 rounded-xl">Nosotros</a>
+            <a href="#servicios" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition py-3 px-4 rounded-xl">Servicios</a>
+            <a href="#cursos" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition py-3 px-4 rounded-xl">Cursos</a>
+            <a href="#clubes" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition py-3 px-4 rounded-xl">Clubes</a>
+            <a href="#entrenadores" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition py-3 px-4 rounded-xl">Entrenadores</a>
+            <a href="#deportistas" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition py-3 px-4 rounded-xl">Deportistas</a>
+            <a href="#eventos" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition py-3 px-4 rounded-xl">Eventos</a>
+            <a href="#tienda" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition py-3 px-4 rounded-xl">Tienda</a>
 
-                <div class="grid lg:grid-cols-2 gap-12">
-                    <div class="animate-on-scroll">
-                        <div class="bg-institutional-gray-50 rounded-lg p-8">
-                            <h3 class="text-2xl font-playfair font-bold text-institutional-gray-900 mb-8">Información de Contacto</h3>
-                            <div class="space-y-6">
-                                <div class="flex items-start space-x-4">
-                                    <div class="w-12 h-12 bg-institutional-navy rounded-lg flex items-center justify-center flex-shrink-0">
-                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold text-institutional-gray-900 mb-1">Dirección</h4>
-                                        <p class="text-institutional-gray-600">Calle 123 #45-67, Oficina 301</p>
-                                        <p class="text-institutional-gray-600">Bogotá, Cundinamarca</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start space-x-4">
-                                    <div class="w-12 h-12 bg-institutional-blue rounded-lg flex items-center justify-center flex-shrink-0">
-                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold text-institutional-gray-900 mb-1">Teléfonos</h4>
-                                        <p class="text-institutional-gray-600">+57 320 888 2039</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start space-x-4">
-                                    <div class="w-12 h-12 bg-institutional-gray-700 rounded-lg flex items-center justify-center flex-shrink-0">
-                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold text-institutional-gray-900 mb-1">Correos Electrónicos</h4>
-                                        <p class="text-institutional-gray-600">ligavoleicundi@hotmail.com</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start space-x-4">
-                                    <div class="w-12 h-12 bg-institutional-navy rounded-lg flex items-center justify-center flex-shrink-0">
-                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold text-institutional-gray-900 mb-1">Horarios de Atención</h4>
-                                        <p class="text-institutional-gray-600">Lunes a Viernes: 8:00 AM - 5:00 PM</p>
-                                        <p class="text-institutional-gray-600">Sábados: 8:00 AM - 12:00 PM</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Contact Form -->
-                    <div class="animate-on-scroll">
-                        <form id="contact-form" class="space-y-6">
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="nombre" class="block text-sm font-medium text-institutional-gray-700 mb-2">Nombre *</label>
-                                    <input type="text" id="nombre" name="nombre" required class="w-full px-4 py-3 border border-institutional-gray-300 rounded-md focus:ring-2 focus:ring-institutional-navy focus:border-transparent form-input">
-                                </div>
-                                <div>
-                                    <label for="apellido" class="block text-sm font-medium text-institutional-gray-700 mb-2">Apellido *</label>
-                                    <input type="text" id="apellido" name="apellido" required class="w-full px-4 py-3 border border-institutional-gray-300 rounded-md focus:ring-2 focus:ring-institutional-navy focus:border-transparent form-input">
-                                </div>
-                            </div>
-
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="email" class="block text-sm font-medium text-institutional-gray-700 mb-2">Correo Electrónico *</label>
-                                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-institutional-gray-300 rounded-md focus:ring-2 focus:ring-institutional-navy focus:border-transparent form-input">
-                                </div>
-                                <div>
-                                    <label for="telefono" class="block text-sm font-medium text-institutional-gray-700 mb-2">Teléfono</label>
-                                    <input type="tel" id="telefono" name="telefono" class="w-full px-4 py-3 border border-institutional-gray-300 rounded-md focus:ring-2 focus:ring-institutional-navy focus:border-transparent form-input">
-                                </div>
-                            </div>
-
-                            <div>
-                                <label for="asunto" class="block text-sm font-medium text-institutional-gray-700 mb-2">Asunto *</label>
-                                <select id="asunto" name="asunto" required class="w-full px-4 py-3 border border-institutional-gray-300 rounded-md focus:ring-2 focus:ring-institutional-navy focus:border-transparent form-input">
-                                    <option value="">Seleccione un asunto</option>
-                                    <option value="afiliacion">Afiliación de Club</option>
-                                    <option value="capacitacion">Capacitación y Cursos</option>
-                                    <option value="competencias">Competencias y Torneos</option>
-                                    <option value="informacion">Información General</option>
-                                    <option value="otro">Otro</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label for="mensaje" class="block text-sm font-medium text-institutional-gray-700 mb-2">Mensaje *</label>
-                                <textarea id="mensaje" name="mensaje" rows="6" required class="w-full px-4 py-3 border border-institutional-gray-300 rounded-md focus:ring-2 focus:ring-institutional-navy focus:border-transparent form-input"></textarea>
-                            </div>
-
-                            <div class="flex items-start space-x-3">
-                                <input type="checkbox" id="privacidad" name="privacidad" required class="mt-1 w-4 h-4 text-institutional-navy bg-white border-institutional-gray-300 rounded focus:ring-institutional-navy">
-                                <label for="privacidad" class="text-sm text-institutional-gray-600">Acepto el tratamiento de mis datos personales de acuerdo con la política de privacidad de la Liga de Voleibol de Cundinamarca. *</label>
-                            </div>
-
-                            <div>
-                                <button type="submit" class="w-full bg-institutional-navy text-white px-8 py-3 rounded-md font-semibold hover:bg-institutional-blue transition-colors duration-200 btn-professional focus-visible">
-                                    Enviar Mensaje
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+            <div class="flex items-center justify-center space-x-6 pt-6 pb-4">
+              <a href="https://www.facebook.com/ligavoleibolcundinamarca" target="_blank" rel="noopener" class="w-12 h-12 bg-blue-600 hover:bg-blue-700 rounded-full grid place-items-center text-white shadow-lg transition">
+                <span class="sr-only">Facebook</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12.07C22 6.48 17.52 2 11.93 2 6.35 2 1.87 6.48 1.87 12.07c0 4.99 3.66 9.13 8.44 9.93v-7.02H7.9v-2.91h2.41V9.41c0-2.38 1.42-3.7 3.59-3.7 1.04 0 2.13.19 2.13.19v2.35h-1.2c-1.18 0-1.55.73-1.55 1.48v1.77h2.64l-.42 2.91h-2.22V22c4.78-.8 8.44-4.94 8.44-9.93z"/></svg>
+              </a>
+              <a href="https://www.instagram.com/ligavoleibolcundinamarca" target="_blank" rel="noopener" class="w-12 h-12 rounded-full grid place-items-center text-white shadow-lg transition" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);">
+                <span class="sr-only">Instagram</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6.01 4.9.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.66.07 4.91s-.01 3.64-.07 4.91c-.15 3.23-1.67 4.77-4.92 4.92-1.3.06-1.69.07-4.9.07-3.21 0-3.61-.01-4.91-.07-3.25-.15-4.77-1.69-4.92-4.92C2.1 16.64 2.09 16.25 2.09 13s.01-3.64.07-4.91C2.31 4.86 3.83 3.33 7.08 3.18 8.39 3.12 8.78 3.11 12 3.11ZM12 7.8A4.2 4.2 0 1 0 12 16.2 4.2 4.2 0 0 0 12 7.8Zm6.41-3.68a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88Z"/></svg>
+              </a>
             </div>
-        </section>
-    </main>
 
-    <!-- Footer -->
-    <footer class="bg-institutional-gray-900 text-white py-16">
-        <div class="container mx-auto px-6">
-            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+            <a href="#registro" class="inline-block px-6 py-3 rounded-lg font-semibold shadow-lg border-2 text-white text-center" style="background-color:#d9232c; border-color:#d9232c">Regístrate</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main id="main-content">
+
+    <!-- HERO / CARRUSEL -->
+    <section id="inicio" class="relative w-full bg-slate-900">
+      <div class="relative overflow-hidden mx-auto max-w-7xl aspect-[56/25] md:aspect-[4/3] sm:aspect-square">
+        <!-- Fondo dinámico por slide -->
+        <div id="heroBg" class="absolute inset-0 -z-10 blur-2xl opacity-50 scale-110 bg-center bg-cover transition-all duration-700"></div>
+
+        <!-- Slides (se llenan por JS) -->
+        <div id="slidesTrack" class="h-full flex transition-transform duration-500 ease-in-out will-change-transform"></div>
+
+        <!-- Controles -->
+        <button id="prevBtn" aria-label="Slide anterior" class="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur px-3 py-2 text-white">&#10094;</button>
+        <button id="nextBtn" aria-label="Slide siguiente" class="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur px-3 py-2 text-white">&#10095;</button>
+
+        <!-- Dots -->
+        <div id="dots" class="absolute bottom-3 left-0 right-0 flex justify-center gap-2"></div>
+      </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section id="nosotros" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="text-3xl md:text-4xl font-playfair font-bold text-institutional-gray-900 mb-4">Nuestra Institución</h2>
+          <div class="w-24 h-1 bg-institutional-navy mx-auto mb-6"></div>
+          <p class="text-lg text-institutional-gray-600 max-w-3xl mx-auto">
+            Organismo deportivo oficial con reconocimiento legal y trayectoria consolidada en el desarrollo del voleibol cundinamarqués.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 mb-20">
+          <div class="animate-on-scroll">
+            <div class="bg-institutional-gray-50 rounded-lg p-8 h-full">
+              <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-institutional-navy rounded-lg grid place-items-center mr-4">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                </div>
+                <h3 class="text-2xl font-playfair font-bold text-institutional-gray-900">Misión</h3>
+              </div>
+              <p class="text-institutional-gray-700">
+                Regular, promover y organizar la práctica del voleibol en Cundinamarca, desarrollando procesos formativos y competencias que impulsen a deportistas, entrenadores, jueces y clubes con ética y compromiso social.
+              </p>
+            </div>
+          </div>
+          <div class="animate-on-scroll">
+            <div class="bg-institutional-gray-50 rounded-lg p-8 h-full">
+              <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-institutional-blue rounded-lg grid place-items-center mr-4">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg>
+                </div>
+                <h3 class="text-2xl font-playfair font-bold text-institutional-gray-900">Visión</h3>
+              </div>
+              <p class="text-institutional-gray-700">
+                Ser referentes en desarrollo y promoción del voleibol, con estructura sólida, eficiente y transparente, garantizando excelencia deportiva y participación activa de nuestros afiliados.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Métricas -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 animate-on-scroll">
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-bold text-institutional-navy mb-2 counter" data-target="25">0</div>
+            <div class="text-institutional-gray-600 font-medium">Clubes Afiliados</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-bold text-institutional-navy mb-2 counter" data-target="500">0</div>
+            <div class="text-institutional-gray-600 font-medium">Deportistas Activos</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-bold text-institutional-navy mb-2 counter" data-target="18">0</div>
+            <div class="text-institutional-gray-600 font-medium">Municipios</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-bold text-institutional-navy mb-2 counter" data-target="15">0</div>
+            <div class="text-institutional-gray-600 font-medium">Años de Trayectoria</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JUNTA DIRECTIVA -->
+    <section id="junta-directiva" class="py-20 bg-gradient-to-br from-institutional-sky/10 via-white to-institutional-navy/5">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="text-3xl md:text-4xl font-playfair font-bold text-institutional-gray-900 mb-4">Junta Directiva</h2>
+          <div class="w-24 h-1 bg-gradient-to-r from-institutional-navy to-institutional-sky mx-auto mb-6"></div>
+          <p class="text-lg text-institutional-gray-600 max-w-3xl mx-auto">Liderazgo comprometido con la excelencia deportiva.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mb-16">
+          <!-- 5 tarjetas (placeholder de ejemplo) -->
+          <div class="bg-white rounded-xl p-6 shadow-lg card-hover animate-on-scroll border-t-4 border-institutional-navy text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-institutional-navy to-institutional-blue rounded-full mx-auto mb-4 grid place-items-center shadow-lg">
+              <svg class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-institutional-gray-900 mb-1">Dr. Carlos Rodríguez</h3>
+            <p class="text-institutional-navy font-semibold mb-2 text-sm">Presidente</p>
+            <p class="text-xs text-institutional-gray-600">20 años de experiencia en administración deportiva.</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-lg card-hover animate-on-scroll border-t-4 border-institutional-sky text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-institutional-sky to-institutional-blue rounded-full mx-auto mb-4 grid place-items-center shadow-lg">
+              <svg class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 8H16c-.8 0-1.54.37-2.01.99l-2.54 3.38c-.74.99-.74 2.31 0 3.3l1.89 2.52c.39.52.39 1.22 0 1.74L12 21h2l1.5-2h3l1.5 2h2z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-institutional-gray-900 mb-1">Lic. María González</h3>
+            <p class="text-institutional-sky font-semibold mb-2 text-sm">Vicepresidenta</p>
+            <p class="text-xs text-institutional-gray-600">Desarrollo deportivo juvenil y programas formativos.</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-lg card-hover animate-on-scroll border-t-4 border-institutional-green text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-institutional-green to-green-600 rounded-full mx-auto mb-4 grid place-items-center shadow-lg">
+              <svg class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-institutional-gray-900 mb-1">Cont. Ana Herrera</h3>
+            <p class="text-institutional-green font-semibold mb-2 text-sm">Tesorera</p>
+            <p class="text-xs text-institutional-gray-600">Gestión financiera y control presupuestal.</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-lg card-hover animate-on-scroll border-t-4 border-institutional-gold text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-institutional-gold to-institutional-yellow rounded-full mx-auto mb-4 grid place-items-center shadow-lg">
+              <svg class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6C4.9 2 4 2.9 4 4v16c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V8l-6-6z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-institutional-gray-900 mb-1">Ing. Luis Martínez</h3>
+            <p class="text-institutional-yellow font-semibold mb-2 text-sm">Secretario</p>
+            <p class="text-xs text-institutional-gray-600">Gestión administrativa y procesos.</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-lg card-hover animate-on-scroll border-t-4 border-institutional-red text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-institutional-red to-red-600 rounded-full mx-auto mb-4 grid place-items-center shadow-lg">
+              <svg class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-institutional-gray-900 mb-1">Dr. Patricia López</h3>
+            <p class="text-institutional-red font-semibold mb-2 text-sm">Vocal</p>
+            <p class="text-xs text-institutional-gray-600">Derecho deportivo y normatividad.</p>
+          </div>
+        </div>
+
+        <!-- Organigrama -->
+        <div class="animate-on-scroll">
+          <div class="bg-white rounded-xl p-8 shadow-lg border border-institutional-gray-200">
+            <h3 class="text-2xl font-playfair font-bold text-institutional-gray-900 mb-8 text-center">Organigrama Institucional</h3>
+            <div class="space-y-6">
+              <div class="text-center">
+                <div class="inline-block bg-gradient-to-r from-institutional-gold to-institutional-yellow text-white px-8 py-4 rounded-lg shadow-lg">
+                  <div class="font-bold text-lg">ASAMBLEA DE CLUBES AFILIADOS</div>
+                  <div class="text-sm opacity-90">Máximo Órgano de Gobierno</div>
+                </div>
+              </div>
+              <div class="flex justify-center"><div class="w-px h-6 bg-institutional-gray-300"></div></div>
+              <div class="text-center">
+                <div class="inline-block bg-gradient-to-r from-institutional-navy to-institutional-blue text-white px-6 py-3 rounded-lg shadow-lg">
+                  <div class="font-bold">PRESIDENTE</div>
+                  <div class="text-sm opacity-90">Dr. Carlos Rodríguez</div>
+                </div>
+              </div>
+              <div class="flex justify-center"><div class="w-px h-6 bg-institutional-gray-300"></div></div>
+              <div class="text-center">
+                <div class="inline-block bg-gradient-to-r from-institutional-sky to-institutional-blue text-white px-5 py-2 rounded-lg shadow-md">
+                  <div class="font-semibold">VICEPRESIDENTE</div>
+                  <div class="text-xs opacity-90">Lic. María González</div>
+                </div>
+              </div>
+              <div class="flex justify-center"><div class="w-px h-6 bg-institutional-gray-300"></div></div>
+              <div class="flex justify-center items-center gap-6">
+                <div class="bg-gradient-to-r from-institutional-green to-green-600 text-white px-4 py-2 rounded-lg shadow-md text-center">
+                  <div class="font-semibold text-sm">TESORERO</div>
+                  <div class="text-xs opacity-90">Cont. Ana Herrera</div>
+                </div>
+                <div class="bg-gradient-to-r from-institutional-gold to-institutional-yellow text-white px-4 py-2 rounded-lg shadow-md text-center">
+                  <div class="font-semibold text-sm">SECRETARIO</div>
+                  <div class="text-xs opacity-90">Ing. Luis Martínez</div>
+                </div>
+                <div class="bg-gradient-to-r from-institutional-red to-red-600 text-white px-4 py-2 rounded-lg shadow-md text-center">
+                  <div class="font-semibold text-sm">VOCAL</div>
+                  <div class="text-xs opacity-90">Dr. Patricia López</div>
+                </div>
+              </div>
+              <div class="flex justify-center"><div class="w-px h-6 bg-institutional-gray-300"></div></div>
+              <div class="grid md:grid-cols-3 gap-4">
+                <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-3 py-2 rounded-lg shadow-md text-center"><div class="font-semibold text-sm">COMISIÓN TÉCNICA</div></div>
+                <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-2 rounded-lg shadow-md text-center"><div class="font-semibold text-sm">COMISIÓN DISCIPLINARIA</div></div>
+                <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-3 py-2 rounded-lg shadow-md text-center"><div class="font-semibold text-sm">REVISORÍA FISCAL</div></div>
+              </div>
+              <div class="flex justify-center"><div class="w-px h-6 bg-institutional-gray-300"></div></div>
+              <div class="grid md:grid-cols-3 gap-4">
+                <div class="bg-institutional-gray-100 border-2 border-institutional-navy/30 px-3 py-2 rounded-lg text-center"><div class="font-medium text-sm text-institutional-gray-800">DIRECTOR DE CAMPEONATO</div></div>
+                <div class="bg-institutional-gray-100 border-2 border-institutional-sky/30 px-3 py-2 rounded-lg text-center"><div class="font-medium text-sm text-institutional-gray-800">GESTIÓN ADMINISTRATIVA</div></div>
+                <div class="bg-institutional-gray-100 border-2 border-institutional-green/30 px-3 py-2 rounded-lg text-center"><div class="font-medium text-sm text-institutional-gray-800">GESTIÓN FINANCIERA</div></div>
+              </div>
+              <div class="flex justify-center"><div class="w-px h-6 bg-institutional-gray-300"></div></div>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-institutional-gray-50 border-2 border-institutional-gold/30 px-4 py-3 rounded-lg text-center"><div class="font-medium text-sm text-institutional-gray-800">ENTRENADORES CERTIFICADOS</div></div>
+                <div class="bg-institutional-gray-50 border-2 border-institutional-blue/30 px-4 py-3 rounded-lg text-center"><div class="font-medium text-sm text-institutional-gray-800">DEPORTISTAS ELEGIBLES</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="py-20 bg-gradient-to-br from-white via-institutional-sky/5 to-institutional-navy/10">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="text-3xl md:text-4xl font-playfair font-bold text-institutional-gray-900 mb-4">Nuestros Servicios</h2>
+          <div class="w-24 h-1 bg-institutional-navy mx-auto mb-6"></div>
+          <p class="text-lg text-institutional-gray-600 max-w-3xl mx-auto">Programas y servicios para el desarrollo integral del voleibol.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white rounded-lg p-8 shadow-sm card-hover animate-on-scroll">
+            <div class="w-12 h-12 bg-institutional-navy rounded-lg grid place-items-center mb-6">
+              <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l4 2.18v6L12 21l7-3.82v-6L22 9 12 3z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-institutional-gray-900 mb-4">Formación de Entrenadores</h3>
+            <p class="text-institutional-gray-600 mb-6">Certificación y actualización técnica con reconocimiento oficial.</p>
+            <a href="#" class="text-institutional-navy font-semibold hover:text-institutional-sky transition">Más información →</a>
+          </div>
+
+          <div class="bg-white rounded-lg p-8 shadow-sm card-hover animate-on-scroll">
+            <div class="w-12 h-12 bg-institutional-sky rounded-lg grid place-items-center mb-6">
+              <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-institutional-gray-900 mb-4">Capacitación de Árbitros</h3>
+            <p class="text-institutional-gray-600 mb-6">Estándares nacionales e internacionales de arbitraje.</p>
+            <a href="#" class="text-institutional-navy font-semibold hover:text-institutional-sky transition">Más información →</a>
+          </div>
+
+          <div class="bg-white rounded-lg p-8 shadow-sm card-hover animate-on-scroll">
+            <div class="w-12 h-12 bg-institutional-green rounded-lg grid place-items-center mb-6">
+              <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-institutional-gray-900 mb-4">Afiliación de Clubes</h3>
+            <p class="text-institutional-gray-600 mb-6">Proceso integral de afiliación y registro oficial.</p>
+            <a href="#" class="text-institutional-navy font-semibold hover:text-institutional-green transition">Más información →</a>
+          </div>
+
+          <div class="bg-white rounded-lg p-8 shadow-sm card-hover animate-on-scroll">
+            <div class="w-12 h-12 bg-institutional-gold rounded-lg grid place-items-center mb-6">
+              <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-institutional-gray-900 mb-4">Organización de Competencias</h3>
+            <p class="text-institutional-gray-600 mb-6">Torneos oficiales y campeonatos departamentales.</p>
+            <a href="#" class="text-institutional-navy font-semibold hover:text-institutional-gold transition">Más información →</a>
+          </div>
+
+          <div class="bg-white rounded-lg p-8 shadow-sm card-hover animate-on-scroll">
+            <div class="w-12 h-12 bg-institutional-blue rounded-lg grid place-items-center mb-6">
+              <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8l-6-6z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-institutional-gray-900 mb-4">Asesoría Técnica</h3>
+            <p class="text-institutional-gray-600 mb-6">Desarrollo técnico, metodológico y organizacional.</p>
+            <a href="#" class="text-institutional-navy font-semibold hover:text-institutional-blue transition">Más información →</a>
+          </div>
+
+          <div class="bg-white rounded-lg p-8 shadow-sm card-hover animate-on-scroll">
+            <div class="w-12 h-12 bg-institutional-red rounded-lg grid place-items-center mb-6">
+              <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 8H16c-.8 0-1.54.37-2.01.99l-2.54 3.38c-.74.99-.74 2.31 0 3.3l1.89 2.52c.39.52.39 1.22 0 1.74L12 21h2l1.5-2h3l1.5 2h2z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-institutional-gray-900 mb-4">Desarrollo Deportivo</h3>
+            <p class="text-institutional-gray-600 mb-6">Detección, formación y proyección de talentos.</p>
+            <a href="#" class="text-institutional-navy font-semibold hover:text-institutional-red transition">Más información →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="text-3xl md:text-4xl font-playfair font-bold text-institutional-gray-900 mb-4">Contacto Institucional</h2>
+          <div class="w-24 h-1 bg-institutional-navy mx-auto mb-6"></div>
+          <p class="text-lg text-institutional-gray-600 max-w-3xl mx-auto">Consultas, trámites y servicios institucionales.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+          <div class="animate-on-scroll">
+            <div class="bg-institutional-gray-50 rounded-lg p-8">
+              <h3 class="text-2xl font-playfair font-bold text-institutional-gray-900 mb-8">Información de Contacto</h3>
+              <div class="space-y-6">
+                <div class="flex items-start gap-4">
+                  <div class="w-12 h-12 bg-institutional-navy rounded-lg grid place-items-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/></svg>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-institutional-gray-900 mb-1">Dirección</h4>
+                    <p class="text-institutional-gray-600">Calle 123 #45-67, Oficina 301</p>
+                    <p class="text-institutional-gray-600">Bogotá, Cundinamarca</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="w-12 h-12 bg-institutional-blue rounded-lg grid place-items-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20a1 1 0 0 1-1 1C6.8 21 2 16.2 2 9a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-institutional-gray-900 mb-1">Teléfonos</h4>
+                    <p class="text-institutional-gray-600">+57 320 888 2039</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="w-12 h-12 bg-institutional-gray-700 rounded-lg grid place-items-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-institutional-gray-900 mb-1">Correo</h4>
+                    <p class="text-institutional-gray-600">ligavoleicundi@hotmail.com</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="w-12 h-12 bg-institutional-navy rounded-lg grid place-items-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm.5 5H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-institutional-gray-900 mb-1">Horarios de Atención</h4>
+                    <p class="text-institutional-gray-600">Lunes a Viernes: 8:00 - 17:00</p>
+                    <p class="text-institutional-gray-600">Sábados: 8:00 - 12:00</p>
+                  </div>
+                </div>
+
+                <div class="pt-4">
+                  <!-- Enlace al PDF cargado -->
+                  <a href="/docs/reglamento-oficial.pdf" class="inline-flex items-center gap-2 text-institutional-navy font-semibold hover:underline">
+                    📄 Reglamento oficial (PDF)
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulario -->
+          <div class="animate-on-scroll">
+            <form id="contact-form" class="space-y-6" novalidate>
+              <div class="grid md:grid-cols-2 gap-6">
                 <div>
-                    <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-12 h-12 bg-institutional-navy rounded-lg flex items-center justify-center">
-                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-playfair font-bold">Liga de Voleibol</h3>
-                            <p class="text-institutional-gray-400">Cundinamarca</p>
-                        </div>
-                    </div>
-                    <p class="text-institutional-gray-400 mb-4 leading-relaxed">Organismo deportivo oficial con 15 años promoviendo el desarrollo integral del voleibol en Cundinamarca.</p>
-                    <div class="space-y-2 text-sm text-institutional-gray-400">
-                        <p><strong>NIT:</strong> 900.123.456-7</p>
-                        <p><strong>Personería Jurídica:</strong> Resolución 001234 de 2009</p>
-                    </div>
+                  <label for="nombre" class="block text-sm font-medium text-institutional-gray-700 mb-2">Nombre *</label>
+                  <input id="nombre" name="nombre" required class="w-full px-4 py-3 border border-institutional-gray-300 rounded-md form-input" />
                 </div>
-
                 <div>
-                    <h4 class="text-lg font-semibold mb-6">Enlaces Rápidos</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#inicio" class="
+                  <label for="apellido" class="block text-sm font-medium text-institutional-gray-700 mb-2">Apellido *</label>
+                  <input id="apellido" name="apellido" required class="w-full px-4 py-3 border border-institutional-gray-300 rounded-md form-input" />
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label for="email" class="block text-sm font-medium text-institutional-gray-700 mb-2">Correo Electrónico *</label>
+                  <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-institutional-gray-300 rounded-md form-input" />
+                </div>
+                <div>
+                  <label for="telefono" class="block text-sm font-medium text-institutional-gray-700 mb-2">Teléfono</label>
+                  <input id="telefono" name="telefono" class="w-full px-4 py-3 border border-institutional-gray-300 rounded-md form-input" />
+                </div>
+              </div>
+
+              <div>
+                <label for="asunto" class="block text-sm font-medium text-institutional-gray-700 mb-2">Asunto *</label>
+                <select id="asunto" name="asunto" required class="w-full px-4 py-3 border border-institutional-gray-300 rounded-md form-input">
+                  <option value="">Seleccione un asunto</option>
+                  <option value="afiliacion">Afiliación de Club</option>
+                  <option value="capacitacion">Capacitación y Cursos</option>
+                  <option value="competencias">Competencias y Torneos</option>
+                  <option value="informacion">Información General</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="mensaje" class="block text-sm font-medium text-institutional-gray-700 mb-2">Mensaje *</label>
+                <textarea id="mensaje" name="mensaje" rows="6" required class="w-full px-4 py-3 border border-institutional-gray-300 rounded-md form-input"></textarea>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <input type="checkbox" id="privacidad" name="privacidad" required class="mt-1 w-4 h-4 text-institutional-navy bg-white border-institutional-gray-300 rounded" />
+                <label for="privacidad" class="text-sm text-institutional-gray-600">Acepto el tratamiento de mis datos personales según la Política de Privacidad.</label>
+              </div>
+
+              <button type="submit" class="w-full bg-institutional-navy text-white px-8 py-3 rounded-md font-semibold hover:bg-institutional-blue transition btn-professional">Enviar Mensaje</button>
+              <p id="form-status" class="text-sm mt-2 hidden"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANCLA REGISTRO (CTA simple) -->
+    <section id="registro" class="py-12 bg-institutional-navy text-white">
+      <div class="container mx-auto px-6 text-center">
+        <h3 class="text-2xl font-bold mb-3">Regístrate y participa</h3>
+        <p class="opacity-90 mb-6">Forma parte de la comunidad del voleibol cundinamarqués.</p>
+        <a href="#contacto" class="inline-block bg-white text-institutional-navy font-semibold px-6 py-3 rounded-md hover:opacity-90 transition">Solicitar información</a>
+      </div>
+    </section>
+
+    <!-- TIENDA (ancla destino para CTA del slide Nexora) -->
+    <section id="tienda" class="py-16 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl md:text-4xl font-playfair font-bold text-institutional-gray-900">Tienda Oficial de Voleibol</h2>
+          <p class="text-institutional-gray-600 mt-3">Equipamiento oficial, calidad y respaldo para todas las edades.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Placeholders de categorías -->
+          <a href="https://nexoralife.com/" target="_blank" rel="noopener" class="block rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+            <div class="aspect-video bg-[url('/tienda/balones.jpg')] bg-cover bg-center"></div>
+            <div class="p-4">
+              <h3 class="font-semibold text-institutional-gray-900">Balones Oficiales</h3>
+              <p class="text-sm text-institutional-gray-600">Entrenamiento y competencia.</p>
+            </div>
+          </a>
+          <a href="https://nexoralife.com/" target="_blank" rel="noopener" class="block rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+            <div class="aspect-video bg-[url('/tienda/uniformes.jpg')] bg-cover bg-center"></div>
+            <div class="p-4">
+              <h3 class="font-semibold text-institutional-gray-900">Uniformes</h3>
+              <p class="text-sm text-institutional-gray-600">Personalizados para tu club.</p>
+            </div>
+          </a>
+          <a href="https://nexoralife.com/" target="_blank" rel="noopener" class="block rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+            <div class="aspect-video bg-[url('/tienda/redes.jpg')] bg-cover bg-center"></div>
+            <div class="p-4">
+              <h3 class="font-semibold text-institutional-gray-900">Redes y Postes</h3>
+              <p class="text-sm text-institutional-gray-600">Homologados y durables.</p>
+            </div>
+          </a>
+        </div>
+        <div class="text-center mt-8">
+          <a href="https://nexoralife.com/" target="_blank" rel="noopener" class="inline-block bg-institutional-navy text-white px-6 py-3 rounded-md font-semibold hover:bg-institutional-blue transition">Visitar Tienda Nexora Life</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-institutional-gray-900 text-white">
+    <div class="container mx-auto px-6 py-16">
+      <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-10">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 bg-institutional-navy rounded-lg grid place-items-center">
+              <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/></svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-playfair font-bold leading-tight">Liga de Voleibol</h3>
+              <p class="text-institutional-gray-400">Cundinamarca</p>
+            </div>
+          </div>
+          <p class="text-institutional-gray-400 mb-4">Organismo deportivo oficial con 15 años promoviendo el voleibol en Cundinamarca.</p>
+          <div class="space-y-2 text-sm text-institutional-gray-400">
+            <p><strong>NIT:</strong> 900.123.456-7</p>
+            <p><strong>Personería Jurídica:</strong> Resolución 001234 de 2009</p>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold mb-6">Enlaces Rápidos</h4>
+          <ul class="space-y-3">
+            <li><a href="#inicio" class="hover:underline">Inicio</a></li>
+            <li><a href="#nosotros" class="hover:underline">Nosotros</a></li>
+            <li><a href="#servicios" class="hover:underline">Servicios</a></li>
+            <li><a href="#junta-directiva" class="hover:underline">Junta Directiva</a></li>
+            <li><a href="#contacto" class="hover:underline">Contacto</a></li>
+            <li><a href="/docs/reglamento-oficial.pdf" class="hover:underline">Reglamento (PDF)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold mb-6">Tienda Oficial</h4>
+          <p class="text-sm text-institutional-gray-300 mb-4">Donde el Voleibol tiene su hogar. Balones, uniformes, redes y mucho más.</p>
+          <a href="https://nexoralife.com/" target="_blank" rel="noopener" class="inline-block bg-white text-institutional-navy px-5 py-2.5 rounded-md font-semibold hover:opacity-90 transition">Nexora Life</a>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold mb-6">Síguenos</h4>
+          <div class="flex items-center gap-3">
+            <a href="https://www.facebook.com/ligavoleibolcundinamarca" target="_blank" rel="noopener" class="w-11 h-11 bg-blue-600 hover:bg-blue-700 rounded-full grid place-items-center text-white transition">
+              <span class="sr-only">Facebook</span>
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.07C22 6.48 17.52 2 11.93 2 6.35 2 1.87 6.48 1.87 12.07c0 4.99 3.66 9.13 8.44 9.93v-7.02H7.9v-2.91h2.41V9.41c0-2.38 1.42-3.7 3.59-3.7 1.04 0 2.13.19 2.13.19v2.35h-1.2c-1.18 0-1.55.73-1.55 1.48v1.77h2.64l-.42 2.91h-2.22V22c4.78-.8 8.44-4.94 8.44-9.93z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/ligavoleibolcundinamarca" target="_blank" rel="noopener" class="w-11 h-11 rounded-full grid place-items-center text-white transition" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);">
+              <span class="sr-only">Instagram</span>
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6.01 4.9.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.66.07 4.91s-.01 3.64-.07 4.91c-.15 3.23-1.67 4.77-4.92 4.92-1.3.06-1.69.07-4.9.07-3.21 0-3.61-.01-4.91-.07-3.25-.15-4.77-1.69-4.92-4.92C2.1 16.64 2.09 16.25 2.09 13s.01-3.64.07-4.91C2.31 4.86 3.83 3.33 7.08 3.18 8.39 3.12 8.78 3.11 12 3.11ZM12 7.8A4.2 4.2 0 1 0 12 16.2 4.2 4.2 0 0 0 12 7.8Z"/></svg>
+            </a>
+          </div>
+          <p class="text-xs text-institutional-gray-400 mt-6">© <span id="year"></span> Liga de Voleibol de Cundinamarca. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // ========= CONFIG =========
+    const EVENT_DATE = '2025-11-15T08:00:00-05:00'; // Cambiar si es necesario
+    // Banners: usar imágenes reales dentro de /banners
+    const SLIDES = [
+      {
+        img: '/banners/slide1.jpg',
+        alt: 'Jugadores de voleibol celebrando punto',
+        html: `
+          <div class="absolute inset-0 bg-black/40"></div>
+          <div class="relative h-full flex items-center justify-center text-center px-6">
+            <div class="max-w-3xl text-white">
+              <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Liga de Voleibol de Cundinamarca</h2>
+              <p class="text-lg md:text-xl opacity-95">Donde el talento se encuentra con la excelencia institucional.</p>
+              <div class="mt-6">
+                <a href="#nosotros" class="inline-block bg-white text-institutional-navy font-semibold px-6 py-3 rounded-md hover:opacity-90 transition">Conócenos</a>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        img: '/banners/slide2.jpg',
+        alt: 'Equipamiento de voleibol oficial',
+        html: `
+          <div class="absolute inset-0 bg-black/45"></div>
+          <div class="relative h-full grid place-items-center px-6 text-center text-white">
+            <div class="max-w-3xl">
+              <img src="/assets/nexora-life.svg" alt="Nexora Life" class="mx-auto h-10 md:h-12 mb-4" onerror="this.style.display='none'"/>
+              <h2 class="text-2xl md:text-4xl font-extrabold mb-2">Tienda Oficial • Nexora Life</h2>
+              <p id="shop-rotator" class="text-lg md:text-xl opacity-95 min-h-[28px]"></p>
+              <div class="mt-6 flex items-center justify-center gap-3">
+                <a href="#tienda" class="inline-block bg-white text-institutional-navy font-semibold px-6 py-3 rounded-md hover:opacity-90 transition">Ver categorías</a>
+                <a href="https://nexoralife.com/" target="_blank" rel="noopener" class="inline-block bg-institutional-gold text-institutional-gray-900 font-semibold px-6 py-3 rounded-md hover:brightness-110 transition">Ir a la tienda</a>
+              </div>
+              <p class="text-xs opacity-80 mt-3">Solo productos de voleibol.</p>
+            </div>
+          </div>
+        `,
+        shopMessages: [
+          'Donde el Voleibol Tiene su Hogar — Equipamiento oficial y respaldo.',
+          'Balones, Uniformes, Redes y Mucho Más — Todo en un solo lugar.',
+          'Inspirando Jugadores, Creando Historias — El voleibol vive aquí.'
+        ]
+      },
+      {
+        img: '/banners/slide3.jpg',
+        alt: 'Torneo departamental de voleibol',
+        html: `
+          <div class="absolute inset-0 bg-black/40"></div>
+          <div class="relative h-full flex items-center justify-center text-center px-6">
+            <div class="max-w-3xl text-white">
+              <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Calendario de Eventos</h2>
+              <p class="text-lg md:text-xl opacity-95">Open Juvenil 2025: Inscripciones abiertas, cupos limitados.</p>
+              <div class="mt-6">
+                <a href="#inscripcion" class="inline-block bg-institutional-gold text-institutional-gray-900 font-semibold px-6 py-3 rounded-md hover:brightness-110 transition">Inscríbete ahora</a>
+              </div>
+            </div>
+          </div>
+        `
+      }
+    ];
+
+    // ========= CARRUSEL =========
+    const track = document.getElementById('slidesTrack');
+    const bgEl  = document.getElementById('heroBg');
+    const dotsC = document.getElementById('dots');
+    const prev  = document.getElementById('prevBtn');
+    const next  = document.getElementById('nextBtn');
+
+    let idx = 0, autoTimer = null, rotatorTimer = null;
+
+    function renderSlides() {
+      track.innerHTML = '';
+      SLIDES.forEach((s, i) => {
+        const slide = document.createElement('div');
+        slide.className = 'min-w-full h-full relative bg-center bg-cover';
+        slide.style.backgroundImage = `url('${s.img}')`;
+        slide.setAttribute('role', 'group');
+        slide.setAttribute('aria-roledescription', 'slide');
+        slide.setAttribute('aria-label', `${i+1} de ${SLIDES.length}`);
+        slide.innerHTML = s.html;
+        track.appendChild(slide);
+      });
+      bgEl.style.backgroundImage = `url('${SLIDES[0].img}')`;
+
+      // dots
+      dotsC.innerHTML = '';
+      SLIDES.forEach((_, i) => {
+        const b = document.createElement('button');
+        b.className = 'w-2.5 h-2.5 rounded-full bg-white/60 hover:bg-white transition';
+        b.setAttribute('aria-label', `Ir al slide ${i+1}`);
+        b.addEventListener('click', () => goTo(i));
+        dotsC.appendChild(b);
+      });
+      updateUI();
+    }
+
+    function updateUI() {
+      track.style.transform = `translateX(-${idx * 100}%)`;
+      bgEl.style.backgroundImage = `url('${SLIDES[idx].img}')`;
+      ;[...dotsC.children].forEach((d, i) => {
+        d.className = 'w-2.5 h-2.5 rounded-full transition ' + (i === idx ? 'bg-white' : 'bg-white/60 hover:bg-white');
+      });
+      startShopRotatorIfNeeded();
+    }
+
+    function goTo(i) {
+      idx = (i + SLIDES.length) % SLIDES.length;
+      updateUI();
+      restartAuto();
+    }
+    function nextSlide(){ goTo(idx + 1); }
+    function prevSlide(){ goTo(idx - 1); }
+
+    function startAuto() {
+      autoTimer = setInterval(nextSlide, 6000);
+    }
+    function restartAuto() {
+      clearInterval(autoTimer);
+      startAuto();
+    }
+
+    function startShopRotatorIfNeeded() {
+      // Solo en slide 2 (index 1)
+      clearInterval(rotatorTimer);
+      const slide = SLIDES[idx];
+      const rotatorEl = document.getElementById('shop-rotator');
+      if (!rotatorEl) return;
+      const msgs = slide.shopMessages || [];
+      if (msgs.length === 0) { rotatorEl.textContent = ''; return; }
+      let j = 0;
+      rotatorEl.textContent = msgs[j];
+      rotatorTimer = setInterval(() => {
+        j = (j + 1) % msgs.length;
+        rotatorEl.textContent = msgs[j];
+      }, 3000);
+    }
+
+    // Controles
+    prev.addEventListener('click', prevSlide);
+    next.addEventListener('click', nextSlide);
+
+    // Init
+    renderSlides();
+    startAuto();
+
+    // ========= COUNTDOWN =========
+    const target = new Date(EVENT_DATE).getTime();
+    const dEl = document.getElementById('days');
+    const hEl = document.getElementById('hours');
+    const mEl = document.getElementById('minutes');
+    const sEl = document.getElementById('seconds');
+    const dSimple = document.getElementById('days-simple');
+
+    function pad(n){ return String(n).padStart(2, '0'); }
+
+    function tick() {
+      const now = Date.now();
+      const diff = Math.max(0, target - now);
+      const days = Math.floor(diff / (1000*60*60*24));
+      const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+      const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+      const seconds = Math.floor((diff % (1000*60)) / 1000);
+      dEl.textContent = pad(days);
+      hEl.textContent = pad(hours);
+      mEl.textContent = pad(minutes);
+      sEl.textContent = pad(seconds);
+      dSimple.textContent = pad(days);
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    // ========= OBSERVER (reveal on scroll) =========
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+    // ========= COUNTERS =========
+    function animateCounter(el) {
+      const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+      const dur = 1200;
+      const start = performance.now();
+      function step(t) {
+        const p = Math.min(1, (t - start) / dur);
+        el.textContent = Math.floor(p * target);
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    document.querySelectorAll('.counter').forEach(el => animateCounter(el));
+
+    // ========= MENÚ MÓVIL =========
+    const mbBtn = document.getElementById('mobile-menu-button');
+    const mbNav = document.getElementById('mobile-menu');
+    mbBtn?.addEventListener('click', () => {
+      const isOpen = !mbNav.classList.contains('hidden');
+      mbNav.classList.toggle('hidden', isOpen);
+      mbBtn.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    // ========= FORMULARIO CONTACTO (dummy) =========
+    const form = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Aquí iría la integración real (PHP/Email/API). Dejamos feedback UX.
+        formStatus.classList.remove('hidden');
+        formStatus.textContent = 'Gracias. Hemos recibido tu solicitud y te contactaremos pronto.';
+        formStatus.className = 'text-sm mt-2 text-green-600';
+        form.reset();
+      });
+    }
+
+    // ========= AÑO FOOTER =========
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
