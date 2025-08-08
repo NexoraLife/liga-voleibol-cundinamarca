@@ -1462,6 +1462,3262 @@
 <!-- ====== INICIO PARTE PRINCIPAL DE LA PLANTILLA ====== -->
 
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LVC PRO Coach - Certificación Profesional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #1e40af;
+            --primary-light: #3b82f6;
+            --secondary: #f59e0b;
+            --accent: #10b981;
+            --dark: #1f2937;
+            --light: #f8fafc;
+            --gray: #6b7280;
+            --border: #e5e7eb;
+        }
+        
+        * { font-family: 'Inter', sans-serif; }
+        
+        body { 
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+        }
+        
+        .card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, var(--accent) 0%, var(--secondary) 100%);
+            height: 4px;
+            border-radius: 2px;
+            transition: width 1s ease;
+        }
+        
+        .notification {
+            background: white;
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            margin-bottom: 16px;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .step-indicator {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .step-active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .step-completed {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .step-pending {
+            background: var(--border);
+            color: var(--gray);
+        }
+        
+        .nav-tab {
+            padding: 16px 24px;
+            border-bottom: 3px solid transparent;
+            color: var(--gray);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .nav-tab.active {
+            border-bottom-color: var(--primary);
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .nav-tab:hover {
+            color: var(--primary);
+        }
+        
+        .section {
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .stats-card {
+            text-align: center;
+            padding: 24px;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .stats-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .badge {
+            background: var(--secondary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .text-primary { color: var(--primary); }
+        .text-secondary { color: var(--secondary); }
+        .text-accent { color: var(--accent); }
+        .text-gray { color: var(--gray); }
+        
+        .bg-primary { background: var(--primary); }
+        .bg-light { background: var(--light); }
+        
+        .border-primary { border-color: var(--primary); }
+        
+        .loading-screen {
+            background: var(--primary);
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="fixed inset-0 loading-screen flex items-center justify-center z-50">
+        <div class="text-center">
+            <div class="spinner mb-4"></div>
+            <h2 class="text-xl font-semibold text-white mb-2">LVC PRO Coach</h2>
+            <p class="text-blue-200">Cargando plataforma...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="hero-gradient text-white">
+        <div class="container mx-auto px-6 py-16">
+            <div class="flex items-center justify-between mb-12">
+                <div class="flex items-center space-x-6">
+                    <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                        <span class="text-3xl">🏐</span>
+                    </div>
+                    <div>
+                        <h1 class="text-4xl font-bold">LVC PRO Coach</h1>
+                        <p class="text-blue-200 mt-1">Liga de Voleibol de Cundinamarca</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <div class="text-2xl font-bold text-yellow-300">64h</div>
+                    <div class="text-sm text-blue-200">Académicas</div>
+                </div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-5xl font-bold mb-6 leading-tight">
+                        Conviértete en un <span class="text-yellow-300">Entrenador Profesional</span>
+                    </h2>
+                    <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+                        Programa de certificación oficial de la Liga de Voleibol de Cundinamarca con estándares FIVB. 
+                        Modalidad híbrida que combina formación teórica avanzada con práctica intensiva en cancha.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-center space-x-3">
+                            <div class="feature-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Certificación Oficial</div>
+                                <div class="text-blue-200 text-sm">Reconocimiento departamental</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Modalidad Híbrida</div>
+                                <div class="text-blue-200 text-sm">Online + Presencial</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="feature-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Estándares FIVB</div>
+                                <div class="text-blue-200 text-sm">Nivel internacional</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Horarios Flexibles</div>
+                                <div class="text-blue-200 text-sm">Adaptado a profesionales</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="heroEnrollButton" class="hidden">
+                        <button onclick="showSection('enrollment')" class="btn-primary text-lg px-8 py-4 rounded-lg">
+                            <i class="fas fa-graduation-cap mr-2"></i>
+                            Inscríbete Ahora
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <!-- Stats Cards -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="stats-card">
+                            <div class="text-3xl font-bold text-primary mb-2">10</div>
+                            <div class="text-gray text-sm">Módulos Online</div>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-3">
+                                <div class="progress-bar w-0" id="progress-online"></div>
+                            </div>
+                        </div>
+                        <div class="stats-card">
+                            <div class="text-3xl font-bold text-primary mb-2">16h</div>
+                            <div class="text-gray text-sm">Práctica Presencial</div>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-3">
+                                <div class="progress-bar w-0" id="progress-practice"></div>
+                            </div>
+                        </div>
+                        <div class="stats-card">
+                            <div class="text-3xl font-bold text-primary mb-2">48h</div>
+                            <div class="text-gray text-sm">Formación Online</div>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-3">
+                                <div class="progress-bar w-0" id="progress-theory"></div>
+                            </div>
+                        </div>
+                        <div class="stats-card">
+                            <div class="text-3xl font-bold text-accent mb-2">100%</div>
+                            <div class="text-gray text-sm">Certificación</div>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-3">
+                                <div class="bg-accent w-full h-2 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Institution Info -->
+                    <div class="card p-6 bg-white bg-opacity-10 backdrop-blur-sm border-white border-opacity-20">
+                        <div class="text-center">
+                            <div class="w-20 h-20 mx-auto mb-4">
+                                <svg viewBox="0 0 80 80" class="w-full h-full">
+                                    <rect x="10" y="40" width="60" height="30" fill="white" opacity="0.9"/>
+                                    <rect x="15" y="35" width="4" height="35" fill="var(--secondary)"/>
+                                    <rect x="25" y="35" width="4" height="35" fill="var(--secondary)"/>
+                                    <rect x="35" y="35" width="4" height="35" fill="var(--secondary)"/>
+                                    <rect x="45" y="35" width="4" height="35" fill="var(--secondary)"/>
+                                    <rect x="55" y="35" width="4" height="35" fill="var(--secondary)"/>
+                                    <polygon points="5,35 40,15 75,35" fill="var(--secondary)"/>
+                                    <rect x="38" y="10" width="2" height="15" fill="white"/>
+                                    <polygon points="40,10 40,15 50,12" fill="var(--accent)"/>
+                                </svg>
+                            </div>
+                            <div class="badge mb-2">Institución Certificada</div>
+                            <h3 class="font-semibold text-white mb-1">Liga de Voleibol de Cundinamarca</h3>
+                            <p class="text-blue-200 text-sm">Formando entrenadores profesionales desde 1985</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b sticky top-0 z-40">
+        <div class="container mx-auto px-6">
+            <!-- Progress Steps -->
+            <div class="flex items-center justify-center py-4 border-b">
+                <div class="flex items-center space-x-8">
+                    <div class="flex items-center space-x-3">
+                        <div class="step-indicator step-active">1</div>
+                        <div>
+                            <div class="font-medium text-sm">Información</div>
+                            <div class="text-xs text-gray">Presentación</div>
+                        </div>
+                    </div>
+                    <div class="w-8 h-px bg-gray-300"></div>
+                    <div class="flex items-center space-x-3">
+                        <div id="step2" class="step-indicator step-pending">2</div>
+                        <div>
+                            <div class="font-medium text-sm">Términos</div>
+                            <div class="text-xs text-gray">Condiciones</div>
+                        </div>
+                    </div>
+                    <div class="w-8 h-px bg-gray-300"></div>
+                    <div class="flex items-center space-x-3">
+                        <div id="step3" class="step-indicator step-pending">3</div>
+                        <div>
+                            <div class="font-medium text-sm">Inscripción</div>
+                            <div class="text-xs text-gray">Registro</div>
+                        </div>
+                    </div>
+                    <div class="w-8 h-px bg-gray-300"></div>
+                    <div class="flex items-center space-x-3">
+                        <div id="step4" class="step-indicator step-pending">4</div>
+                        <div>
+                            <div class="font-medium text-sm">Curso</div>
+                            <div class="text-xs text-gray">Acceso</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Navigation -->
+            <div class="flex space-x-8">
+                <button onclick="showSection('overview')" class="nav-tab active">
+                    <i class="fas fa-info-circle mr-2"></i>Presentación
+                </button>
+                <button onclick="showSection('curriculum')" class="nav-tab">
+                    <i class="fas fa-book-open mr-2"></i>Plan de Estudios
+                </button>
+                <button onclick="showSection('bibliography')" class="nav-tab">
+                    <i class="fas fa-books mr-2"></i>Bibliografía
+                </button>
+                <button onclick="showSection('terms')" class="nav-tab" id="termsNavTab">
+                    <i class="fas fa-file-contract mr-2"></i>Términos
+                </button>
+                <button onclick="showSection('enrollment')" class="nav-tab">
+                    <i class="fas fa-user-plus mr-2"></i>Inscripción
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        <!-- Overview Section -->
+        <div id="overview" class="section">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Main Content -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Program Overview -->
+                    <div class="card p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="feature-icon mr-4">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-3xl font-bold text-dark">Certificación en Dirección de Voleibol</h2>
+                                <div class="badge mt-2">Programa Profesional</div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-lg text-gray mb-6 leading-relaxed">
+                            El <strong>LVC PRO Coach</strong> es un programa de certificación profesional de la 
+                            <strong>Liga de Voleibol de Cundinamarca</strong> diseñado para entrenadores que aspiran 
+                            a liderar procesos competitivos en el Campeonato Oficial Departamental de Voleibol, 
+                            tanto en modalidad Indoor como Beach Volley.
+                        </p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-light rounded-lg p-6">
+                                <h3 class="font-semibold text-dark mb-3 flex items-center">
+                                    <i class="fas fa-bullseye mr-2 text-secondary"></i>
+                                    Objetivo General
+                                </h3>
+                                <p class="text-gray">
+                                    Formar entrenadores con capacidad para planificar, ejecutar y evaluar procesos 
+                                    de entrenamiento y competición en voleibol, aplicando metodologías científicas.
+                                </p>
+                            </div>
+                            <div class="bg-light rounded-lg p-6">
+                                <h3 class="font-semibold text-dark mb-3 flex items-center">
+                                    <i class="fas fa-award mr-2 text-accent"></i>
+                                    Estándares de Calidad
+                                </h3>
+                                <p class="text-gray">
+                                    Integra estándares internacionales FIVB, principios de entrenamiento moderno 
+                                    y metodología científica validada.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Competencies -->
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-bold text-dark mb-6">Competencias del Egresado</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="feature-icon flex-shrink-0">
+                                    <i class="fas fa-dumbbell"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark mb-2">Competencias Técnicas</h4>
+                                    <p class="text-gray text-sm">
+                                        Dominio de fundamentos técnicos, biomecánica aplicada y planificación 
+                                        de sesiones especializadas.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="feature-icon flex-shrink-0">
+                                    <i class="fas fa-chess"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark mb-2">Competencias Tácticas</h4>
+                                    <p class="text-gray text-sm">
+                                        Diseño de estrategias ofensivas y defensivas, manejo de rotaciones 
+                                        y análisis táctico en tiempo real.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="feature-icon flex-shrink-0">
+                                    <i class="fas fa-heartbeat"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark mb-2">Preparación Física</h4>
+                                    <p class="text-gray text-sm">
+                                        Desarrollo científico de capacidades físicas específicas y programas 
+                                        de prevención de lesiones.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="feature-icon flex-shrink-0">
+                                    <i class="fas fa-users-cog"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark mb-2">Liderazgo Deportivo</h4>
+                                    <p class="text-gray text-sm">
+                                        Liderazgo de equipos, planificación estratégica de temporadas 
+                                        y gestión de recursos deportivos.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Excellence Section -->
+                    <div class="hero-gradient text-white rounded-2xl p-8">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i class="fas fa-award text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">Excelencia Académica</h3>
+                            <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
+                                Nuestro programa cumple con los más altos estándares académicos internacionales, 
+                                integrando metodologías científicas validadas para la formación de entrenadores profesionales.
+                            </p>
+                            <div class="grid md:grid-cols-3 gap-6">
+                                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6">
+                                    <i class="fas fa-microscope text-2xl mb-3"></i>
+                                    <h4 class="font-semibold mb-2">Metodología Científica</h4>
+                                    <p class="text-blue-100 text-sm">Basado en investigación deportiva actual</p>
+                                </div>
+                                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6">
+                                    <i class="fas fa-globe text-2xl mb-3"></i>
+                                    <h4 class="font-semibold mb-2">Estándares FIVB</h4>
+                                    <p class="text-blue-100 text-sm">Protocolos internacionales</p>
+                                </div>
+                                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6">
+                                    <i class="fas fa-certificate text-2xl mb-3"></i>
+                                    <h4 class="font-semibold mb-2">Certificación Oficial</h4>
+                                    <p class="text-blue-100 text-sm">Reconocimiento departamental</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="space-y-6">
+                    <!-- Course Info -->
+                    <div class="card p-6">
+                        <h3 class="font-semibold text-dark mb-4 flex items-center">
+                            <i class="fas fa-info-circle mr-2 text-secondary"></i>
+                            Información del Curso
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-gray">Modalidad:</span>
+                                <span class="font-medium">Híbrida</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray">Duración:</span>
+                                <span class="font-medium">64 horas</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray">Créditos:</span>
+                                <span class="font-medium text-accent">6.4</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray">Online:</span>
+                                <span class="font-medium">48h</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray">Presencial:</span>
+                                <span class="font-medium">16h</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evaluation Policy -->
+                    <div class="card p-6">
+                        <h3 class="font-semibold text-dark mb-4 flex items-center">
+                            <i class="fas fa-clipboard-check mr-2 text-secondary"></i>
+                            Política de Evaluación
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+                                <h4 class="font-medium text-dark">Momento Online</h4>
+                                <p class="text-sm text-gray mt-1">Máximo 3 intentos para aprobar</p>
+                            </div>
+                            <div class="bg-orange-50 border-l-4 border-orange-400 p-4 rounded">
+                                <h4 class="font-medium text-dark">Momento Presencial</h4>
+                                <p class="text-sm text-gray mt-1">1 único intento para aprobar</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Benefits -->
+                    <div class="hero-gradient text-white rounded-lg p-6">
+                        <h3 class="font-semibold mb-4 flex items-center">
+                            <i class="fas fa-crown mr-2 text-yellow-300"></i>
+                            Beneficios Incluidos
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check text-yellow-300"></i>
+                                <span class="text-sm">Acceso de por vida</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check text-yellow-300"></i>
+                                <span class="text-sm">Mentorías personalizadas</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check text-yellow-300"></i>
+                                <span class="text-sm">Red de contactos</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check text-yellow-300"></i>
+                                <span class="text-sm">Actualizaciones gratuitas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Curriculum Section -->
+        <div id="curriculum" class="section hidden">
+            <div class="card p-8">
+                <h2 class="text-3xl font-bold text-dark mb-8 text-center">Plan de Estudios LVC PRO Coach</h2>
+                
+                <div class="hero-gradient text-white rounded-lg p-6 mb-8">
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold mb-4">Estructura Académica</h3>
+                        <div class="grid md:grid-cols-4 gap-6">
+                            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
+                                <div class="text-2xl font-bold mb-1">64h</div>
+                                <div class="text-blue-100 text-sm">Horas Totales</div>
+                            </div>
+                            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
+                                <div class="text-2xl font-bold mb-1">6.4</div>
+                                <div class="text-blue-100 text-sm">Créditos</div>
+                            </div>
+                            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
+                                <div class="text-2xl font-bold mb-1">240</div>
+                                <div class="text-blue-100 text-sm">Puntos Totales</div>
+                            </div>
+                            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
+                                <div class="text-2xl font-bold mb-1">80%</div>
+                                <div class="text-blue-100 text-sm">Mínimo Aprobación</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Momento 1 - Online -->
+                    <div>
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-laptop text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-dark">Momento 1 - Online</h3>
+                                <p class="text-gray">48 horas teóricas • 10 módulos</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="card p-4 cursor-pointer hover:border-primary transition-all" onclick="openModule(1)">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-3 mb-2">
+                                            <span class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                                            <h4 class="font-medium text-dark">Reglamento Oficial FIVB y Casos Arbitrales</h4>
+                                        </div>
+                                        <p class="text-sm text-gray ml-11">Interpretación y aplicación del reglamento oficial</p>
+                                        <div class="flex items-center space-x-4 mt-2 ml-11">
+                                            <span class="text-xs text-gray">10 preguntas</span>
+                                            <span class="text-xs text-gray">•</span>
+                                            <span class="text-xs text-gray">20 puntos</span>
+                                            <span class="text-xs text-gray">•</span>
+                                            <span class="text-xs text-gray">0.2 créditos</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-2xl">🔒</div>
+                                </div>
+                            </div>
+                            
+                            <div class="card p-4 cursor-pointer hover:border-primary transition-all" onclick="openModule(2)">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-3 mb-2">
+                                            <span class="w-8 h-8 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                                            <h4 class="font-medium text-dark">Fundamentos Técnicos Avanzados</h4>
+                                        </div>
+                                        <p class="text-sm text-gray ml-11">Biomecánica y perfeccionamiento técnico</p>
+                                        <div class="flex items-center space-x-4 mt-2 ml-11">
+                                            <span class="text-xs text-gray">10 preguntas</span>
+                                            <span class="text-xs text-gray">•</span>
+                                            <span class="text-xs text-gray">20 puntos</span>
+                                            <span class="text-xs text-gray">•</span>
+                                            <span class="text-xs text-gray">0.2 créditos</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-2xl">🔒</div>
+                                </div>
+                            </div>
+                            
+                            <div class="card p-4 cursor-pointer hover:border-primary transition-all" onclick="openModule(3)">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-3 mb-2">
+                                            <span class="w-8 h-8 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                                            <h4 class="font-medium text-dark">Sistemas Tácticos y Estrategia</h4>
+                                        </div>
+                                        <p class="text-sm text-gray ml-11">Análisis táctico y sistemas de juego</p>
+                                        <div class="flex items-center space-x-4 mt-2 ml-11">
+                                            <span class="text-xs text-gray">10 preguntas</span>
+                                            <span class="text-xs text-gray">•</span>
+                                            <span class="text-xs text-gray">20 puntos</span>
+                                            <span class="text-xs text-gray">•</span>
+                                            <span class="text-xs text-gray">0.2 créditos</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-2xl">🔒</div>
+                                </div>
+                            </div>
+                            
+                            <div class="card p-4 cursor-pointer hover:border-primary transition-all" onclick="openModule(4)">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-3 mb-2">
+                                            <span class="w-8 h-8 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center text-sm font-bold">4</span>
+                                            <h4 class="font-medium text-dark">Preparación Física Específica</h4>
+                                        </div>
+                                        <p class="text-sm text-gray ml-11">Acondicionamiento y prevención de lesiones</p>
+                                        <div class="flex items-center space-x-4 mt-2 ml-11">
+                                            <span class="text-xs text-gray">10 preguntas</span>
+                                            <span class="text-xs text-gray">•</span>
+                                            <span class="text-xs text-gray">20 puntos</span>
+                                            <span class="text-xs text-gray">•</span>
+                                            <span class="text-xs text-gray">0.2 créditos</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-2xl">🔒</div>
+                                </div>
+                            </div>
+                            
+                            <div class="card p-4 cursor-pointer hover:border-primary transition-all" onclick="openModule(5)">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-3 mb-2">
+                                            <span class="w-8 h-8 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center text-sm font-bold">5</span>
+                                            <h4 class="font-medium text-dark">Psicología y Liderazgo Deportivo</h4>
+                                        </div>
+                                        <p class="text-sm text-gray ml-11">Aspectos mentales y dirección de equipos</p>
+                                        <div class="flex items-center space-x-4 mt-2 ml-11">
+                                            <span class="text-xs text-gray">10 preguntas</span>
+                                            <span class="text-xs text-gray">•</span>
+                                            <span class="text-xs text-gray">20 puntos</span>
+                                            <span class="text-xs text-gray">•</span>
+                                            <span class="text-xs text-gray">0.2 créditos</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-2xl">🔒</div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center py-4">
+                                <span class="text-gray text-sm">+ 5 módulos adicionales</span>
+                                <div class="text-xs text-gray mt-1">Planificación, Análisis de Juego, Beach Volley, Gestión Deportiva, Metodología</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Momento 2 - Presencial -->
+                    <div>
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-accent text-white rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-volleyball-ball text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-dark">Momento 2 - Presencial</h3>
+                                <p class="text-gray">16 horas prácticas • 1 intento único</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="card p-4 border-l-4 border-accent">
+                                <div class="flex items-center space-x-3 mb-2">
+                                    <i class="fas fa-clipboard-list text-accent"></i>
+                                    <h4 class="font-medium text-dark">Sesión 1: Dirección de Entrenamientos</h4>
+                                </div>
+                                <p class="text-sm text-gray mb-3">Planificación, ejecución y evaluación de sesiones de entrenamiento</p>
+                                <div class="flex items-center space-x-4">
+                                    <span class="badge">4 horas</span>
+                                    <span class="text-xs text-gray">Coliseo y Playa</span>
+                                </div>
+                            </div>
+                            
+                            <div class="card p-4 border-l-4 border-accent">
+                                <div class="flex items-center space-x-3 mb-2">
+                                    <i class="fas fa-eye text-accent"></i>
+                                    <h4 class="font-medium text-dark">Sesión 2: Análisis Táctico en Vivo</h4>
+                                </div>
+                                <p class="text-sm text-gray mb-3">Evaluación y corrección táctica en tiempo real</p>
+                                <div class="flex items-center space-x-4">
+                                    <span class="badge">4 horas</span>
+                                    <span class="text-xs text-gray">Situaciones de juego</span>
+                                </div>
+                            </div>
+                            
+                            <div class="card p-4 border-l-4 border-accent">
+                                <div class="flex items-center space-x-3 mb-2">
+                                    <i class="fas fa-trophy text-accent"></i>
+                                    <h4 class="font-medium text-dark">Sesión 3: Dirección de Competencia</h4>
+                                </div>
+                                <p class="text-sm text-gray mb-3">Manejo de situaciones competitivas y toma de decisiones</p>
+                                <div class="flex items-center space-x-4">
+                                    <span class="badge">4 horas</span>
+                                    <span class="text-xs text-gray">Simulacros oficiales</span>
+                                </div>
+                            </div>
+                            
+                            <div class="card p-4 border-l-4 border-secondary">
+                                <div class="flex items-center space-x-3 mb-2">
+                                    <i class="fas fa-medal text-secondary"></i>
+                                    <h4 class="font-medium text-dark">Sesión 4: Evaluación Final Integral</h4>
+                                </div>
+                                <p class="text-sm text-gray mb-3">Examen práctico integral de todas las competencias</p>
+                                <div class="flex items-center space-x-4">
+                                    <span class="bg-secondary text-white px-3 py-1 rounded-full text-xs">4 horas</span>
+                                    <span class="text-xs text-gray">Evaluación definitiva</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Uniformity Requirements -->
+                        <div class="card p-6 mt-6 bg-orange-50 border-l-4 border-orange-400">
+                            <h4 class="font-semibold text-dark mb-3 flex items-center">
+                                <i class="fas fa-tshirt mr-2 text-orange-500"></i>
+                                Uniformidad Obligatoria
+                            </h4>
+                            <ul class="text-sm text-gray space-y-2">
+                                <li class="flex items-center space-x-2">
+                                    <i class="fas fa-check text-orange-500"></i>
+                                    <span>Polo institucional azul marino</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <i class="fas fa-check text-orange-500"></i>
+                                    <span>Pantalón deportivo negro</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <i class="fas fa-check text-orange-500"></i>
+                                    <span>Zapatos deportivos adecuados</span>
+                                </li>
+                            </ul>
+                            <p class="text-xs text-gray mt-3">
+                                <strong>Nota:</strong> Citación oficial por la Liga de Voleibol de Cundinamarca
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Evaluation Policy -->
+                <div class="mt-8">
+                    <h3 class="text-xl font-semibold text-dark mb-6">Política de Evaluación y Intentos</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="card p-6 border-l-4 border-primary">
+                            <h4 class="font-semibold text-dark mb-4 flex items-center">
+                                <i class="fas fa-laptop mr-2 text-primary"></i>
+                                Momento 1 - Online
+                            </h4>
+                            <ul class="space-y-3 text-sm text-gray">
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-circle text-primary mt-2 text-xs"></i>
+                                    <span><strong>Máximo 3 intentos</strong> para aprobar el curso completo</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-circle text-accent mt-2 text-xs"></i>
+                                    <span>Aprobado en 1º o 2º intento → <strong>1 intento adicional</strong> para subir nota</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-circle text-secondary mt-2 text-xs"></i>
+                                    <span>Aprobado en 3º intento → sin intento adicional</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-circle text-red-500 mt-2 text-xs"></i>
+                                    <span>Desaprobado en 3 intentos → <strong>reinscripción obligatoria</strong></span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card p-6 border-l-4 border-accent">
+                            <h4 class="font-semibold text-dark mb-4 flex items-center">
+                                <i class="fas fa-volleyball-ball mr-2 text-accent"></i>
+                                Momento 2 - Presencial
+                            </h4>
+                            <ul class="space-y-3 text-sm text-gray">
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-exclamation-triangle text-orange-500 mt-2 text-xs"></i>
+                                    <span><strong>1 intento único</strong> para aprobar</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-check text-accent mt-2 text-xs"></i>
+                                    <span>Requiere aprobación previa del Momento 1</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-clipboard-check text-primary mt-2 text-xs"></i>
+                                    <span>Evaluación integral en cancha</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-calendar text-secondary mt-2 text-xs"></i>
+                                    <span>Lugar y fecha: citación oficial LVC</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bibliography Section -->
+        <div id="bibliography" class="section hidden">
+            <div class="card p-8">
+                <h2 class="text-3xl font-bold text-dark mb-8 text-center">Bibliografía Académica</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card p-6">
+                        <h4 class="font-semibold text-dark mb-2">Manual Oficial FIVB 2021-2024</h4>
+                        <p class="text-gray text-sm mb-3">Federación Internacional de Voleibol</p>
+                        <p class="text-xs text-gray mb-4">Reglamento oficial actualizado con modificaciones técnicas.</p>
+                        <a href="#" class="text-primary text-sm hover:underline">
+                            <i class="fas fa-download mr-1"></i>Descargar PDF
+                        </a>
+                    </div>
+                    
+                    <div class="card p-6">
+                        <h4 class="font-semibold text-dark mb-2">FIVB Coaches Manual Level II</h4>
+                        <p class="text-gray text-sm mb-3">FIVB Development Centre</p>
+                        <p class="text-xs text-gray mb-4">Manual avanzado para entrenadores con metodologías.</p>
+                        <a href="#" class="text-primary text-sm hover:underline">
+                            <i class="fas fa-download mr-1"></i>Descargar PDF
+                        </a>
+                    </div>
+                    
+                    <div class="card p-6">
+                        <h4 class="font-semibold text-dark mb-2">Beach Volleyball Handbook</h4>
+                        <p class="text-gray text-sm mb-3">FIVB Beach Department</p>
+                        <p class="text-xs text-gray mb-4">Guía completa para entrenadores de voleibol de playa.</p>
+                        <a href="#" class="text-primary text-sm hover:underline">
+                            <i class="fas fa-download mr-1"></i>Descargar PDF
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <h3 class="text-xl font-semibold text-dark mb-6">Instituciones Académicas</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="card p-6 text-center">
+                            <div class="feature-icon mx-auto mb-4">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <h4 class="font-semibold text-dark">Universidad de Stanford</h4>
+                            <p class="text-gray text-sm">Departamento de Ciencias del Deporte</p>
+                        </div>
+                        <div class="card p-6 text-center">
+                            <div class="feature-icon mx-auto mb-4">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <h4 class="font-semibold text-dark">Universidad de São Paulo</h4>
+                            <p class="text-gray text-sm">Escuela de Educación Física</p>
+                        </div>
+                        <div class="card p-6 text-center">
+                            <div class="feature-icon mx-auto mb-4">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <h4 class="font-semibold text-dark">Universidad de Leipzig</h4>
+                            <p class="text-gray text-sm">Instituto de Ciencias del Deporte</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Terms Section -->
+        <div id="terms" class="section hidden">
+            <div class="card p-8">
+                <h2 class="text-3xl font-bold text-dark mb-8 text-center">Términos y Condiciones</h2>
+                
+                <div class="notification mb-8">
+                    <div class="flex items-start space-x-4">
+                        <i class="fas fa-shield-alt text-accent text-xl mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-dark mb-2">LVC PRO Coach - Certificación Profesional</h3>
+                            <p class="text-gray">
+                                Al inscribirse en este programa, usted acepta cumplir con todos los términos 
+                                establecidos para la certificación oficial departamental.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <section>
+                        <h3 class="text-xl font-semibold text-dark mb-4">1. Política de Evaluación</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-blue-50 border-l-4 border-blue-400 p-6 rounded">
+                                <h4 class="font-medium text-dark mb-3">Momento Online (48 horas)</h4>
+                                <ul class="space-y-2 text-sm text-gray">
+                                    <li>• Máximo 3 intentos para aprobar</li>
+                                    <li>• Aprobación en 1er intento: 1 intento extra</li>
+                                    <li>• Aprobación en 2do intento: 1 intento extra</li>
+                                    <li>• Desaprobación: reinscripción obligatoria</li>
+                                </ul>
+                            </div>
+                            <div class="bg-orange-50 border-l-4 border-orange-400 p-6 rounded">
+                                <h4 class="font-medium text-dark mb-3">Momento Presencial (16 horas)</h4>
+                                <ul class="space-y-2 text-sm text-gray">
+                                    <li>• 1 único intento para aprobar</li>
+                                    <li>• Requiere aprobación previa del Momento 1</li>
+                                    <li>• Evaluación integral en cancha</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-semibold text-dark mb-4">2. Requisitos de Participación</h3>
+                        <div class="card p-6">
+                            <ul class="grid md:grid-cols-2 gap-4 text-gray">
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-check text-accent mt-1"></i>
+                                    <span>Completar todos los módulos en orden</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-check text-accent mt-1"></i>
+                                    <span>Obtener calificación mínima aprobatoria</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-check text-accent mt-1"></i>
+                                    <span>Asistir a evaluación presencial</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-check text-accent mt-1"></i>
+                                    <span>Mantener conducta profesional</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-semibold text-dark mb-4">3. Política de Pagos y Reembolsos</h3>
+                        <div class="bg-red-50 border-l-4 border-red-400 p-6 rounded mb-6">
+                            <div class="flex items-start space-x-4">
+                                <i class="fas fa-exclamation-triangle text-red-500 text-xl mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-dark mb-2">Política de No Reembolso</h4>
+                                    <p class="text-gray">
+                                        <strong>IMPORTANTE:</strong> Una vez realizado el pago de la inscripción al programa 
+                                        LVC PRO Coach, <strong>NO HABRÁ DEVOLUCIONES DEL DINERO</strong> bajo ninguna circunstancia. 
+                                        Esta política aplica independientemente del motivo de retiro o abandono del programa.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card p-6">
+                            <ul class="space-y-3 text-gray">
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-credit-card text-secondary mt-1"></i>
+                                    <span>El pago debe realizarse antes del inicio del programa</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-ban text-red-500 mt-1"></i>
+                                    <span><strong>Sin excepciones en la política de no reembolso</strong></span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-file-invoice text-secondary mt-1"></i>
+                                    <span>Facturación oficial de la Liga de Voleibol de Cundinamarca</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-semibold text-dark mb-4">4. Certificación</h3>
+                        <div class="card p-6">
+                            <ul class="space-y-3 text-gray">
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-award text-secondary mt-1"></i>
+                                    <span>Certificación tras aprobar ambos momentos</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-stamp text-secondary mt-1"></i>
+                                    <span>Válido para competencias oficiales departamentales</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-network-wired text-secondary mt-1"></i>
+                                    <span>Acceso a red profesional de entrenadores de Cundinamarca</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Acceptance Section -->
+                <div class="hero-gradient text-white rounded-lg p-8 mt-8">
+                    <div class="text-center mb-6">
+                        <h4 class="text-xl font-semibold mb-4">Aceptación de Términos</h4>
+                        <p class="text-blue-100">
+                            Para continuar con la inscripción, debe aceptar todos los términos y condiciones.
+                        </p>
+                    </div>
+                    
+                    <div class="card bg-white rounded-lg p-6 mb-6">
+                        <div class="flex items-start space-x-4">
+                            <input type="checkbox" id="acceptTerms" class="mt-1 w-5 h-5 text-primary border-gray-300 rounded focus:ring-primary">
+                            <label for="acceptTerms" class="text-gray cursor-pointer">
+                                <span class="font-medium text-dark block mb-1">Declaración de Aceptación</span>
+                                He leído, comprendido y acepto completamente todos los términos y condiciones 
+                                del programa <strong>LVC PRO Coach</strong>. Me comprometo a cumplir con los 
+                                requisitos académicos y profesionales establecidos.
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button id="confirmTerms" onclick="confirmAcceptance()" disabled class="w-full btn-primary opacity-50 cursor-not-allowed">
+                        <i class="fas fa-file-signature mr-2"></i>
+                        Confirmar Aceptación de Términos
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Welcome Section -->
+        <div id="courseWelcome" class="section hidden">
+            <div class="hero-gradient text-white rounded-2xl p-12 mb-8 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20"></div>
+                <div class="relative text-center">
+                    <div class="w-32 h-32 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl">
+                        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center">
+                            <i class="fas fa-graduation-cap text-4xl text-primary"></i>
+                        </div>
+                    </div>
+                    <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-white to-yellow-200 bg-clip-text text-transparent">
+                        ¡Bienvenido al LVC PRO Coach!
+                    </h1>
+                    <p class="text-2xl text-blue-100 mb-8 max-w-4xl mx-auto leading-relaxed">
+                        🎉 <strong>¡Felicitaciones!</strong> Has iniciado tu camino hacia la certificación profesional en voleibol. 
+                        Estás a punto de comenzar una experiencia de aprendizaje transformadora que te convertirá en un entrenador de élite.
+                    </p>
+                    <div class="flex items-center justify-center space-x-6 mb-8">
+                        <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg px-6 py-3">
+                            <div class="text-2xl font-bold text-yellow-300">64h</div>
+                            <div class="text-sm text-blue-200">Formación Total</div>
+                        </div>
+                        <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg px-6 py-3">
+                            <div class="text-2xl font-bold text-yellow-300">6.4</div>
+                            <div class="text-sm text-blue-200">Créditos</div>
+                        </div>
+                        <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg px-6 py-3">
+                            <div class="text-2xl font-bold text-yellow-300">10</div>
+                            <div class="text-sm text-blue-200">Módulos</div>
+                        </div>
+                    </div>
+                    <div class="badge text-xl px-8 py-3 bg-yellow-400 text-primary font-bold">
+                        Liga de Voleibol de Cundinamarca
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Progress Timeline -->
+                <div class="lg:col-span-2">
+                    <div class="card p-8">
+                        <h2 class="text-2xl font-bold text-dark mb-6 flex items-center">
+                            <i class="fas fa-route mr-3 text-primary"></i>
+                            Tu Ruta de Aprendizaje
+                        </h2>
+                        
+                        <div class="space-y-6">
+                            <!-- Module Categories -->
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="card p-6 border-l-4 border-primary">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="text-lg font-semibold text-dark">Formación Teórica</h3>
+                                        <div class="text-2xl">📚</div>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <div class="flex justify-between text-sm">
+                                            <span class="text-gray">Progreso:</span>
+                                            <span class="font-medium text-primary">0%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="progress-bar w-0" id="theory-progress"></div>
+                                        </div>
+                                        <p class="text-sm text-gray">10 módulos online • 48 horas</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="card p-6 border-l-4 border-accent">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="text-lg font-semibold text-dark">Práctica Presencial</h3>
+                                        <div class="text-2xl">🏐</div>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <div class="flex justify-between text-sm">
+                                            <span class="text-gray">Progreso:</span>
+                                            <span class="font-medium text-accent">Bloqueado</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-gray-300 w-0 h-2 rounded-full" id="practice-progress"></div>
+                                        </div>
+                                        <p class="text-sm text-gray">4 sesiones • 16 horas</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Module List -->
+                            <div class="space-y-4">
+                                <h3 class="text-xl font-semibold text-dark mb-4">Módulos del Programa</h3>
+                                
+                                <div class="space-y-3">
+                                    <div class="card p-4 cursor-pointer hover:border-primary transition-all" onclick="startModule(1)">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center space-x-4">
+                                                <div class="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center font-bold">1</div>
+                                                <div>
+                                                    <h4 class="font-semibold text-dark">Reglamento FIVB</h4>
+                                                    <p class="text-sm text-gray">Reglas oficiales y arbitraje • 5 horas</p>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center space-x-3">
+                                                <span class="badge">Disponible</span>
+                                                <i class="fas fa-play text-primary"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card p-4 opacity-60">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center space-x-4">
+                                                <div class="w-12 h-12 bg-gray-300 text-gray-600 rounded-lg flex items-center justify-center font-bold">2</div>
+                                                <div>
+                                                    <h4 class="font-semibold text-dark">Fundamentos Técnicos</h4>
+                                                    <p class="text-sm text-gray">Técnicas básicas y avanzadas • 6 horas</p>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center space-x-3">
+                                                <span class="bg-gray-400 text-white px-3 py-1 rounded-full text-xs">Bloqueado</span>
+                                                <i class="fas fa-lock text-gray-400"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card p-4 opacity-60">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center space-x-4">
+                                                <div class="w-12 h-12 bg-gray-300 text-gray-600 rounded-lg flex items-center justify-center font-bold">3</div>
+                                                <div>
+                                                    <h4 class="font-semibold text-dark">Táctica y Estrategia</h4>
+                                                    <p class="text-sm text-gray">Sistemas de juego • 5 horas</p>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center space-x-3">
+                                                <span class="bg-gray-400 text-white px-3 py-1 rounded-full text-xs">Bloqueado</span>
+                                                <i class="fas fa-lock text-gray-400"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="text-center py-4">
+                                        <span class="text-gray text-sm">+ 7 módulos adicionales</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar Info -->
+                <div class="space-y-6">
+                    <!-- Student Profile -->
+                    <div class="card p-6">
+                        <h3 class="font-semibold text-dark mb-4 flex items-center">
+                            <i class="fas fa-user-graduate mr-2 text-primary"></i>
+                            Tu Perfil
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-gray">Estado:</span>
+                                <span class="font-medium text-accent">Activo</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray">Progreso Total:</span>
+                                <span class="font-medium">0%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray">Módulos Completados:</span>
+                                <span class="font-medium">0/10</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray">Tiempo Estimado:</span>
+                                <span class="font-medium">64 horas</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="card p-6">
+                        <h3 class="font-semibold text-dark mb-4 flex items-center">
+                            <i class="fas fa-bolt mr-2 text-secondary"></i>
+                            Acciones Rápidas
+                        </h3>
+                        <div class="space-y-3">
+                            <button onclick="startModule(1)" class="w-full btn-primary text-left">
+                                <i class="fas fa-play mr-2"></i>
+                                Comenzar Módulo 1
+                            </button>
+                            <button onclick="showSection('curriculum')" class="w-full btn-secondary text-left">
+                                <i class="fas fa-book-open mr-2"></i>
+                                Ver Plan Completo
+                            </button>
+                            <button onclick="downloadResources()" class="w-full btn-secondary text-left">
+                                <i class="fas fa-download mr-2"></i>
+                                Descargar Recursos
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Support -->
+                    <div class="hero-gradient text-white rounded-lg p-6">
+                        <h3 class="font-semibold mb-4 flex items-center">
+                            <i class="fas fa-headset mr-2 text-yellow-300"></i>
+                            Soporte Académico
+                        </h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-clock text-yellow-300"></i>
+                                <span>Lun-Vie: 8:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-envelope text-yellow-300"></i>
+                                <span>soporte@ligavoleibolcundinamarca.com</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-phone text-yellow-300"></i>
+                                <span>+57 (1) 234-5678</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Achievement Preview -->
+                    <div class="card p-6 text-center">
+                        <div class="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-trophy text-2xl text-gray-400"></i>
+                        </div>
+                        <h4 class="font-semibold text-dark mb-2">Tu Certificación</h4>
+                        <p class="text-sm text-gray mb-4">
+                            Al completar exitosamente el programa, recibirás tu certificación oficial.
+                        </p>
+                        <div class="bg-gray-100 rounded-lg p-3">
+                            <span class="text-xs text-gray">Certificado por:</span>
+                            <div class="font-medium text-dark">Liga de Voleibol de Cundinamarca</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Module Content Section -->
+        <div id="moduleContent" class="section hidden">
+            <div class="card p-8">
+                <div class="flex items-center justify-between mb-8">
+                    <div class="flex items-center space-x-4">
+                        <button onclick="showSection('courseWelcome')" class="btn-secondary">
+                            <i class="fas fa-arrow-left mr-2"></i>Volver
+                        </button>
+                        <div>
+                            <h1 class="text-3xl font-bold text-dark">Módulo 1: Reglamento Oficial FIVB y Casos Arbitrales</h1>
+                            <p class="text-gray">Interpretación y aplicación del Reglamento Oficial FIVB en situaciones reales</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-sm text-gray">Intento</div>
+                        <div class="text-2xl font-bold text-primary">1/3</div>
+                    </div>
+                </div>
+
+                <!-- Module Information -->
+                <div class="grid lg:grid-cols-3 gap-8 mb-8">
+                    <div class="lg:col-span-2">
+                        <div class="hero-gradient text-white rounded-lg p-6">
+                            <h3 class="text-xl font-semibold mb-4">Información del Módulo</h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-semibold mb-2">Objetivo General</h4>
+                                    <p class="text-blue-100 text-sm">
+                                        Capacitar al entrenador en la interpretación y aplicación del Reglamento Oficial FIVB 
+                                        en situaciones reales de juego.
+                                    </p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-2">Competencias</h4>
+                                    <ul class="text-blue-100 text-sm space-y-1">
+                                        <li>• Dominio del reglamento</li>
+                                        <li>• Juicio arbitral</li>
+                                        <li>• Toma de decisiones</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card p-6">
+                        <h4 class="font-semibold text-dark mb-4">Especificaciones</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray">Duración estimada:</span>
+                                <span class="font-medium">50-60 min</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray">Créditos:</span>
+                                <span class="font-medium text-accent">0.2</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray">Puntaje total:</span>
+                                <span class="font-medium">20 puntos</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray">Criterio aprobación:</span>
+                                <span class="font-medium text-secondary">80% mínimo</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray">Preguntas:</span>
+                                <span class="font-medium">10</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray">Tiempo por pregunta:</span>
+                                <span class="font-medium">3 minutos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question Interface -->
+                <div id="questionInterface" class="space-y-8">
+                    <!-- Question Header -->
+                    <div class="card p-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center space-x-6">
+                                <h3 class="text-xl font-semibold text-dark">Pregunta <span id="currentQuestion">1</span> de 10</h3>
+                                <div class="flex items-center space-x-2">
+                                    <span class="badge">Medio/Avanzado</span>
+                                    <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs">2 puntos</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-gray">Tiempo restante</div>
+                                <div id="questionTimer" class="bg-secondary text-white px-4 py-2 rounded-full text-lg font-bold flex items-center space-x-2">
+                                    <i class="fas fa-clock"></i>
+                                    <span id="timerDisplay">3:00</span>
+                                </div>
+                                <div class="w-24 bg-gray-200 rounded-full h-2 mt-2">
+                                    <div id="timerProgress" class="bg-secondary h-2 rounded-full transition-all duration-1000" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <div class="w-full bg-gray-200 rounded-full h-3 mb-2">
+                                <div class="bg-primary h-3 rounded-full transition-all duration-500" style="width: 10%" id="moduleProgress"></div>
+                            </div>
+                            <div class="flex justify-between text-sm text-gray">
+                                <span>Progreso del módulo: 10%</span>
+                                <span>Créditos acumulados: 0.02</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question Content -->
+                    <div class="card p-8">
+                        <div class="mb-6">
+                            <div class="flex items-center space-x-3 mb-4">
+                                <i class="fas fa-volleyball-ball text-primary text-xl"></i>
+                                <span class="text-sm text-gray">Tema: Saque</span>
+                                <span class="text-sm text-gray">•</span>
+                                <span class="text-sm text-gray">Referencia: Artículo 12.4 FIVB</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-light rounded-lg p-6 mb-8">
+                            <h4 class="text-lg font-semibold text-dark mb-6 leading-relaxed">
+                                Según la normativa FIVB 2025-2028, ¿cuándo se considera un saque válido?
+                            </h4>
+                            
+                            <div class="space-y-3" id="questionOptions">
+                                <label class="card flex items-start p-4 cursor-pointer hover:border-primary transition-all group">
+                                    <input type="radio" name="currentAnswer" value="A" class="w-5 h-5 text-primary border-gray-300 focus:ring-primary mr-4 mt-1" onchange="enableNextButton()">
+                                    <div class="flex-1">
+                                        <span class="font-medium text-dark group-hover:text-primary">A)</span>
+                                        <span class="text-dark ml-2">El jugador pisa fuera del área de ataque antes de golpear</span>
+                                    </div>
+                                </label>
+                                <label class="card flex items-start p-4 cursor-pointer hover:border-primary transition-all group">
+                                    <input type="radio" name="currentAnswer" value="B" class="w-5 h-5 text-primary border-gray-300 focus:ring-primary mr-4 mt-1" onchange="enableNextButton()">
+                                    <div class="flex-1">
+                                        <span class="font-medium text-dark group-hover:text-primary">B)</span>
+                                        <span class="text-dark ml-2">El balón toca la red y cae fuera del campo rival</span>
+                                    </div>
+                                </label>
+                                <label class="card flex items-start p-4 cursor-pointer hover:border-primary transition-all group">
+                                    <input type="radio" name="currentAnswer" value="C" class="w-5 h-5 text-primary border-gray-300 focus:ring-primary mr-4 mt-1" onchange="enableNextButton()">
+                                    <div class="flex-1">
+                                        <span class="font-medium text-dark group-hover:text-primary">C)</span>
+                                        <span class="text-dark ml-2">El balón cruza completamente la red dentro del espacio de paso y cae dentro del campo rival</span>
+                                    </div>
+                                </label>
+                                <label class="card flex items-start p-4 cursor-pointer hover:border-primary transition-all group">
+                                    <input type="radio" name="currentAnswer" value="D" class="w-5 h-5 text-primary border-gray-300 focus:ring-primary mr-4 mt-1" onchange="enableNextButton()">
+                                    <div class="flex-1">
+                                        <span class="font-medium text-dark group-hover:text-primary">D)</span>
+                                        <span class="text-dark ml-2">El balón golpea a un compañero antes de cruzar la red</span>
+                                    </div>
+                                </label>
+                                <label class="card flex items-start p-4 cursor-pointer hover:border-primary transition-all group">
+                                    <input type="radio" name="currentAnswer" value="E" class="w-5 h-5 text-primary border-gray-300 focus:ring-primary mr-4 mt-1" onchange="enableNextButton()">
+                                    <div class="flex-1">
+                                        <span class="font-medium text-dark group-hover:text-primary">E)</span>
+                                        <span class="text-dark ml-2">El saque se realiza después de que el árbitro secundario dé la señal</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-end">
+                            <button onclick="nextQuestion()" class="btn-primary" id="nextBtn" disabled>
+                                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Important Notice -->
+                    <div class="notification">
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-info-circle text-primary text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-dark mb-2">Instrucciones Importantes</h4>
+                                <ul class="text-gray text-sm space-y-1">
+                                    <li>• <strong>Sin retroalimentación inmediata:</strong> No se indica si la respuesta es correcta hasta el final</li>
+                                    <li>• <strong>Sin retroceso:</strong> Una vez avance a la siguiente pregunta, no podrá cambiar respuestas anteriores</li>
+                                    <li>• <strong>Orden aleatorio:</strong> Las preguntas y opciones están en orden aleatorio para este intento</li>
+                                    <li>• <strong>Tiempo límite:</strong> 3 minutos por pregunta (30 minutos total para el módulo)</li>
+                                    <li>• <strong>Aprobación:</strong> Requiere 80% mínimo (16 puntos de 20)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module Dashboard (Hidden initially) -->
+                <div id="moduleDashboard" class="space-y-8 hidden">
+                    <div class="text-center mb-8">
+                        <div class="w-24 h-24 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-chart-line text-4xl"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold text-dark mb-4">Resumen Final del Módulo</h2>
+                        <p class="text-lg text-gray">Módulo 1: Reglamento Oficial FIVB y Casos Arbitrales</p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <!-- Main Results -->
+                        <div class="lg:col-span-2 space-y-6">
+                            <!-- Primary Status Card -->
+                            <div class="card p-8 text-center">
+                                <div class="mb-6">
+                                    <div id="finalPercentage" class="text-7xl font-bold text-accent mb-3">85%</div>
+                                    <div id="finalStatus" class="text-3xl font-bold text-accent mb-2">APROBADO</div>
+                                    <div class="badge text-lg px-6 py-2" id="performanceBadge">¡Excelente desempeño!</div>
+                                </div>
+                                
+                                <div class="grid grid-cols-3 gap-4">
+                                    <div class="bg-light rounded-lg p-4">
+                                        <div id="currentAttempt" class="text-2xl font-bold text-primary">1</div>
+                                        <div class="text-sm text-gray">Intento</div>
+                                    </div>
+                                    <div class="bg-light rounded-lg p-4">
+                                        <div class="text-2xl font-bold text-gray">de</div>
+                                        <div class="text-sm text-gray">-</div>
+                                    </div>
+                                    <div class="bg-light rounded-lg p-4">
+                                        <div class="text-2xl font-bold text-secondary">3</div>
+                                        <div class="text-sm text-gray">Total</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Detailed Results -->
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="card p-6">
+                                    <h4 class="font-semibold text-dark mb-4 flex items-center">
+                                        <i class="fas fa-clipboard-check mr-2 text-primary"></i>
+                                        Resultados de Evaluación
+                                    </h4>
+                                    <div class="space-y-3">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-gray">Preguntas respondidas:</span>
+                                            <span class="font-semibold text-dark" id="questionsAnswered">10/10</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-gray">% Avance:</span>
+                                            <span class="font-semibold text-primary">100%</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-gray">Correctas:</span>
+                                            <span class="font-semibold text-accent" id="correctAnswers">8/10</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-gray">% Acierto:</span>
+                                            <span class="font-semibold text-primary" id="accuracyPercentage">80%</span>
+                                        </div>
+                                        <div class="flex justify-between items-center border-t pt-3">
+                                            <span class="text-gray font-medium">Puntos:</span>
+                                            <span class="font-bold text-secondary text-lg" id="finalPoints">16/20</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card p-6">
+                                    <h4 class="font-semibold text-dark mb-4 flex items-center">
+                                        <i class="fas fa-percentage mr-2 text-secondary"></i>
+                                        Calificación del Módulo
+                                    </h4>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <div class="flex justify-between mb-2">
+                                                <span class="text-gray">% Módulo:</span>
+                                                <span class="font-semibold text-primary" id="modulePercentage">80%</span>
+                                            </div>
+                                            <div class="w-full bg-gray-200 rounded-full h-4">
+                                                <div class="bg-primary h-4 rounded-full transition-all duration-1000" style="width: 80%" id="moduleProgressBar"></div>
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-gray">Créditos del módulo:</span>
+                                            <span class="font-bold text-accent text-lg" id="moduleCredits">0.2</span>
+                                        </div>
+                                        <div class="text-center mt-4">
+                                            <div class="bg-green-100 border border-green-400 rounded-lg p-3">
+                                                <i class="fas fa-check-circle text-green-600 mr-2"></i>
+                                                <span class="text-green-800 font-medium">Módulo Aprobado</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Progress Summary Sidebar -->
+                        <div class="space-y-6">
+                            <!-- Overall Progress -->
+                            <div class="card p-6">
+                                <h4 class="font-semibold text-dark mb-4 flex items-center">
+                                    <i class="fas fa-chart-line mr-2 text-accent"></i>
+                                    Progreso General
+                                </h4>
+                                <div class="space-y-4">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-gray">Créditos acumulados:</span>
+                                        <span class="font-bold text-secondary" id="totalCredits">0.2 / 4.8</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-gray">Módulos aprobados:</span>
+                                        <span class="font-semibold text-accent" id="approvedModules">1/24</span>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between mb-2">
+                                            <span class="text-gray">% progreso Momento 1:</span>
+                                            <span class="font-semibold text-primary" id="moment1Progress">4.2%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-3">
+                                            <div class="bg-primary h-3 rounded-full transition-all duration-1000" style="width: 4.2%" id="moment1ProgressBar"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- LVC Ranking -->
+                            <div class="card p-6 text-center">
+                                <h4 class="font-semibold text-dark mb-4">Rango LVC Parcial</h4>
+                                <div class="mb-4">
+                                    <div id="lvcRank" class="text-4xl font-bold text-primary mb-2">A1</div>
+                                    <div id="rankDescription" class="text-sm text-gray">Desempeño Sobresaliente</div>
+                                </div>
+                                <div class="bg-light rounded-lg p-4">
+                                    <div class="text-xs text-gray mb-2">Escala de Rangos LVC:</div>
+                                    <div class="space-y-1 text-xs">
+                                        <div class="flex justify-between">
+                                            <span class="text-green-600 font-medium">A1-A3:</span>
+                                            <span class="text-gray">90-100%</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-blue-600 font-medium">B1-B3:</span>
+                                            <span class="text-gray">80-89%</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-orange-600 font-medium">C1-C3:</span>
+                                            <span class="text-gray">70-79%</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-red-600 font-medium">Pendiente:</span>
+                                            <span class="text-gray">&lt;70%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Next Steps -->
+                            <div class="hero-gradient text-white rounded-lg p-6">
+                                <h4 class="font-semibold mb-4 flex items-center">
+                                    <i class="fas fa-route mr-2 text-yellow-300"></i>
+                                    Próximos Pasos
+                                </h4>
+                                <div id="nextStepsContent">
+                                    <p class="text-blue-100 mb-4 text-sm">
+                                        ¡Felicitaciones! Has aprobado el primer módulo. Tienes derecho a 1 intento adicional 
+                                        para mejorar tu calificación si lo deseas.
+                                    </p>
+                                    <div class="space-y-2">
+                                        <button onclick="startAdditionalAttempt()" class="w-full btn-secondary text-sm py-2">
+                                            <i class="fas fa-redo mr-2"></i>Intento Adicional
+                                        </button>
+                                        <button onclick="continueToNextModule()" class="w-full bg-white text-primary px-4 py-2 rounded-lg font-medium text-sm hover:bg-gray-100 transition-all">
+                                            <i class="fas fa-arrow-right mr-2"></i>Continuar al Módulo 2
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="text-center">
+                        <div class="flex justify-center space-x-4">
+                            <button onclick="downloadModuleCertificate()" class="btn-secondary">
+                                <i class="fas fa-download mr-2"></i>Descargar Constancia
+                            </button>
+                            <button onclick="reviewModuleAnswers()" class="btn-secondary">
+                                <i class="fas fa-eye mr-2"></i>Revisar Respuestas
+                            </button>
+                            <button onclick="continueToNextModule()" class="btn-primary text-lg px-8 py-4">
+                                <i class="fas fa-arrow-right mr-2"></i>Continuar Formación
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enrollment Section -->
+        <div id="enrollment" class="section hidden">
+            <div class="card p-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-dark mb-4">Inscripción al Programa</h2>
+                    <p class="text-lg text-gray">Complete sus datos para acceder al LVC PRO Coach</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <div>
+                        <div class="hero-gradient text-white rounded-lg p-6 mb-8">
+                            <h3 class="text-lg font-semibold mb-2">Información Personal</h3>
+                            <p class="text-blue-100">Todos los campos son obligatorios para completar su inscripción</p>
+                        </div>
+                        
+                        <form id="enrollmentForm" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-dark mb-2">Nombres *</label>
+                                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Ingrese sus nombres">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-dark mb-2">Apellidos *</label>
+                                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Ingrese sus apellidos">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-dark mb-2">Documento de Identidad *</label>
+                                <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Número de cédula">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-dark mb-2">Correo Electrónico *</label>
+                                <div class="flex space-x-2">
+                                    <input type="email" id="emailInput" required class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" placeholder="correo@ejemplo.com">
+                                    <button type="button" id="sendEmailCode" onclick="sendEmailVerification()" disabled class="btn-secondary px-4 py-3 opacity-50">
+                                        <i class="fas fa-envelope mr-1"></i>Enviar
+                                    </button>
+                                </div>
+                                <div id="emailVerificationSection" class="mt-3 hidden">
+                                    <div class="flex space-x-2">
+                                        <input type="text" id="emailCode" maxlength="6" class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Código de 6 dígitos">
+                                        <button type="button" onclick="verifyEmailCode()" class="btn-primary px-4 py-3">
+                                            <i class="fas fa-check mr-1"></i>Verificar
+                                        </button>
+                                    </div>
+                                    <div class="flex items-center justify-between mt-2">
+                                        <span class="text-sm text-gray">Código enviado a su correo</span>
+                                        <span id="emailTimer" class="text-sm text-secondary font-medium"></span>
+                                    </div>
+                                </div>
+                                <div id="emailVerified" class="mt-2 hidden">
+                                    <div class="flex items-center space-x-2 text-green-600">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span class="text-sm font-medium">Correo verificado exitosamente</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-dark mb-2">Teléfono *</label>
+                                <div class="flex space-x-2">
+                                    <input type="tel" id="phoneInput" required pattern="[0-9]{10}" class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" placeholder="3001234567 (10 dígitos)">
+                                    <button type="button" id="sendPhoneCode" onclick="sendPhoneVerification()" disabled class="btn-secondary px-4 py-3 opacity-50">
+                                        <i class="fas fa-sms mr-1"></i>Enviar
+                                    </button>
+                                </div>
+                                <div id="phoneVerificationSection" class="mt-3 hidden">
+                                    <div class="flex space-x-2">
+                                        <input type="text" id="phoneCode" maxlength="6" class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Código SMS de 6 dígitos">
+                                        <button type="button" onclick="verifyPhoneCode()" class="btn-primary px-4 py-3">
+                                            <i class="fas fa-check mr-1"></i>Verificar
+                                        </button>
+                                    </div>
+                                    <div class="flex items-center justify-between mt-2">
+                                        <span class="text-sm text-gray">Código SMS enviado</span>
+                                        <span id="phoneTimer" class="text-sm text-secondary font-medium"></span>
+                                    </div>
+                                </div>
+                                <div id="phoneVerified" class="mt-2 hidden">
+                                    <div class="flex items-center space-x-2 text-green-600">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span class="text-sm font-medium">Teléfono verificado exitosamente</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-dark mb-2">Ciudad de Residencia *</label>
+                                <select required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+                                    <option value="">Seleccione su municipio</option>
+                                    <option value="Agua de Dios">Agua de Dios</option>
+                                    <option value="Albán">Albán</option>
+                                    <option value="Anapoima">Anapoima</option>
+                                    <option value="Anolaima">Anolaima</option>
+                                    <option value="Arbeláez">Arbeláez</option>
+                                    <option value="Beltrán">Beltrán</option>
+                                    <option value="Bituima">Bituima</option>
+                                    <option value="Bogotá D.C.">Bogotá D.C.</option>
+                                    <option value="Bojacá">Bojacá</option>
+                                    <option value="Cabrera">Cabrera</option>
+                                    <option value="Cachipay">Cachipay</option>
+                                    <option value="Cajicá">Cajicá</option>
+                                    <option value="Caparrapí">Caparrapí</option>
+                                    <option value="Cáqueza">Cáqueza</option>
+                                    <option value="Carmen de Carupa">Carmen de Carupa</option>
+                                    <option value="Chaguaní">Chaguaní</option>
+                                    <option value="Chía">Chía</option>
+                                    <option value="Chipaque">Chipaque</option>
+                                    <option value="Choachí">Choachí</option>
+                                    <option value="Chocontá">Chocontá</option>
+                                    <option value="Cogua">Cogua</option>
+                                    <option value="Cota">Cota</option>
+                                    <option value="Cucunubá">Cucunubá</option>
+                                    <option value="El Colegio">El Colegio</option>
+                                    <option value="El Peñón">El Peñón</option>
+                                    <option value="El Rosal">El Rosal</option>
+                                    <option value="Facatativá">Facatativá</option>
+                                    <option value="Fómeque">Fómeque</option>
+                                    <option value="Fosca">Fosca</option>
+                                    <option value="Funza">Funza</option>
+                                    <option value="Fúquene">Fúquene</option>
+                                    <option value="Fusagasugá">Fusagasugá</option>
+                                    <option value="Gachalá">Gachalá</option>
+                                    <option value="Gachancipá">Gachancipá</option>
+                                    <option value="Gachetá">Gachetá</option>
+                                    <option value="Gama">Gama</option>
+                                    <option value="Girardot">Girardot</option>
+                                    <option value="Granada">Granada</option>
+                                    <option value="Guachetá">Guachetá</option>
+                                    <option value="Guaduas">Guaduas</option>
+                                    <option value="Guasca">Guasca</option>
+                                    <option value="Guataquí">Guataquí</option>
+                                    <option value="Guatavita">Guatavita</option>
+                                    <option value="Guayabal de Síquima">Guayabal de Síquima</option>
+                                    <option value="Guayabetal">Guayabetal</option>
+                                    <option value="Gutiérrez">Gutiérrez</option>
+                                    <option value="Jerusalén">Jerusalén</option>
+                                    <option value="Junín">Junín</option>
+                                    <option value="La Calera">La Calera</option>
+                                    <option value="La Mesa">La Mesa</option>
+                                    <option value="La Palma">La Palma</option>
+                                    <option value="La Peña">La Peña</option>
+                                    <option value="La Vega">La Vega</option>
+                                    <option value="Lenguazaque">Lenguazaque</option>
+                                    <option value="Machetá">Machetá</option>
+                                    <option value="Madrid">Madrid</option>
+                                    <option value="Manta">Manta</option>
+                                    <option value="Medina">Medina</option>
+                                    <option value="Mosquera">Mosquera</option>
+                                    <option value="Nariño">Nariño</option>
+                                    <option value="Nemocón">Nemocón</option>
+                                    <option value="Nilo">Nilo</option>
+                                    <option value="Nimaima">Nimaima</option>
+                                    <option value="Nocaima">Nocaima</option>
+                                    <option value="Venecia">Venecia</option>
+                                    <option value="Pacho">Pacho</option>
+                                    <option value="Paime">Paime</option>
+                                    <option value="Pandi">Pandi</option>
+                                    <option value="Paratebueno">Paratebueno</option>
+                                    <option value="Pasca">Pasca</option>
+                                    <option value="Puerto Salgar">Puerto Salgar</option>
+                                    <option value="Pulí">Pulí</option>
+                                    <option value="Quebradanegra">Quebradanegra</option>
+                                    <option value="Quetame">Quetame</option>
+                                    <option value="Quipile">Quipile</option>
+                                    <option value="Apulo">Apulo</option>
+                                    <option value="Ricaurte">Ricaurte</option>
+                                    <option value="San Antonio del Tequendama">San Antonio del Tequendama</option>
+                                    <option value="San Bernardo">San Bernardo</option>
+                                    <option value="San Cayetano">San Cayetano</option>
+                                    <option value="San Francisco">San Francisco</option>
+                                    <option value="San Juan de Río Seco">San Juan de Río Seco</option>
+                                    <option value="Sasaima">Sasaima</option>
+                                    <option value="Sesquilé">Sesquilé</option>
+                                    <option value="Sibaté">Sibaté</option>
+                                    <option value="Silvania">Silvania</option>
+                                    <option value="Simijaca">Simijaca</option>
+                                    <option value="Soacha">Soacha</option>
+                                    <option value="Sopó">Sopó</option>
+                                    <option value="Subachoque">Subachoque</option>
+                                    <option value="Suesca">Suesca</option>
+                                    <option value="Supatá">Supatá</option>
+                                    <option value="Susa">Susa</option>
+                                    <option value="Sutatausa">Sutatausa</option>
+                                    <option value="Tabio">Tabio</option>
+                                    <option value="Tausa">Tausa</option>
+                                    <option value="Tena">Tena</option>
+                                    <option value="Tenjo">Tenjo</option>
+                                    <option value="Tibacuy">Tibacuy</option>
+                                    <option value="Tibirita">Tibirita</option>
+                                    <option value="Tocaima">Tocaima</option>
+                                    <option value="Tocancipá">Tocancipá</option>
+                                    <option value="Topaipí">Topaipí</option>
+                                    <option value="Ubalá">Ubalá</option>
+                                    <option value="Ubaque">Ubaque</option>
+                                    <option value="Villa de San Diego de Ubaté">Villa de San Diego de Ubaté</option>
+                                    <option value="Une">Une</option>
+                                    <option value="Útica">Útica</option>
+                                    <option value="Vergara">Vergara</option>
+                                    <option value="Vianí">Vianí</option>
+                                    <option value="Villagómez">Villagómez</option>
+                                    <option value="Villapinzón">Villapinzón</option>
+                                    <option value="Villeta">Villeta</option>
+                                    <option value="Viotá">Viotá</option>
+                                    <option value="Yacopí">Yacopí</option>
+                                    <option value="Zipacón">Zipacón</option>
+                                    <option value="Zipaquirá">Zipaquirá</option>
+                                </select>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-dark mb-2">Edad *</label>
+                                    <select required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+                                        <option value="">Seleccione su edad</option>
+                                        <option value="18">18 años</option>
+                                        <option value="19">19 años</option>
+                                        <option value="20">20 años</option>
+                                        <option value="21">21 años</option>
+                                        <option value="22">22 años</option>
+                                        <option value="23">23 años</option>
+                                        <option value="24">24 años</option>
+                                        <option value="25">25 años</option>
+                                        <option value="26">26 años</option>
+                                        <option value="27">27 años</option>
+                                        <option value="28">28 años</option>
+                                        <option value="29">29 años</option>
+                                        <option value="30">30 años</option>
+                                        <option value="31">31 años</option>
+                                        <option value="32">32 años</option>
+                                        <option value="33">33 años</option>
+                                        <option value="34">34 años</option>
+                                        <option value="35">35 años</option>
+                                        <option value="36">36 años</option>
+                                        <option value="37">37 años</option>
+                                        <option value="38">38 años</option>
+                                        <option value="39">39 años</option>
+                                        <option value="40">40 años</option>
+                                        <option value="41">41 años</option>
+                                        <option value="42">42 años</option>
+                                        <option value="43">43 años</option>
+                                        <option value="44">44 años</option>
+                                        <option value="45">45 años</option>
+                                        <option value="46">46 años</option>
+                                        <option value="47">47 años</option>
+                                        <option value="48">48 años</option>
+                                        <option value="49">49 años</option>
+                                        <option value="50">50 años</option>
+                                        <option value="51">51 años</option>
+                                        <option value="52">52 años</option>
+                                        <option value="53">53 años</option>
+                                        <option value="54">54 años</option>
+                                        <option value="55">55 años</option>
+                                        <option value="56">56 años</option>
+                                        <option value="57">57 años</option>
+                                        <option value="58">58 años</option>
+                                        <option value="59">59 años</option>
+                                        <option value="60">60 años</option>
+                                        <option value="60+">Más de 60 años</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-dark mb-2">Género *</label>
+                                    <select required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+                                        <option value="">Seleccione su género</option>
+                                        <option value="masculino">Masculino</option>
+                                        <option value="femenino">Femenino</option>
+                                        <option value="otro">Otro</option>
+                                        <option value="prefiero-no-decir">Prefiero no decir</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-dark mb-2">Experiencia en Voleibol *</label>
+                                <select required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+                                    <option value="">Seleccione su nivel de experiencia</option>
+                                    <option value="principiante">Principiante (0-2 años)</option>
+                                    <option value="intermedio">Intermedio (3-5 años)</option>
+                                    <option value="avanzado">Avanzado (6-10 años)</option>
+                                    <option value="profesional">Profesional (10+ años)</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-dark mb-4">Cursos Oficiales * (Seleccione todas las opciones que apliquen)</label>
+                                <div class="space-y-3">
+                                    <label class="card flex items-center p-4 cursor-pointer hover:border-primary">
+                                        <input type="checkbox" name="cursos_oficiales" value="fcv" class="w-4 h-4 text-primary border-gray-300 focus:ring-primary mr-3">
+                                        <div>
+                                            <span class="font-medium text-dark block">Federación Colombiana de Voleibol (FCV)</span>
+                                            <p class="text-gray text-sm">Cursos nacionales de entrenamiento</p>
+                                        </div>
+                                    </label>
+                                    <label class="card flex items-center p-4 cursor-pointer hover:border-primary">
+                                        <input type="checkbox" name="cursos_oficiales" value="fivb" class="w-4 h-4 text-primary border-gray-300 focus:ring-primary mr-3">
+                                        <div>
+                                            <span class="font-medium text-dark block">Federación Internacional de Voleibol (FIVB)</span>
+                                            <p class="text-gray text-sm">Cursos internacionales de entrenamiento</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-dark mb-4">Selección Deportiva * (Seleccione una opción)</label>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <label class="card flex items-center p-4 cursor-pointer hover:border-primary">
+                                        <input type="radio" name="seleccion_deportiva" value="masculino" required class="w-4 h-4 text-primary border-gray-300 focus:ring-primary mr-3">
+                                        <div>
+                                            <span class="font-medium text-dark block">Selección Masculino</span>
+                                            <p class="text-gray text-sm">Entrenamiento de equipos masculinos</p>
+                                        </div>
+                                    </label>
+                                    <label class="card flex items-center p-4 cursor-pointer hover:border-primary">
+                                        <input type="radio" name="seleccion_deportiva" value="femenino" required class="w-4 h-4 text-primary border-gray-300 focus:ring-primary mr-3">
+                                        <div>
+                                            <span class="font-medium text-dark block">Selección Femenino</span>
+                                            <p class="text-gray text-sm">Entrenamiento de equipos femeninos</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-dark mb-2">Sector del Organismo Deportivo *</label>
+                                <select id="sectorSelect" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+                                    <option value="">Seleccione el sector</option>
+                                    <option value="publico">Sector Público</option>
+                                    <option value="privado">Sector Privado</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-dark mb-2">Organismo Deportivo *</label>
+                                <select id="organismoSelect" required disabled class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-100">
+                                    <option value="">Primero seleccione el sector</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-dark mb-4">Modalidad de Especialización * (Seleccione una opción)</label>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <label class="card flex items-center p-4 cursor-pointer hover:border-primary">
+                                        <input type="radio" name="specialization" value="indoor" required class="w-4 h-4 text-primary border-gray-300 focus:ring-primary mr-3">
+                                        <div>
+                                            <span class="font-medium text-dark block">Voleibol Coliseo</span>
+                                            <p class="text-gray text-sm">6 vs 6 - Competición oficial indoor</p>
+                                        </div>
+                                    </label>
+                                    <label class="card flex items-center p-4 cursor-pointer hover:border-primary">
+                                        <input type="radio" name="specialization" value="beach" required class="w-4 h-4 text-primary border-gray-300 focus:ring-primary mr-3">
+                                        <div>
+                                            <span class="font-medium text-dark block">Voleibol Playa</span>
+                                            <p class="text-gray text-sm">2 vs 2 - Beach Volley</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <!-- Enrollment Summary -->
+                        <div class="hero-gradient text-white rounded-lg p-6">
+                            <h3 class="text-lg font-semibold mb-4">Resumen del Programa</h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span class="text-blue-100">Programa:</span>
+                                    <span class="font-medium">LVC PRO Coach</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-blue-100">Duración:</span>
+                                    <span class="font-medium">64 horas</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-blue-100">Modalidad:</span>
+                                    <span class="font-medium">Híbrida</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-blue-100">Créditos:</span>
+                                    <span class="font-medium text-yellow-300">6.4</span>
+                                </div>
+                                <div class="flex justify-between pt-3 border-t border-white border-opacity-20">
+                                    <span class="font-semibold">Inversión:</span>
+                                    <span class="font-semibold text-yellow-300">Consultar</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Requirements Status -->
+                        <div class="card p-6">
+                            <h3 class="font-semibold text-dark mb-4">Estado de Requisitos</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <span id="terms-check" class="text-2xl">❌</span>
+                                        <div>
+                                            <span class="font-medium text-dark">Términos aceptados</span>
+                                            <p class="text-gray text-sm">Condiciones legales</p>
+                                        </div>
+                                    </div>
+                                    <span id="terms-status" class="bg-red-500 text-white px-3 py-1 rounded-full text-xs">Pendiente</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <span id="form-check" class="text-2xl">⏳</span>
+                                        <div>
+                                            <span class="font-medium text-dark">Formulario completo</span>
+                                            <p class="text-gray text-sm">Información personal</p>
+                                        </div>
+                                    </div>
+                                    <span id="form-status" class="bg-gray-400 text-white px-3 py-1 rounded-full text-xs">Pendiente</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="processEnrollment()" class="w-full btn-primary py-4 text-lg">
+                            <i class="fas fa-rocket mr-2"></i>
+                            Procesar Inscripción
+                        </button>
+                        
+                        <div class="text-center text-gray text-sm">
+                            <i class="fas fa-shield-alt mr-2 text-accent"></i>
+                            Proceso seguro y encriptado
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Notification Container -->
+    <div id="notificationContainer" class="fixed top-4 right-4 z-50 space-y-3"></div>
+
+    <!-- Module Modal -->
+    <div id="moduleModal" class="fixed inset-0 modal hidden items-center justify-center z-50">
+        <div class="card max-w-2xl w-full mx-4 p-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-dark">Módulo 1: Reglamento FIVB</h2>
+                <button onclick="closeModule()" class="text-gray hover:text-dark text-2xl">×</button>
+            </div>
+            
+            <div class="notification mb-6">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-lock text-secondary text-xl"></i>
+                    <div>
+                        <h3 class="font-medium text-dark mb-1">Acceso Restringido</h3>
+                        <p class="text-gray">
+                            Para acceder a este módulo, debe completar la aceptación de términos 
+                            y procesar su inscripción.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button onclick="showSection('terms')" class="btn-primary">
+                    Ir a Términos y Condiciones
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loadingScreen').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loadingScreen').style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+
+        // Notification System
+        function showNotification(message, type = 'success', duration = 4000) {
+            const container = document.getElementById('notificationContainer');
+            const notification = document.createElement('div');
+            
+            const icons = {
+                success: 'fas fa-check-circle',
+                warning: 'fas fa-exclamation-triangle',
+                error: 'fas fa-times-circle',
+                info: 'fas fa-info-circle'
+            };
+            
+            const colors = {
+                success: 'border-green-400',
+                warning: 'border-yellow-400',
+                error: 'border-red-400',
+                info: 'border-blue-400'
+            };
+            
+            notification.className = `notification ${colors[type]}`;
+            notification.innerHTML = `
+                <div class="flex items-center space-x-3">
+                    <i class="${icons[type]} text-lg"></i>
+                    <div class="flex-1">
+                        <p class="font-medium text-dark">${message}</p>
+                    </div>
+                    <button onclick="this.parentElement.parentElement.remove()" class="text-gray hover:text-dark">×</button>
+                </div>
+            `;
+            
+            container.appendChild(notification);
+            
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, duration);
+        }
+
+        // Navigation
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            document.getElementById(sectionId).classList.remove('hidden');
+            
+            // Update navigation tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Find and activate the corresponding tab
+            const tabMap = {
+                'overview': 0,
+                'curriculum': 1,
+                'bibliography': 2,
+                'terms': 3,
+                'enrollment': 4
+            };
+            
+            const tabs = document.querySelectorAll('.nav-tab');
+            if (tabMap[sectionId] !== undefined && tabs[tabMap[sectionId]]) {
+                tabs[tabMap[sectionId]].classList.add('active');
+            }
+            
+            // Update step indicators
+            updateStepIndicators(sectionId);
+            
+            // Animate progress bars when showing overview
+            if (sectionId === 'overview') {
+                setTimeout(() => {
+                    document.getElementById('progress-online').style.width = '0%';
+                    document.getElementById('progress-practice').style.width = '0%';
+                    document.getElementById('progress-theory').style.width = '0%';
+                }, 300);
+            }
+        }
+
+        function updateStepIndicators(sectionId) {
+            // Reset all steps
+            document.querySelectorAll('[id^="step"]').forEach(step => {
+                step.classList.remove('step-active');
+                step.classList.add('step-pending');
+            });
+            
+            // Set active step based on section
+            const stepMap = {
+                'overview': 'step1',
+                'curriculum': 'step2', 
+                'bibliography': 'step3',
+                'terms': 'step4',
+                'enrollment': 'step5'
+            };
+            
+            if (stepMap[sectionId]) {
+                const activeStep = document.getElementById(stepMap[sectionId]);
+                if (activeStep) {
+                    activeStep.classList.remove('step-pending');
+                    activeStep.classList.add('step-active');
+                }
+            }
+        }
+
+        // Terms Acceptance
+        document.getElementById('acceptTerms').addEventListener('change', function() {
+            const confirmButton = document.getElementById('confirmTerms');
+            if (this.checked) {
+                confirmButton.disabled = false;
+                confirmButton.classList.remove('opacity-50', 'cursor-not-allowed');
+                showNotification('Términos listos para confirmar', 'info', 2000);
+            } else {
+                confirmButton.disabled = true;
+                confirmButton.classList.add('opacity-50', 'cursor-not-allowed');
+            }
+        });
+
+        function confirmAcceptance() {
+            if (document.getElementById('acceptTerms').checked) {
+                showNotification('¡Términos aceptados exitosamente!', 'success');
+                
+                // Update enrollment status
+                document.getElementById('terms-check').innerHTML = '✅';
+                document.getElementById('terms-status').innerHTML = 'Aceptado';
+                document.getElementById('terms-status').className = 'bg-green-500 text-white px-3 py-1 rounded-full text-xs';
+                
+                // Show enrollment button in hero
+                document.getElementById('heroEnrollButton').classList.remove('hidden');
+                
+                // Navigate to enrollment
+                setTimeout(() => {
+                    showSection('enrollment');
+                    showNotification('Puede proceder con la inscripción', 'info');
+                }, 1500);
+            }
+        }
+
+        // Sports organization data
+        const organismos = {
+            publico: [
+                'Instituto Municipal de Deporte y Recreación - Bogotá',
+                'Instituto Departamental de Deportes de Cundinamarca - IDERC',
+                'Secretaría de Deporte y Recreación - Soacha',
+                'Instituto de Deportes y Recreación - Facatativá',
+                'Coordinación de Deportes - Fusagasugá',
+                'Instituto de Deportes - Chía',
+                'Secretaría de Deportes - Zipaquirá',
+                'Instituto Municipal de Deportes - Girardot',
+                'Coordinación Deportiva - Cajicá',
+                'Instituto de Recreación y Deportes - Mosquera',
+                'Secretaría de Deportes - Madrid',
+                'Instituto Deportivo - Funza',
+                'Coordinación de Deportes - Cota',
+                'Instituto Municipal - La Calera',
+                'Secretaría Deportiva - Sopó'
+            ],
+            privado: [
+                'Club Deportivo Cundinamarca',
+                'Academia de Voleibol Los Andes',
+                'Club Atlético Sabana',
+                'Escuela Deportiva Fusagasugá',
+                'Club Voleibol Girardot',
+                'Academia Deportiva Chía',
+                'Club Recreativo Zipaquirá',
+                'Escuela de Voleibol Soacha',
+                'Club Deportivo Facatativá',
+                'Academia Los Libertadores',
+                'Club Atlético Mosquera',
+                'Escuela Deportiva Madrid',
+                'Club Voleibol Sabana Norte',
+                'Academia Deportiva Cajicá',
+                'Club Recreativo Funza'
+            ]
+        };
+
+        // Sector selection handler
+        document.getElementById('sectorSelect').addEventListener('change', function() {
+            const organismoSelect = document.getElementById('organismoSelect');
+            const selectedSector = this.value;
+            
+            if (selectedSector) {
+                organismoSelect.disabled = false;
+                organismoSelect.classList.remove('bg-gray-100');
+                organismoSelect.innerHTML = '<option value="">Seleccione el organismo</option>';
+                
+                organismos[selectedSector].forEach(organismo => {
+                    const option = document.createElement('option');
+                    option.value = organismo;
+                    option.textContent = organismo;
+                    organismoSelect.appendChild(option);
+                });
+            } else {
+                organismoSelect.disabled = true;
+                organismoSelect.classList.add('bg-gray-100');
+                organismoSelect.innerHTML = '<option value="">Primero seleccione el sector</option>';
+            }
+            
+            // Trigger form validation
+            document.getElementById('enrollmentForm').dispatchEvent(new Event('input'));
+        });
+
+        function updateProgressStep(step) {
+            const stepElement = document.getElementById(`step${step}`);
+            
+            if (stepElement) {
+                stepElement.classList.remove('step-pending');
+                stepElement.classList.add('step-completed');
+            }
+        }
+
+        // Module Functionality
+        function openModule(moduleNumber) {
+            document.getElementById('moduleModal').classList.remove('hidden');
+            document.getElementById('moduleModal').classList.add('flex');
+        }
+
+        function closeModule() {
+            document.getElementById('moduleModal').classList.add('hidden');
+            document.getElementById('moduleModal').classList.remove('flex');
+        }
+
+        // Enrollment Processing
+        function processEnrollment() {
+            const termsAccepted = document.getElementById('terms-check').innerHTML === '✅';
+            
+            if (!termsAccepted) {
+                showNotification('Debe aceptar los términos antes de procesar la inscripción', 'warning');
+                showSection('terms');
+                return;
+            }
+            
+            let missingFields = [];
+            let hasErrors = false;
+            
+            // Reset all field styles
+            document.querySelectorAll('#enrollmentForm input, #enrollmentForm select').forEach(field => {
+                field.classList.remove('border-red-500');
+            });
+            document.querySelectorAll('#enrollmentForm .card').forEach(card => {
+                card.classList.remove('border-red-500');
+            });
+            
+            // Check basic required fields with specific selectors
+            const basicFields = [
+                { element: document.querySelector('input[placeholder="Ingrese sus nombres"]'), name: 'Nombres' },
+                { element: document.querySelector('input[placeholder="Ingrese sus apellidos"]'), name: 'Apellidos' },
+                { element: document.querySelector('input[placeholder="Número de cédula"]'), name: 'Documento' }
+            ];
+            
+            basicFields.forEach(field => {
+                if (!field.element || !field.element.value.trim()) {
+                    if (field.element) {
+                        field.element.classList.add('border-red-500');
+                    }
+                    missingFields.push(field.name);
+                    hasErrors = true;
+                }
+            });
+            
+            // Check select fields individually
+            const citySelect = document.querySelector('select[required]');
+            if (!citySelect || !citySelect.value) {
+                if (citySelect) citySelect.classList.add('border-red-500');
+                missingFields.push('Ciudad de Residencia');
+                hasErrors = true;
+            }
+            
+            const ageSelect = document.querySelectorAll('select[required]')[1];
+            if (!ageSelect || !ageSelect.value) {
+                if (ageSelect) ageSelect.classList.add('border-red-500');
+                missingFields.push('Edad');
+                hasErrors = true;
+            }
+            
+            const genderSelect = document.querySelectorAll('select[required]')[2];
+            if (!genderSelect || !genderSelect.value) {
+                if (genderSelect) genderSelect.classList.add('border-red-500');
+                missingFields.push('Género');
+                hasErrors = true;
+            }
+            
+            const experienceSelect = document.querySelectorAll('select[required]')[3];
+            if (!experienceSelect || !experienceSelect.value) {
+                if (experienceSelect) experienceSelect.classList.add('border-red-500');
+                missingFields.push('Experiencia en Voleibol');
+                hasErrors = true;
+            }
+            
+            const sectorSelect = document.getElementById('sectorSelect');
+            if (!sectorSelect || !sectorSelect.value) {
+                if (sectorSelect) sectorSelect.classList.add('border-red-500');
+                missingFields.push('Sector del Organismo');
+                hasErrors = true;
+            }
+            
+            const organismoSelect = document.getElementById('organismoSelect');
+            if (!organismoSelect || !organismoSelect.value) {
+                if (organismoSelect) organismoSelect.classList.add('border-red-500');
+                missingFields.push('Organismo Deportivo');
+                hasErrors = true;
+            }
+            
+            // Check email verification
+            if (!emailVerified) {
+                document.getElementById('emailInput').classList.add('border-red-500');
+                missingFields.push('Verificación de correo');
+                hasErrors = true;
+            }
+            
+            // Check phone verification
+            if (!phoneVerified) {
+                document.getElementById('phoneInput').classList.add('border-red-500');
+                missingFields.push('Verificación de teléfono');
+                hasErrors = true;
+            }
+            
+            // Check cursos oficiales
+            const cursosChecked = document.querySelectorAll('input[name="cursos_oficiales"]:checked').length > 0;
+            if (!cursosChecked) {
+                document.querySelectorAll('input[name="cursos_oficiales"]').forEach(checkbox => {
+                    checkbox.parentElement.classList.add('border-red-500');
+                });
+                missingFields.push('Cursos Oficiales');
+                hasErrors = true;
+            }
+            
+            // Check selección deportiva
+            const seleccionChecked = document.querySelectorAll('input[name="seleccion_deportiva"]:checked').length > 0;
+            if (!seleccionChecked) {
+                document.querySelectorAll('input[name="seleccion_deportiva"]').forEach(radio => {
+                    radio.parentElement.classList.add('border-red-500');
+                });
+                missingFields.push('Selección Deportiva');
+                hasErrors = true;
+            }
+            
+            // Check specialization
+            const specializationChecked = document.querySelectorAll('input[name="specialization"]:checked').length > 0;
+            if (!specializationChecked) {
+                document.querySelectorAll('input[name="specialization"]').forEach(radio => {
+                    radio.parentElement.classList.add('border-red-500');
+                });
+                missingFields.push('Modalidad de Especialización');
+                hasErrors = true;
+            }
+            
+            if (hasErrors) {
+                showNotification(`Faltan campos obligatorios: ${missingFields.join(', ')}`, 'error', 5000);
+                return;
+            }
+            
+            showNotification('Procesando inscripción y configurando acceso al curso...', 'info', 3000);
+            
+            setTimeout(() => {
+                showNotification('¡Inscripción exitosa! Redirigiendo al curso...', 'success', 2000);
+                
+                // Redirect to course welcome
+                setTimeout(() => {
+                    showSection('courseWelcome');
+                    showNotification('¡Bienvenido! Tu curso online ha iniciado. Puedes comenzar con el Módulo 1.', 'success', 5000);
+                    
+                    // Update progress bars
+                    document.getElementById('progress-online').style.width = '0%';
+                    document.getElementById('progress-practice').style.width = '0%';
+                    document.getElementById('progress-theory').style.width = '0%';
+                    document.getElementById('theory-progress').style.width = '0%';
+                }, 2500);
+                
+            }, 3000);
+        }
+
+        // Module Functions
+        let currentQuestionIndex = 0;
+        let moduleAnswers = [];
+        let questionTimer;
+        let timeRemaining = 180; // 3 minutes per question
+        let currentAttempt = 1;
+
+        function startModule(moduleNumber) {
+            showNotification(`Iniciando Módulo ${moduleNumber}: Reglamento FIVB`, 'info', 2000);
+            setTimeout(() => {
+                showSection('moduleContent');
+                initializeModule();
+                showNotification('Módulo cargado. ¡Comienza tu evaluación!', 'success');
+            }, 2000);
+        }
+
+        function initializeModule() {
+            currentQuestionIndex = 0;
+            moduleAnswers = new Array(10).fill(null);
+            document.getElementById('questionInterface').classList.remove('hidden');
+            document.getElementById('moduleDashboard').classList.add('hidden');
+            startQuestionTimer();
+            updateQuestionDisplay();
+        }
+
+        function enableNextButton() {
+            const nextBtn = document.getElementById('nextBtn');
+            nextBtn.disabled = false;
+            nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+
+        function startQuestionTimer() {
+            timeRemaining = 180; // Reset to 3 minutes
+            updateTimerDisplay();
+            
+            questionTimer = setInterval(() => {
+                timeRemaining--;
+                updateTimerDisplay();
+                
+                if (timeRemaining <= 0) {
+                    clearInterval(questionTimer);
+                    showNotification('⏰ Tiempo agotado para esta pregunta. Avanzando automáticamente...', 'warning', 3000);
+                    setTimeout(() => {
+                        nextQuestionAuto();
+                    }, 1000);
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            const timerDisplay = document.getElementById('timerDisplay');
+            const timerElement = document.getElementById('questionTimer');
+            const progressBar = document.getElementById('timerProgress');
+            
+            timerDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            
+            // Update progress bar
+            const progressPercentage = (timeRemaining / 180) * 100;
+            progressBar.style.width = `${progressPercentage}%`;
+            
+            // Change color based on time remaining
+            if (timeRemaining <= 30) {
+                timerElement.className = 'bg-red-500 text-white px-4 py-2 rounded-full text-lg font-bold flex items-center space-x-2';
+                progressBar.className = 'bg-red-500 h-2 rounded-full transition-all duration-1000';
+                // Add pulsing animation for last 30 seconds
+                timerElement.style.animation = 'pulse 1s infinite';
+            } else if (timeRemaining <= 60) {
+                timerElement.className = 'bg-orange-500 text-white px-4 py-2 rounded-full text-lg font-bold flex items-center space-x-2';
+                progressBar.className = 'bg-orange-500 h-2 rounded-full transition-all duration-1000';
+                timerElement.style.animation = 'none';
+            } else {
+                timerElement.className = 'bg-secondary text-white px-4 py-2 rounded-full text-lg font-bold flex items-center space-x-2';
+                progressBar.className = 'bg-secondary h-2 rounded-full transition-all duration-1000';
+                timerElement.style.animation = 'none';
+            }
+        }
+
+        function updateQuestionDisplay() {
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+            
+            // Update progress bar
+            const progress = ((currentQuestionIndex + 1) / 10) * 100;
+            document.getElementById('moduleProgress').style.width = `${progress}%`;
+            
+            // Update credits accumulated
+            const creditsAccumulated = ((currentQuestionIndex + 1) * 0.02).toFixed(2);
+            const progressText = document.querySelector('.flex.justify-between.text-sm.text-gray');
+            if (progressText) {
+                progressText.innerHTML = `
+                    <span>Progreso del módulo: ${progress}%</span>
+                    <span>Créditos acumulados: ${creditsAccumulated}</span>
+                `;
+            }
+            
+            // Update next button text and disable it initially
+            const nextBtn = document.getElementById('nextBtn');
+            nextBtn.disabled = true;
+            nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            
+            if (currentQuestionIndex === 9) {
+                nextBtn.innerHTML = 'Finalizar Módulo<i class="fas fa-check ml-2"></i>';
+            } else {
+                nextBtn.innerHTML = 'Siguiente<i class="fas fa-arrow-right ml-2"></i>';
+            }
+            
+            // Clear previous answers
+            document.querySelectorAll('input[name="currentAnswer"]').forEach(input => {
+                input.checked = false;
+            });
+        }
+
+        function nextQuestion() {
+            const selectedAnswer = document.querySelector('input[name="currentAnswer"]:checked');
+            if (!selectedAnswer) {
+                showNotification('Debe seleccionar una respuesta para continuar', 'warning');
+                return;
+            }
+            
+            saveCurrentAnswer();
+            clearInterval(questionTimer);
+            
+            if (currentQuestionIndex < 9) {
+                currentQuestionIndex++;
+                startQuestionTimer();
+                updateQuestionDisplay();
+            } else {
+                // Finish module
+                finishModule();
+            }
+        }
+
+        function nextQuestionAuto() {
+            // Auto advance when timer expires
+            saveCurrentAnswer();
+            
+            if (currentQuestionIndex < 9) {
+                currentQuestionIndex++;
+                startQuestionTimer();
+                updateQuestionDisplay();
+            } else {
+                // Finish module
+                finishModule();
+            }
+        }
+
+        function saveCurrentAnswer() {
+            const selectedAnswer = document.querySelector('input[name="currentAnswer"]:checked');
+            if (selectedAnswer) {
+                moduleAnswers[currentQuestionIndex] = selectedAnswer.value;
+            }
+        }
+
+        function finishModule() {
+            clearInterval(questionTimer);
+            
+            // Count answered questions
+            const answeredQuestions = moduleAnswers.filter(answer => answer !== null).length;
+            
+            if (answeredQuestions < 10) {
+                const unanswered = 10 - answeredQuestions;
+                if (!confirm(`Tienes ${unanswered} pregunta(s) sin responder. ¿Deseas finalizar el módulo de todas formas?`)) {
+                    return;
+                }
+            }
+            
+            showNotification('Procesando respuestas del módulo...', 'info', 2000);
+            
+            setTimeout(() => {
+                showModuleDashboard();
+                showNotification('¡Módulo completado! Revisa tu resumen de resultados.', 'success');
+            }, 2000);
+        }
+
+        function showModuleDashboard() {
+            document.getElementById('questionInterface').classList.add('hidden');
+            document.getElementById('moduleDashboard').classList.remove('hidden');
+            
+            // Simulate results calculation
+            const correctAnswers = Math.floor(Math.random() * 3) + 8; // 8-10 correct answers
+            const percentage = (correctAnswers / 10) * 100;
+            const points = correctAnswers * 2;
+            
+            // Update dashboard with results
+            updateDashboardResults(correctAnswers, percentage, points);
+        }
+
+        function updateDashboardResults(correct, percentage, points) {
+            // Calculate derived values
+            const status = percentage >= 80 ? 'APROBADO' : 'NO APROBADO';
+            const statusColor = percentage >= 80 ? 'text-accent' : 'text-red-500';
+            const badge = percentage >= 90 ? '¡Excelente desempeño!' : 
+                         percentage >= 80 ? '¡Buen trabajo!' : 'Necesita mejorar';
+            
+            // Calculate LVC Rank
+            let lvcRank, rankDescription, rankColor;
+            if (percentage >= 90) {
+                lvcRank = 'A1';
+                rankDescription = 'Desempeño Sobresaliente';
+                rankColor = 'text-green-600';
+            } else if (percentage >= 80) {
+                lvcRank = 'B2';
+                rankDescription = 'Desempeño Satisfactorio';
+                rankColor = 'text-blue-600';
+            } else if (percentage >= 70) {
+                lvcRank = 'C3';
+                rankDescription = 'Desempeño Básico';
+                rankColor = 'text-orange-600';
+            } else {
+                lvcRank = 'Pendiente';
+                rankDescription = 'Requiere Mejora';
+                rankColor = 'text-red-600';
+            }
+            
+            // Update attempt display
+            document.getElementById('currentAttempt').textContent = currentAttempt;
+            
+            // Update main status
+            document.getElementById('finalPercentage').textContent = `${percentage}%`;
+            document.getElementById('finalStatus').textContent = status;
+            document.getElementById('finalStatus').className = `text-3xl font-bold ${statusColor} mb-2`;
+            document.getElementById('performanceBadge').textContent = badge;
+            
+            // Update detailed results
+            document.getElementById('questionsAnswered').textContent = '10/10';
+            document.getElementById('correctAnswers').textContent = `${correct}/10`;
+            document.getElementById('accuracyPercentage').textContent = `${percentage}%`;
+            document.getElementById('finalPoints').textContent = `${points}/20`;
+            document.getElementById('modulePercentage').textContent = `${percentage}%`;
+            document.getElementById('moduleProgressBar').style.width = `${percentage}%`;
+            
+            // Update credits (only if approved)
+            const moduleCredits = percentage >= 80 ? '0.2' : '0.0';
+            document.getElementById('moduleCredits').textContent = moduleCredits;
+            
+            // Update overall progress
+            const totalCredits = percentage >= 80 ? '0.2 / 4.8' : '0.0 / 4.8';
+            const approvedModules = percentage >= 80 ? '1/24' : '0/24';
+            const moment1Progress = percentage >= 80 ? '4.2%' : '0%';
+            
+            document.getElementById('totalCredits').textContent = totalCredits;
+            document.getElementById('approvedModules').textContent = approvedModules;
+            document.getElementById('moment1Progress').textContent = moment1Progress;
+            document.getElementById('moment1ProgressBar').style.width = moment1Progress;
+            
+            // Update LVC Rank
+            document.getElementById('lvcRank').textContent = lvcRank;
+            document.getElementById('lvcRank').className = `text-4xl font-bold ${rankColor} mb-2`;
+            document.getElementById('rankDescription').textContent = rankDescription;
+            
+            // Update approval status indicator
+            const approvalIndicator = document.querySelector('.bg-green-100, .bg-red-100');
+            if (percentage >= 80) {
+                approvalIndicator.className = 'bg-green-100 border border-green-400 rounded-lg p-3';
+                approvalIndicator.innerHTML = `
+                    <i class="fas fa-check-circle text-green-600 mr-2"></i>
+                    <span class="text-green-800 font-medium">Módulo Aprobado</span>
+                `;
+            } else {
+                approvalIndicator.className = 'bg-red-100 border border-red-400 rounded-lg p-3';
+                approvalIndicator.innerHTML = `
+                    <i class="fas fa-times-circle text-red-600 mr-2"></i>
+                    <span class="text-red-800 font-medium">Módulo No Aprobado</span>
+                `;
+            }
+            
+            // Update next steps content based on result
+            const nextStepsContent = document.getElementById('nextStepsContent');
+            if (percentage >= 80) {
+                const additionalAttempts = currentAttempt <= 2 ? 1 : 0;
+                if (additionalAttempts > 0) {
+                    nextStepsContent.innerHTML = `
+                        <p class="text-blue-100 mb-4 text-sm">
+                            ¡Felicitaciones! Has aprobado el primer módulo. Tienes derecho a ${additionalAttempts} intento adicional 
+                            para mejorar tu calificación si lo deseas.
+                        </p>
+                        <div class="space-y-2">
+                            <button onclick="startAdditionalAttempt()" class="w-full btn-secondary text-sm py-2">
+                                <i class="fas fa-redo mr-2"></i>Intento Adicional
+                            </button>
+                            <button onclick="continueToNextModule()" class="w-full bg-white text-primary px-4 py-2 rounded-lg font-medium text-sm hover:bg-gray-100 transition-all">
+                                <i class="fas fa-arrow-right mr-2"></i>Continuar al Módulo 2
+                            </button>
+                        </div>
+                    `;
+                } else {
+                    nextStepsContent.innerHTML = `
+                        <p class="text-blue-100 mb-4 text-sm">
+                            ¡Felicitaciones! Has aprobado el primer módulo. Has usado todos tus intentos.
+                        </p>
+                        <div class="space-y-2">
+                            <button onclick="continueToNextModule()" class="w-full bg-white text-primary px-4 py-2 rounded-lg font-medium text-sm hover:bg-gray-100 transition-all">
+                                <i class="fas fa-arrow-right mr-2"></i>Continuar al Módulo 2
+                            </button>
+                        </div>
+                    `;
+                }
+            } else {
+                const attemptsLeft = 3 - currentAttempt;
+                if (attemptsLeft > 0) {
+                    nextStepsContent.innerHTML = `
+                        <p class="text-blue-100 mb-4 text-sm">
+                            No has alcanzado el 80% mínimo requerido. Tienes ${attemptsLeft} intentos restantes 
+                            para aprobar este módulo.
+                        </p>
+                        <div class="space-y-2">
+                            <button onclick="retryModule()" class="w-full bg-white text-primary px-4 py-2 rounded-lg font-medium text-sm hover:bg-gray-100 transition-all">
+                                <i class="fas fa-redo mr-2"></i>Reintentar Módulo
+                            </button>
+                        </div>
+                    `;
+                } else {
+                    nextStepsContent.innerHTML = `
+                        <p class="text-blue-100 mb-4 text-sm">
+                            Has agotado todos los intentos para este módulo. Debes reinscribirte para continuar.
+                        </p>
+                        <div class="space-y-2">
+                            <button onclick="showSection('enrollment')" class="w-full bg-white text-primary px-4 py-2 rounded-lg font-medium text-sm hover:bg-gray-100 transition-all">
+                                <i class="fas fa-redo mr-2"></i>Reinscribirse
+                            </button>
+                        </div>
+                    `;
+                }
+            }
+        }
+        
+        function downloadModuleCertificate() {
+            showNotification('Generando constancia del módulo...', 'info', 2000);
+            setTimeout(() => {
+                showNotification('Constancia descargada exitosamente', 'success');
+            }, 2000);
+        }
+        
+        function reviewModuleAnswers() {
+            showNotification('Cargando revisión detallada de respuestas...', 'info', 2000);
+            setTimeout(() => {
+                showNotification('Función de revisión disponible próximamente', 'info');
+            }, 2000);
+        }
+        
+        function retryModule() {
+            if (confirm('¿Estás seguro de que deseas reintentar el módulo? Esto reemplazará tu calificación actual.')) {
+                currentAttempt++;
+                showNotification('Reiniciando módulo...', 'info', 2000);
+                setTimeout(() => {
+                    initializeModule();
+                    showNotification(`Módulo reiniciado. Intento ${currentAttempt} de 3. ¡Buena suerte!`, 'success');
+                }, 2000);
+            }
+        }
+
+        function startAdditionalAttempt() {
+            if (confirm('¿Estás seguro de que deseas usar tu intento adicional? Esto reemplazará tu calificación actual.')) {
+                currentAttempt++;
+                showNotification('Iniciando intento adicional...', 'info', 2000);
+                setTimeout(() => {
+                    initializeModule();
+                    showNotification(`Intento adicional iniciado (${currentAttempt} de 3). ¡Buena suerte!`, 'success');
+                }, 2000);
+            }
+        }
+
+        function continueToNextModule() {
+            showNotification('Desbloqueando Módulo 2...', 'info', 2000);
+            setTimeout(() => {
+                showSection('courseWelcome');
+                showNotification('¡Módulo 2 desbloqueado! Puedes continuar con tu formación.', 'success');
+            }, 2000);
+        }
+
+        function downloadResources() {
+            showNotification('Descargando recursos del programa...', 'info', 2000);
+            setTimeout(() => {
+                showNotification('Recursos descargados exitosamente', 'success');
+            }, 2000);
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('moduleModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModule();
+            }
+        });
+
+        // Email and Phone Verification
+        let emailVerified = false;
+        let phoneVerified = false;
+        let emailTimer, phoneTimer;
+
+        // Email validation and verification
+        document.getElementById('emailInput').addEventListener('input', function() {
+            const email = this.value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const sendButton = document.getElementById('sendEmailCode');
+            
+            if (emailRegex.test(email)) {
+                sendButton.disabled = false;
+                sendButton.classList.remove('opacity-50');
+                this.classList.remove('border-red-500');
+                this.classList.add('border-green-500');
+            } else {
+                sendButton.disabled = true;
+                sendButton.classList.add('opacity-50');
+                this.classList.remove('border-green-500');
+                if (email.length > 0) {
+                    this.classList.add('border-red-500');
+                }
+            }
+        });
+
+        // Phone validation
+        document.getElementById('phoneInput').addEventListener('input', function() {
+            const phone = this.value.replace(/\D/g, ''); // Remove non-digits
+            this.value = phone; // Update input with only digits
+            const sendButton = document.getElementById('sendPhoneCode');
+            
+            if (phone.length === 10) {
+                sendButton.disabled = false;
+                sendButton.classList.remove('opacity-50');
+                this.classList.remove('border-red-500');
+                this.classList.add('border-green-500');
+            } else {
+                sendButton.disabled = true;
+                sendButton.classList.add('opacity-50');
+                this.classList.remove('border-green-500');
+                if (phone.length > 0) {
+                    this.classList.add('border-red-500');
+                }
+            }
+        });
+
+        function sendEmailVerification() {
+            const email = document.getElementById('emailInput').value;
+            showNotification('Enviando código de verificación al correo...', 'info', 2000);
+            
+            // Simulate sending email
+            setTimeout(() => {
+                document.getElementById('emailVerificationSection').classList.remove('hidden');
+                document.getElementById('sendEmailCode').disabled = true;
+                document.getElementById('sendEmailCode').classList.add('opacity-50');
+                showNotification('Código enviado a ' + email, 'success');
+                startEmailTimer();
+            }, 1500);
+        }
+
+        function sendPhoneVerification() {
+            const phone = document.getElementById('phoneInput').value;
+            showNotification('Enviando código SMS al teléfono...', 'info', 2000);
+            
+            // Simulate sending SMS
+            setTimeout(() => {
+                document.getElementById('phoneVerificationSection').classList.remove('hidden');
+                document.getElementById('sendPhoneCode').disabled = true;
+                document.getElementById('sendPhoneCode').classList.add('opacity-50');
+                showNotification('Código SMS enviado a +57 ' + phone, 'success');
+                startPhoneTimer();
+            }, 1500);
+        }
+
+        function startEmailTimer() {
+            let timeLeft = 300; // 5 minutes
+            const timerElement = document.getElementById('emailTimer');
+            
+            emailTimer = setInterval(() => {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                
+                timeLeft--;
+                
+                if (timeLeft < 0) {
+                    clearInterval(emailTimer);
+                    timerElement.textContent = 'Código expirado';
+                    document.getElementById('sendEmailCode').disabled = false;
+                    document.getElementById('sendEmailCode').classList.remove('opacity-50');
+                }
+            }, 1000);
+        }
+
+        function startPhoneTimer() {
+            let timeLeft = 300; // 5 minutes
+            const timerElement = document.getElementById('phoneTimer');
+            
+            phoneTimer = setInterval(() => {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                
+                timeLeft--;
+                
+                if (timeLeft < 0) {
+                    clearInterval(phoneTimer);
+                    timerElement.textContent = 'Código expirado';
+                    document.getElementById('sendPhoneCode').disabled = false;
+                    document.getElementById('sendPhoneCode').classList.remove('opacity-50');
+                }
+            }, 1000);
+        }
+
+        function verifyEmailCode() {
+            const code = document.getElementById('emailCode').value;
+            
+            if (code.length !== 6) {
+                showNotification('El código debe tener 6 dígitos', 'warning');
+                return;
+            }
+            
+            showNotification('Verificando código de correo...', 'info', 1500);
+            
+            // Simulate verification (in real app, this would be an API call)
+            setTimeout(() => {
+                if (code === '123456' || Math.random() > 0.3) { // Simulate success
+                    emailVerified = true;
+                    document.getElementById('emailVerificationSection').classList.add('hidden');
+                    document.getElementById('emailVerified').classList.remove('hidden');
+                    clearInterval(emailTimer);
+                    showNotification('¡Correo verificado exitosamente!', 'success');
+                    updateFormValidation();
+                } else {
+                    showNotification('Código incorrecto. Intente nuevamente.', 'error');
+                    document.getElementById('emailCode').value = '';
+                }
+            }, 1500);
+        }
+
+        function verifyPhoneCode() {
+            const code = document.getElementById('phoneCode').value;
+            
+            if (code.length !== 6) {
+                showNotification('El código debe tener 6 dígitos', 'warning');
+                return;
+            }
+            
+            showNotification('Verificando código SMS...', 'info', 1500);
+            
+            // Simulate verification
+            setTimeout(() => {
+                if (code === '123456' || Math.random() > 0.3) { // Simulate success
+                    phoneVerified = true;
+                    document.getElementById('phoneVerificationSection').classList.add('hidden');
+                    document.getElementById('phoneVerified').classList.remove('hidden');
+                    clearInterval(phoneTimer);
+                    showNotification('¡Teléfono verificado exitosamente!', 'success');
+                    updateFormValidation();
+                } else {
+                    showNotification('Código incorrecto. Intente nuevamente.', 'error');
+                    document.getElementById('phoneCode').value = '';
+                }
+            }, 1500);
+        }
+
+        function updateFormValidation() {
+            const inputs = document.querySelectorAll('#enrollmentForm input[required], #enrollmentForm select[required]');
+            const specializationChecked = document.querySelectorAll('input[name="specialization"]:checked').length > 0;
+            const seleccionDeportivaChecked = document.querySelectorAll('input[name="seleccion_deportiva"]:checked').length > 0;
+            const cursosOficialesChecked = document.querySelectorAll('input[name="cursos_oficiales"]:checked').length > 0;
+            let completedFields = 0;
+            
+            inputs.forEach(input => {
+                if (input.value.trim() !== '') {
+                    completedFields++;
+                }
+            });
+            
+            const totalRequired = inputs.length;
+            const isComplete = (completedFields === totalRequired) && 
+                              specializationChecked && 
+                              seleccionDeportivaChecked && 
+                              cursosOficialesChecked && 
+                              emailVerified && 
+                              phoneVerified;
+            
+            const formCheck = document.getElementById('form-check');
+            const formStatus = document.getElementById('form-status');
+            
+            if (isComplete) {
+                formCheck.innerHTML = '✅';
+                formStatus.innerHTML = 'Aceptado';
+                formStatus.className = 'bg-green-500 text-white px-3 py-1 rounded-full text-xs';
+                showNotification('Formulario completado correctamente', 'success', 1500);
+            } else if (completedFields > 0 || emailVerified || phoneVerified || specializationChecked || seleccionDeportivaChecked || cursosOficialesChecked) {
+                formCheck.innerHTML = '⏳';
+                formStatus.innerHTML = 'En progreso';
+                formStatus.className = 'bg-yellow-500 text-white px-3 py-1 rounded-full text-xs';
+            } else {
+                formCheck.innerHTML = '❌';
+                formStatus.innerHTML = 'Pendiente';
+                formStatus.className = 'bg-gray-400 text-white px-3 py-1 rounded-full text-xs';
+            }
+        }
+
+        // Form validation
+        document.getElementById('enrollmentForm').addEventListener('input', updateFormValidation);
+
+        // Add event listeners for radio buttons and checkboxes
+        document.querySelectorAll('input[name="specialization"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                // Trigger form validation
+                updateFormValidation();
+            });
+        });
+        
+        document.querySelectorAll('input[name="seleccion_deportiva"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                // Trigger form validation
+                updateFormValidation();
+            });
+        });
+        
+        document.querySelectorAll('input[name="cursos_oficiales"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                // Trigger form validation
+                updateFormValidation();
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96be8a3956a9f786',t:'MTc1NDY1MTE0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
 
 
 <!-- ====== FINAL PARTE PRINCIPAL DE LA PLANTILLA ====== -->
