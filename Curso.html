@@ -1839,10 +1839,10 @@
     </header>
 
     <!-- Navigation -->
-    <nav class="bg-white shadow-sm border-b sticky top-0 z-40">
+    <nav class="bg-white shadow-sm border-b sticky top-0 z-40" id="mainNavigation">
         <div class="container mx-auto px-6">
-            <!-- Main Navigation with Step Style -->
-            <div class="flex items-center justify-center py-6">
+            <!-- Public Navigation (Before Login) -->
+            <div id="publicNavigation" class="flex items-center justify-center py-6">
                 <div class="flex items-center space-x-8">
                     <div class="flex items-center space-x-3">
                         <button onclick="showSection('overview')" class="step-indicator step-active" id="nav-overview">
@@ -1863,8 +1863,8 @@
                             <div class="text-xs text-gray">Contenido</div>
                         </div>
                     </div>
-                    <div class="w-8 h-px bg-gray-300"></div>
-                    <div class="flex items-center space-x-3">
+                    <div class="w-8 h-px bg-gray-300" id="termsNavSeparator"></div>
+                    <div class="flex items-center space-x-3" id="termsNavSection">
                         <button onclick="showSection('terms')" class="step-indicator step-pending" id="nav-terms">
                             <i class="fas fa-file-contract"></i>
                         </button>
@@ -1873,8 +1873,8 @@
                             <div class="text-xs text-gray">Condiciones</div>
                         </div>
                     </div>
-                    <div class="w-8 h-px bg-gray-300"></div>
-                    <div class="flex items-center space-x-3">
+                    <div class="w-8 h-px bg-gray-300" id="enrollmentNavSeparator"></div>
+                    <div class="flex items-center space-x-3" id="enrollmentNavSection">
                         <button onclick="showSection('enrollment')" class="step-indicator step-pending" id="nav-enrollment">
                             <i class="fas fa-user-plus"></i>
                         </button>
@@ -1885,8 +1885,108 @@
                     </div>
                 </div>
             </div>
-            
 
+            <!-- Student Navigation (After Login) -->
+            <div id="studentNavigation" class="hidden">
+                <div class="flex items-center justify-between py-4">
+                    <!-- Left: Course Progress -->
+                    <div class="flex items-center space-x-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center">
+                                <span class="text-xl">🏐</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-dark">LVC PRO Coach</h3>
+                                <p class="text-sm text-gray" id="studentProgressText">Módulo 1 - Pregunta 1/10</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-light rounded-lg px-4 py-2">
+                                <div class="text-sm text-gray">Progreso Total</div>
+                                <div class="font-semibold text-primary" id="totalProgressText">4.2%</div>
+                            </div>
+                            <div class="bg-light rounded-lg px-4 py-2">
+                                <div class="text-sm text-gray">Créditos</div>
+                                <div class="font-semibold text-accent" id="creditsText">0.2 / 6.4</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: User Menu -->
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <div class="font-medium text-dark" id="studentName">Estudiante</div>
+                                <div class="text-xs text-gray" id="sessionTimer">Sesión: 23:45:12</div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <button onclick="toggleUserMenu()" class="btn-secondary px-3 py-2" id="userMenuButton">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div id="userDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border hidden z-50">
+                                <div class="py-2">
+                                    <button onclick="showStudentProfile()" class="w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center space-x-2">
+                                        <i class="fas fa-user-circle text-gray"></i>
+                                        <span>Mi Perfil</span>
+                                    </button>
+                                    <button onclick="showStudentProgress()" class="w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center space-x-2">
+                                        <i class="fas fa-chart-line text-gray"></i>
+                                        <span>Mi Progreso</span>
+                                    </button>
+                                    <button onclick="downloadCertificates()" class="w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center space-x-2">
+                                        <i class="fas fa-certificate text-gray"></i>
+                                        <span>Certificados</span>
+                                    </button>
+                                    <hr class="my-2">
+                                    <button onclick="logout()" class="w-full text-left px-4 py-2 hover:bg-red-50 text-red-600 flex items-center space-x-2">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        <span>Cerrar Sesión</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Login Navigation (For Returning Users) -->
+            <div id="loginNavigation" class="hidden">
+                <div class="flex items-center justify-between py-4">
+                    <div class="flex items-center space-x-6">
+                        <div class="flex items-center space-x-3">
+                            <button onclick="showSection('overview')" class="step-indicator step-active" id="nav-overview-login">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                            <div>
+                                <button onclick="showSection('overview')" class="font-medium text-sm hover:text-primary transition-colors">Presentación</button>
+                                <div class="text-xs text-gray">Información</div>
+                            </div>
+                        </div>
+                        <div class="w-8 h-px bg-gray-300"></div>
+                        <div class="flex items-center space-x-3">
+                            <button onclick="showSection('curriculum')" class="step-indicator step-pending" id="nav-curriculum-login">
+                                <i class="fas fa-book-open"></i>
+                            </button>
+                            <div>
+                                <button onclick="showSection('curriculum')" class="font-medium text-sm hover:text-primary transition-colors">Plan de Estudios</button>
+                                <div class="text-xs text-gray">Contenido</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <button onclick="showLoginModal()" class="btn-primary">
+                            <i class="fas fa-sign-in-alt mr-2"></i>Iniciar Sesión
+                        </button>
+                        <button onclick="showSection('enrollment')" class="btn-secondary">
+                            <i class="fas fa-user-plus mr-2"></i>Registrarse
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -2508,7 +2608,45 @@
                     </section>
 
                     <section>
-                        <h3 class="text-xl font-semibold text-dark mb-4">4. Certificación</h3>
+                        <h3 class="text-xl font-semibold text-dark mb-4">4. Política de Sesiones y Acceso</h3>
+                        <div class="bg-orange-50 border-l-4 border-orange-400 p-6 rounded mb-6">
+                            <div class="flex items-start space-x-4">
+                                <i class="fas fa-clock text-orange-500 text-xl mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-dark mb-2">Política de Sesión de 24 Horas</h4>
+                                    <p class="text-gray">
+                                        <strong>CRÍTICO:</strong> Una vez inscrito, su sesión permanecerá activa por 
+                                        <strong>24 horas consecutivas</strong>. Si no ingresa a la plataforma dentro de este período, 
+                                        <strong>perderá automáticamente el acceso</strong> y deberá realizar una nueva inscripción 
+                                        con el pago correspondiente.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card p-6">
+                            <ul class="space-y-3 text-gray">
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-hourglass-start text-orange-500 mt-1"></i>
+                                    <span>Tiempo de gracia: 24 horas desde la inscripción</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-user-lock text-red-500 mt-1"></i>
+                                    <span><strong>Pérdida automática de acceso tras 24 horas de inactividad</strong></span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-redo text-secondary mt-1"></i>
+                                    <span>Reinscripción obligatoria con nuevo pago</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-shield-alt text-primary mt-1"></i>
+                                    <span>Progreso guardado automáticamente durante sesión activa</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-semibold text-dark mb-4">5. Certificación</h3>
                         <div class="card p-6">
                             <ul class="space-y-3 text-gray">
                                 <li class="flex items-start space-x-2">
@@ -3618,6 +3756,66 @@
     <!-- Notification Container -->
     <div id="notificationContainer" class="fixed top-4 right-4 z-50 space-y-3"></div>
 
+    <!-- Login Modal -->
+    <div id="loginModal" class="fixed inset-0 modal hidden items-center justify-center z-50">
+        <div class="card max-w-md w-full mx-4 p-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-dark">Iniciar Sesión</h2>
+                <button onclick="closeLoginModal()" class="text-gray hover:text-dark text-2xl">×</button>
+            </div>
+            
+            <div class="notification mb-6">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-info-circle text-primary text-xl"></i>
+                    <div>
+                        <h3 class="font-medium text-dark mb-1">Acceso al Curso</h3>
+                        <p class="text-gray">
+                            Ingrese sus credenciales para continuar con su formación en el LVC PRO Coach.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <form id="loginForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-dark mb-2">Correo Electrónico</label>
+                    <input type="email" id="loginEmail" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" placeholder="correo@ejemplo.com">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-dark mb-2">Documento de Identidad</label>
+                    <input type="text" id="loginDocument" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Número de cédula">
+                </div>
+                
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+                    <div class="flex items-start space-x-3">
+                        <i class="fas fa-exclamation-triangle text-yellow-500 mt-1"></i>
+                        <div>
+                            <h4 class="font-medium text-dark">Política de Sesión</h4>
+                            <p class="text-sm text-gray mt-1">
+                                Su sesión permanecerá activa por 24 horas. Si no ingresa en este período, 
+                                perderá el acceso y deberá reinscribirse.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="w-full btn-primary py-3">
+                    <i class="fas fa-sign-in-alt mr-2"></i>Ingresar al Curso
+                </button>
+            </form>
+            
+            <div class="text-center mt-6">
+                <p class="text-sm text-gray">
+                    ¿No tienes cuenta? 
+                    <button onclick="closeLoginModal(); showSection('enrollment');" class="text-primary hover:underline font-medium">
+                        Regístrate aquí
+                    </button>
+                </p>
+            </div>
+        </div>
+    </div>
+
     <!-- Module Modal -->
     <div id="moduleModal" class="fixed inset-0 modal hidden items-center justify-center z-50">
         <div class="card max-w-2xl w-full mx-4 p-8">
@@ -3648,15 +3846,308 @@
     </div>
 
     <script>
+        // Session Management System
+        let sessionData = {
+            isLoggedIn: false,
+            studentInfo: null,
+            sessionStartTime: null,
+            sessionExpiryTime: null,
+            currentModule: 1,
+            currentQuestion: 1,
+            totalProgress: 0,
+            credits: 0,
+            lastActivity: null
+        };
+
+        let sessionTimer = null;
+        let activityTimer = null;
+
         // Loading Screen
         window.addEventListener('load', function() {
             setTimeout(() => {
                 document.getElementById('loadingScreen').style.opacity = '0';
                 setTimeout(() => {
                     document.getElementById('loadingScreen').style.display = 'none';
+                    initializeApp();
                 }, 500);
             }, 1500);
         });
+
+        function initializeApp() {
+            // Check if user has existing session
+            const savedSession = localStorage.getItem('lvcProSession');
+            if (savedSession) {
+                const session = JSON.parse(savedSession);
+                const now = new Date().getTime();
+                
+                if (session.sessionExpiryTime && now < session.sessionExpiryTime) {
+                    // Valid session exists
+                    sessionData = session;
+                    sessionData.isLoggedIn = true;
+                    loginUser(session.studentInfo, true);
+                } else {
+                    // Session expired
+                    localStorage.removeItem('lvcProSession');
+                    showExpiredSessionNotification();
+                    showLoginNavigation();
+                }
+            } else {
+                // Check if user has completed enrollment before
+                const hasEnrolled = localStorage.getItem('lvcProEnrolled');
+                if (hasEnrolled) {
+                    showLoginNavigation();
+                } else {
+                    showPublicNavigation();
+                }
+            }
+        }
+
+        function showExpiredSessionNotification() {
+            showNotification('Su sesión ha expirado. Debe reinscribirse para continuar.', 'warning', 8000);
+        }
+
+        // Navigation Management
+        function showPublicNavigation() {
+            document.getElementById('publicNavigation').classList.remove('hidden');
+            document.getElementById('studentNavigation').classList.add('hidden');
+            document.getElementById('loginNavigation').classList.add('hidden');
+        }
+
+        function showLoginNavigation() {
+            document.getElementById('publicNavigation').classList.add('hidden');
+            document.getElementById('studentNavigation').classList.add('hidden');
+            document.getElementById('loginNavigation').classList.remove('hidden');
+        }
+
+        function showStudentNavigation() {
+            document.getElementById('publicNavigation').classList.add('hidden');
+            document.getElementById('studentNavigation').classList.remove('hidden');
+            document.getElementById('loginNavigation').classList.add('hidden');
+        }
+
+        // Login Modal Functions
+        function showLoginModal() {
+            document.getElementById('loginModal').classList.remove('hidden');
+            document.getElementById('loginModal').classList.add('flex');
+        }
+
+        function closeLoginModal() {
+            document.getElementById('loginModal').classList.add('hidden');
+            document.getElementById('loginModal').classList.remove('flex');
+        }
+
+        // Login Form Handler
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('loginEmail').value;
+            const document_id = document.getElementById('loginDocument').value;
+            
+            if (!email || !document_id) {
+                showNotification('Complete todos los campos para ingresar', 'warning');
+                return;
+            }
+            
+            // Simulate login validation
+            showNotification('Validando credenciales...', 'info', 2000);
+            
+            setTimeout(() => {
+                // Check if user exists in localStorage
+                const enrolledUsers = JSON.parse(localStorage.getItem('lvcProUsers') || '[]');
+                const user = enrolledUsers.find(u => u.email === email && u.document === document_id);
+                
+                if (user) {
+                    loginUser(user, false);
+                    closeLoginModal();
+                } else {
+                    showNotification('Credenciales incorrectas o usuario no registrado', 'error');
+                }
+            }, 2000);
+        });
+
+        function loginUser(userInfo, isReturningSession = false) {
+            const now = new Date().getTime();
+            const expiryTime = now + (24 * 60 * 60 * 1000); // 24 hours
+            
+            sessionData = {
+                isLoggedIn: true,
+                studentInfo: userInfo,
+                sessionStartTime: now,
+                sessionExpiryTime: expiryTime,
+                currentModule: userInfo.currentModule || 1,
+                currentQuestion: userInfo.currentQuestion || 1,
+                totalProgress: userInfo.totalProgress || 0,
+                credits: userInfo.credits || 0,
+                lastActivity: now
+            };
+            
+            // Save session to localStorage
+            localStorage.setItem('lvcProSession', JSON.stringify(sessionData));
+            
+            // Update UI
+            showStudentNavigation();
+            updateStudentInfo();
+            startSessionTimer();
+            
+            if (isReturningSession) {
+                showNotification(`¡Bienvenido de vuelta, ${userInfo.firstName}! Continuando desde donde lo dejaste.`, 'success', 5000);
+                // Navigate to current position
+                navigateToCurrentPosition();
+            } else {
+                showNotification(`¡Bienvenido, ${userInfo.firstName}! Sesión iniciada exitosamente.`, 'success');
+                showSection('courseWelcome');
+            }
+        }
+
+        function navigateToCurrentPosition() {
+            const module = sessionData.currentModule;
+            const question = sessionData.currentQuestion;
+            
+            if (module === 1 && question > 1) {
+                // User was in middle of module 1
+                showSection('moduleContent');
+                showNotification(`Continuando Módulo ${module} - Pregunta ${question}/10`, 'info', 4000);
+            } else if (sessionData.totalProgress > 0) {
+                // User has some progress
+                showSection('courseWelcome');
+                showNotification(`Progreso actual: ${sessionData.totalProgress}% - ${sessionData.credits} créditos`, 'info', 4000);
+            } else {
+                // New user
+                showSection('courseWelcome');
+            }
+        }
+
+        function updateStudentInfo() {
+            const info = sessionData.studentInfo;
+            document.getElementById('studentName').textContent = `${info.firstName} ${info.lastName}`;
+            document.getElementById('studentProgressText').textContent = `Módulo ${sessionData.currentModule} - Pregunta ${sessionData.currentQuestion}/10`;
+            document.getElementById('totalProgressText').textContent = `${sessionData.totalProgress}%`;
+            document.getElementById('creditsText').textContent = `${sessionData.credits} / 6.4`;
+        }
+
+        function startSessionTimer() {
+            if (sessionTimer) clearInterval(sessionTimer);
+            
+            sessionTimer = setInterval(() => {
+                const now = new Date().getTime();
+                const timeLeft = sessionData.sessionExpiryTime - now;
+                
+                if (timeLeft <= 0) {
+                    // Session expired
+                    logout(true);
+                    return;
+                }
+                
+                // Update session timer display
+                const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                
+                document.getElementById('sessionTimer').textContent = 
+                    `Sesión: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                // Warning notifications
+                if (timeLeft <= 300000 && timeLeft > 240000) { // 5 minutes warning
+                    showNotification('⚠️ Su sesión expirará en 5 minutos', 'warning', 3000);
+                } else if (timeLeft <= 60000 && timeLeft > 50000) { // 1 minute warning
+                    showNotification('🚨 Su sesión expirará en 1 minuto', 'error', 5000);
+                }
+            }, 1000);
+        }
+
+        function updateLastActivity() {
+            if (sessionData.isLoggedIn) {
+                sessionData.lastActivity = new Date().getTime();
+                localStorage.setItem('lvcProSession', JSON.stringify(sessionData));
+            }
+        }
+
+        // Track user activity
+        document.addEventListener('click', updateLastActivity);
+        document.addEventListener('keypress', updateLastActivity);
+        document.addEventListener('scroll', updateLastActivity);
+
+        function toggleUserMenu() {
+            const dropdown = document.getElementById('userDropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('userDropdown');
+            const button = document.getElementById('userMenuButton');
+            
+            if (!dropdown.contains(e.target) && !button.contains(e.target)) {
+                dropdown.classList.add('hidden');
+            }
+        });
+
+        function showStudentProfile() {
+            document.getElementById('userDropdown').classList.add('hidden');
+            showNotification('Perfil del estudiante - Función disponible próximamente', 'info');
+        }
+
+        function showStudentProgress() {
+            document.getElementById('userDropdown').classList.add('hidden');
+            showNotification('Reporte de progreso - Función disponible próximamente', 'info');
+        }
+
+        function downloadCertificates() {
+            document.getElementById('userDropdown').classList.add('hidden');
+            showNotification('Descarga de certificados - Función disponible próximamente', 'info');
+        }
+
+        function logout(isExpired = false) {
+            if (sessionTimer) clearInterval(sessionTimer);
+            if (activityTimer) clearInterval(activityTimer);
+            
+            // Save current progress before logout
+            if (sessionData.isLoggedIn && sessionData.studentInfo) {
+                const enrolledUsers = JSON.parse(localStorage.getItem('lvcProUsers') || '[]');
+                const userIndex = enrolledUsers.findIndex(u => 
+                    u.email === sessionData.studentInfo.email && 
+                    u.document === sessionData.studentInfo.document
+                );
+                
+                if (userIndex !== -1) {
+                    enrolledUsers[userIndex] = {
+                        ...enrolledUsers[userIndex],
+                        currentModule: sessionData.currentModule,
+                        currentQuestion: sessionData.currentQuestion,
+                        totalProgress: sessionData.totalProgress,
+                        credits: sessionData.credits,
+                        lastActivity: sessionData.lastActivity
+                    };
+                    localStorage.setItem('lvcProUsers', JSON.stringify(enrolledUsers));
+                }
+            }
+            
+            // Clear session
+            localStorage.removeItem('lvcProSession');
+            sessionData = {
+                isLoggedIn: false,
+                studentInfo: null,
+                sessionStartTime: null,
+                sessionExpiryTime: null,
+                currentModule: 1,
+                currentQuestion: 1,
+                totalProgress: 0,
+                credits: 0,
+                lastActivity: null
+            };
+            
+            // Update UI
+            showLoginNavigation();
+            document.getElementById('userDropdown').classList.add('hidden');
+            
+            if (isExpired) {
+                showNotification('🚨 Su sesión ha expirado. Debe reinscribirse para continuar.', 'error', 8000);
+                showSection('enrollment');
+            } else {
+                showNotification('Sesión cerrada exitosamente', 'success');
+                showSection('overview');
+            }
+        }
 
         // Notification System
         function showNotification(message, type = 'success', duration = 4000) {
@@ -3973,11 +4464,46 @@
             showNotification('Procesando inscripción y configurando acceso al curso...', 'info', 3000);
             
             setTimeout(() => {
-                showNotification('¡Inscripción exitosa! Redirigiendo al curso...', 'success', 2000);
+                // Create user object
+                const userData = {
+                    firstName: document.querySelector('input[placeholder="Ingrese sus nombres"]').value,
+                    lastName: document.querySelector('input[placeholder="Ingrese sus apellidos"]').value,
+                    document: document.querySelector('input[placeholder="Número de cédula"]').value,
+                    email: document.getElementById('emailInput').value,
+                    phone: document.getElementById('phoneInput').value,
+                    city: document.querySelectorAll('select[required]')[0].value,
+                    age: document.querySelectorAll('select[required]')[1].value,
+                    gender: document.querySelectorAll('select[required]')[2].value,
+                    experience: document.querySelectorAll('select[required]')[3].value,
+                    sector: document.getElementById('sectorSelect').value,
+                    organism: document.getElementById('organismoSelect').value,
+                    specialization: document.querySelector('input[name="specialization"]:checked').value,
+                    seleccionDeportiva: document.querySelector('input[name="seleccion_deportiva"]:checked').value,
+                    cursosOficiales: Array.from(document.querySelectorAll('input[name="cursos_oficiales"]:checked')).map(cb => cb.value),
+                    enrollmentDate: new Date().toISOString(),
+                    currentModule: 1,
+                    currentQuestion: 1,
+                    totalProgress: 0,
+                    credits: 0
+                };
                 
-                // Redirect to course welcome
+                // Save user to enrolled users list
+                const enrolledUsers = JSON.parse(localStorage.getItem('lvcProUsers') || '[]');
+                enrolledUsers.push(userData);
+                localStorage.setItem('lvcProUsers', JSON.stringify(enrolledUsers));
+                localStorage.setItem('lvcProEnrolled', 'true');
+                
+                showNotification('¡Inscripción exitosa! Iniciando sesión automáticamente...', 'success', 2000);
+                
+                // Hide terms and enrollment sections from navigation
+                document.getElementById('termsNavSection').style.display = 'none';
+                document.getElementById('termsNavSeparator').style.display = 'none';
+                document.getElementById('enrollmentNavSection').style.display = 'none';
+                document.getElementById('enrollmentNavSeparator').style.display = 'none';
+                
+                // Auto-login the user
                 setTimeout(() => {
-                    showSection('courseWelcome');
+                    loginUser(userData, false);
                     showNotification('¡Bienvenido! Tu curso online ha iniciado. Puedes comenzar con el Módulo 1.', 'success', 5000);
                     
                     // Update progress bars
@@ -4112,6 +4638,13 @@
             
             saveCurrentAnswer();
             clearInterval(questionTimer);
+            
+            // Update session progress
+            if (sessionData.isLoggedIn) {
+                sessionData.currentQuestion = currentQuestionIndex + 2; // Next question
+                updateLastActivity();
+                updateStudentInfo();
+            }
             
             if (currentQuestionIndex < 9) {
                 currentQuestionIndex++;
@@ -4368,7 +4901,13 @@
             }, 2000);
         }
 
-        // Close modal when clicking outside
+        // Close modals when clicking outside
+        document.getElementById('loginModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLoginModal();
+            }
+        });
+
         document.getElementById('moduleModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeModule();
@@ -4607,8 +5146,9 @@
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96bea0c700303ed7',t:'MTc1NDY1MjA2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96beb27004c43ef5',t:'MTc1NDY1Mjc4Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
 
 
 
