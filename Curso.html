@@ -1841,61 +1841,52 @@
     <!-- Navigation -->
     <nav class="bg-white shadow-sm border-b sticky top-0 z-40">
         <div class="container mx-auto px-6">
-            <!-- Progress Steps -->
-            <div class="flex items-center justify-center py-4 border-b">
+            <!-- Main Navigation with Step Style -->
+            <div class="flex items-center justify-center py-6">
                 <div class="flex items-center space-x-8">
                     <div class="flex items-center space-x-3">
-                        <div class="step-indicator step-active">1</div>
+                        <button onclick="showSection('overview')" class="step-indicator step-active" id="nav-overview">
+                            <i class="fas fa-info-circle"></i>
+                        </button>
                         <div>
-                            <div class="font-medium text-sm">Información</div>
-                            <div class="text-xs text-gray">Presentación</div>
+                            <button onclick="showSection('overview')" class="font-medium text-sm hover:text-primary transition-colors">Presentación</button>
+                            <div class="text-xs text-gray">Información</div>
                         </div>
                     </div>
                     <div class="w-8 h-px bg-gray-300"></div>
                     <div class="flex items-center space-x-3">
-                        <div id="step2" class="step-indicator step-pending">2</div>
+                        <button onclick="showSection('curriculum')" class="step-indicator step-pending" id="nav-curriculum">
+                            <i class="fas fa-book-open"></i>
+                        </button>
                         <div>
-                            <div class="font-medium text-sm">Términos</div>
+                            <button onclick="showSection('curriculum')" class="font-medium text-sm hover:text-primary transition-colors">Plan de Estudios</button>
+                            <div class="text-xs text-gray">Contenido</div>
+                        </div>
+                    </div>
+                    <div class="w-8 h-px bg-gray-300"></div>
+                    <div class="flex items-center space-x-3">
+                        <button onclick="showSection('terms')" class="step-indicator step-pending" id="nav-terms">
+                            <i class="fas fa-file-contract"></i>
+                        </button>
+                        <div>
+                            <button onclick="showSection('terms')" class="font-medium text-sm hover:text-primary transition-colors">Términos y Condiciones</button>
                             <div class="text-xs text-gray">Condiciones</div>
                         </div>
                     </div>
                     <div class="w-8 h-px bg-gray-300"></div>
                     <div class="flex items-center space-x-3">
-                        <div id="step3" class="step-indicator step-pending">3</div>
+                        <button onclick="showSection('enrollment')" class="step-indicator step-pending" id="nav-enrollment">
+                            <i class="fas fa-user-plus"></i>
+                        </button>
                         <div>
-                            <div class="font-medium text-sm">Inscripción</div>
+                            <button onclick="showSection('enrollment')" class="font-medium text-sm hover:text-primary transition-colors">Inscripción</button>
                             <div class="text-xs text-gray">Registro</div>
-                        </div>
-                    </div>
-                    <div class="w-8 h-px bg-gray-300"></div>
-                    <div class="flex items-center space-x-3">
-                        <div id="step4" class="step-indicator step-pending">4</div>
-                        <div>
-                            <div class="font-medium text-sm">Curso</div>
-                            <div class="text-xs text-gray">Acceso</div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Main Navigation -->
-            <div class="flex space-x-8">
-                <button onclick="showSection('overview')" class="nav-tab active">
-                    <i class="fas fa-info-circle mr-2"></i>Presentación
-                </button>
-                <button onclick="showSection('curriculum')" class="nav-tab">
-                    <i class="fas fa-book-open mr-2"></i>Plan de Estudios
-                </button>
-                <button onclick="showSection('bibliography')" class="nav-tab">
-                    <i class="fas fa-books mr-2"></i>Bibliografía
-                </button>
-                <button onclick="showSection('terms')" class="nav-tab" id="termsNavTab">
-                    <i class="fas fa-file-contract mr-2"></i>Términos
-                </button>
-                <button onclick="showSection('enrollment')" class="nav-tab">
-                    <i class="fas fa-user-plus mr-2"></i>Inscripción
-                </button>
-            </div>
+
         </div>
     </nav>
 
@@ -2415,68 +2406,7 @@
             </div>
         </div>
 
-        <!-- Bibliography Section -->
-        <div id="bibliography" class="section hidden">
-            <div class="card p-8">
-                <h2 class="text-3xl font-bold text-dark mb-8 text-center">Bibliografía Académica</h2>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="card p-6">
-                        <h4 class="font-semibold text-dark mb-2">Manual Oficial FIVB 2021-2024</h4>
-                        <p class="text-gray text-sm mb-3">Federación Internacional de Voleibol</p>
-                        <p class="text-xs text-gray mb-4">Reglamento oficial actualizado con modificaciones técnicas.</p>
-                        <a href="#" class="text-primary text-sm hover:underline">
-                            <i class="fas fa-download mr-1"></i>Descargar PDF
-                        </a>
-                    </div>
-                    
-                    <div class="card p-6">
-                        <h4 class="font-semibold text-dark mb-2">FIVB Coaches Manual Level II</h4>
-                        <p class="text-gray text-sm mb-3">FIVB Development Centre</p>
-                        <p class="text-xs text-gray mb-4">Manual avanzado para entrenadores con metodologías.</p>
-                        <a href="#" class="text-primary text-sm hover:underline">
-                            <i class="fas fa-download mr-1"></i>Descargar PDF
-                        </a>
-                    </div>
-                    
-                    <div class="card p-6">
-                        <h4 class="font-semibold text-dark mb-2">Beach Volleyball Handbook</h4>
-                        <p class="text-gray text-sm mb-3">FIVB Beach Department</p>
-                        <p class="text-xs text-gray mb-4">Guía completa para entrenadores de voleibol de playa.</p>
-                        <a href="#" class="text-primary text-sm hover:underline">
-                            <i class="fas fa-download mr-1"></i>Descargar PDF
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="mt-8">
-                    <h3 class="text-xl font-semibold text-dark mb-6">Instituciones Académicas</h3>
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div class="card p-6 text-center">
-                            <div class="feature-icon mx-auto mb-4">
-                                <i class="fas fa-university"></i>
-                            </div>
-                            <h4 class="font-semibold text-dark">Universidad de Stanford</h4>
-                            <p class="text-gray text-sm">Departamento de Ciencias del Deporte</p>
-                        </div>
-                        <div class="card p-6 text-center">
-                            <div class="feature-icon mx-auto mb-4">
-                                <i class="fas fa-university"></i>
-                            </div>
-                            <h4 class="font-semibold text-dark">Universidad de São Paulo</h4>
-                            <p class="text-gray text-sm">Escuela de Educación Física</p>
-                        </div>
-                        <div class="card p-6 text-center">
-                            <div class="feature-icon mx-auto mb-4">
-                                <i class="fas fa-university"></i>
-                            </div>
-                            <h4 class="font-semibold text-dark">Universidad de Leipzig</h4>
-                            <p class="text-gray text-sm">Instituto de Ciencias del Deporte</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
         <!-- Terms Section -->
         <div id="terms" class="section hidden">
@@ -3775,27 +3705,18 @@
             
             document.getElementById(sectionId).classList.remove('hidden');
             
-            // Update navigation tabs
-            document.querySelectorAll('.nav-tab').forEach(tab => {
-                tab.classList.remove('active');
+            // Update navigation step indicators
+            document.querySelectorAll('[id^="nav-"]').forEach(nav => {
+                nav.classList.remove('step-active');
+                nav.classList.add('step-pending');
             });
             
-            // Find and activate the corresponding tab
-            const tabMap = {
-                'overview': 0,
-                'curriculum': 1,
-                'bibliography': 2,
-                'terms': 3,
-                'enrollment': 4
-            };
-            
-            const tabs = document.querySelectorAll('.nav-tab');
-            if (tabMap[sectionId] !== undefined && tabs[tabMap[sectionId]]) {
-                tabs[tabMap[sectionId]].classList.add('active');
+            // Activate the corresponding navigation step
+            const navElement = document.getElementById(`nav-${sectionId}`);
+            if (navElement) {
+                navElement.classList.remove('step-pending');
+                navElement.classList.add('step-active');
             }
-            
-            // Update step indicators
-            updateStepIndicators(sectionId);
             
             // Animate progress bars when showing overview
             if (sectionId === 'overview') {
@@ -3807,30 +3728,7 @@
             }
         }
 
-        function updateStepIndicators(sectionId) {
-            // Reset all steps
-            document.querySelectorAll('[id^="step"]').forEach(step => {
-                step.classList.remove('step-active');
-                step.classList.add('step-pending');
-            });
-            
-            // Set active step based on section
-            const stepMap = {
-                'overview': 'step1',
-                'curriculum': 'step2', 
-                'bibliography': 'step3',
-                'terms': 'step4',
-                'enrollment': 'step5'
-            };
-            
-            if (stepMap[sectionId]) {
-                const activeStep = document.getElementById(stepMap[sectionId]);
-                if (activeStep) {
-                    activeStep.classList.remove('step-pending');
-                    activeStep.classList.add('step-active');
-                }
-            }
-        }
+
 
         // Terms Acceptance
         document.getElementById('acceptTerms').addEventListener('change', function() {
@@ -3929,14 +3827,7 @@
             document.getElementById('enrollmentForm').dispatchEvent(new Event('input'));
         });
 
-        function updateProgressStep(step) {
-            const stepElement = document.getElementById(`step${step}`);
-            
-            if (stepElement) {
-                stepElement.classList.remove('step-pending');
-                stepElement.classList.add('step-completed');
-            }
-        }
+
 
         // Module Functionality
         function openModule(moduleNumber) {
@@ -4716,8 +4607,9 @@
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96be8a3956a9f786',t:'MTc1NDY1MTE0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96bea0c700303ed7',t:'MTc1NDY1MjA2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
 
 
 <!-- ====== FINAL PARTE PRINCIPAL DE LA PLANTILLA ====== -->
