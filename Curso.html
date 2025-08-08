@@ -1,0 +1,2163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liga de Voleibol de Cundinamarca - Organismo Deportivo Oficial</title>
+    <meta name="description" content="Liga de Voleibol de Cundinamarca - Organismo deportivo oficial con 15 años promoviendo el desarrollo del voleibol en Cundinamarca con excelencia institucional.">
+    
+    <!-- SEO and Social Meta Tags -->
+    <meta property="og:title" content="Liga de Voleibol de Cundinamarca - Portal Institucional">
+    <meta property="og:description" content="Organismo deportivo oficial líder en Cundinamarca con 15 años de trayectoria institucional">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'institutional': {
+                            'navy': '#1e3a8a',
+                            'blue': '#3b82f6',
+                            'sky': '#87CEEB',
+                            'dark-blue': '#1e3a8a',
+                            'gold': '#FFD700',
+                            'green': '#22c55e',
+                            'red': '#dc2626',
+                            'yellow': '#eab308',
+                            'gray-50': '#f8fafc',
+                            'gray-100': '#f1f5f9',
+                            'gray-200': '#e2e8f0',
+                            'gray-300': '#cbd5e1',
+                            'gray-400': '#94a3b8',
+                            'gray-500': '#64748b',
+                            'gray-600': '#475569',
+                            'gray-700': '#334155',
+                            'gray-800': '#1e293b',
+                            'gray-900': '#0f172a',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Carousel Styles - Cinematic Enhanced */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(1.1);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 1;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            z-index: 2;
+        }
+
+        /* Enhanced Cinematic text animations with smooth blur transitions */
+        .slide-content {
+            transform: translateY(50px);
+            opacity: 0;
+            filter: blur(2px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .carousel-slide.active .slide-content {
+            transform: translateY(0);
+            opacity: 1;
+            filter: blur(0px);
+            transition-delay: 0.3s;
+        }
+
+        .slide-title {
+            transform: translateX(-100px);
+            opacity: 0;
+            filter: blur(2px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .carousel-slide.active .slide-title {
+            transform: translateX(0);
+            opacity: 1;
+            filter: blur(0px);
+            transition-delay: 0.5s;
+        }
+
+        .slide-subtitle {
+            transform: translateX(100px);
+            opacity: 0;
+            filter: blur(2px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .carousel-slide.active .slide-subtitle {
+            transform: translateX(0);
+            opacity: 1;
+            filter: blur(0px);
+            transition-delay: 0.7s;
+        }
+
+        .slide-description {
+            transform: translateY(30px);
+            opacity: 0;
+            filter: blur(2px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .carousel-slide.active .slide-description {
+            transform: translateY(0);
+            opacity: 1;
+            filter: blur(0px);
+            transition-delay: 0.9s;
+        }
+
+        .slide-buttons {
+            transform: translateY(40px);
+            opacity: 0;
+            filter: blur(2px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .carousel-slide.active .slide-buttons {
+            transform: translateY(0);
+            opacity: 1;
+            filter: blur(0px);
+            transition-delay: 1.1s;
+        }
+
+        /* Enhanced exiting animations */
+        .slide-content.exiting,
+        .slide-title.exiting,
+        .slide-subtitle.exiting,
+        .slide-description.exiting,
+        .slide-buttons.exiting {
+            opacity: 0;
+            filter: blur(2px);
+            transition: all 0.8s ease-in;
+        }
+
+        /* Logo animations */
+        .institutional-logo {
+            transform: scale(0) rotate(-180deg);
+            opacity: 0;
+            transition: all 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .carousel-slide.active .institutional-logo {
+            transform: scale(1) rotate(0deg);
+            opacity: 1;
+            transition-delay: 0.2s;
+        }
+
+        /* Floating animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(1deg); }
+            50% { transform: translateY(-5px) rotate(-1deg); }
+            75% { transform: translateY(-15px) rotate(0.5deg); }
+        }
+
+        .floating-logo {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Nexora specific animations */
+        .nexora-message {
+            transform: translateX(-50px);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .nexora-message.active {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        /* Background animations */
+        @keyframes backgroundShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Infinite movement animations */
+        @keyframes infiniteMove1 {
+            0% { transform: translate(-50%, -50%); }
+            100% { transform: translate(-25%, -25%); }
+        }
+
+        @keyframes infiniteMove2 {
+            0% { transform: translate(-25%, -25%); }
+            100% { transform: translate(-50%, -50%); }
+        }
+
+        @keyframes infiniteMove3 {
+            0% { transform: translate(-40%, -40%); }
+            100% { transform: translate(-35%, -35%); }
+        }
+
+        @keyframes infiniteParticle1 {
+            0% { transform: translateY(100vh) translateX(0px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes infiniteParticle2 {
+            0% { transform: translateY(100vh) translateX(0px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(-30px) rotate(-360deg); opacity: 0; }
+        }
+
+        @keyframes infiniteParticle3 {
+            0% { transform: translateY(100vh) translateX(0px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(20px) rotate(180deg); opacity: 0; }
+        }
+
+        .animated-background {
+            background-size: 400% 400%;
+            animation: backgroundShift 15s ease infinite;
+        }
+
+        /* Particle effects */
+        @keyframes particles {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: particles 20s linear infinite;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 2s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 4s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 6s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 8s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 10s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 12s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 14s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: 16s; }
+
+        /* Professional scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #64748b;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        /* Focus styles for accessibility */
+        .focus-visible:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
+
+        /* Professional button hover effects */
+        .btn-professional {
+            transition: all 0.2s ease-in-out;
+        }
+
+        .btn-professional:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Card hover effects */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Professional form styles */
+        .form-input {
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        /* Loading animation */
+        .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e2e8f0;
+            border-top: 2px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes shine {
+            0% { 
+                background-position: -200% center;
+            }
+            100% { 
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes textShine {
+            0% { 
+                background-position: -200% center;
+                opacity: 0.3;
+            }
+            50% { 
+                background-position: 0% center;
+                opacity: 0.8;
+            }
+            100% { 
+                background-position: 200% center;
+                opacity: 0.3;
+            }
+        }
+
+        .animate-shine {
+            background: linear-gradient(
+                90deg,
+                #1e3a8a 0%,
+                #1e3a8a 40%,
+                #87CEEB 50%,
+                #1e3a8a 60%,
+                #1e3a8a 100%
+            );
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+
+        /* Professional animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Nexora message animations */
+        .nexora-message {
+            transition: opacity 0.8s ease-in-out;
+        }
+    </style>
+</head>
+
+
+<!-- ====== ENCABEZADO DE LA PÁGINA ====== -->
+
+<body class="font-inter bg-white text-institutional-gray-800 leading-relaxed">
+    <!-- Event Announcement Bar -->
+    <div class="bg-institutional-navy text-white py-4 relative overflow-hidden">
+        <!-- Background Pattern with Logo Colors -->
+        <div class="absolute inset-0 opacity-15">
+            <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 25% 25%, #FFD700 2px, transparent 2px), radial-gradient(circle at 75% 75%, #87CEEB 1px, transparent 1px); background-size: 60px 60px;"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <!-- Professional Layout -->
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
+                
+                <!-- Left: Event Info -->
+                <div class="flex items-center gap-4 lg:gap-6">
+                    <!-- Event Title with Hook -->
+                    <div class="text-center lg:text-left">
+                        <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-institutional-gold">
+                            🏐 Open Juvenil 2025
+                        </h2>
+                        <p class="text-sm text-institutional-sky font-medium mt-1">
+                            ¡El torneo más esperado del año!
+                        </p>
+                    </div>
+
+                    <!-- Separator -->
+                    <div class="hidden lg:block text-institutional-gold text-3xl font-light">|</div>
+
+                    <!-- Psychological Hook -->
+                    <div class="text-center lg:text-left">
+                        <p class="text-lg font-semibold text-white">
+                            <span class="text-institutional-gold">¡Solo quedan</span> 
+                            <span class="text-institutional-sky font-bold" id="days-simple">00</span> 
+                            <span class="text-institutional-gold">días!</span>
+                        </p>
+                        <p class="text-sm text-institutional-sky">
+                            No te quedes sin tu lugar
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Center: Countdown Timer -->
+                <div class="flex items-center gap-3 text-white bg-black/20 backdrop-blur-sm rounded-xl px-4 py-2">
+                    <!-- Days -->
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-institutional-gold" id="days">00</div>
+                        <div class="text-xs text-institutional-sky font-medium uppercase">DÍAS</div>
+                    </div>
+                    <div class="text-institutional-gold">:</div>
+                    
+                    <!-- Hours -->
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-institutional-gold" id="hours">00</div>
+                        <div class="text-xs text-institutional-sky font-medium uppercase">HRS</div>
+                    </div>
+                    <div class="text-institutional-gold">:</div>
+                    
+                    <!-- Minutes -->
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-institutional-gold" id="minutes">00</div>
+                        <div class="text-xs text-institutional-sky font-medium uppercase">MIN</div>
+                    </div>
+                    <div class="text-institutional-gold">:</div>
+                    
+                    <!-- Seconds -->
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-institutional-gold" id="seconds">00</div>
+                        <div class="text-xs text-institutional-sky font-medium uppercase">SEG</div>
+                    </div>
+                </div>
+
+                <!-- Right: CTA Section -->
+                <div class="text-center lg:text-right">
+                    <div class="mb-2">
+                        <p class="text-sm font-semibold text-institutional-gold">
+                            ⚡ INSCRIPCIONES ABIERTAS
+                        </p>
+                        <p class="text-xs text-institutional-sky">
+                            Cupos limitados - ¡Asegura tu participación!
+                        </p>
+                    </div>
+                    <a href="https://ligavoleicundi.com/" target="_blank" class="inline-block px-6 py-3 rounded-lg font-semibold text-base tracking-normal shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 text-white border-[#1a2f6c] hover:border-[#4183f2] hover:text-[#1a2f6c]" style="background-color: #1a2f6c;" onmouseover="this.style.backgroundColor='#4183f2'" onmouseout="this.style.backgroundColor='#1a2f6c'">
+                        Inscríbete ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Animated Border with Logo Colors -->
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-institutional-gold via-institutional-sky to-institutional-gold animate-pulse"></div>
+    </div>
+
+    <!-- Skip to Content Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-institutional-navy text-white px-4 py-2 rounded-md z-50">
+        Saltar al contenido principal
+    </a>
+
+    <!-- Header with Logo -->
+    <header class="bg-white sticky top-0 z-50 shadow-lg backdrop-blur-md bg-white/95">
+        <div class="container mx-auto px-6">
+            <!-- Logo Section -->
+            <div class="py-6 border-b border-institutional-gray-100 relative">
+                
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <!-- Official Logo with enhanced design -->
+                        <div class="relative">
+                            <div class="w-28 h-20 bg-white rounded-2xl flex items-center justify-center shadow-lg transform hover:scale-105 transition-all duration-300 border-2 border-institutional-navy/10" style="border-radius: 20px 8px 20px 8px;">
+                                <svg class="w-14 h-14" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <!-- Gradients for the official logo -->
+                                        <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" />
+                                        </linearGradient>
+                                        <linearGradient id="goldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#B8860B;stop-opacity:1" />
+                                        </linearGradient>
+                                        <radialGradient id="ballGradient" cx="30%" cy="30%">
+                                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#B8860B;stop-opacity:1" />
+                                        </radialGradient>
+                                        <linearGradient id="redGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#DC143C;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#8B0000;stop-opacity:1" />
+                                        </linearGradient>
+                                        <filter id="dropShadow" x="-50%" y="-50%" width="200%" height="200%">
+                                            <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.3"/>
+                                        </filter>
+                                    </defs>
+                                    
+                                    <!-- Background diagonal lines (garras) -->
+                                    <g opacity="0.6">
+                                        <path d="M140 40 L160 20 L165 25 L145 45 Z" fill="url(#redGradient)" filter="url(#dropShadow)"/>
+                                        <path d="M150 60 L170 40 L175 45 L155 65 Z" fill="url(#redGradient)" filter="url(#dropShadow)"/>
+                                        <path d="M160 80 L180 60 L185 65 L165 85 Z" fill="url(#redGradient)" filter="url(#dropShadow)"/>
+                                    </g>
+                                    
+                                    <!-- Hexagonal shield with rounded corners -->
+                                    <path d="M100 15 L140 35 Q145 40 145 45 L145 120 Q145 130 140 135 L110 150 Q100 155 90 150 L60 135 Q55 130 55 120 L55 45 Q55 40 60 35 L100 15 Z" 
+                                          fill="url(#shieldGradient)" 
+                                          stroke="url(#goldGradient)" 
+                                          stroke-width="3" 
+                                          filter="url(#dropShadow)"/>
+                                    
+                                    <!-- Inner black border -->
+                                    <path d="M100 18 L138 36 Q142 40 142 44 L142 118 Q142 126 138 130 L108 145 Q100 149 92 145 L62 130 Q58 126 58 118 L58 44 Q58 40 62 36 L100 18 Z" 
+                                          fill="none" 
+                                          stroke="#000000" 
+                                          stroke-width="1"/>
+                                    
+                                    <!-- Bear head with detailed features -->
+                                    <g transform="translate(100,70)">
+                                        <!-- Bear head base -->
+                                        <ellipse cx="0" cy="0" rx="25" ry="22" fill="#666666" stroke="#FFFFFF" stroke-width="2"/>
+                                        
+                                        <!-- Bear ears -->
+                                        <circle cx="-18" cy="-15" r="10" fill="#666666" stroke="#FFFFFF" stroke-width="1"/>
+                                        <circle cx="18" cy="-15" r="10" fill="#666666" stroke="#FFFFFF" stroke-width="1"/>
+                                        <circle cx="-18" cy="-15" r="6" fill="#999999"/>
+                                        <circle cx="18" cy="-15" r="6" fill="#999999"/>
+                                        
+                                        <!-- Bear face details -->
+                                        <ellipse cx="0" cy="2" rx="20" ry="18" fill="#999999"/>
+                                        <ellipse cx="0" cy="5" rx="15" ry="12" fill="#CCCCCC"/>
+                                        
+                                        <!-- Aggressive eyes -->
+                                        <path d="M-12 -5 L-8 -8 L-4 -5 L-8 -2 Z" fill="#FFFFFF"/>
+                                        <path d="M4 -5 L8 -8 L12 -5 L8 -2 Z" fill="#FFFFFF"/>
+                                        <circle cx="-8" cy="-5" r="2" fill="#000000"/>
+                                        <circle cx="8" cy="-5" r="2" fill="#000000"/>
+                                        
+                                        <!-- Bear nose -->
+                                        <ellipse cx="0" cy="3" rx="3" ry="2" fill="#000000"/>
+                                        
+                                        <!-- Open mouth with fangs -->
+                                        <path d="M-8 8 Q0 15 8 8 Q0 12 -8 8 Z" fill="#000000"/>
+                                        <polygon points="-4,8 -2,12 -6,12" fill="#FFFFFF"/>
+                                        <polygon points="4,8 2,12 6,12" fill="#FFFFFF"/>
+                                        
+                                        <!-- Fur texture lines -->
+                                        <g stroke="#CCCCCC" stroke-width="0.5" opacity="0.7">
+                                            <path d="M-20 -10 L-15 -8"/>
+                                            <path d="M-18 -5 L-13 -3"/>
+                                            <path d="M-20 0 L-15 2"/>
+                                            <path d="M15 -8 L20 -10"/>
+                                            <path d="M13 -3 L18 -5"/>
+                                            <path d="M15 2 L20 0"/>
+                                        </g>
+                                    </g>
+                                    
+                                    <!-- "LIGA VOLEIBOL" text -->
+                                    <text x="100" y="105" text-anchor="middle" fill="#FFFFFF" stroke="#1e3a8a" stroke-width="0.5" 
+                                          font-family="Arial, sans-serif" font-size="8" font-weight="bold" 
+                                          style="filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.5));">LIGA VOLEIBOL</text>
+                                    
+                                    <!-- Volleyball -->
+                                    <circle cx="100" cy="140" r="12" fill="url(#ballGradient)" filter="url(#dropShadow)"/>
+                                    <path d="M88 140 L112 140" stroke="#FFFFFF" stroke-width="1.5"/>
+                                    <path d="M100 128 L100 152" stroke="#FFFFFF" stroke-width="1.5"/>
+                                    <path d="M92 132 Q100 136 108 132" stroke="#FFFFFF" stroke-width="1" fill="none"/>
+                                    <path d="M92 148 Q100 144 108 148" stroke="#FFFFFF" stroke-width="1" fill="none"/>
+                                    
+                                    <!-- "CUNDINAMARCA" text with 3D effect -->
+                                    <text x="100" y="165" text-anchor="middle" fill="url(#redGradient)" stroke="#1e3a8a" stroke-width="1" 
+                                          font-family="Arial, sans-serif" font-size="10" font-weight="bold" 
+                                          transform="skewX(-5)"
+                                          style="filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.7));">CUNDINAMARCA</text>
+                                    
+                                    <!-- Year -->
+                                    <text x="100" y="180" text-anchor="middle" fill="url(#goldGradient)" 
+                                          font-family="Arial, sans-serif" font-size="8" font-weight="bold">2009</text>
+                                </svg>
+                            </div>
+                            <div class="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 rounded-full animate-pulse"></div>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl md:text-3xl font-inter font-bold text-institutional-navy tracking-tight leading-tight">
+                                Liga de Voleibol de Cundinamarca
+                            </h1>
+                            <p class="text-institutional-gray-600 font-semibold text-sm mt-2 tracking-wide uppercase">Organismo Deportivo Oficial</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media and Nexora Life Logo -->
+                    <div class="hidden lg:flex items-center space-x-3">
+                        <!-- Nexora Life Logo with Professional Hover -->
+                        
+<a href="https://tiendanexora.com/pages/%F0%9F%8F%90voleibol-coliseo" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full flex items-center justify-center transform transition-all duration-300 shadow-md hover:shadow-xl relative overflow-hidden group" style="background: #003630;" title="Tienda Nexora Life - Equipamiento Oficial" onmouseover="this.style.backgroundColor='#00ffe3'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='#003630'; this.style.transform='scale(1)'">
+
+                            <!-- Clean NL Monogram -->
+                            <div class="relative transition-all duration-300">
+                                <svg class="w-7 h-7 transition-all duration-300" viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <!-- White for normal state -->
+                                        <linearGradient id="miniWhiteGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#f0f0f0;stop-opacity:1" />
+                                        </linearGradient>
+                                        <!-- Dark green for hover state -->
+                                        <linearGradient id="miniDarkGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#003630;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#002a26;stop-opacity:1" />
+                                        </linearGradient>
+                                        <!-- Golden accent for connecting line -->
+                                        <linearGradient id="miniGoldenAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" style="stop-color:#d6ba00;stop-opacity:0.6" />
+                                            <stop offset="50%" style="stop-color:#d6ba00;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#d6ba00;stop-opacity:0.6" />
+                                        </linearGradient>
+                                    </defs>
+                                    
+                                    <!-- Letter N -->
+                                    <path d="M4 4 L4 20 L7 20 L7 9 L13 20 L16 20 L16 4 L13 4 L13 15 L7 4 L4 4 Z" 
+                                          fill="url(#miniWhiteGradient)" 
+                                          stroke="#ffffff" 
+                                          stroke-width="0.3"
+                                          class="group-hover:fill-[url(#miniDarkGradient)] group-hover:stroke-[#003630] transition-all duration-300"/>
+                                    
+                                    <!-- Letter L -->
+                                    <path d="M24 4 L24 17 L35 17 L35 20 L21 20 L21 4 L24 4 Z" 
+                                          fill="url(#miniWhiteGradient)" 
+                                          stroke="#ffffff" 
+                                          stroke-width="0.3"
+                                          class="group-hover:fill-[url(#miniDarkGradient)] group-hover:stroke-[#003630] transition-all duration-300"/>
+                                    
+                                    <!-- Subtle connecting accent -->
+                                    <path d="M17 10 Q20 8 23 10" 
+                                          fill="none" 
+                                          stroke="url(#miniGoldenAccent)" 
+                                          stroke-width="1.5" 
+                                          stroke-linecap="round"
+                                          opacity="0.7"/>
+                                </svg>
+                                
+                                <!-- Clean shine effect -->
+                                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-500 ease-out"></div>
+                            </div>
+                            
+                            <!-- Professional tooltip -->
+                            <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-50">
+                                Nexora Life
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.facebook.com/ligavoleibolcundinamarca" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-blue-600 hover:bg-red-600 rounded-full flex items-center justify-center text-white transform hover:scale-110 transition-all duration-300 shadow-md hover:shadow-lg" title="Síguenos en Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/ligavoleibolcundinamarca" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 hover:bg-red-600 rounded-full flex items-center justify-center text-white transform hover:scale-110 transition-all duration-300 shadow-md hover:shadow-lg" title="Síguenos en Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Navigation -->
+            <nav class="relative" role="navigation" aria-label="Navegación principal">
+                <!-- Background decoration -->
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-institutional-gray-50/30 to-transparent"></div>
+                
+                <div class="relative py-4 flex items-center justify-between">
+                    <!-- Desktop Navigation - Professional Uniform Buttons -->
+                    <div class="hidden lg:flex items-center justify-start space-x-1">
+                        <a href="#inicio" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition-all duration-200 py-2 px-4 rounded-md border border-institutional-navy/20 hover:border-institutional-blue/30 min-w-[110px] h-[38px] text-center flex items-center justify-center">
+                            Inicio
+                        </a>
+                        <a href="#nosotros" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition-all duration-200 py-2 px-4 rounded-md border border-institutional-navy/20 hover:border-institutional-blue/30 min-w-[110px] h-[38px] text-center flex items-center justify-center">
+                            Nosotros
+                        </a>
+                        <a href="#servicios" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition-all duration-200 py-2 px-4 rounded-md border border-institutional-navy/20 hover:border-institutional-blue/30 min-w-[110px] h-[38px] text-center flex items-center justify-center">
+                            Servicios
+                        </a>
+                        <a href="#cursos" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition-all duration-200 py-2 px-4 rounded-md border border-institutional-navy/20 hover:border-institutional-blue/30 min-w-[110px] h-[38px] text-center flex items-center justify-center">
+                            Cursos
+                        </a>
+                        <a href="#clubes" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition-all duration-200 py-2 px-4 rounded-md border border-institutional-navy/20 hover:border-institutional-blue/30 min-w-[110px] h-[38px] text-center flex items-center justify-center">
+                            Clubes
+                        </a>
+                        <a href="#entrenadores" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition-all duration-200 py-2 px-4 rounded-md border border-institutional-navy/20 hover:border-institutional-blue/30 min-w-[110px] h-[38px] text-center flex items-center justify-center">
+                            Entrenadores
+                        </a>
+                        <a href="#deportistas" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition-all duration-200 py-2 px-4 rounded-md border border-institutional-navy/20 hover:border-institutional-blue/30 min-w-[110px] h-[38px] text-center flex items-center justify-center">
+                            Deportistas
+                        </a>
+                        <a href="#eventos" class="bg-institutional-navy text-white hover:bg-institutional-blue font-medium text-sm transition-all duration-200 py-2 px-4 rounded-md border border-institutional-navy/20 hover:border-institutional-blue/30 min-w-[110px] h-[38px] text-center flex items-center justify-center">
+                            Eventos
+                        </a>
+                        
+<a href="https://tiendanexora.com/pages/%F0%9F%8F%90voleibol-coliseo" 
+   target="_blank" 
+   class="flex items-center justify-center gap-2 font-medium text-sm transition-all duration-200 py-2 px-4 rounded-md min-w-[110px] h-[38px] text-center"
+   style="color: #00ffe3; border: 2px solid #003630; background-color: #003630;"
+   onmouseover="this.style.backgroundColor='#00ffe3'; this.style.color='#003630'; this.style.borderColor='#00ffe3';" 
+   onmouseout="this.style.backgroundColor='#003630'; this.style.color='#00ffe3'; this.style.borderColor='#003630';">
+
+   <!-- Ícono de carrito de compras clásico -->
+   <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+       <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 6M7 13l-1.2 6h12.8M10 21a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2z"/>
+   </svg>
+
+   NL-Tienda
+</a>
+                    </div>
+
+                    <!-- Professional CTA Button -->
+                    <div class="hidden lg:block">
+                        <a href="https://ligavoleicundi.com/" target="_blank" class="inline-block px-6 py-3 font-semibold text-base tracking-normal shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 text-white border-[#d9232c] rounded-lg" style="background-color: #d9232c;" onmouseover="this.style.backgroundColor='#47ce1e'; this.style.borderColor='#47ce1e'" onmouseout="this.style.backgroundColor='#d9232c'; this.style.borderColor='#d9232c'">
+                            Regístrate
+                        </a>
+                    </div>
+
+                    <!-- Enhanced Mobile Menu Button -->
+                    <button class="lg:hidden relative p-3 rounded-xl hover:bg-institutional-gray-100 transition-all duration-300 group" id="mobile-menu-button" aria-expanded="false" aria-controls="mobile-menu">
+                        <div class="w-6 h-6 flex flex-col justify-center items-center space-y-1">
+                            <span class="w-6 h-0.5 bg-institutional-navy transform transition-all duration-300 group-hover:bg-institutional-blue"></span>
+                            <span class="w-4 h-0.5 bg-institutional-navy transform transition-all duration-300 group-hover:bg-institutional-blue group-hover:w-6"></span>
+                            <span class="w-6 h-0.5 bg-institutional-navy transform transition-all duration-300 group-hover:bg-institutional-blue"></span>
+                        </div>
+                        <span class="sr-only">Abrir menú de navegación</span>
+                    </button>
+                </div>
+
+                <!-- Enhanced Mobile Navigation -->
+                <div class="lg:hidden mt-4 pb-6 border-t border-institutional-gray-200 hidden bg-white/98 backdrop-blur-md rounded-b-2xl shadow-2xl border-l-4 border-r-4 border-b-4 border-institutional-navy/20" id="mobile-menu">
+                    <div class="flex flex-col space-y-2 pt-6 px-6">
+                        <a href="#inicio" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition-all duration-300 py-3 px-4 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105">Inicio</a>
+                        <a href="#nosotros" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition-all duration-300 py-3 px-4 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105">Nosotros</a>
+                        <a href="#servicios" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition-all duration-300 py-3 px-4 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105">Servicios</a>
+                        <a href="#cursos" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition-all duration-300 py-3 px-4 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105">Cursos</a>
+                        <a href="#clubes" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition-all duration-300 py-3 px-4 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105">Clubes</a>
+                        <a href="#entrenadores" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition-all duration-300 py-3 px-4 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105">Entrenadores</a>
+                        <a href="#deportistas" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition-all duration-300 py-3 px-4 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105">Deportistas</a>
+                        <a href="#eventos" class="text-institutional-gray-800 hover:text-white hover:bg-institutional-navy font-medium text-sm transition-all duration-300 py-3 px-4 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105">Eventos</a>
+                        <a href="https://tiendanexora.com/pages/%F0%9F%8F%90voleibol-coliseo" target="_blank" class="flex items-center gap-2 font-medium text-sm transition-all duration-300 py-3 px-4 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105" style="color: #00ffe3;" onmouseover="this.style.backgroundColor='#00ffe3'; this.style.color='#003630'" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#00ffe3'">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7 4V2C7 1.45 7.45 1 8 1h8c.55 0 1 .45 1 1v2h5v2h-2v13c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V6H2V4h5zM9 3v1h6V3H9z"/>
+                            </svg>
+                            Tienda
+                        </a>
+                        
+                        <!-- Mobile Social Media -->
+                        <div class="flex items-center justify-center space-x-6 pt-6 pb-4">
+                            <a href="https://www.facebook.com/ligavoleibolcundinamarca" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-blue-600 hover:bg-red-600 rounded-full flex items-center justify-center text-white transform hover:scale-125 transition-all duration-300 shadow-lg hover:shadow-xl" title="Síguenos en Facebook">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/ligavoleibolcundinamarca" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 hover:bg-red-600 rounded-full flex items-center justify-center text-white transform hover:scale-125 transition-all duration-300 shadow-lg hover:shadow-xl" title="Síguenos en Instagram">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                        </div>
+                        
+                        <a href="https://ligavoleicundi.com/" target="_blank" class="inline-block px-6 py-3 rounded-lg font-semibold text-base tracking-normal shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 text-white border-[#d9232c] mt-4 text-center w-full" style="background-color: #d9232c;" onmouseover="this.style.backgroundColor='#47ce1e'; this.style.borderColor='#47ce1e'" onmouseout="this.style.backgroundColor='#d9232c'; this.style.borderColor='#d9232c'">
+                            Regístrate
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        
+
+
+<!-- Hero Carousel Section -->
+<section id="inicio" class="relative bg-institutional-gray-50">
+  <div class="carousel-container relative h-[600px] overflow-hidden">
+    <div class="carousel-track h-full" id="carousel-track">
+      <!-- Slide 1 - Institutional -->
+      <div class="carousel-slide active animated-background" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 25%, #3b82f6 50%, #87CEEB 75%, #ffffff 100%);">
+        <!-- Cinematic background with institutional colors -->
+        <div class="absolute inset-0">
+          <!-- Animated base gradient -->
+          <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-sky-300 animated-background"></div>
+          <!-- Dynamic overlay -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-sky-400/30 to-white/20"></div>
+          <!-- Animated texture pattern -->
+          <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(circle at 25% 25%, #87CEEB 3px, transparent 3px), radial-gradient(circle at 75% 75%, #ffffff 2px, transparent 2px); background-size: 80px 80px; animation: backgroundShift 20s ease infinite;"></div>
+          <!-- Particle effects -->
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+        </div>
+
+        <div class="relative h-full flex items-center">
+          <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+              <!-- Left Content -->
+              <div class="slide-content">
+                <h2 class="slide-title text-4xl md:text-6xl font-playfair font-bold mb-6 leading-tight text-white">
+                  Excelencia Deportiva
+                  <span class="slide-subtitle block text-3xl md:text-4xl font-normal mt-2 text-sky-200">en Cundinamarca</span>
+                </h2>
+                <p class="slide-description text-xl mb-8 text-sky-100 leading-relaxed">
+                  Organismo deportivo oficial con 15 años promoviendo el desarrollo integral del voleibol en el departamento de Cundinamarca.
+                </p>
+                <div class="slide-buttons flex flex-col sm:flex-row gap-4">
+                  <a href="#nosotros" class="bg-white text-institutional-navy px-8 py-3 rounded-lg font-semibold hover:bg-sky-200 hover:text-slate-800 transition-all duration-300 shadow-lg hover:shadow-xl text-center transform hover:scale-105 flex items-center justify-center gap-2">
+                    Conoce Nuestra Historia
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                  <a href="https://tiendanexora.com/pages/%F0%9F%8F%90voleibol-coliseo" target="_blank" class="border-2 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 text-center transform hover:scale-105 flex items-center justify-center gap-2" style="border-color: #00ffe3; background-color: transparent;" onmouseover="this.style.backgroundColor='#00ffe3'; this.style.color='#003630'" onmouseout="this.style.backgroundColor='transparent'; this.style.color='white'">
+                    Ir Tienda Nexora Life
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right Content - Institutional Logo -->
+              <div class="hidden lg:flex justify-center items-center">
+                <div class="institutional-logo floating-logo">
+                  <div class="w-80 h-80 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center shadow-2xl border border-white/20">
+                    <svg class="w-48 h-48" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id="shieldGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+                          <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="goldGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                          <stop offset="100%" style="stop-color:#B8860B;stop-opacity:1" />
+                        </linearGradient>
+                        <filter id="glow">
+                          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                          <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                          </feMerge>
+                        </filter>
+                      </defs>
+
+                      <!-- Hexagonal shield -->
+                      <path d="M100 15 L140 35 Q145 40 145 45 L145 120 Q145 130 140 135 L110 150 Q100 155 90 150 L60 135 Q55 130 55 120 L55 45 Q55 40 60 35 L100 15 Z"
+                            fill="url(#shieldGradient1)"
+                            stroke="url(#goldGradient1)"
+                            stroke-width="4"
+                            filter="url(#glow)"/>
+
+                      <!-- Bear head -->
+                      <g transform="translate(100,70)">
+                        <ellipse cx="0" cy="0" rx="25" ry="22" fill="#666666" stroke="#FFFFFF" stroke-width="2"/>
+                        <circle cx="-18" cy="-15" r="10" fill="#666666" stroke="#FFFFFF" stroke-width="1"/>
+                        <circle cx="18" cy="-15" r="10" fill="#666666" stroke="#FFFFFF" stroke-width="1"/>
+                        <ellipse cx="0" cy="2" rx="20" ry="18" fill="#999999"/>
+                        <circle cx="-8" cy="-5" r="3" fill="#000000"/>
+                        <circle cx="8" cy="-5" r="3" fill="#000000"/>
+                        <ellipse cx="0" cy="3" rx="3" ry="2" fill="#000000"/>
+                      </g>
+
+                      <!-- Text -->
+                      <text x="100" y="105" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="8" font-weight="bold">LIGA VOLEIBOL</text>
+                      <text x="100" y="165" text-anchor="middle" fill="url(#goldGradient1)" font-family="Arial, sans-serif" font-size="10" font-weight="bold">CUNDINAMARCA</text>
+                      <text x="100" y="180" text-anchor="middle" fill="url(#goldGradient1)" font-family="Arial, sans-serif" font-size="8" font-weight="bold">2009</text>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 - Tienda Oficial Nexora Life (Composición Profesional) -->
+      <div class="carousel-slide animated-background" style="background: linear-gradient(135deg, #003630 0%, #006b5c 50%, #00ffe3 100%);">
+        <!-- Fondo cinémático con colores Nexora y efectos combinados -->
+        <div class="absolute inset-0">
+          <!-- Gradiente base animado -->
+          <div class="absolute inset-0 bg-gradient-to-r from-slate-800/90 via-teal-800/80 to-cyan-400/70 animated-background"></div>
+          <!-- Patrón profesional animado -->
+          <div class="absolute inset-0 opacity-20" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(0,255,227,.2) 35px, rgba(0,255,227,.2) 70px); animation: backgroundShift 30s ease infinite;"></div>
+          <!-- Patrón radial animado como otros banners -->
+          <div class="absolute inset-0 opacity-25" style="background-image: radial-gradient(circle at 30% 70%, #00ffe3 3px, transparent 3px), radial-gradient(circle at 70% 30%, #ffffff 2px, transparent 2px); background-size: 120px 120px, 180px 180px; animation: backgroundShift 35s ease infinite;"></div>
+          <!-- Efectos de partículas mejorados -->
+          <div class="particle" style="background: #00ffe3;"></div>
+          <div class="particle" style="background: #ffffff; animation-delay: 4s;"></div>
+          <div class="particle" style="background: #00ffe3; animation-delay: 8s;"></div>
+          <div class="particle" style="background: #003630; animation-delay: 12s;"></div>
+          <div class="particle" style="background: #00ffe3; animation-delay: 16s;"></div>
+          <!-- Elementos flotantes adicionales -->
+          <div class="absolute top-1/4 left-1/4 w-4 h-4 bg-cyan-300/30 rounded-full" style="animation: infiniteMove1 20s ease-in-out infinite;"></div>
+          <div class="absolute bottom-1/3 right-1/4 w-6 h-6 bg-white/20 rounded-full" style="animation: infiniteMove2 25s ease-in-out infinite;"></div>
+          <div class="absolute top-1/2 left-1/3 w-3 h-3 bg-teal-400/40 rounded-full" style="animation: infiniteMove3 30s ease-in-out infinite;"></div>
+        </div>
+
+        <div class="relative h-full flex items-center">
+  <div class="container mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Contenido Izquierdo - Siguiendo composición de otros banners -->
+      <div class="slide-content">
+        <div class="flex items-center mb-6">
+          <div class="institutional-logo w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mr-6 backdrop-blur-sm">
+            <!-- Ícono de carrito de compra -->
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.2 6H19
+                       m-6 0a2 2 0 11-4 0
+                       m4 0a2 2 0 004 0"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="slide-title text-cyan-200 font-bold text-xl">EQUIPAMIENTO OFICIAL</span>
+        </div>
+
+                <h2 class="slide-title text-4xl md:text-6xl font-playfair font-bold mb-6 leading-tight text-white">
+                  Tienda Oficial
+                  <span class="slide-subtitle block text-3xl md:text-4xl font-normal mt-2 text-cyan-200">Nexora Life</span>
+                </h2>
+
+                <p class="slide-description text-xl mb-8 text-cyan-100 leading-relaxed">
+                  Diseñado para Voleibol Coliseo y Playa. Equipamiento profesional de la más alta calidad.
+                </p>
+
+                <div class="slide-buttons flex flex-col sm:flex-row gap-4">
+                  <a href="https://tiendanexora.com/pages/%F0%9F%8F%90voleibol-coliseo" target="_blank" class="bg-white text-teal-800 px-8 py-3 rounded-lg font-semibold hover:bg-cyan-200 hover:text-teal-900 transition-all duration-300 shadow-lg hover:shadow-xl text-center transform hover:scale-105 flex items-center justify-center gap-2">
+                    Tienda Oficial Nexora Life
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Contenido Derecho - Logo Nexora Life Mejorado -->
+              <div class="hidden lg:flex justify-center items-center">
+                <div class="institutional-logo floating-logo relative">
+                  <!-- Logo principal con diseño profesional mejorado -->
+                  <div class="w-80 h-80 bg-white/10 backdrop-blur-md rounded-full flex flex-col items-center justify-center shadow-2xl border border-white/30 relative">
+                    <!-- Logo NL gigante que ocupa casi todo el círculo -->
+                    <div class="absolute inset-4 flex items-center justify-center">
+                      <svg class="w-full h-full" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="nexoraMainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00ffe3;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#00d4aa;stop-opacity:1" />
+                          </linearGradient>
+                          <linearGradient id="nexoraAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#00ffe3;stop-opacity:0.8" />
+                            <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#00ffe3;stop-opacity:0.8" />
+                          </linearGradient>
+                          <filter id="nexoraMegaGlow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge>
+                              <feMergeNode in="coloredBlur"/>
+                              <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                          </filter>
+                        </defs>
+
+                        <!-- ISOTIPO PREMIUM (reemplaza N y L) -->
+<g id="isotipo-nexora" transform="translate(100,100)">
+  <!-- Aro exterior -->
+  <circle r="68"
+          fill="url(#nexoraMainGradient)"
+          stroke="#00ffe3"
+          stroke-width="2"
+          filter="url(#nexoraMegaGlow)"/>
+  <!-- Aro interno sutil (gloss) -->
+  <circle r="48"
+          fill="none"
+          stroke="url(#nexoraAccent)"
+          stroke-width="3"
+          opacity="0.45"/>
+
+  <!-- Núcleo tipo balón minimalista -->
+  <circle r="26"
+          fill="none"
+          stroke="#ffffff"
+          stroke-width="2"
+          opacity="0.9"/>
+
+  <!-- Costuras del balón (curvas) -->
+  <path d="M -22 0 Q 0 -10 22 0" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.9"/>
+  <path d="M -18 -10 Q 0 -18 18 -10" fill="none" stroke="#ffffff" stroke-width="1.8" opacity="0.9"/>
+  <path d="M -18 10  Q 0  18 18  10" fill="none" stroke="#ffffff" stroke-width="1.8" opacity="0.9"/>
+
+  <!-- Swoosh dinámico superior-derecha -->
+  <path d="M -40 -28 Q -5 -42 28 -20 Q 36 -14 40 -6
+           Q 10 -10 -20 -10"
+        fill="none"
+        stroke="url(#nexoraAccent)"
+        stroke-width="4"
+        stroke-linecap="round"
+        opacity="0.9"/>
+
+  <!-- Swoosh dinámico inferior-izquierda -->
+  <path d="M -42 18 Q -15 35 18 30 Q 36 27 44 18
+           Q 20 22 -10 18"
+        fill="none"
+        stroke="url(#nexoraAccent)"
+        stroke-width="4"
+        stroke-linecap="round"
+        opacity="0.85"/>
+
+  <!-- Destello suave (barrita móvil opcional) -->
+  <g opacity="0.35">
+    <path d="M -55 -8 Q -30 -22 -5 -14"
+          fill="none"
+          stroke="#ffffff"
+          stroke-width="3"
+          stroke-linecap="round"/>
+  </g>
+</g>
+<!-- FIN ISOTIPO -->
+
+                        <!-- Línea de conexión elegante integrada -->
+                        <path d="M135 85 Q142.5 80 150 85"
+                              fill="none"
+                              stroke="url(#nexoraAccent)"
+                              stroke-width="3"
+                              stroke-linecap="round"
+                              opacity="0.9"/>
+                      </svg>
+                    </div>
+
+                    <!-- Texto "Tienda Nexora Life" en la parte inferior del círculo -->
+                    <div class="absolute bottom-8 text-center w-full px-4">
+                      <h3 class="text-lg font-bold text-white mb-1" style="font-family: 'Montserrat', sans-serif; letter-spacing: 1.5px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">TIENDA</h3>
+                      <div class="flex items-center justify-center space-x-2">
+                        <p class="text-base text-cyan-200 font-semibold" style="font-family: 'Montserrat', sans-serif; letter-spacing: 1px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">NEXORA LIFE</p>
+                      </div>
+                    </div>
+
+                    <!-- Efecto de brillo sutil -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full transform -skew-x-12 -translate-x-full animate-pulse" style="animation-duration: 3s;"></div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 - Professional Trust for Clubs -->
+      <div class="carousel-slide animated-background" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #87CEEB 100%);">
+        <!-- Cinematic background -->
+        <div class="absolute inset-0">
+          <!-- Animated base gradient -->
+          <div class="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-600/80 to-sky-400/70 animated-background"></div>
+          <!-- Professional animated pattern -->
+          <div class="absolute inset-0 opacity-20" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.2) 35px, rgba(255,255,255,.2) 70px); animation: backgroundShift 30s ease infinite;"></div>
+          <!-- Particle effects -->
+          <div class="particle" style="background: #87CEEB;"></div>
+          <div class="particle" style="background: #ffffff; animation-delay: 4s;"></div>
+          <div class="particle" style="background: #87CEEB; animation-delay: 8s;"></div>
+        </div>
+
+        <div class="relative h-full flex items-center">
+          <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+              <!-- Left Content -->
+              <div class="slide-content">
+                <div class="flex items-center mb-6">
+                  <div class="institutional-logo w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mr-6 backdrop-blur-sm">
+  <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <!-- Contorno del escudo -->
+    <path d="M12 2L4 5v6c0 5 3.6 9.7 8 11 4.4-1.3 8-6 8-11V5l-8-3z" 
+          stroke-width="2" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+    <!-- Línea divisoria central -->
+    <path d="M12 2v20" 
+          stroke-width="2" 
+          stroke-linecap="round"/>
+    <!-- Detalle de balón -->
+    <circle cx="12" cy="10" r="2" fill="currentColor"/>
+  </svg>
+</div>
+                  <span class="slide-title text-sky-200 font-bold text-xl">15 AÑOS DE CONFIANZA</span>
+                </div>
+
+                <h2 class="slide-title text-4xl md:text-6xl font-playfair font-bold mb-6 leading-tight text-white">
+                  Tu Club Merece
+                  <span class="slide-subtitle block text-3xl md:text-4xl font-normal mt-2 text-sky-200">Respaldo Oficial</span>
+                </h2>
+
+                <p class="slide-description text-xl mb-8 text-sky-100 leading-relaxed">
+                  Únete a más de 150 clubes que confían en nuestra experiencia. Afiliación, capacitación y competencias oficiales.
+                </p>
+
+                <div class="slide-buttons flex flex-col sm:flex-row gap-4">
+                  <a href="#clubes" class="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-sky-200 transition-all duration-300 shadow-lg hover:shadow-xl text-center transform hover:scale-105 flex items-center justify-center gap-2">
+                    Afiliar Mi Club
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                  <a href="https://tiendanexora.com/pages/%F0%9F%8F%90voleibol-coliseo" target="_blank" class="border-2 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 text-center transform hover:scale-105 flex items-center justify-center gap-2" style="border-color: #00ffe3; background-color: transparent;" onmouseover="this.style.backgroundColor='#00ffe3'; this.style.color='#003630'" onmouseout="this.style.backgroundColor='transparent'; this.style.color='white'">
+                    Ir Tienda Nexora Life
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right Content - Club Trust Visual -->
+              <div class="hidden lg:flex justify-center items-center">
+                <div class="institutional-logo floating-logo relative">
+                  <!-- Central Trust Badge -->
+                  <div class="w-64 h-64 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center shadow-2xl border border-white/30">
+                    <div class="text-center">
+                      <div class="w-32 h-32 bg-gradient-to-br from-sky-400 to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto shadow-xl">
+                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                        </svg>
+                      </div>
+                      <h3 class="text-2xl font-bold text-white mb-2">CONFIANZA</h3>
+                      <p class="text-lg text-sky-200">INSTITUCIONAL</p>
+                    </div>
+                  </div>
+
+                  <!-- Floating Elements -->
+                  <div class="absolute -top-8 -right-8 w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-xl" style="animation: float 4s ease-in-out infinite;">
+                    <span class="text-2xl">🏆</span>
+                  </div>
+
+                  <div class="absolute -bottom-8 -left-8 w-24 h-24 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full flex items-center justify-center shadow-xl" style="animation: float 5s ease-in-out infinite reverse;">
+                    <span class="text-3xl">⭐</span>
+                  </div>
+
+                  <div class="absolute top-1/2 -left-12 w-16 h-16 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-full flex items-center justify-center shadow-xl" style="animation: float 6s ease-in-out infinite;">
+                    <span class="text-xl">🎯</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4 - Professional Trust for Coaches -->
+      <div class="carousel-slide animated-background" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #87CEEB 100%);">
+        <!-- Cinematic background -->
+        <div class="absolute inset-0">
+          <!-- Animated base gradient -->
+          <div class="absolute inset-0 bg-gradient-to-r from-blue-900/85 via-blue-600/75 to-sky-400/80 animated-background"></div>
+          <!-- Dynamic animated pattern -->
+          <div class="absolute inset-0 opacity-25" style="background-image: radial-gradient(circle at 30% 70%, #ffffff 3px, transparent 3px), radial-gradient(circle at 70% 30%, #fbbf24 2px, transparent 2px); background-size: 120px 120px, 180px 180px; animation: backgroundShift 35s ease infinite;"></div>
+          <!-- Particle effects -->
+          <div class="particle" style="background: #87CEEB;"></div>
+          <div class="particle" style="background: #ffffff; animation-delay: 5s;"></div>
+          <div class="particle" style="background: #3b82f6; animation-delay: 10s;"></div>
+        </div>
+
+        <div class="relative h-full flex items-center">
+          <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+              <!-- Left Content -->
+              <div class="slide-content">
+                <div class="flex items-center mb-6">
+                  <div class="institutional-logo w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mr-6 backdrop-blur-sm">
+                    <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                    </svg>
+                  </div>
+                  <span class="slide-title text-sky-200 font-bold text-xl">CERTIFICACIÓN OFICIAL</span>
+                </div>
+
+                <h2 class="slide-title text-4xl md:text-6xl font-playfair font-bold mb-6 leading-tight text-white">
+                  Eleva tu Nivel
+                  <span class="slide-subtitle block text-3xl md:text-4xl font-normal mt-2 text-sky-200">Como Entrenador</span>
+                </h2>
+
+                <p class="slide-description text-xl mb-8 text-sky-100 leading-relaxed">
+                  Programas de formación reconocidos nacionalmente. Desde iniciación hasta alto rendimiento.
+                </p>
+
+                <div class="slide-buttons flex flex-col sm:flex-row gap-4">
+                  <a href="#entrenadores" class="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-sky-200 hover:text-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl text-center transform hover:scale-105 flex items-center justify-center gap-2">
+                    Certificarme Ahora
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                  <a href="https://tiendanexora.com/pages/%F0%9F%8F%90voleibol-coliseo" target="_blank" class="border-2 border-sky-200 text-sky-200 px-8 py-3 rounded-lg font-semibold hover:bg-sky-200 hover:text-blue-700 transition-all duration-300 text-center transform hover:scale-105 flex items-center justify-center gap-2">
+                    Ir Tienda Nexora Life
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right Content - Coach Excellence Visual -->
+              <div class="hidden lg:flex justify-center items-center">
+                <div class="institutional-logo floating-logo relative">
+                  <!-- Central Excellence Badge -->
+                  <div class="w-64 h-64 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center shadow-2xl border border-white/30">
+                    <div class="text-center">
+                      <div class="w-32 h-32 bg-gradient-to-br from-sky-400 to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto shadow-xl">
+                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                        </svg>
+                      </div>
+                      <h3 class="text-2xl font-bold text-white mb-2">EXCELENCIA</h3>
+                      <p class="text-lg text-sky-200">TÉCNICA</p>
+                    </div>
+                  </div>
+
+                  <!-- Floating Elements -->
+                  <div class="absolute -top-8 -right-8 w-20 h-20 bg-gradient-to-br from-red-500 to-pink-600 rounded-full flex items-center justify-center shadow-xl" style="animation: float 4.5s ease-in-out infinite;">
+                    <span class="text-2xl">🎓</span>
+                  </div>
+
+                  <div class="absolute -bottom-8 -left-8 w-24 h-24 bg-gradient-to-br from-emerald-400 to-green-600 rounded-full flex items-center justify-center shadow-xl" style="animation: float 5.5s ease-in-out infinite reverse;">
+                    <span class="text-3xl">📚</span>
+                  </div>
+
+                  <div class="absolute top-1/2 -left-12 w-16 h-16 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-full flex items-center justify-center shadow-xl" style="animation: float 6.5s ease-in-out infinite;">
+                    <span class="text-xl">🏅</span>
+                  </div>
+
+                  <div class="absolute top-1/4 -right-12 w-18 h-18 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-full flex items-center justify-center shadow-xl" style="animation: float 7s ease-in-out infinite reverse;">
+                    <span class="text-lg">🎯</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5 - Café Águila Roja -->
+<div class="carousel-slide animated-background" style="background: linear-gradient(135deg, #b30000 0%, #e30613 50%, #ffd100 100%);">
+  <!-- Fondo cinematográfico con colores de la marca -->
+  <div class="absolute inset-0">
+    <!-- Gradiente base animado en rojos -->
+    <div class="absolute inset-0 bg-gradient-to-r from-red-900/90 via-red-700/80 to-amber-400/70 animated-background"></div>
+    <!-- Patrón radial dorado -->
+    <div class="absolute inset-0 opacity-25" style="background-image: radial-gradient(circle at 30% 70%, #ffd100 3px, transparent 3px), radial-gradient(circle at 70% 30%, #ffffff 2px, transparent 2px); background-size: 120px 120px, 180px 180px; animation: backgroundShift 28s ease infinite;"></div>
+    <!-- Partículas -->
+    <div class="particle" style="background:#ffd100;"></div>
+    <div class="particle" style="background:#ffffff; animation-delay:4s;"></div>
+    <div class="particle" style="background:#ffd100; animation-delay:8s;"></div>
+    <!-- Elementos flotantes -->
+    <div class="absolute top-1/4 left-1/5 w-5 h-5 bg-white/20 rounded-full" style="animation: infiniteMove1 22s ease-in-out infinite;"></div>
+    <div class="absolute bottom-1/3 right-1/4 w-6 h-6 bg-amber-300/30 rounded-full" style="animation: infiniteMove2 26s ease-in-out infinite;"></div>
+  </div>
+
+  <div class="relative h-full flex items-center">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Contenido Izquierdo -->
+        <div class="slide-content">
+          <div class="flex items-center mb-6">
+            <div class="institutional-logo w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mr-6 backdrop-blur-sm">
+              <svg class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18 8h1a3 3 0 010 6h-1v1a5 5 0 01-5 5H8a5 5 0 01-5-5V8h15zm0 2H5v5a3 3 0 003 3h5a3 3 0 003-3v-5zm1 0v4h0a2 2 0 000-4z"/>
+                <path d="M7 3a1 1 0 011 1c0 1.5-1 2-1 3s1 1.5 1 3a1 1 0 01-2 0c0-1.5 1-2 1-3s-1-1.5-1-3a1 1 0 011-1zm4 0a1 1 0 011 1c0 1.5-1 2-1 3s1 1.5 1 3a1 1 0 01-2 0c0-1.5 1-2 1-3s-1-1.5-1-3a1 1 0 011-1z"/>
+              </svg>
+            </div>
+            <span class="slide-title text-amber-200 font-bold text-xl">ENERGÍA OFICIAL</span>
+          </div>
+
+          <h2 class="slide-title text-4xl md:text-6xl font-playfair font-bold mb-6 leading-tight text-white">
+            Café Águila Roja
+            <span class="slide-subtitle block text-3xl md:text-4xl font-normal mt-2 text-amber-200">Sabor que impulsa el juego</span>
+          </h2>
+
+          <p class="slide-description text-xl mb-8 text-amber-100 leading-relaxed">
+            Apoya el deporte colombiano con la energía y el sabor de siempre. Calidad, tradición y pasión por el rendimiento.
+          </p>
+
+          <div class="slide-buttons flex flex-col sm:flex-row gap-4">
+            <a href="https://cafeaguilaroja.com/" target="_blank"
+               class="border-2 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 text-center transform hover:scale-105 flex items-center justify-center gap-2"
+               style="border-color:#ffd100; background-color:transparent;"
+               onmouseover="this.style.backgroundColor='#ffd100'; this.style.color='#7a0000'"
+               onmouseout="this.style.backgroundColor='transparent'; this.style.color='white'">
+              Sitio Oficial
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contenido Derecho - Sello / Logo estilizado -->
+        <div class="hidden lg:flex justify-center items-center">
+          <div class="institutional-logo floating-logo relative">
+            <div class="w-80 h-80 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center shadow-2xl border border-white/30 relative">
+              <svg class="w-56 h-56" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Café Águila Roja">
+                <defs>
+                  <linearGradient id="aguilaRed" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#ff1a1a;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#b30000;stop-opacity:1" />
+                  </linearGradient>
+                  <linearGradient id="aguilaGold" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#ffe680;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#ffd100;stop-opacity:1" />
+                  </linearGradient>
+                  <filter id="aguilaGlow">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feMerge>
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                <!-- Disco externo -->
+                <circle cx="100" cy="100" r="90" fill="url(#aguilaRed)" stroke="url(#aguilaGold)" stroke-width="6" filter="url(#aguilaGlow)"/>
+                <!-- Alas estilizadas -->
+                <path d="M20 110 Q60 80 100 100 Q140 80 180 110 Q140 85 100 105 Q60 85 20 110 Z"
+                      fill="url(#aguilaGold)" opacity="0.9"/>
+                <!-- Grano de café central -->
+                <ellipse cx="100" cy="110" rx="22" ry="30" fill="#5a1a12" stroke="#fff8" stroke-width="2"/>
+                <path d="M95 85 Q100 110 105 135" stroke="#ffd100" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <!-- Texto circular simple -->
+                <text x="100" y="68" text-anchor="middle" fill="#ffffff" font-family="Montserrat, Arial, sans-serif" font-size="12" font-weight="800" letter-spacing="1">Café ÁGUILA ROJA</text>
+                <text x="100" y="155" text-anchor="middle" fill="#ffd100" font-family="Montserrat, Arial, sans-serif" font-size="10" font-weight="700">CALIDAD & TRADICIÓN</text>
+              </svg>
+
+              <!-- brillo sutil -->
+              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full transform -skew-x-12 -translate-x-full animate-pulse" style="animation-duration: 3s;"></div>
+            </div>
+
+            <!-- Emojis flotantes -->
+            <div class="absolute -top-8 -right-8 w-20 h-20 bg-gradient-to-br from-amber-300 to-yellow-500 rounded-full flex items-center justify-center shadow-xl" style="animation: float 4s ease-in-out infinite;">
+              <span class="text-2xl">☕</span>
+            </div>
+            <div class="absolute -bottom-8 -left-8 w-24 h-24 bg-gradient-to-br from-red-400 to-rose-600 rounded-full flex items-center justify-center shadow-xl" style="animation: float 5s ease-in-out infinite reverse;">
+              <span class="text-3xl">🦅</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- FIN Slide 5 -->
+
+    <!-- Carousel Navigation -->
+    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+      <button class="carousel-indicator w-3 h-3 rounded-full bg-white transition-colors duration-200" data-slide="0"></button>
+      <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-200" data-slide="1"></button>
+      <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-200" data-slide="2"></button>
+      <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-200" data-slide="3"></button>
+      <!-- Nuevo indicador para el Slide 5 -->
+      <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-200" data-slide="4"></button>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button class="absolute left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-200 text-white" id="prev-slide">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+      </svg>
+    </button>
+    <button class="absolute right-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-200 text-white" id="next-slide">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </button>
+  </div>
+</section>
+
+  <!-- ====== FIN ENCABEZADO DE LA PÁGINA ====== -->
+
+
+
+
+
+
+<!-- ====== INICIO PARTE PRINCIPAL DE LA PLANTILLA ====== -->
+
+
+
+
+<!-- ====== FINAL PARTE PRINCIPAL DE LA PLANTILLA ====== -->
+
+
+
+
+
+
+
+<!-- ====== PIE DE PÁGINA ====== -->
+ 
+ <!-- Services Section -->
+        <section id="servicios" class="py-20 bg-gradient-to-br from-white via-institutional-sky/5 to-institutional-navy/10">
+            <div class="container mx-auto px-6">
+                <!-- Section Header -->
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-playfair font-bold text-institutional-gray-900 mb-4">
+                        Nuestros Servicios
+                    </h2>
+                    <div class="w-24 h-1 bg-institutional-navy mx-auto mb-6"></div>
+                    <p class="text-lg text-institutional-gray-600 max-w-3xl mx-auto">
+                        Programas especializados y servicios institucionales para el desarrollo integral del voleibol
+                    </p>
+                </div>
+
+                <!-- Services Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow duration-300 card-hover animate-on-scroll">
+                        <div class="w-12 h-12 bg-institutional-navy rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-institutional-gray-900 mb-4">Formación de Entrenadores</h3>
+                        <p class="text-institutional-gray-600 mb-6">Cursos de certificación y actualización técnica para entrenadores de voleibol con reconocimiento oficial.</p>
+                        <a href="#" class="text-institutional-navy font-semibold hover:text-institutional-sky transition-colors duration-200">
+                            Más información →
+                        </a>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow duration-300 card-hover animate-on-scroll">
+                        <div class="w-12 h-12 bg-institutional-sky rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-institutional-gray-900 mb-4">Capacitación de Árbitros</h3>
+                        <p class="text-institutional-gray-600 mb-6">Programas de formación y certificación para árbitros de voleibol con estándares internacionales.</p>
+                        <a href="#" class="text-institutional-navy font-semibold hover:text-institutional-sky transition-colors duration-200">
+                            Más información →
+                        </a>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow duration-300 card-hover animate-on-scroll">
+                        <div class="w-12 h-12 bg-institutional-green rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-institutional-gray-900 mb-4">Afiliación de Clubes</h3>
+                        <p class="text-institutional-gray-600 mb-6">Proceso de afiliación y registro oficial para clubes deportivos de voleibol en Cundinamarca.</p>
+                        <a href="#" class="text-institutional-navy font-semibold hover:text-institutional-green transition-colors duration-200">
+                            Más información →
+                        </a>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow duration-300 card-hover animate-on-scroll">
+                        <div class="w-12 h-12 bg-institutional-gold rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-institutional-gray-900 mb-4">Organización de Competencias</h3>
+                        <p class="text-institutional-gray-600 mb-6">Torneos oficiales, campeonatos departamentales y competencias de desarrollo deportivo.</p>
+                        <a href="#" class="text-institutional-navy font-semibold hover:text-institutional-gold transition-colors duration-200">
+                            Más información →
+                        </a>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow duration-300 card-hover animate-on-scroll">
+                        <div class="w-12 h-12 bg-institutional-blue rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h8c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-institutional-gray-900 mb-4">Asesoría Técnica</h3>
+                        <p class="text-institutional-gray-600 mb-6">Consultoría especializada en desarrollo técnico, metodológico y organizacional para clubes.</p>
+                        <a href="#" class="text-institutional-navy font-semibold hover:text-institutional-blue transition-colors duration-200">
+                            Más información →
+                        </a>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div class="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow duration-300 card-hover animate-on-scroll">
+                        <div class="w-12 h-12 bg-institutional-red rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 8H16c-.8 0-1.54.37-2.01.99l-2.54 3.38c-.74.99-.74 2.31 0 3.3l1.89 2.52c.39.52.39 1.22 0 1.74L12 21h2l1.5-2h3l1.5 2h2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-institutional-gray-900 mb-4">Desarrollo Deportivo</h3>
+                        <p class="text-institutional-gray-600 mb-6">Programas de detección, formación y desarrollo de talentos deportivos en voleibol.</p>
+                        <a href="#" class="text-institutional-navy font-semibold hover:text-institutional-red transition-colors duration-200">
+                            Más información →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contacto" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <!-- Section Header -->
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-playfair font-bold text-institutional-gray-900 mb-4">
+                        Contacto Institucional
+                    </h2>
+                    <div class="w-24 h-1 bg-institutional-navy mx-auto mb-6"></div>
+                    <p class="text-lg text-institutional-gray-600 max-w-3xl mx-auto">
+                        Información de contacto oficial para consultas, trámites y servicios institucionales
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Contact Information -->
+                    <div class="animate-on-scroll">
+                        <div class="bg-institutional-gray-50 rounded-lg p-8">
+                            <h3 class="text-2xl font-playfair font-bold text-institutional-gray-900 mb-8">Información de Contacto</h3>
+                            
+                            <div class="space-y-6">
+                                <!-- Address -->
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 bg-institutional-navy rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-institutional-gray-900 mb-1">Dirección</h4>
+                                        <p class="text-institutional-gray-600">Calle 123 #45-67, Oficina 301</p>
+                                        <p class="text-institutional-gray-600">Bogotá, Cundinamarca</p>
+                                    </div>
+                                </div>
+
+                                <!-- Phone -->
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 bg-institutional-blue rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-institutional-gray-900 mb-1">Teléfonos</h4>
+                                        <p class="text-institutional-gray-600">+57 320 888 2039</p>
+                                    </div>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 bg-institutional-gray-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-institutional-gray-900 mb-1">Correos Electrónicos</h4>
+                                        <p class="text-institutional-gray-600">ligavoleicundi@hotmail.com</p>
+                                    </div>
+                                </div>
+
+                                <!-- Schedule -->
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 bg-institutional-navy rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-institutional-gray-900 mb-1">Horarios de Atención</h4>
+                                        <p class="text-institutional-gray-600">Lunes a Viernes: 8:00 AM - 5:00 PM</p>
+                                        <p class="text-institutional-gray-600">Sábados: 8:00 AM - 12:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="animate-on-scroll">
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="nombre" class="block text-sm font-medium text-institutional-gray-700 mb-2">Nombre *</label>
+                                    <input type="text" id="nombre" name="nombre" required class="w-full px-4 py-3 border border-institutional-gray-300 rounded-md focus:ring-2 focus:ring-institutional-navy focus:border-transparent form-input">
+                                </div>
+                                <div>
+                                    <label for="apellido" class="block text-sm font-medium text-institutional-gray-700 mb-2">Apellido *</label>
+                                    <input type="text" id="apellido" name="apellido" required class="w-full px-4 py-3 border border-institutional-gray-300 rounded-md focus:ring-2 focus:ring-institutional-navy focus:border-transparent form-input">
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-institutional-gray-700 mb-2">Correo Electrónico *</label>
+                                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-institutional-gray-300 rounded-md focus:ring-2 focus:ring-institutional-navy focus:border-transparent form-input">
+                                </div>
+                                <div>
+                                    <label for="telefono" class="block text-sm font-medium text-institutional-gray-700 mb-2">Teléfono</label>
+                                    <input type="tel" id="telefono" name="telefono" class="w-full px-4 py-3 border border-institutional-gray-300 rounded-md focus:ring-2 focus:ring-institutional-navy focus:border-transparent form-input">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="asunto" class="block text-sm font-medium text-institutional-gray-700 mb-2">Asunto *</label>
+                                <select id="asunto" name="asunto" required class="w-full px-4 py-3 border border-institutional-gray-300 rounded-md focus:ring-2 focus:ring-institutional-navy focus:border-transparent form-input">
+                                    <option value="">Seleccione un asunto</option>
+                                    <option value="afiliacion">Afiliación de Club</option>
+                                    <option value="capacitacion">Capacitación y Cursos</option>
+                                    <option value="competencias">Competencias y Torneos</option>
+                                    <option value="informacion">Información General</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="mensaje" class="block text-sm font-medium text-institutional-gray-700 mb-2">Mensaje *</label>
+                                <textarea id="mensaje" name="mensaje" rows="6" required class="w-full px-4 py-3 border border-institutional-gray-300 rounded-md focus:ring-2 focus:ring-institutional-navy focus:border-transparent form-input"></textarea>
+                            </div>
+
+                            <div class="flex items-start space-x-3">
+                                <input type="checkbox" id="privacidad" name="privacidad" required class="mt-1 w-4 h-4 text-institutional-navy bg-white border-institutional-gray-300 rounded focus:ring-institutional-navy">
+                                <label for="privacidad" class="text-sm text-institutional-gray-600">
+                                    Acepto el tratamiento de mis datos personales de acuerdo con la política de privacidad de la Liga de Voleibol de Cundinamarca. *
+                                </label>
+                            </div>
+
+                            <div>
+                                <button type="submit" class="w-full bg-institutional-navy text-white px-8 py-3 rounded-md font-semibold hover:bg-institutional-blue transition-colors duration-200 btn-professional focus-visible">
+                                    Enviar Mensaje
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-institutional-gray-900 text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+                <!-- Institution Info -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-institutional-navy rounded-lg flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-playfair font-bold">Liga de Voleibol</h3>
+                            <p class="text-institutional-gray-400">Cundinamarca</p>
+                        </div>
+                    </div>
+                    <p class="text-institutional-gray-400 mb-4 leading-relaxed">
+                        Organismo deportivo oficial con 15 años promoviendo el desarrollo integral del voleibol en Cundinamarca.
+                    </p>
+                    <div class="space-y-2 text-sm text-institutional-gray-400">
+                        <p><strong>NIT:</strong> 900.123.456-7</p>
+                        <p><strong>Personería Jurídica:</strong> Resolución 001234 de 2009</p>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Enlaces Rápidos</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#inicio" class="text-institutional-gray-400 hover:text-white transition-colors duration-200">Inicio</a></li>
+                        <li><a href="#nosotros" class="text-institutional-gray-400 hover:text-white transition-colors duration-200">Nosotros</a></li>
+                        <li><a href="#servicios" class="text-institutional-gray-400 hover:text-white transition-colors duration-200">Servicios</a></li>
+                        <li><a href="#clubes" class="text-institutional-gray-400 hover:text-white transition-colors duration-200">Clubes</a></li>
+                        <li><a href="#competencias" class="text-institutional-gray-400 hover:text-white transition-colors duration-200">Competencias</a></li>
+                        <li><a href="#contacto" class="text-institutional-gray-400 hover:text-white transition-colors duration-200">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Contacto</h4>
+                    <div class="space-y-4 text-sm">
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-institutional-gray-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            <div>
+                                <p class="text-institutional-gray-400">Calle 123 #45-67, Oficina 301</p>
+                                <p class="text-institutional-gray-400">Bogotá, Cundinamarca</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-institutional-gray-400 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                            <p class="text-institutional-gray-400">+57 320 888 2039</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-institutional-gray-400 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            <p class="text-institutional-gray-400">ligavoleicundi@hotmail.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Legal Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Legal</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="text-institutional-gray-400 hover:text-white transition-colors duration-200">Política de Privacidad</a></li>
+                        <li><a href="#" class="text-institutional-gray-400 hover:text-white transition-colors duration-200">Términos y Condiciones</a></li>
+                        <li><a href="#" class="text-institutional-gray-400 hover:text-white transition-colors duration-200">Transparencia</a></li>
+                        <li><a href="#" class="text-institutional-gray-400 hover:text-white transition-colors duration-200">Código de Ética</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-institutional-gray-800 mt-12 pt-8 text-center">
+                <p class="text-institutional-gray-400 text-sm">
+                    © <span id="current-year">2025</span> Liga de Voleibol de Cundinamarca. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-institutional-navy text-white rounded-full shadow-lg hover:bg-institutional-blue transition-all duration-300 opacity-0 pointer-events-none z-40 focus-visible">
+        <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // DOM Elements
+        const header = document.querySelector('header');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const backToTopButton = document.getElementById('back-to-top');
+        const contactForm = document.getElementById('contact-form');
+
+        // Mobile Menu Toggle
+        mobileMenuButton.addEventListener('click', () => {
+            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        // Scroll Effects
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            
+            // Header shadow
+            if (scrollY > 100) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+
+            // Back to top button
+            if (scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'pointer-events-none');
+            }
+        });
+
+        // Back to Top
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Counter Animation
+        const observerOptions = { threshold: 0.5, rootMargin: '0px 0px -100px 0px' };
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += step;
+                        if (current < target) {
+                            counter.textContent = Math.floor(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    };
+
+                    updateCounter();
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.counter').forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+        // Scroll Animation Observer
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            scrollObserver.observe(el);
+        });
+
+        // Carousel Functionality - COMPLETELY REWRITTEN
+        class Carousel {
+            constructor() {
+                this.currentSlide = 0;
+                this.slides = document.querySelectorAll('.carousel-slide');
+                this.indicators = document.querySelectorAll('.carousel-indicator');
+                this.prevButton = document.getElementById('prev-slide');
+                this.nextButton = document.getElementById('next-slide');
+                this.carouselContainer = document.querySelector('.carousel-container');
+                this.autoSlideInterval = null;
+                this.nexoraMessageInterval = null;
+                this.nexoraLogoInterval = null;
+                this.isTransitioning = false;
+
+                this.init();
+            }
+
+            init() {
+                console.log('Initializing carousel with', this.slides.length, 'slides');
+                
+                // Set up initial state
+                this.slides.forEach((slide, index) => {
+                    if (index === 0) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+
+                this.updateIndicators();
+                this.bindEvents();
+                
+                // Start auto-rotation after 3 seconds
+                setTimeout(() => {
+                    this.startAutoSlide();
+                }, 3000);
+            }
+
+            bindEvents() {
+                // Navigation buttons
+                this.prevButton.addEventListener('click', () => {
+                    this.goToPrevSlide();
+                });
+
+                this.nextButton.addEventListener('click', () => {
+                    this.goToNextSlide();
+                });
+
+                // Indicators
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        this.goToSlide(index);
+                    });
+                });
+
+                // Pause on hover
+                this.carouselContainer.addEventListener('mouseenter', () => {
+                    this.stopAutoSlide();
+                });
+
+                this.carouselContainer.addEventListener('mouseleave', () => {
+                    this.startAutoSlide();
+                });
+            }
+
+            goToSlide(index) {
+                if (this.isTransitioning || index === this.currentSlide) return;
+                
+                console.log('Going to slide', index);
+                this.isTransitioning = true;
+                
+                // Stop any existing intervals
+                this.stopNexoraAnimations();
+                
+                // Hide current slide
+                this.slides[this.currentSlide].classList.remove('active');
+                
+                // Update current slide
+                this.currentSlide = index;
+                
+                // Show new slide after a brief delay
+                setTimeout(() => {
+                    this.slides[this.currentSlide].classList.add('active');
+                    this.updateIndicators();
+                    
+                    // Start Nexora animations if on slide 1
+                    if (this.currentSlide === 1) {
+                        this.startNexoraAnimations();
+                    }
+                    
+                    this.isTransitioning = false;
+                }, 100);
+            }
+
+            goToNextSlide() {
+                const nextIndex = (this.currentSlide + 1) % this.slides.length;
+                this.goToSlide(nextIndex);
+            }
+
+            goToPrevSlide() {
+                const prevIndex = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+                this.goToSlide(prevIndex);
+            }
+
+            updateIndicators() {
+                this.indicators.forEach((indicator, index) => {
+                    if (index === this.currentSlide) {
+                        indicator.classList.add('bg-white');
+                        indicator.classList.remove('bg-white/50');
+                    } else {
+                        indicator.classList.remove('bg-white');
+                        indicator.classList.add('bg-white/50');
+                    }
+                });
+            }
+
+            startAutoSlide() {
+                this.stopAutoSlide();
+                const interval = this.currentSlide === 1 ? 10000 : 5000; // Nexora slide 10s, others 5s
+                
+                this.autoSlideInterval = setInterval(() => {
+                    this.goToNextSlide();
+                }, interval);
+            }
+
+            stopAutoSlide() {
+                if (this.autoSlideInterval) {
+                    clearInterval(this.autoSlideInterval);
+                    this.autoSlideInterval = null;
+                }
+            }
+
+            startNexoraAnimations() {
+                // Banner 2 now uses static content - no animations needed
+                console.log('Banner 2 using static professional design');
+            }
+
+            stopNexoraAnimations() {
+                // Clean up any existing intervals
+                if (this.nexoraMessageInterval) {
+                    clearInterval(this.nexoraMessageInterval);
+                    this.nexoraMessageInterval = null;
+                }
+                if (this.nexoraLogoInterval) {
+                    clearInterval(this.nexoraLogoInterval);
+                    this.nexoraLogoInterval = null;
+                }
+            }
+        }
+
+        // Initialize carousel when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new Carousel();
+        });
+
+        // Contact Form
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<div class="loading-spinner inline-block mr-2"></div>Enviando...';
+            submitBtn.disabled = true;
+
+            // Simulate form submission
+            try {
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                alert('Mensaje enviado correctamente. Nos pondremos en contacto contigo pronto.');
+                contactForm.reset();
+            } catch (error) {
+                alert('Error al enviar el mensaje. Por favor intenta nuevamente.');
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Event Countdown Timer
+        function initCountdown() {
+            // Set the target date (December 1, 2025, 10:00 AM)
+            const targetDate = new Date('2025-12-01T10:00:00').getTime();
+            
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+                
+                if (distance < 0) {
+                    // Event has started
+                    document.getElementById('days').textContent = '00';
+                    document.getElementById('hours').textContent = '00';
+                    document.getElementById('minutes').textContent = '00';
+                    document.getElementById('seconds').textContent = '00';
+                    
+                    const daysSimple = document.getElementById('days-simple');
+                    if (daysSimple) {
+                        daysSimple.textContent = '00';
+                    }
+                    return;
+                }
+                
+                // Calculate time units
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Update the display with leading zeros
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                
+                // Update simple days counter
+                const daysSimple = document.getElementById('days-simple');
+                if (daysSimple) {
+                    daysSimple.textContent = days.toString().padStart(2, '0');
+                }
+            }
+            
+            // Update immediately and then every second
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+        
+        // Initialize countdown when page loads
+        initCountdown();
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96bc325854113edc',t:'MTc1NDYyNjU2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
