@@ -1021,19 +1021,61 @@
                           </filter>
                         </defs>
 
-                        <!-- Letra N gigante -->
-                        <path d="M30 30 L30 140 L45 140 L45 65 L120 140 L135 140 L135 30 L120 30 L120 105 L45 30 L30 30 Z"
-                              fill="url(#nexoraMainGradient)"
-                              stroke="#00ffe3"
-                              stroke-width="2"
-                              filter="url(#nexoraMegaGlow)"/>
+                        <!-- ISOTIPO PREMIUM (reemplaza N y L) -->
+<g id="isotipo-nexora" transform="translate(100,100)">
+  <!-- Aro exterior -->
+  <circle r="68"
+          fill="url(#nexoraMainGradient)"
+          stroke="#00ffe3"
+          stroke-width="2"
+          filter="url(#nexoraMegaGlow)"/>
+  <!-- Aro interno sutil (gloss) -->
+  <circle r="48"
+          fill="none"
+          stroke="url(#nexoraAccent)"
+          stroke-width="3"
+          opacity="0.45"/>
 
-                        <!-- Letra L gigante fusionada -->
-                        <path d="M150 30 L150 125 L185 125 L185 140 L135 140 L135 30 L150 30 Z"
-                              fill="url(#nexoraMainGradient)"
-                              stroke="#00ffe3"
-                              stroke-width="2"
-                              filter="url(#nexoraMegaGlow)"/>
+  <!-- Núcleo tipo balón minimalista -->
+  <circle r="26"
+          fill="none"
+          stroke="#ffffff"
+          stroke-width="2"
+          opacity="0.9"/>
+
+  <!-- Costuras del balón (curvas) -->
+  <path d="M -22 0 Q 0 -10 22 0" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.9"/>
+  <path d="M -18 -10 Q 0 -18 18 -10" fill="none" stroke="#ffffff" stroke-width="1.8" opacity="0.9"/>
+  <path d="M -18 10  Q 0  18 18  10" fill="none" stroke="#ffffff" stroke-width="1.8" opacity="0.9"/>
+
+  <!-- Swoosh dinámico superior-derecha -->
+  <path d="M -40 -28 Q -5 -42 28 -20 Q 36 -14 40 -6
+           Q 10 -10 -20 -10"
+        fill="none"
+        stroke="url(#nexoraAccent)"
+        stroke-width="4"
+        stroke-linecap="round"
+        opacity="0.9"/>
+
+  <!-- Swoosh dinámico inferior-izquierda -->
+  <path d="M -42 18 Q -15 35 18 30 Q 36 27 44 18
+           Q 20 22 -10 18"
+        fill="none"
+        stroke="url(#nexoraAccent)"
+        stroke-width="4"
+        stroke-linecap="round"
+        opacity="0.85"/>
+
+  <!-- Destello suave (barrita móvil opcional) -->
+  <g opacity="0.35">
+    <path d="M -55 -8 Q -30 -22 -5 -14"
+          fill="none"
+          stroke="#ffffff"
+          stroke-width="3"
+          stroke-linecap="round"/>
+  </g>
+</g>
+<!-- FIN ISOTIPO -->
 
                         <!-- Línea de conexión elegante integrada -->
                         <path d="M135 85 Q142.5 80 150 85"
