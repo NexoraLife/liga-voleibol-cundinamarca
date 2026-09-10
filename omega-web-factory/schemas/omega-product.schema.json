@@ -1,0 +1,15 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://nexora.local/schemas/omega-product.schema.json",
+  "title":"Omega Product Contract",
+  "type":"object",
+  "required":["id","productKind","title","authority","requirements"],
+  "properties":{
+    "id":{"type":"string","minLength":3},
+    "productKind":{"enum":["landing","institutional","academic-experience","spa","dashboard","fullstack","assistant"]},
+    "title":{"type":"string","minLength":1},
+    "authority":{"type":"object","required":["content","code","design"],"properties":{"content":{"type":"string"},"code":{"type":"string"},"design":{"type":"string"}},"additionalProperties":true},
+    "requirements":{"type":"object","properties":{"needsAuth":{"type":"boolean"},"needsDatabase":{"type":"boolean"},"needsRealtime":{"type":"boolean"},"needsAI":{"type":"boolean"},"needsPayments":{"type":"boolean"},"needsOffline":{"type":"boolean"},"needs3D":{"type":"boolean"},"seoCritical":{"type":"boolean"}},"additionalProperties":false}
+  },
+  "additionalProperties":true
+}

@@ -1,0 +1,11 @@
+{
+  "$schemaVersion": "1.0.0",
+  "profiles": {
+    "landing": {"runtime":"astro-content","backend":"none","semanticDom":true,"seo":true,"offline":"optional","threeD":"optional"},
+    "institutional": {"runtime":"astro-content","backend":"optional","semanticDom":true,"seo":true,"offline":"optional","threeD":"optional"},
+    "academic-experience": {"runtime":"vite-experience","backend":"none-by-default","semanticDom":true,"seo":false,"offline":"required","threeD":"content-dependent"},
+    "spa": {"runtime":"react-spa","backend":"optional","semanticDom":true,"seo":false,"offline":"optional","threeD":"optional"},
+    "fullstack": {"runtime":"fullstack-app","backend":"required","semanticDom":true,"seo":"route-dependent","offline":"optional","threeD":"optional"},
+    "managed-ai-app": {"runtime":"managed-hatchable","backend":"required","semanticDom":true,"seo":"route-dependent","offline":false,"threeD":"optional"}
+  }
+}

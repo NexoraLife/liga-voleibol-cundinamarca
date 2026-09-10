@@ -1,0 +1,37 @@
+name: Omega Web Factory CI
+
+on:
+  pull_request:
+    paths:
+      - 'omega-web-factory/**'
+      - '.github/workflows/omega-ci.yml'
+  push:
+    branches: ['omega-web-factory-foundation']
+    paths:
+      - 'omega-web-factory/**'
+      - '.github/workflows/omega-ci.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: omega-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  foundation:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: omega-web-factory
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: omega-web-factory/package.json
+      - name: Validate contracts and tokens
+        run: npm run validate
+      - name: Test Product Router
+        run: npm test
