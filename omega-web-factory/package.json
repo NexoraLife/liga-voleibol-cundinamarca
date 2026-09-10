@@ -1,0 +1,12 @@
+{
+  "name": "@nexora/omega-web-factory",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "validate": "node scripts/validate-config.mjs",
+    "test": "node --test packages/product-router/test/*.test.mjs",
+    "ci": "npm run validate && npm test"
+  }
+}

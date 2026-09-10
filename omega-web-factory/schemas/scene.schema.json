@@ -1,0 +1,16 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://nexora.local/schemas/scene.schema.json",
+  "title":"Omega Experience Scene",
+  "type":"object",
+  "required":["id","unitId","topicId","kind","title","content"],
+  "properties":{
+    "id":{"type":"string"},"unitId":{"type":"string"},"topicId":{"type":"string"},
+    "kind":{"enum":["opening","concept","evidence","analysis","simulation","case","decision","practice","synthesis","references","closing"]},
+    "title":{"type":"string"},"content":{"type":"object"},
+    "claimIds":{"type":"array","items":{"type":"string"},"uniqueItems":true},
+    "requiredInteraction":{"type":"boolean"},"renderTier":{"enum":["T0-semantic","T1-motion","T2-webgl","T3-premium"]},
+    "fallbackSceneId":{"type":["string","null"]}
+  },
+  "additionalProperties":false
+}
